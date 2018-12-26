@@ -1,0 +1,199 @@
+/* reset */
+@charset "utf-8";
+
+/* margin, padding */
+html, body, p, div, span, blockquote, pre, 
+h1, h2, h3, h4, h5, h6, 
+ul, ol, li, dl, dt, dd, th, td, 
+form, fieldset, legend, input, 
+textarea, button, select,
+section, article, header, footer, main, nav, figure { margin: 0; padding: 0;}
+
+
+body,button,h1,h2,h3,h4,h5,input,select,table,textarea{
+    font-family:HelveticaNeue-Light,AppleSDGothicNeo-Light,sans-serif;
+    font-size:14px;
+    line-height:1.267em
+}
+body{
+    color:#000;
+    word-break:break-all;
+    -webkit-text-size-adjust:none
+
+}
+
+table{
+    border-collapse:collapse
+}
+fieldset,img{
+    border:0
+}
+ol, ul{
+    list-style:none;
+}
+address,em{
+    font-style:normal
+}
+a{
+    color:inherit;
+    text-decoration:none;
+    -webkit-tap-highlight-color:rgba(0,0,0,.1)
+}
+img{
+    vertical-align:top
+}
+mark{
+    color:inherit;
+    font-weight:700;
+    background:0 0
+}
+button,input{
+    -webkit-border-radius:0;
+    border-radius:0;
+    background:0 0;
+    border: 0;
+}
+
+
+/********* design **********/
+
+body{
+
+    font-family: ;
+    line-height: 1.4;
+    font-size: 16px;
+}
+.jooui-wrap{
+    padding: 1em;
+}
+
+
+.sec-code, .js-note{ margin-bottom: 30px; }
+.js-note{
+    padding: 1em;
+    border-color: #52E052;
+    background: #E9FBE9;
+    overflow: auto;
+    border-left-width: .5em;
+    border-left-style: solid;
+
+}
+
+.js-note dt{
+    font-weight: bold;
+}
+
+h1{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+h2{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+table {
+        word-wrap: normal;
+        overflow-wrap: normal;
+        hyphens: manual;
+    }
+
+table.data,
+table.index {
+    margin: 1em auto;
+    border-collapse: collapse;
+    border: hidden;
+    width: 100%;
+}
+
+table.data.attributes tbody th,
+table.data.attributes tbody td {
+    border: 1px solid silver;
+}
+
+
+
+
+
+table.data caption,
+table.index caption {
+    max-width: 50em;
+    margin: 0 auto 1em;
+}
+
+table.data td,  table.data th,
+table.index td, table.index th {
+    padding: 0.5em 1em;
+    border-width: 1px;
+    border-color: silver;
+    border-top-style: solid;
+}
+
+table.data thead td:empty {
+    padding: 0;
+    border: 0;
+}
+
+table.data  thead,
+table.index thead,
+table.data  tbody,
+table.index tbody {
+    border-bottom: 2px solid;
+}
+
+table.data colgroup,
+table.index colgroup {
+    border-left: 2px solid;
+}
+
+table.data  tbody th:first-child,
+table.index tbody th:first-child  {
+    border-right: 2px solid;
+    border-top: 1px solid silver;
+    padding-right: 1em;
+}
+
+table.data th[colspan],
+table.data td[colspan] {
+    text-align: center;
+}
+
+table.complex.data th,
+table.complex.data td {
+    border: 1px solid silver;
+    text-align: center;
+}
+
+table.data.longlastcol td:last-child,
+table.data td.long {
+ vertical-align: baseline;
+ text-align: left;
+}
+
+table.data img {
+    vertical-align: middle;
+}
+
+ pre, code, samp, .sourcecode {
+    color: hsl(11, 81%, 43%);
+}   
+/*
+.header{
+    background-color: green;
+    margin-bottom: 10px;
+    color: #fff;
+
+
+}
+.header .header-inner{
+    padding: 20px 10px ;
+ }
+.header h1{
+    font-size: 25px;
+}
+*/
+      
+
+

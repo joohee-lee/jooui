@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Tab</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+	.comp-tabs{ 
+		width: 100%; 
+		margin: 0 auto; 
+		border: 1px solid #ddd;
+		box-sizing: border-box;
+	}
+	
+	.tabs:after,
+	.div-inner:after{ 
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	.tabs .tab-item{ 
+		float: left; 
+		display: inline-block; 
+		width: 33.33%;
+		text-align: center;
+	}
+
+	.tabs .tab-item a{
+		display: block;
+		padding: 10px 0;
+		border-left: 1px solid #ddd;
+	}
+
+	.tabs .tab-item a[data-index="0"]{ border-left: 0; }
+
+	.panels{ clear:both; border-top: 1px solid #000; }
+	.panels .panel{ 
+		display: none;
+		padding: 10px;
+		min-height: 300px;
+	}
+
+	/*show/hide*/
+	.comp-tabs[data-current="0"] .tab-item a[data-idx="0"],
+	.comp-tabs[data-current="0"] .panel[data-idx="0"],
+	.comp-tabs[data-current="1"] .tab-item a[data-idx="1"],
+	.comp-tabs[data-current="1"] .panel[data-idx="1"],
+	.comp-tabs[data-current="2"] .tab-item a[data-idx="2"],
+	.comp-tabs[data-current="2"] .panel[data-idx="2"]{ display: block; }
+
+	.comp-tabs--1[data-current="0"] .tab-item a[data-idx="0"],
+	.comp-tabs--1[data-current="1"] .tab-item a[data-idx="1"],
+	.comp-tabs--1[data-current="2"] .tab-item a[data-idx="2"]{ 
+		background-color: #000; 
+		color: #fff; 
+	}
+
+	.comp-tabs--2[data-current="0"] .tab-item a[data-idx="0"],
+	.comp-tabs--2[data-current="1"] .tab-item a[data-idx="1"],
+	.comp-tabs--2[data-current="2"] .tab-item a[data-idx="2"]{ 
+		background-color: #81BEF7; 
+		color: #fff; 
+	}	
+
+	</style>
+	<script src="../js/ui.js"></script>
+</head>
+<body>
+	
+	<div class="jooui-wrap">
+
+<h1># Tabs</h1>		
+		
+<section class="sec-code">
+	<h2>Js</h2>
+	<div class="js-note">
+		<div class="">
+			<ul>
+				<li><strong>ui.js</strong></li>
+				<li> - simple 기능 : tab 클릭하면 해당하는 tabpanel 을 보여준다. </li>
+				<li> - data-current , data-idx 로 style design 하여 display control - none / block  </li>	
+			</ul>
+			<dl>
+				<dd>/* Tab - simple <br>
+* data-current / data-idx<br>
+* @param [Element] cpnt : component name ID <br>
+* @param [function] init : bindingId <br>
+* @param [function] _setCurrent : setting data-current <br>
+*/</dd>
+				<dt># selector</dt>	
+				<dd> - componentId / event target element </dd>
+				<dt># function</dt>
+				<dd>var uiTab = { <br>
+					init: function(){ }, <br>
+					_setCurrent: function(){ }<br> 
+				}</dd>
+				<dd> uiTab.init(...); </dd>
+				<dd>_setCurrent(...)</dd>
+				<dt># event Binding</dt>
+				<dd>html 이벤트 핸들러(바인딩) <br> ex) onclick="uiTab.init('compTabs1', this);</dd>
+			</dl>
+			
+		</div>
+	</div>
+	<h2>wai-aria</h2>
+	<table class="data attributes">
+		<thead>
+			<tr><th>Role</th><th>Attribute</th><th>Element</th><th>Usage</th></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><code>tablist</code></td>
+				<td></td>
+				<td><code>div</code></td>
+				<td>Indicates that the element serves as a container for a set of tabs.</td>
+			</tr>
+			<tr>
+				<td><code>tab</code></td>
+				<td></td>
+				<td><code>ul>li>a</code></td>
+				<td>li  + a   or h4 + a tab 구현  </td>
+			</tr>
+			<tr>
+				<td><code>tabpanel</code></td>
+				<td></td>
+				<td><code>div</code></td>
+				<td> </td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+		
+		<h2>Tabs - simple -- 1 </h2>
+
+		<!-- comp-tab--basic --->
+		<div id="compTabs1" class="comp-tabs comp-tabs--1" data-current="0">
+			<div class="div-inner">
+
+				<div class="tabs" role="tablist">
+					<ul>
+						<li class="tab-item" role="tab"><a href="#"  data-idx="0" onclick="uiTab.init('compTabs1', this); return false;">Tab--1</a></li>
+						<li class="tab-item" role="tab"><a href="#"  data-idx="1" onclick="uiTab.init('compTabs1', this); return false;">Tab--2</a></li>
+						<li class="tab-item" role="tab"><a href="#"  data-idx="2" onclick="uiTab.init('compTabs1', this); return false;">Tab--3</a></li>
+					</ul>
+				</div>
+				
+				<div class="panels">
+					<div class="panel" data-idx="0" tabindex="0" role="tabpanel">
+						panel--1
+					</div>
+					<div class="panel" data-idx="1" tabindex="0" role="tabpanel">
+						panel--2
+					</div>
+					<div class="panel" data-idx="2" tabindex="0" role="tabpanel">
+						panel--3
+					</div>
+				</div>
+
+				<div class="controls">
+					
+				</div>
+			
+			</div>
+		</div>
+		<!-- //comp-tab--basic --->
+
+<br>
+<br>
+		<h2>Tabs - simple -- 2 </h2>
+
+		<!-- comp-tab--basic --->
+		<div id="compTabs2" class="comp-tabs comp-tabs--2" data-current="0">
+			<div class="div-inner">
+
+				<div class="tabs">
+					<ul>
+						<li class="tab-item"><a href="#"  data-idx="0" onclick="uiTab.init('compTabs2', this); return false;">Tab--1</a></li>
+						<li class="tab-item"><a href="#"  data-idx="1" onclick="uiTab.init('compTabs2', this); return false;">Tab--2</a></li>
+						<li class="tab-item"><a href="#"  data-idx="2" onclick="uiTab.init('compTabs2', this); return false;">Tab--3</a></li>
+					</ul>
+				</div>
+				
+				<div class="panels">
+					<div class="panel" data-idx="0">
+						panel--1
+							
+							
+					</div>
+					<div class="panel" data-idx="1">
+						panel--2
+					</div>
+					<div class="panel" data-idx="2">
+						panel--3
+					</div>
+				</div>
+
+				<div class="controls">
+					
+				</div>
+			
+			</div>
+		</div>
+		<!-- //comp-tab--basic --->
+<br>
+<br>
+<style>
+	
+	.comp-tabs--3 .div-inner{
+		position: relative;
+		height: 428px;
+	}
+	.comp-tabs--3 .tabs .tab-item{
+		width: 100%;
+	}
+
+	.comp-tabs--3 .div-inner .panels{
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+
+	}
+
+	.comp-tabs--3 .div-inner .tabs{
+		position: absolute;
+		left: 0;
+		top: 300px;
+	}
+	
+	.comp-tabs--3 .tabs{ width: 100%; }
+	.comp-tabs--3 .tab-item a{
+		border-left: 0;
+		width: 100%;
+		border-top: 1px solid #ddd;
+	}
+
+	.comp-tabs--3[data-current="0"] .tab-item a[data-idx="0"],
+	.comp-tabs--3[data-current="1"] .tab-item a[data-idx="1"],
+	.comp-tabs--3[data-current="2"] .tab-item a[data-idx="2"]{ 
+		background-color: #000; 
+		color: #fff; 
+	}
+</style>
+
+		<h1>Tabs - simple -- 3 </h1>
+		<!-- comp-tab--basic --->
+		<div id="compTabs3" class="comp-tabs comp-tabs--3" data-current="0">
+			<div class="div-inner">
+
+				<div class="tabs">
+					<ul>
+						<li class="tab-item"><a href="#"  data-idx="0" onclick="uiTab.init('compTabs3', this); return false;">Tab--1</a></li>
+						<li class="tab-item"><a href="#"  data-idx="1" onclick="uiTab.init('compTabs3', this); return false;">Tab--2</a></li>
+						<li class="tab-item"><a href="#"  data-idx="2" onclick="uiTab.init('compTabs3', this); return false;">Tab--3</a></li>
+					</ul>
+				</div>
+				
+				<div class="panels">
+					<div class="panel" data-idx="0">
+						panel--1 -- pos
+					</div>
+					<div class="panel" data-idx="1">
+						panel--2 -- pos
+					</div>
+					<div class="panel" data-idx="2">
+						panel--3 -- pos
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- //comp-tab--basic --->
+
+
+<br>
+<br>
+<style>
+	.comp-tabs--4{ border: 0; }
+	.comp-tabs--4 .div-inner{
+		position: relative;
+	}
+	.comp-tabs--4 h4{
+		float: left;
+		width: 33.33%;
+		height: 40px;
+		line-height: 40px;
+	}
+
+	.comp-tabs--4 h4 a{
+		display: block;
+		text-align: center;
+		border: 1px solid #ddd;
+		border-bottom: 0;
+		border-left: 0;
+	}
+	
+	.comp-tabs--4 h4 a:first-child{
+		border-left: 1px solid #ddd;
+	}
+	.comp-tabs--4 .panel{
+		position: absolute;
+		left: 0;
+		top: 40px;
+		width: 100%;
+		border: 1px solid #ddd;
+		padding: 20px;
+		min-height: 200px;
+		box-sizing: border-box;
+	}
+
+	.comp-tabs--4 .panel{ display: none; }
+	.comp-tabs--4[data-current="0"] .panel[data-idx="0"],
+	.comp-tabs--4[data-current="1"] .panel[data-idx="1"],
+	.comp-tabs--4[data-current="2"] .panel[data-idx="2"]{ display: block; }
+	
+	.comp-tabs--4[data-current="0"] .tab-item a[data-idx="0"],
+	.comp-tabs--4[data-current="1"] .tab-item a[data-idx="1"],
+	.comp-tabs--4[data-current="2"] .tab-item a[data-idx="2"]{ 
+		background-color: #000; 
+		color: #fff; 
+	}
+</style>
+		<h2>Tabs - simple -- 4 </h2>
+
+		<!-- comp-tab--basic --->
+		<div id="compTabs4" class="comp-tabs comp-tabs--4" data-current="0">
+			<div class="div-inner">
+			 	
+			 	<h4 class="tab-item"><a href="#"  data-idx="0" onclick="uiTab.init('compTabs4', this); return false;">Tab--0</a></h4>
+			 	<div class="panel" data-idx="0">
+						panel--0
+				</div>
+
+				<h4 class="tab-item"><a href="#"  data-idx="1" onclick="uiTab.init('compTabs4', this); return false;">Tab--1</a></h4>
+			 	<div class="panel" data-idx="1">
+						panel--1
+				</div>
+
+				<h4 class="tab-item"><a href="#"  data-idx="2" onclick="uiTab.init('compTabs4', this); return false;">Tab--2</a></h4>
+			 	<div class="panel" data-idx="2">
+						panel--2
+				</div>
+			 	<!--
+				<div class="tabs">
+					<ul>
+						<li class="tab-item"><a href="#"  data-idx="0" onclick="uiTab.init('compTabs2', this); return false;">Tab--1</a></li>
+						<li class="tab-item"><a href="#"  data-idx="1" onclick="uiTab.init('compTabs2', this); return false;">Tab--2</a></li>
+						<li class="tab-item"><a href="#"  data-idx="2" onclick="uiTab.init('compTabs2', this); return false;">Tab--3</a></li>
+					</ul>
+				</div>
+				
+				<div class="panels">
+					<div class="panel" data-idx="0">
+						panel--1
+							
+							
+					</div>
+					<div class="panel" data-idx="1">
+						panel--2
+					</div>
+					<div class="panel" data-idx="2">
+						panel--3
+					</div>
+				</div>
+
+				<div class="controls">
+					
+				</div>
+				-->
+			
+			</div>
+		</div>
+		<!-- //comp-tab--basic --->		
+
+	</div>
+</body>
+</html>

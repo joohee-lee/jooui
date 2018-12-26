@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Tab</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+	.comp-tabs{ 
+		width: 100%; 
+		margin: 0 auto; 
+		box-sizing: border-box;
+	}
+	
+	.tabs:after,
+	.div-inner:after{ 
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	
+
+	.tabs .tab-item{ 
+		float: left; 
+		display: inline-block; 
+		width: 25%;
+		text-align: center;
+		box-sizing: border-box;
+	}
+
+	.tabs .tab-item a{
+		display: block;
+		padding: 10px 0;
+	}
+
+	.panels{
+		clear:both;
+	}
+	.panels .panel{ 
+		display: none;
+		padding: 10px;
+		min-height: 300px;
+	}
+
+	/*show/hide*/
+	.comp-tabs[data-current="0"] .tab-item a[data-idx="0"],
+	.comp-tabs[data-current="0"] .panel[data-idx="0"],
+	.comp-tabs[data-current="1"] .tab-item a[data-idx="1"],
+	.comp-tabs[data-current="1"] .panel[data-idx="1"],
+	.comp-tabs[data-current="2"] .tab-item a[data-idx="2"],
+	.comp-tabs[data-current="2"] .panel[data-idx="2"],
+	.comp-tabs[data-current="3"] .tab-item a[data-idx="3"],
+	.comp-tabs[data-current="3"] .panel[data-idx="3"]{ display: block; }
+	
+    .comp-tabs--1 .tabs{ border-bottom: 1px solid #ddd;}
+	.comp-tabs--1 .panels{ border: 1px solid #ddd; border-top: 0; }
+	.comp-tabs--1[data-current="0"] .tab-item a[data-idx="0"],
+	.comp-tabs--1[data-current="1"] .tab-item a[data-idx="1"],
+	.comp-tabs--1[data-current="2"] .tab-item a[data-idx="2"],
+	.comp-tabs--1[data-current="3"] .tab-item a[data-idx="3"]{ 
+		background: none #fff;
+	    border: 1px solid #ddd;
+	    border-bottom: 0;
+	    border-color: #d4d4d5;
+	    font-weight: 700;
+	    margin-bottom: -1px;
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+	    border-radius: 3px 3px 0 0!important
+
+	}
+
+	
+	
+	.comp-tabs button{
+		border: 1px solid #ddd;
+		padding: 4px;
+	}
+	
+	.control{ margin-top: 20px; }
+	.control:after{
+		content: '';
+		clear: both;
+		display: block;
+	}
+	.control--1{float: left;}
+	.control--2{float: right;}
+	
+	</style>	
+	<script src="../js/ui.js"></script>
+</head>
+<body>
+	
+	<div class="jooui-wrap">
+<h1># Tabs Moduler</h1>		
+		
+<section class="sec-code">
+	<h2>Js</h2>
+	<div class="js-note">
+		<div class="">
+			<ul>
+				<li><strong>ui.js</strong></li>
+				<li> - next / prev / play / stop 기능 추가  </li>
+				<li> - data-current , data-idx 로 style design 하여 display control - none / block  </li>	
+			</ul>
+			<dl>
+				<dd>
+/* Tab - multi function  <br>
+ * data-current <br>
+ * @param [Number] leng, item's length<br>
+ * @param [Number] time, auto play interval time<br>
+ * @param [Number] current, <br>
+ * @param [] interval, <br>
+ * @method init / setCurrent / prev / next  / prev / stop<br>
+*/
+				</dd>
+				<dt># function</dt>
+				<dd>var uiTabModule = {....}</dd>
+				
+				<dt># selector</dt>	
+				<dd>
+					//property:value<br>
+						elCnpt: '',<br>
+						elItem: '',<br>
+						current: 0,<br>
+						leng: 0,<br>
+						time: 2000,<br>
+						interval: '',<br>
+
+					# id binding , selecting <br>	
+					this.elCnpt = document.getElementById(cnpt); <br>
+					this.elItem = this.elCnpt.querySelectorAll('.tab-item'); <br>
+					this.current = dataset.getData(this.elCnpt, 'data-current');<br>
+					this.leng = this.elItem.length;	<br>
+				 </dd>
+				 <dt># method</dt>
+				 <dd>
+				 	var cc = {  <br>
+						nextIdx : .. <br>
+						prevIdx : ..  <br> 
+
+				    };  <br>
+				 	next(); <br>
+				 	prev(); <br>
+				 	play(); <br>
+				 	stop();
+				 </dd>
+				<dt># event Binding</dt>
+				<dd>html 이벤트 핸들러(바인딩) <br> ex) onclick="uiTabModule.tabCurrent('compTabs1', this);"</dd>
+			</dl>
+			
+		</div>
+	</div>
+</section>
+
+		<h1>Tabs--1 - multi - prev/next , play/stop </h1>
+
+		<!-- comp-tab--module --->
+		<div id="compTabs1" class="comp-tabs comp-tabs--1" data-current="0" data-control="pause">
+			<div class="div-inner">
+
+				<div class="tabs">
+					<ul>
+						<li class="tab-item"><a href="#"  data-idx="0" onclick="uiTabModule.tabCurrent('compTabs1', this); return false;">Tab--0</a></li>
+						<li class="tab-item"><a href="#"  data-idx="1" onclick="uiTabModule.tabCurrent('compTabs1', this); return false;">Tab--1</a></li>
+						<li class="tab-item"><a href="#"  data-idx="2" onclick="uiTabModule.tabCurrent('compTabs1', this); return false;">Tab--2</a></li>
+						<li class="tab-item"><a href="#"  data-idx="3" onclick="uiTabModule.tabCurrent('compTabs1', this); return false;">Tab--3</a></li>
+					</ul>
+				</div>
+				
+				<div class="panels">
+					<div class="panel" data-idx="0">
+						panel--0
+					</div>
+					<div class="panel" data-idx="1">
+						panel--1
+					</div>
+					<div class="panel" data-idx="2">
+						panel--2
+					</div>
+					<div class="panel" data-idx="3">
+						panel--3
+					</div>
+				</div>
+				
+				<!-- control -->
+				<div class="control">
+					<div class="control--1">
+						<button type="button" class="btn-prev"  onclick="uiTabModule.prev('compTabs1'); return false;"><span>prev</span></button>
+						<button type="button" class="btn-next" onclick="uiTabModule.next('compTabs1'); return false;"><span>Next</span></button>
+					</div>
+				
+					<div class="control--2">
+						<button type="button" class="btn-play" onclick="uiTabModule.play('compTabs1'); return false;">play</button>
+						<button type="button" class="btn-stop" onclick="uiTabModule.stop('compTabs1'); return false;">stop</button>
+					</div>	
+				</div>
+
+			</div>
+		</div>
+		<!-- //comp-tab--module --->
+		
+		<br>
+		<br>
+		<br>
+
+
+		<h1>Tabs--2 - multi - prev/next , play/stop, autorolling add </h1>
+		<style>
+			.comp-tabs--2 .tabs{ border-bottom: 1px solid red;}
+			.comp-tabs--2 .panels{ border: 1px solid red;  border-top: 0; }
+			.comp-tabs--2[data-current="0"] .tab-item a[data-idx="0"],
+			.comp-tabs--2[data-current="1"] .tab-item a[data-idx="1"],
+			.comp-tabs--2[data-current="2"] .tab-item a[data-idx="2"],
+			.comp-tabs--2[data-current="3"] .tab-item a[data-idx="3"]{ 
+				background: none #fff;
+			    border: 1px solid red;
+			    border-bottom: 0;
+			    border-color: red;
+			    font-weight: 700;
+			    margin-bottom: -1px;
+			    -webkit-box-shadow: none;
+			    box-shadow: none;
+			    border-radius: 3px 3px 0 0!important
+
+			}
+
+		</style>
+
+		<!-- comp-tab--module --->
+		<div id="compTabs2" class="comp-tabs comp-tabs--2" data-current="0" data-control="pause" >
+			<div class="div-inner">
+
+				<div class="tabs">
+					<ul>
+						<li class="tab-item"><a href="#"  data-idx="0" onclick="uiTabModule.tabCurrent('compTabs2', this); return false;">Tab--0</a></li>
+						<li class="tab-item"><a href="#"  data-idx="1" onclick="uiTabModule.tabCurrent('compTabs2', this); return false;">Tab--1</a></li>
+						<li class="tab-item"><a href="#"  data-idx="2" onclick="uiTabModule.tabCurrent('compTabs2', this); return false;">Tab--2</a></li>
+						<li class="tab-item"><a href="#"  data-idx="3" onclick="uiTabModule.tabCurrent('compTabs2', this); return false;">Tab--3</a></li>
+					</ul>
+				</div>
+				
+				<div class="panels">
+					<div class="panel" data-idx="0">
+						panel--0
+					</div>
+					<div class="panel" data-idx="1">
+						panel--1
+					</div>
+					<div class="panel" data-idx="2">
+						panel--2
+					</div>
+					<div class="panel" data-idx="3">
+						panel--3
+					</div>
+				</div>
+				
+				<!-- control -->
+				<div class="control">
+					<div class="control--1">
+						<button type="button" class="btn-prev"  onclick="uiTabModule.prev('compTabs2'); return false;"><span>prev</span></button>
+						<button type="button" class="btn-next" onclick="uiTabModule.next('compTabs2'); return false;"><span>Next</span></button>
+					</div>
+				
+					<div class="control--2">
+						<button type="button" class="btn-play" onclick="uiTabModule.play('compTabs2'); return false;">play</button>
+						<button type="button" class="btn-stop" onclick="uiTabModule.stop('compTabs2'); return false;">stop</button>
+					</div>	
+				</div>
+
+			</div>
+		</div>
+
+		<script>
+			//auotrolling add
+			uiTabModule.play('compTabs2');
+		</script>
+		<!-- //comp-tab--module --->
+
+
+		
+</body>
+</html>

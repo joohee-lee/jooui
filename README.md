@@ -203,7 +203,7 @@ var HTMLChanger = (function(){
 ```
 
 ### Event Binding 
-1. HTML 이벤트 핸들러  
+#### HTML 이벤트 핸들러  
 
 ```
  <a href="" onclick="hide()">click</a> 
@@ -215,7 +215,7 @@ var HTMLChanger = (function(){
 ```
 
 
-2. 전통적인 DOM 이벤트 핸들러  / HTML 과 자바스크립트 분리. 
+#### 전통적인 DOM 이벤트 핸들러  / HTML 과 자바스크립트 분리. 
 
 ```
 
@@ -239,22 +239,17 @@ function next(){
 }
 ```
 
-3. DOM2 이벤트 리스너 (event lintener)  
+#### DOM2 이벤트 리스너 (event lintener)  
 
+```
 #### element.addEventListener('event', functionName [,불리언]); 
 #### element.removeEventListener('event', functionName [,불리언]);
 
 [, 불리언] --> capture 기능을 지정하며 일반적으로 false 를 사용한다. 
 ```
+```
 - ie8 에서 작동 되지 않음. 
 - 하나의 이벤트로 여러개의 함수를 실행 할 수 있다. 
-
-element.addEventListener('event', functionName [,불리언]); 
-element.removeEventListener('event', functionName [,불리언]);
-
-[, 불리언] --> capture 기능을 지정하며 일반적으로 false 를 사용한다. 
-
--------------------------------------------------------------------
 
 function next(){
 	current = current +1;
@@ -273,27 +268,31 @@ function next(){
 var el = document.ElementById('btnNext');
 el.addEventListener('click', next, false);
 ```
-
+------------------------------------------------------------
 
 ### Tab
-```
+
 1. Tab - simple 
 - Tab comopnent id 네이밍   
 - Ui tab simple markup / css
 - Ui tab show / hide 
 - <http://jooe.kr/jooui/tab/ui_tab.html>
+
 2. Tab - multi 
 - Tab comopnent id 네이밍 
 - Ui tab markup / css
 - Ui tab show / hide / prev / next / autorolling / play / stop
 - <http://jooe.kr/jooui/tab/ui_tab-m.html>
+
 3. Tab - multi  
 - Tab comopnent id 네이밍 
 - Ui tab markup / css
 - Ui tab show / hide / prev / next / autorolling / play / stop
 - css3 / transition 
 - <http://jooe.kr/jooui/tab/ui_tab-transition.html>
-```
+
+
+
 ### 참고 URL 
 
 

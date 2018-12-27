@@ -54,7 +54,7 @@ var  cc = {
 	prevIdx : function( idx, len ){
 
 		idx--;
-
+		
 		if ( idx < 0 ){
 			idx = len - 1;
 		}

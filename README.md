@@ -37,6 +37,16 @@
  
 
 ## wai-Aria ( role / states / properties)
+
+### 참고 문서  
+- HTML5.2 <https://www.w3.org/TR/html52/>
+- wai-aria	<https://www.w3.org/TR/wai-aria/>
+- using-aria	<https://www.w3.org/TR/using-aria/>
+- html-aria	<https://www.w3.org/TR/html-aria/>
+- wai-aria-practices	<https://www.w3.org/TR/wai-aria-practices/>
+- wai-aria-practices-landmarks	<https://www.w3.org/TR/wai-aria-practices/examples/landmarks/>
+- <https://github.com/lezhin/accessibility/blob/master/aria/README.md>
+
 ```
 <!-- 역할(role) -->
 
@@ -68,6 +78,7 @@
 <element aria-modal="true|false(default)">
 
 ```
+
 
 ## JS 
 

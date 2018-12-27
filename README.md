@@ -25,20 +25,20 @@
 <! -- js control : data-*  -->
 <element data-current="0">
 <element data-idx="0">
-<element data-selected="true|false|undefined">
-<element data-haspopup="true|menu|dialog|listbox|tree|grid|false(default">
-<element data-hidden="true|false|undefined">
+<element data-selected="true , false , undefined">
+<element data-haspopup="true, menu|dialog , listbox , tree, grid , false, default">
+<element data-hidden="true, false, undefined">
 <element data-control="play, paused ...">
-<element data-expanded="true|false|undefined">
-<element data-modal="true|false|undefined">
+<element data-expanded="true, false, undefined">
+<element data-modal="true, fals, undefined">
 
 
 
 ```
 
+ 
 
-
-## Aria
+## wai-Aria ( role / states / properties)
 ```
 <!-- 역할(role) -->
 
@@ -73,13 +73,17 @@
 
 ## JS 
 
-- 객체 리터럴 문법 
+### 객체 리터럴 문법 
+
+```
 1. 객체를 중괄호 { } 로 감싼다. 
 2. 객체 내의 프로퍼티와 메서드를 쉼표(,) 로 분리한다. 
    마지막 이름-값 쌍 뒤에  쉼표가 들어가면 IE 에서는 에러가 발생하므로, 
    마지막에는 사용하지 말아야한다. 
 3. property 명과 프로퍼티 값은 ; 으로 분리
 4. 객체를 변수에 할당할 때는 닫는 중괄호 뒤에 세미콜론을 빼먹지 않도록 ! 
+
+```
 
 ```
 var module = { 
@@ -156,7 +160,7 @@ Namespace.PageName = {
 
 // Invoke the initialiaztio method after the page loads. 
 
-
+addLoadEvent(Namespace.PageName.init);
 ```
 
 
@@ -165,7 +169,7 @@ Namespace.PageName = {
 - 모듈 패턴은 public과 private 형태로 내부 속성들을 관리할 수있는데,
 모듈은 즉시실행함수표현(IIFE)를 통해 private 변수를 구현할 수 있다. 
 
-- http://webclub.tistory.com/5?category=501048
+- <http://webclub.tistory.com/5?category=501048>
 
 
 ```
@@ -187,7 +191,6 @@ var HTMLChanger = (function(){
 	};
 })();
 
-
 ```
 
 
@@ -198,6 +201,6 @@ var HTMLChanger = (function(){
 
 
 
-## 참고 URL 
+### 참고 URL 
 
 

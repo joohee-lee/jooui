@@ -1,8 +1,9 @@
 # Jooui -  Ui pattern 
 
 # UI pattern 정의 
+
 1. 필요한 컴포넌트를 정의한다.
-2. 기능별로 컴포넌트(component) 를  구조 및 디자인을 ( Html: markup / CSS)한다. 
+2. 기능별로 컴포넌트(component) 구조 및 디자인을 ( Html: markup / CSS)한다. 
 3. ui.js
 
 ## UI pattern 명세서 
@@ -14,12 +15,12 @@
 
 1. data-current : 현재 current 위치를 Number 로 정의  
 2. data-index, data-idx : item 의 index 값 정의 
-3. data-selectd : "true|false|undefined"
+3. data-selectd : "true,false,undefined"
 4. data-haspopup : token -  popup 상태 
-5. data-hidden : "true|false|undefined"
+5. data-hidden : "true,false,undefined"
 6. data-control : "play, paused ..."
-7. data-expanded : "true|false|undefined" (펼침:접힘)
-8. data-modal : "true|false|undefined" 
+7. data-expanded : "true,false,undefined" (펼침:접힘)
+8. data-modal : "true,false,undefined" 
 
 ```
 <! -- js control : data-*  -->
@@ -31,9 +32,6 @@
 <element data-control="play, paused ...">
 <element data-expanded="true, false, undefined">
 <element data-modal="true, fals, undefined">
-
-
-
 ```
 
  

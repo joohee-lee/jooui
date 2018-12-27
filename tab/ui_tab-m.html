@@ -19,8 +19,6 @@
 		clear: both;
 	}
 
-	
-
 	.tabs .tab-item{ 
 		float: left; 
 		display: inline-block; 
@@ -70,8 +68,6 @@
 	    border-radius: 3px 3px 0 0!important
 
 	}
-
-	
 	
 	.comp-tabs button{
 		border: 1px solid #ddd;
@@ -141,10 +137,13 @@
 						prevIdx : ..  <br> 
 
 				    };  <br>
-				 	next(); <br>
-				 	prev(); <br>
-				 	play(); <br>
-				 	stop();
+				 	var uiTabModule = { <br> 
+						init: .. <br> 
+						_setcurrent: .. <br> 
+						next:.. <br> 
+						prev:.. <br> 
+						play: .. <br> 
+				 	}
 				 </dd>
 				<dt># event Binding</dt>
 				<dd>html 이벤트 핸들러(바인딩) <br> ex) onclick="uiTabModule.tabCurrent('compTabs1', this);"</dd>

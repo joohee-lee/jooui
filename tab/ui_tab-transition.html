@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Tab</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+	a{ text-decoration: none; }
+
+	.tab-list{
+	  
+	  width: 100%;
+	  margin: 0 auto;
+	  box-sizing: border-box;
+
+	}
+
+	.tab-inner:after,
+	.tabs ul:after{
+	  content: '';
+	  display: block;
+	  clear: both;
+
+	}
+
+
+	.tabs ul{
+	  position: relative;
+	  height: 50px;
+	  line-height: 50px;
+	  border: 1px solid #ddd;
+	  border-bottom: 3px solid #ddd;
+
+	}
+	
+
+	.tabs ul:after{
+	  content: '';
+	  display: block;
+	  width: 25%;
+	  border-bottom: 3px solid red;
+	}
+
+	.tabs li{
+	  float: left;
+	  position: relative;
+	  width: 25%;
+	  height: 50px;
+	  line-height: 50px;
+	  text-align: center;
+	}
+
+
+	.tabs li a{
+	  display: block;
+
+	}
+
+	.tab-list .tab-panel {
+	   min-height: 400px;
+	   text-align : center;
+	   border: 1px solid #ddd;
+	   border-top: 0;
+	}
+
+	/* script control  */
+	.tab-list[data-current="0"] .tab-item[data-idx="0"] a,
+	.tab-list[data-current="1"] .tab-item[data-idx="1"] a,
+	.tab-list[data-current="2"] .tab-item[data-idx="2"] a,
+	.tab-list[data-current="3"] .tab-item[data-idx="3"] a{
+	  color: red;
+	}
+	
+	.tabs ul:after{
+	  position: absolute;
+	  bottom: -3px;  
+	  transition: 0.5s;
+	}
+
+	.tab-list[data-current="0"] .tabs ul:after{
+	    left: 0;
+	}
+
+	.tab-list[data-current="1"] .tabs ul:after{
+	    left: 25%;
+	}
+
+	.tab-list[data-current="2"] .tabs ul:after{
+	    left: 50%;
+	}
+
+	.tab-list[data-current="3"] .tabs ul:after{
+	    left: 75%;
+	}
+
+
+	.tab-list .tab-panel { display: none; }
+
+	.tab-list[data-current="0"] .tab-panel[data-idx="0"],
+	.tab-list[data-current="1"] .tab-panel[data-idx="1"],
+	.tab-list[data-current="2"] .tab-panel[data-idx="2"],
+	.tab-list[data-current="3"] .tab-panel[data-idx="3"]{
+
+	    display: block;
+	}
+
+	.control {
+	  margin-top: 10px;
+	}
+	
+	.control:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.control button {
+		float: left;
+		margin-right: 10px;
+		border: 1px solid #ddd;
+		padding: 2px 4px;
+		border-radius: 3px
+	}
+	
+	.tab-list[data-control="play"] .control .btn-play,
+	.tab-list[data-control="pause"] .control .btn-stop{ display: none; }
+
+	.tab-list[data-control="play"] .control .btn-stop,
+	.tab-list[data-control="pause"] .control .btn-play{ display: block; }
+	</style>	
+	<script src="../js/ui.js"></script>
+</head>
+<body>
+	
+	<div class="jooui-wrap">
+
+		<!-- comp_tabs--1 -->
+		<div  id="comp_tabs--1" class="tab-list" data-current="0" data-type="A" data-control="">
+		  <div class="tab-inner">
+		      
+		      <div class="tabs" role="tablist">
+		          <ul>
+		            <li class="tab-item" role="tab"><a href="#" data-idx="0" onclick="">tabs-A</a></li>
+		            <li class="tab-item" role="tab"><a href="#" data-idx="1" onclick="">tabs-B</a></li>
+		            <li class="tab-item" role="tab"><a href="#" data-idx="2" onclick="">tabs-C</a></li>
+		            <li class="tab-item" role="tab"><a href="#" data-idx="3" onclick="">tabs-D</a></li>
+		          </ul>
+		      </div> 
+
+		      <div class="tab-panels">
+		        <div class="tab-panel" data-idx="0" role="tabpanel">
+		              tab-A content
+		        </div>
+		        <div class="tab-panel" data-idx="1" role="tabpanel">
+		              tab-B content
+		        </div>
+		        <div class="tab-panel" data-idx="2" role="tabpanel">
+		              tab-C content
+		        </div>
+		        <div class="tab-panel" data-idx="3" role="tabpanel">
+		              tab-D content
+		        </div>
+		      </div>
+
+		      <!-- control -->
+				<div class="control">
+					<button type="button" class="btn-prev" onclick="uiTabModule.prev('comp_tabs--1'); return false;"><span>prev</span></button>
+					<button type="button" class="btn-next" onclick="uiTabModule.next('comp_tabs--1'); return false;"><span>next</span></button>
+					<button type="button" class="btn-play" onclick="uiTabModule.play('comp_tabs--1'); return false;"><span>play</span></button>
+					<button type="button" class="btn-stop" onclick="uiTabModule.stop(); return false;"><span>stop</span></button>
+				</div>
+
+
+		  </div>
+		</div>  
+
+		
+
+		<script>
+			//auotrolling add
+			uiTabModule.play('comp_tabs--1');
+		</script>
+		<!-- //comp_tabs--1 -->
+
+
+	</div>
+		
+
+
+		
+</body>
+</html>

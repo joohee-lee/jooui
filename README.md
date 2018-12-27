@@ -202,6 +202,78 @@ var HTMLChanger = (function(){
 
 ```
 
+### Event Binding 
+1. HTML 이벤트 핸들러  
+
+```
+ <a href="" onclick="hide()">click</a> 
+
+- 이 방법은 권장하지는 않지만 운영이 쉽다고 생각함. 
+- 빠른 개발, 단순한 기능, 보안상 중요하지 않은 기능, 
+- 라이브러리를 이용 안한다면 inline 또는 onload와 같이 속성을 통해 직접 이벤트 등록
+- 현재, jooui 에서는  HTML 이벤트 핸들러로 바인딩으로 설계. 
+```
+
+
+2. 전통적인 DOM 이벤트 핸들러  / HTML 과 자바스크립트 분리. 
+
+```
+
+element.onevent = functionName;
+
+next.onclick = next ;
+
+function next(){
+	
+	current = current +1;
+
+	if( current > elItemsCount ){
+
+		current = 1;
+	}
+
+	setCurrent(current);
+
+	return false;
+
+}
+```
+
+3. DOM2 이벤트 리스너 (event lintener)  
+
+#### element.addEventListener('event', functionName [,불리언]); 
+#### element.removeEventListener('event', functionName [,불리언]);
+
+[, 불리언] --> capture 기능을 지정하며 일반적으로 false 를 사용한다. 
+```
+- ie8 에서 작동 되지 않음. 
+- 하나의 이벤트로 여러개의 함수를 실행 할 수 있다. 
+
+element.addEventListener('event', functionName [,불리언]); 
+element.removeEventListener('event', functionName [,불리언]);
+
+[, 불리언] --> capture 기능을 지정하며 일반적으로 false 를 사용한다. 
+
+-------------------------------------------------------------------
+
+function next(){
+	current = current +1;
+
+	if( current > elItemsCount ){
+
+		current = 1;
+	}
+
+	setCurrent(current);
+
+	return false;
+}
+
+
+var el = document.ElementById('btnNext');
+el.addEventListener('click', next, false);
+```
+
 
 ### Tab
 ```

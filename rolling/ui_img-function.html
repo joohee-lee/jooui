@@ -107,12 +107,14 @@
 		}
 
 
-		.comp-inner:hover .btn-next{
+		.mobile  .btn-next, 
+		.pc .comp-inner:hover .btn-next{
 			right: 0;
 			opacity:1;
 		}
-
-		.comp-inner:hover .btn-prev{
+		
+		.mobiel  .btn-prev,
+		.pc .comp-inner:hover .btn-prev{
 			left: 0;
 			opacity:1;
 		}
@@ -160,6 +162,17 @@
 		.comp-banner[data-current="2"] .paging .num[data-num="2"]:before,
 		.comp-banner[data-current="3"] .paging .num[data-num="3"]:before,
 		.comp-banner[data-current="4"] .paging .num[data-num="4"]:before{background-color: red;}	
+
+		/* pc / mobie */
+		.mobiel  .btn-next{
+			right: 0;
+			opacity:1;
+		}
+
+		.mobiel  .btn-prev{
+			left: 0;
+			opacity:1;
+		}
 
 	</style>
 	<script src="../js/ui.js"></script>

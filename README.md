@@ -296,21 +296,25 @@ el.addEventListener('click', next, false);
 ### banner 
 
 ```
-- module pattern / Namespace 
-- img(banner) rolling case 
-- @moduel uiRollingA
-- @param { Elemenet } componentID 
-- @pargm : { Elemenet } item / { Number } current / { String } state / { Number } len 
-- @method : init / setCurrent / setItemCurrent / next / play / stop
-- 참조 @method dataset.getData / dataset.setData
-- 참조 @method cc.nextIdx 
+/*
+
+* module pattern / Namespace 
+* img(banner) rolling case 
+* @moduel : uiRollingA
+* @param  : { Elemenet } componentID 
+* @pargm  : { Elemenet } item / { Number } current / { String } state / { Number } len 
+* @method  : init / setCurrent / setItemCurrent / next / play / stop
+* 참조 @method  : dataset.getData / dataset.setData
+* 참조 @method cc.nextIdx 
+
+*/
 
 ```
 
 ------------------------------------------------------------
 
 1. banner 
-- 기본 배너 롤링 
+
 - <http://jooe.kr/jooui/rolling/ui_img-rolling.html>
 
 2. banner - set

@@ -10,7 +10,7 @@ var deviceCheck = function(){
 	var navi = navigator.platform.toLowerCase();
 	var type = '';
 
-	if( app.match(navi) < 0 ){
+	if( app.indexof(navi) < 0 ){
 		console.log('mobile');
 		//elBody.className ='mobile';
 		elBody.setAttribute( 'class', 'mobile');

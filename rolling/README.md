@@ -29,22 +29,29 @@
 
 ```
 	
-	@ data-current / data-state
-	@ getAttribute / setAttribute 
-	@ setIntterval(function(){ nextBanner();  }, time)
+@ data-current / data-state
+@ getAttribute / setAttribute 
+@ setIntterval(function(){ nextBanner();  }, time)
 
-	@param 
+@param 
 	var elBanner // wrapper 
 	var elItem  // 롤링 대상 아이템 
 	var elItemLeng  // item 총 갯수 	
-	
-	@method
+
+@method
 	nextBanner()
 	prevBanner()
 	currentBanner()
 	playBanner()
 	stopBanner()
 
+@eventBinding 
+	HTMl handler event 
+
+	onclick="currentBanner(this);"
+	onclick="nextBanner();"
+	onclick="playBanner();"
+	onclick="stopBanner();"
 
 ```
 ### 2.배너  <http://jooe.kr/jooui/rolling/ui_img-rolling.html>
@@ -53,29 +60,41 @@
 * id / item / item.len (length) / current = 0 
 
 ```
+
 * singleton 
 
-var uiRollingA = { ..
+@namespace
 
-}
+	var uiRollingA = { ..
+
+	}
+
+@eventBinding 
+	onclick="uiRollingA.play('compBanner1'); return false;"
+	onclick="uiRollingA.stop(); return false;"
+	onclick="uiRollingA.setCurrent('compBanner1', this);"
+
 ```
 
 ### 3.배너   <http://jooe.kr/jooui/rolling/ui_img-rolling-instance.html>
 
 ```
-var uiRollingA = function( cnpt ){
 
-	this.elCnpt = cnpt;
-	this.elIem = '';
-	this.current = 0;
-	this.len = 0;
-	this.time =  2000;
-	this.state = '';
-};
+@namespace
 
-uiRollingA.prototype = {
-...
-}
+	var uiRollingA = function( cnpt ){
+
+		this.elCnpt = cnpt;
+		this.elIem = '';
+		this.current = 0;
+		this.len = 0;
+		this.time =  2000;
+		this.state = '';
+	};
+
+	uiRollingA.prototype = {
+	...
+	}
 
 //>banner - basic -- 1
 var a = new uiRollingA();

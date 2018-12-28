@@ -318,12 +318,13 @@ el.addEventListener('click', next, false);
 
 
 - 배너 1 . <http://jooe.kr/jooui/rolling/ui_img-rolling.html>
+
 ```
 * singleton 
 
 var uiRollingA = { ..
 
-}	
+}
 ```
 
 -  배너 2 . <http://jooe.kr/jooui/rolling/ui_img-rolling-instance.html>
@@ -354,7 +355,6 @@ b.play('compBanner2', 1000);
 //>banner - basic -- 3
 var c = new uiRollingA();
 c.play('compBanner3', 2000);
-
 ```
 
 

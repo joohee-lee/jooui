@@ -300,12 +300,13 @@ el.addEventListener('click', next, false);
 
 * module pattern / Namespace 
 * img(banner) rolling case 
+********************************
 * @moduel : uiRollingA
 * @param  : { Elemenet } componentID 
 * @pargm  : { Elemenet } item / { Number } current / { String } state / { Number } len 
 * @method  : init / setCurrent / setItemCurrent / next / play / stop
-* 참조 @method  : dataset.getData / dataset.setData
-* 참조 @method cc.nextIdx 
+* 참조 @method : dataset.getData / dataset.setData
+* 참조 @method : cc.nextIdx 
 
 */
 
@@ -315,11 +316,17 @@ el.addEventListener('click', next, false);
 
 1. banner 
 
-- <http://jooe.kr/jooui/rolling/ui_img-rolling.html>
 
-2. banner - set
+- 배너 1 . <http://jooe.kr/jooui/rolling/ui_img-rolling.html>
+```
+* singleton 
 
-- <http://jooe.kr/jooui/rolling/ui_img-rolling-instance.html>
+var uiRollingA = { ..
+
+}	
+```
+
+-  배너 2 . <http://jooe.kr/jooui/rolling/ui_img-rolling-instance.html>
 
 ```
 var uiRollingA = function( cnpt ){

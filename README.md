@@ -275,13 +275,13 @@ el.addEventListener('click', next, false);
 1. Tab - simple 
 - Tab comopnent id 네이밍   
 - Ui tab simple markup / css
-- Ui tab show / hide 
+- @method show / hide 
 - <http://jooe.kr/jooui/tab/ui_tab.html>
 
 2. Tab - multi 
 - Tab comopnent id 네이밍 
 - Ui tab markup / css
-- Ui tab show / hide / prev / next / autorolling / play / stop
+- @method show / hide / prev / next / autorolling / play / stop
 - <http://jooe.kr/jooui/tab/ui_tab-m.html>
 
 3. Tab - multi  
@@ -291,6 +291,52 @@ el.addEventListener('click', next, false);
 - css3 / transition 
 - <http://jooe.kr/jooui/tab/ui_tab-transition.html>
 
+### banner 
+* banner - simple 
+- module pattern / Namespace 
+- img(banner) rolling case 
+- @moduel uiRollingA
+- @param { Elemenet } componentID 
+- @pargm : { Elemenet } item / { Number } current / { String } state / { Number } len 
+- @method : init / setCurrent / setItemCurrent / next / play / stop
+- 참조 @method dataset.getData / dataset.setData
+- 참조 @method cc.nextIdx 
+
+1. banner - 1
+- 기본 배너 롤링 
+- <http://jooe.kr/jooui/rolling/ui_img-rolling.html>
+
+2. banner - set
+
+- <http://jooe.kr/jooui/rolling/ui_img-rolling-instance.html>
+```
+var uiRollingA = function( cnpt ){
+
+	this.elCnpt = cnpt;
+	this.elIem = '';
+	this.current = 0;
+	this.len = 0;
+	this.time =  2000;
+	this.state = '';
+};
+
+uiRollingA.prototype = {
+...
+}
+
+//>banner - basic -- 1
+var a = new uiRollingA();
+a.play('compBanner1', 3000);
+
+//>banner - basic -- 2
+var b = new uiRollingA();
+b.play('compBanner2', 1000);
+
+//>banner - basic -- 3
+var c = new uiRollingA();
+c.play('compBanner3', 2000);
+
+```
 
 
 ### 참고 URL 

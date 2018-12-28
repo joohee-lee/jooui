@@ -54,7 +54,7 @@ var  cc = {
 	prevIdx : function( idx, len ){
 
 		idx--;
-		
+
 		if ( idx < 0 ){
 			idx = len - 1;
 		}
@@ -156,6 +156,70 @@ var uiTabModule = {
 
 };
 
+/* rolling 
+ * uiRollingA 	
+
+
+*/
+/*
+var uiRollingA = {
+
+	elCnpt:'',
+	elIem: '',
+	current: 0,
+	len: 0,
+	time: 2000,
+	
+	init : function( cnpt ){
+
+		this.elCnpt = document.getElementById(cnpt);
+		this.elItem = this.elCnpt.querySelectorAll('.item');
+		this.current = dataset.getData(this.elCnpt, 'data-current');
+		this.len = this.elItem.length;
+
+		
+
+	},
+
+	setCurrent : function(cnpt, val){
+		dataset.setData( cnpt, 'data-current', val);
+
+	},
+
+	next : function(cnpt, val, leng){
+		this.init(cnpt);
+		this.current = cc.nextIdx( this.current, this.len);
+		this.setCurrent(this.elCnpt, this.current);
+
+
+	},
+
+	play : function(cnpt, auto){
+
+		
+		console.log('play');
+		var self = this;
+		var auto = auto;
+		this.init(cnpt);
+		auto = setInterval( function(){ self.next(cnpt) },  self.time);
+		dataset.setData( this.elCnpt, 'dta-control', 'play');
+	},
+
+	stop : function(cnpt, auto){
+
+		this.init(cnpt);
+		console.log(cnpt);
+		console.log(auto);
+		
+		console.log('stop');
+		window.clearInterval(auto);
+		dataset.setData( this.elCnpt, 'data-control', 'pause');
+
+	} 
+
+
+};
+*/
 
 /* Toggle 
  * data - expended

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>banner - rolling </title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.comp-banner{
+			width: 320px;
+			height: 600px;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		.comp-inner{
+			padding: 20px 0 ;
+			border: 1px solid #ddd;
+		}
+		.comp-inner:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		/*paging*/
+		.paging .num{
+			position: relative;
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+		}
+
+		.paging .num:before{
+			position: absolute;
+			left: 0;
+			top: 0;
+			content: "";
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background-color: #ddd;
+		}
+		
+		.paging .num em{ 
+			background: transparent none !important;
+			border: none !important;
+			display: block !important;
+			height: 1px !important;
+			overflow: hidden !important;
+			padding: 0 !important;
+			position: absolute !important;
+			top: -999999em !important;
+			width: 1px !important;
+		}
+
+		
+		/* script */
+		.comp-banner .list .item{ display: none; }
+		.comp-banner[data-current="0"] .item[data-idx="0"],
+		.comp-banner[data-current="1"] .item[data-idx="1"],
+		.comp-banner[data-current="2"] .item[data-idx="2"],
+		.comp-banner[data-current="3"] .item[data-idx="3"],
+		.comp-banner[data-current="4"] .item[data-idx="4"]{display: block;}
+
+		.comp-banner[data-current="0"] .paging .num[data-num="0"]:before,
+		.comp-banner[data-current="1"] .paging .num[data-num="1"]:before,
+		.comp-banner[data-current="2"] .paging .num[data-num="2"]:before,
+		.comp-banner[data-current="3"] .paging .num[data-num="3"]:before,
+		.comp-banner[data-current="4"] .paging .num[data-num="4"]:before{background-color: red;}	
+
+	</style>
+	 <script src="../js/ui.js"></script>
+</head>
+<body>
+	
+	<div class="jooui-wrap">
+
+	<h1># banner rolling </h1>		
+		
+
+		
+	<h2>banner - basic -- 1 </h2>
+
+		<!-- comp-banner--basic --->
+		<div id="compBanner1" class="comp-banner comp-banner--1" data-current="0" data-state="">
+			<div class="comp-inner">
+
+				<!-- image / list --> 
+				<ul class="list">
+					<li class="item" data-idx="0">
+						<a href="#">
+							<img src="http://img.shinsegaetvshopping.com/banner/129/1013129_20181101111002.jpg" alt="">
+						</a>
+					</li>
+					<li class="item" data-idx="1">
+						<a href="#">
+							<img src="http://img.shinsegaetvshopping.com/banner/130/1013130_20181029170816.jpg" alt="">
+						</a>
+					</li>
+					<li class="item" data-idx="2">
+						<a href="#">
+							<img src="http://img.shinsegaetvshopping.com/banner/688/1012688_20181017125546.jpg" alt="">
+						</a>
+					</li>
+				</ul>
+				
+				<!-- paging -->
+				<div class="paging">
+					<span class="num" data-num="0" onclick="uiRollingA.setCurrent('compBanner1', this);" tabindex="0"><em>1</em></span>
+					<span class="num" data-num="1" onclick="uiRollingA.setCurrent('compBanner1', this);" tabindex="0"><em>2</em></span>
+					<span class="num" data-num="2" onclick="" tabindex="0"><em>3</em></span>
+				</div>
+				
+				<!-- play/stop -->
+				<div class="control">
+					<!--
+					<span class="next">
+						
+						<button id="play--A" type="button" class="btn-next" onclick="uiRollingA.init('compBanner1'); return false;">next</button>
+					</span>
+					-->
+					
+					<span class="play">
+						<button  type="button" class="btn-play" onclick="uiRollingA.play('compBanner1'); return false;">play</button>
+					</span>
+					<span class="stop">
+						<button  type="button" id="stop--A" class="btn-stop" onclick="uiRollingA.stop(); return false;">stop</button>
+					</span>
+				</div>
+		
+			
+			</div>
+		</div>
+		<!-- //comp-banner--basic --->
+
+		<script>
+var uiRollingA = {
+
+	elCnpt:'',
+	elIem: '',
+	current: 0,
+	len: 0,
+	time: 2000,
+	state: '',
+	
+	init : function( cnpt ){
+
+		this.elCnpt = document.getElementById(cnpt);
+		this.elItem = this.elCnpt.querySelectorAll('.item');
+		this.current = dataset.getData(this.elCnpt, 'data-current');
+		this.state = dataset.getData(this.elCnpt, 'data-state');
+		this.len = this.elItem.length;
+
+		//this.next(this.current, this.leng);
+
+	},
+
+	setCurrent : function(cnpt, val){
+		dataset.setData( cnpt, 'data-current', val);
+
+	},
+
+	next : function(cnpt, val, leng){
+		this.init(cnpt);
+		this.current = cc.nextIdx( this.current, this.len);
+		this.setCurrent(this.elCnpt, this.current);
+
+
+	},
+
+	play : function(cnpt){
+
+		console.log('play');
+		var self = this;
+		self.init(cnpt);
+		this.auto = setInterval( function(){ self.next(cnpt) },  this.time);
+		dataset.setData( this.elCnpt, 'data-state', 'play');
+	},
+
+	stop : function(auto){
+
+		console.log(this.auto);
+		if (this.state === 'play') {
+			console.log('stop');
+			window.clearInterval(this.auto);
+			dataset.setData( this.elCnpt, 'data-state', 'pause');
+		}
+	} 
+
+
+};
+
+
+//autoplay
+uiRollingA.play('compBanner1');
+		</script>
+
+<br>
+	
+		
+	</div>
+</body>
+</html>

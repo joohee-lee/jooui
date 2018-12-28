@@ -21,11 +21,35 @@
 ```
 
 ------------------------------------------------------------
+### 1.배너  <http://jooe.kr/jooui/rolling/ui_img-function.html>
+
+* 함수선언식  
+* id / item / item.len (length) / current = 0 
 
 
-### 1.배너  <http://jooe.kr/jooui/rolling/ui_img-rolling.html>
+```
+	
+	@ data-current / data-state
+	@ getAttribute / setAttribute 
+	@ setIntterval(function(){ nextBanner();  }, time)
 
-* 객체리터럴 표기법으로 설계 
+	@param 
+	var elBanner // wrapper 
+	var elItem  // 롤링 대상 아이템 
+	var elItemLeng  // item 총 갯수 	
+	
+	@method
+	nextBanner()
+	prevBanner()
+	currentBanner()
+	playBanner()
+	stopBanner()
+
+
+```
+### 2.배너  <http://jooe.kr/jooui/rolling/ui_img-rolling.html>
+
+* 객체리터럴 표기법  
 * id / item / item.len (length) / current = 0 
 
 ```
@@ -36,7 +60,7 @@ var uiRollingA = { ..
 }
 ```
 
-### 2.배너   <http://jooe.kr/jooui/rolling/ui_img-rolling-instance.html>
+### 3.배너   <http://jooe.kr/jooui/rolling/ui_img-rolling-instance.html>
 
 ```
 var uiRollingA = function( cnpt ){

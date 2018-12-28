@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>banner - rolling </title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.comp-banner{
+			width: 320px;
+			height: 600px;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		.comp-inner{
+			position: relative;
+			padding: 20px 0 ;
+			border: 1px solid #ddd;
+		}
+		.comp-inner:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		/*paging*/
+		.paging .num{
+			position: relative;
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+		}
+
+		.paging .num:before{
+			position: absolute;
+			left: 0;
+			top: 0;
+			content: "";
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background-color: #ddd;
+		}
+		
+		.paging .num em{ 
+			background: transparent none !important;
+			border: none !important;
+			display: block !important;
+			height: 1px !important;
+			overflow: hidden !important;
+			padding: 0 !important;
+			position: absolute !important;
+			top: -999999em !important;
+			width: 1px !important;
+		}
+		
+		.comp-inner button{ cursor:pointer }
+		.comp-inner .btn-next{
+			position: absolute;
+			right: -37px;
+			top: 50%;
+			margin-top: -20px;
+			transition: 0.5s;
+			opacity:0;
+
+			width: 40px;
+			height: 40px;
+		}
+
+		.comp-inner .btn-prev em,
+		.comp-inner .btn-next em{
+			font-size: 0px;
+		}
+		.comp-inner .btn-next:before{
+			content:'';
+			display: block;
+			height: 10px;
+		    width: 10px;
+		    border: 1px solid tomato;
+		    border-width: 2px 2px 0 0;
+		    transform: rotate(45deg);
+		    margin: 8px auto;
+		}
+		.comp-inner .btn-prev{
+			position: absolute;
+			left: -37px;
+			top: 50%;
+			margin-top: -20px;
+			transition: 0.5s;
+			opacity:0;
+
+			width: 40px;
+			height: 40px;
+		}
+
+		.comp-inner .btn-prev:before{
+			content:'';
+			display: block;
+			height: 10px;
+		    width: 10px;
+		    border: 1px solid tomato;
+		    border-width: 2px 2px 0 0;
+		    transform: rotate(-135deg);
+		    margin: 8px auto;
+		}
+
+
+		.comp-inner:hover .btn-next{
+			right: 0;
+			opacity:1;
+		}
+
+		.comp-inner:hover .btn-prev{
+			left: 0;
+			opacity:1;
+		}
+
+		.btn-next,
+		.btn-prev{
+			border: 1px solid #ddd;
+			padding: 5px;
+		}
+
+		.btn-play, .btn-stop{
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			border: 1px solid #ddd;
+			padding: 5px;
+			border-radius: 4px;
+		}
+		
+
+		.btn-next:hover,
+		.btn-prev:hover,
+		.btn-stop:hover,
+		.btn-play:hover{
+		   border-color: tomato;
+		}
+		
+		.comp-banner[data-state="pause"] .btn-play,
+		.comp-banner[data-state="play"] .btn-stop{ display: block; }
+		
+		.comp-banner[data-state="play"] .btn-play,
+		.comp-banner[data-state="pause"] .btn-stop{ display: none; }
+
+		
+		/* script */
+		.comp-banner .list .item{ display: none; }
+		.comp-banner[data-current="0"] .item[data-idx="0"],
+		.comp-banner[data-current="1"] .item[data-idx="1"],
+		.comp-banner[data-current="2"] .item[data-idx="2"],
+		.comp-banner[data-current="3"] .item[data-idx="3"],
+		.comp-banner[data-current="4"] .item[data-idx="4"]{display: block;}
+
+		.comp-banner[data-current="0"] .paging .num[data-num="0"]:before,
+		.comp-banner[data-current="1"] .paging .num[data-num="1"]:before,
+		.comp-banner[data-current="2"] .paging .num[data-num="2"]:before,
+		.comp-banner[data-current="3"] .paging .num[data-num="3"]:before,
+		.comp-banner[data-current="4"] .paging .num[data-num="4"]:before{background-color: red;}	
+
+	</style>
+	 <script src="../js/ui.js"></script>
+</head>
+<body>
+	
+	<div class="jooui-wrap">
+
+	<h1># banner rolling </h1>		
+		
+
+		
+	<h2>banner - basic -- 1 : 함수선언 /  css transition  add </h2>
+
+		<!-- comp-banner--basic --->
+		<div id="goodsBanner" class="comp-banner comp-banner--1" data-current="0" data-state="">
+			<div class="comp-inner">
+
+				<!-- image / list --> 
+				<ul class="list">
+					<li class="item" data-idx="0">
+						<a href="#">
+							<img src="http://img.shinsegaetvshopping.com/banner/129/1013129_20181101111002.jpg" alt="">
+						</a>
+					</li>
+					<li class="item" data-idx="1">
+						<a href="#">
+							<img src="http://img.shinsegaetvshopping.com/banner/130/1013130_20181029170816.jpg" alt="">
+						</a>
+					</li>
+					<li class="item" data-idx="2">
+						<a href="#">
+							<img src="http://img.shinsegaetvshopping.com/banner/688/1012688_20181017125546.jpg" alt="">
+						</a>
+					</li>
+				</ul>
+				
+				<!-- paging -->
+				<div class="paging">
+					<span class="num" data-num="0" onclick="currentBanner(this);" tabindex="0"><em>1</em></span>
+					<span class="num" data-num="1" onclick="currentBanner(this);" tabindex="0"><em>2</em></span>
+					<span class="num" data-num="2" onclick="currentBanner(this);" tabindex="0"><em>3</em></span>
+				</div>
+
+			
+				<!-- play/stop -->
+				<div class="control">
+				
+					<span class="next">
+						<button id="" type="button" class="btn-next" onclick="nextBanner();"><em>next</em></button>
+					</span>
+
+					<span class="prev">
+						<button id="" type="button" class="btn-prev" onclick="prevBanner();"><em>prev</em></button>
+					</span>
+					
+					<span class="play">
+						<button  type="button" class="btn-play" onclick="playBanner();">play</button>
+					</span>
+					<span class="stop">
+						<button  type="button" class="btn-stop" onclick="stopBanner();">stop</button>
+					</span>
+				</div>
+		
+			
+			</div>
+		</div>
+		<!-- //comp-banner--basic --->
+
+<script>
+	/* selector */
+	var elBanner = document.querySelector('.comp-banner--1');
+	var elItem = elBanner.querySelectorAll('.item');
+	var elItemLeng = elItem.length;
+	var intervalBanner ;
+
+	//next 
+	function nextBanner() {
+		var cpnt= window.elBanner; 
+		var current = Number(cpnt.getAttribute('data-current')); 
+		var leng = Number(elItemLeng); 
+
+		// 다음 index로 이동 
+		// 전체 크기보다 커지면 다시 1번으로 이동 
+		current++; 
+
+		if ( current >= leng ) {
+			 current = 0; 
+		}
+
+		cpnt.setAttribute('data-current', current);
+
+		if( state === 'play'){
+			stopBanner();
+			playBanner();
+		} 
+	}
+
+
+	//prev
+	function prevBanner() {
+		var cpnt = window.elBanner;
+		var current = Number(cpnt.getAttribute('data-current')); 
+		var leng = Number(elItemLeng); 
+
+		current--;
+
+		if ( current < 0 ){
+
+			current = leng-1;
+		}
+
+		cpnt.setAttribute('data-current', current);
+
+		if( state === 'play'){
+			stopBanner();
+			playBanner();
+		}
+
+	}
+
+	//currentBanner
+	function currentBanner(el){
+		var cpnt = window.elBanner;
+		var state = cpnt.getAttribute('data-state')
+		var current = Number(el.getAttribute('data-num'));
+
+		cpnt.setAttribute('data-current', current); 
+
+		if( state === 'play'){
+			stopBanner();
+			playBanner();
+		}
+
+	}
+
+	//play
+	function playBanner(){
+		var cpnt = window.elBanner;
+
+		intervalBanner = setInterval( function(){ nextBanner(); } , 2000);
+		cpnt.setAttribute('data-state','play');
+
+	}
+
+	//stop
+	function stopBanner(){
+		var cpnt = window.elBanner;
+
+		clearInterval(intervalBanner);
+		cpnt.setAttribute('data-state','pause');
+	}
+
+
+	//autorolling 
+	playBanner();
+
+</script>
+
+	</div>
+</body>
+</html>

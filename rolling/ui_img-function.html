@@ -240,6 +240,7 @@
 	function nextBanner() {
 		var cpnt= window.elBanner; 
 		var current = Number(cpnt.getAttribute('data-current')); 
+		var state = cpnt.getAttribute('data-state');
 		var leng = Number(elItemLeng); 
 
 		// 다음 index로 이동 
@@ -263,6 +264,7 @@
 	function prevBanner() {
 		var cpnt = window.elBanner;
 		var current = Number(cpnt.getAttribute('data-current')); 
+		var state = cpnt.getAttribute('data-state');
 		var leng = Number(elItemLeng); 
 
 		current--;
@@ -284,7 +286,7 @@
 	//currentBanner
 	function currentBanner(el){
 		var cpnt = window.elBanner;
-		var state = cpnt.getAttribute('data-state')
+		var state = cpnt.getAttribute('data-state');
 		var current = Number(el.getAttribute('data-num'));
 
 		cpnt.setAttribute('data-current', current); 

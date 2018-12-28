@@ -1,4 +1,32 @@
+
 "use strict";
+
+//pc&mobile check 
+var deviceCheck = function(){
+
+	var elBody = document.body;
+	var app = "win16|win32|win64|mac";
+	var navi = navigator.platform.toLowerCase();
+	var type = '';
+
+	if( app.match(navi) < 0 ){
+		console.log('mobile');
+		//elBody.className ='mobile';
+		elBody.setAttribute( 'class', 'mobile');
+	} else {
+		console.log('pc');
+		//elBody.className ='pc';
+		elBody.setAttribute( 'class' , 'pc');
+	}
+};
+
+window.addEventListener('DOMContentLoaded', function(){ 
+//실행될 코드 
+	deviceCheck();
+
+})
+
+
 
 // object literal desigin
 

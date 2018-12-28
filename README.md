@@ -18,9 +18,11 @@
 3. data-selectd : "true,false,undefined"
 4. data-haspopup : token -  popup 상태 
 5. data-hidden : "true,false,undefined"
-6. data-control : "play, paused ..."
+6. data-state / control : "play, paused ..."
 7. data-expanded : "true,false,undefined" (펼침:접힘)
 8. data-modal : "true,false,undefined" 
+ 
+
 
 ```
 <! -- js control : data-*  -->

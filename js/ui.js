@@ -10,12 +10,14 @@ var deviceCheck = function(){
 	var navi = navigator.platform.toLowerCase();
 	var type = '';
 
-	if( app.indexof(navi) < 0 ){
+	if( app.indexOf(navi) < 0 ){
 		console.log('mobile');
+		alert("m");
 		//elBody.className ='mobile';
 		elBody.setAttribute( 'class', 'mobile');
 	} else {
 		console.log('pc');
+		alert("pc");
 		//elBody.className ='pc';
 		elBody.setAttribute( 'class' , 'pc');
 	}

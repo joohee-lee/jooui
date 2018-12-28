@@ -2,6 +2,7 @@
 "use strict";
 
 //pc&mobile check 
+// HTML과 script가 로드된 시점에 발생하는 이벤트
 var deviceCheck = function(){
 
 	var elBody = document.body;
@@ -21,7 +22,8 @@ var deviceCheck = function(){
 };
 
 window.addEventListener('DOMContentLoaded', function(){ 
-//실행될 코드 
+	
+	//실행될 코드 
 	deviceCheck();
 
 })

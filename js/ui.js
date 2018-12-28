@@ -12,13 +12,11 @@ var deviceCheck = function(){
 
 	if( app.indexOf(navi) < 0 ){
 		console.log('mobile');
-		alert("m");
-		//elBody.className ='mobile';
+		//alert("m");
 		elBody.setAttribute( 'class', 'mobile');
 	} else {
 		console.log('pc');
-		alert("pc");
-		//elBody.className ='pc';
+		//alert("pc");
 		elBody.setAttribute( 'class' , 'pc');
 	}
 };

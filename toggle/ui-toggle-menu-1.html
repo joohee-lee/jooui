@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Tab</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		
+	.btn-ctg{
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		padding: 10px;
+	}
+	.btn-ctg:hover{
+		border-color: tomato;
+	}	
+	.common-category{
+		position: relative;
+		border: 1px solid #ddd;
+		padding: 10px;
+		min-height: 300px;
+	}
+	.common-category .btn-ctg-close{
+		position: absolute;
+		right: 10px;
+		top: 10px;
+	}
+	.comp-toggle[data-display="false"]{ display: none; }
+	.comp-toggle[data-display="true"]{ display: block; }
+	
+	</style>
+	<script src="../js/ui.js"></script>
+</head>
+<body>
+	
+<div class="jooui-wrap">
+
+	<div class="header">
+		
+		<!-- compone type="button"nt category -->
+		<div><button type="button" class="btn-ctg" data-expanded="false" onclick="uiCategory.init();"><span>카테고리</span></button></div>
+		<div  id="cpntCategory" class="comp-category comp-toggle" data-display="false">
+			<div class="common-category">
+				common-category-area
+				<div>
+					<button type="button" class="btn-ctg-close" onclick="uiCategory.init();"><span>닫기</span></button>
+				</div>
+			</div>
+		</div>	
+		<!-- //component category -->		
+
+	</div>
+
+	<script>
+
+		/*
+		ui.js add
+		var uiCategory = {
+
+			elCnpt:'',
+			elBtn:'',
+			elCnptDisplay:'',
+			elBtnExpanded:'',
+			elBtnClose:'',
+			
+			
+			init: function(){
+
+				this.elCnpt = document.getElementById('cpntCategory');
+				this.elBtn = document.querySelector('.btn-ctg');
+				this.elBtnClose = document.querySelector('.btn-ctg-close');
+				
+				this.elCpntDisplay =  dataset.getData( this.elCnpt, 'data-display');
+				this.elBtnExpanded =  dataset.getData( this.elBtn, 'data-expanded');
+				
+				this.toggle();
+				
+			},
+
+			toggle: function(){
+
+			
+				if( this.elBtnExpanded === 'false' && this.elCpntDisplay === 'false' ){
+
+					dataset.setData(this.elBtn, 'data-expanded', true);
+					dataset.setData(this.elCnpt, 'data-display', true);
+					this.elBtnClose.focus();
+					
+
+				}else{
+
+					dataset.setData(this.elBtn, 'data-expanded', false);
+					dataset.setData(this.elCnpt, 'data-display', false);
+					this.elBtn.focus();
+					
+				}
+
+
+			}
+
+
+		
+		};
+		*/
+		//common - category menu 
+		//uiCategory.init();
+	</script>	
+
+</div>
+</body>
+</html>

@@ -1,15 +1,21 @@
 
 "use strict";
 
-//pc&mobile check 
-// HTML과 script가 로드된 시점에 발생하는 이벤트
+
+/*
+	page class name settign 
+*/
+
+/*
+pc&mobile check 
+HTML과 script가 로드된 시점에 발생하는 이벤트
+*/
 var deviceCheck = function(){
 
 	var elBody = document.body;
 	var app = "win16|win32|win64|mac";
 	var navi = navigator.platform.toLowerCase();
-	var type = '';
-
+	
 	if( app.indexOf(navi) < 0 ){
 		console.log('mobile');
 		//alert("m");
@@ -20,6 +26,10 @@ var deviceCheck = function(){
 		elBody.setAttribute( 'class' , 'pc');
 	}
 };
+
+/*
+addEventListener / attachEvent
+*/
 
 window.addEventListener('DOMContentLoaded', function(){ 
 	
@@ -92,6 +102,52 @@ var  cc = {
 		return idx;
 	}
 
+
+};
+
+/*
+	category
+	: header 영역  
+*/
+
+var uiCategory = {
+
+	elCnpt:'',
+	elBtn:'',
+	elCnptDisplay:'',
+	elBtnExpanded:'',
+	elBtnClose:'',
+	
+	
+	init: function(){
+
+		this.elCnpt = document.getElementById('cpntCategory');
+		this.elBtnOpen = document.querySelector('.btn-ctg');
+		this.elBtnClose = document.querySelector('.btn-ctg-close');
+		this.cpntDisplay =  dataset.getData( this.elCnpt, 'data-display');
+		this.btnExpanded =  dataset.getData( this.elBtnOpen, 'data-expanded');
+		
+		this.toggle();
+		
+	},
+
+	toggle: function(){
+
+		if( this.btnExpanded === 'false' && this.cpntDisplay === 'false' ){
+
+			dataset.setData(this.elBtnOpen, 'data-expanded', true);
+			dataset.setData(this.elCnpt, 'data-display', true);
+			this.elBtnClose.focus();
+			
+		}else{
+
+			dataset.setData(this.elBtnOpen, 'data-expanded', false);
+			dataset.setData(this.elCnpt, 'data-display', false);
+			this.elBtnOpen.focus();
+			
+		}
+
+	}
 
 };
 
@@ -264,6 +320,13 @@ var uiToggle ={
 
 */
 
+/* modal 
+	
+*/
+
 /* img - rolling 
 */
+
+/* Validation */
+
 

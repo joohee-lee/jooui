@@ -3,11 +3,16 @@
 
 ## Toggle  
 
+### 1. 카테고리 메뉴 UI   <http://jooe.kr/jooui/toggle/ui-toggle-menu-1.html>
+
+* 객체리터럴 표기법
+
 ```
+	
 /*
 
 * module pattern / Namespace 
-* GnbMenuUI
+* uiCategory - Gnb menu 영역 
 
 ********************************
 
@@ -20,16 +25,6 @@
 
 */
 
-```
-
-------------------------------------------------------------
-### 1. 카테고리 메뉴 UI   <http://jooe.kr/jooui/toggle/ui-toggle-menu-1.html>
-
-* 객체리터럴 표기법
-* uiCategory
-
-```
-	
 @ data-expanded / data-display
 @ getAttribute / setAttribute 
 

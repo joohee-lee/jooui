@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		 h5{ margin: 0; padding: 10px; }
+		.btn-area{ margin-bottom: 20px; }
+		.btn{
+			color: #007bff;
+		    border-color: #007bff;
+		    border-radius: 4px;
+		    padding: 5px 10px;
+		    font-size: 14px;
+		}
+		.btn-grey{
+			color: #fff;
+		    background-color: #6c757d;
+		    border-color: #6c757d;
+		}
+		.modal{
+			position: absolute;
+			left: 50%;
+			top: 0;
+			width: 80%;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			z-index : 11000;
+			background-color: #fff;
+			margin-left: -40%;
+		}
+		.modal-dialog{
+			position: relative;
+		}
+
+		.modal-dialog .btn-close{ position: absolute; right: 10px; top: 10px; }
+		.modal-header{ 
+			border-bottom: 1px solid #ddd; 
+		}
+		.modal-header h5{ font-size: 20px; }
+		.modal-body{
+			padding: 20px;
+		}
+		.modal-footer{
+			text-align: right;
+			padding: 10px;
+			border-top: 1px solid #ddd;
+		}
+		.modal-back{
+			display: none;
+			z-index: 1000;
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+			opacity: 0.5;
+			transition: .5s;
+		}
+
+		
+		/* script */
+		.modal-open{
+			overflow: hidden;
+		}
+		.modal-open .modal {
+		    overflow-x: hidden;
+		    overflow-y: auto;
+		}
+
+
+		.modal[data-hidden="true"]{display: none;}
+		.modal[data-hidden="false"]{display: block;}
+		
+	</style>
+	<script src="../js/ui.js"></script>
+
+</head>
+<body>
+<!-- Button trigger modal -->
+<div class="btn-area">
+	<button type="button" class="btn btn-modal" data-toggle="modal" data-target="#exampleModal" onclick="uiModal.popOver('exampleModal-1')">
+	  Launch demo modal
+	</button>
+</div>
+<!-- Modal -->
+<div id="exampleModal-1" class="modal modal-role" tabindex="-1" role="dialog"  data-hidden="true" data-animate="fade">
+	<div class="modal-dialog" role="document">
+		
+		<div class="modal-content">
+			  <div class="modal-header">
+				    <h5 class="modal-title">#Modal title</h5>
+				    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+				      <span aria-hidden="true">X</span>
+				    </button>
+			  </div>
+			  <div class="modal-body">
+			    ...
+			  </div>
+			  <div class="modal-footer">
+				    <button type="button" class="btn btn-grey" data-dismiss="modal" onclick="uiModal.popOver('exampleModal-1')">Close</button>
+				    <button type="button" class="btn">Save changes</button>
+			  </div>
+		</div>
+
+	</div>
+</div>
+<!-- Modal bg -->
+<!-- <div class="modal-back" data-animate="fade"></div> -->
+
+<script>
+var uiModal = {
+
+	elBody : '',
+	elModal : '',
+	cpntHidden: true,
+	modalBackHtml : '<div class="modal-back" data-animate="fade"></div>',
+
+	init: function(cpnt){
+
+			this.elBody = document.body;
+			this.elModal = document.getElementById(cpnt);
+
+			console.log(this.elModal);
+			this.cpntHidden = dataset.getData( this.elModal, 'data-hidden');
+
+			console.log(this.cpntHidden);
+
+		},
+
+	popOver : function(cpnt){
+
+			this.init(cpnt);
+
+			if( this.cpntHidden === 'true' ){
+
+				dataset.setData( this.elModal, 'data-hidden', false);
+				classlist.addClass( this.elBody, 'modal-open');
+				//this.elBody.className = "modal-open" ;
+				//this.elBody.innerHtml = modalBackHtml ;
+			}
+			else{
+
+				dataset.setData( this.elModal, 'data-hidden', true);
+				classlist.removeClass( this.elBody, 'modal-open');
+				//this.elBody.setAttribute( 'class', '');
+				//this.elBody.className.replace( /(?:^|\s)modal-open(?!\S)/ , ' ' )
+			}
+
+
+
+		},
+
+
+
+
+}		
+
+</script>
+
+
+</body>
+</html>

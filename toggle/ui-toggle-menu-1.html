@@ -68,11 +68,11 @@
 			init: function(){
 
 				this.elCnpt = document.getElementById('cpntCategory');
-				this.elBtn = document.querySelector('.btn-ctg');
+				this.elBtnOpen = document.querySelector('.btn-ctg');
 				this.elBtnClose = document.querySelector('.btn-ctg-close');
 				
 				this.elCpntDisplay =  dataset.getData( this.elCnpt, 'data-display');
-				this.elBtnExpanded =  dataset.getData( this.elBtn, 'data-expanded');
+				this.elBtnExpanded =  dataset.getData( this.elBtnOpen, 'data-expanded');
 				
 				this.toggle();
 				
@@ -83,14 +83,14 @@
 			
 				if( this.elBtnExpanded === 'false' && this.elCpntDisplay === 'false' ){
 
-					dataset.setData(this.elBtn, 'data-expanded', true);
+					dataset.setData(this.elBtnOpen, 'data-expanded', true);
 					dataset.setData(this.elCnpt, 'data-display', true);
 					this.elBtnClose.focus();
 					
 
 				}else{
 
-					dataset.setData(this.elBtn, 'data-expanded', false);
+					dataset.setData(this.elBtnOpen, 'data-expanded', false);
 					dataset.setData(this.elCnpt, 'data-display', false);
 					this.elBtn.focus();
 					

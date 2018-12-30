@@ -13,17 +13,24 @@ HTML과 script가 로드된 시점에 발생하는 이벤트
 var deviceCheck = function(){
 
 	var elBody = document.body;
-	var app = "win16|win32|win64|mac";
+	var appCode = "win16|win32|win64|mac|macintel";
 	var navi = navigator.platform.toLowerCase();
+
+	console.log(navi);
 	
-	if( app.indexOf(navi) < 0 ){
+
+
+	if( appCode.indexOf(navi) < 0){
+
 		console.log('mobile');
-		//alert("m");
-		elBody.setAttribute( 'class', 'mobile');
+		alert("m");
+		classlist.addClass( elBody, 'mobile');
+
 	} else {
+
 		console.log('pc');
-		//alert("pc");
-		elBody.setAttribute( 'class' , 'pc');
+		alert("pc");
+		classlist.addClass( elBody, 'pc');
 	}
 };
 
@@ -39,6 +46,38 @@ window.addEventListener('DOMContentLoaded', function(){
 })
 
 
+/* classList 
+ * @param [String] el (element or component.. )
+ * @param [String] key (data-*)
+ * @param [Number] val (value , 0 , 1, 2 ....)
+ * @method : getData, setData, removeData 	
+*/
+var classlist = {
+
+	addClass : function(el, className){
+		el.className += " "  + className; 
+	},
+
+	removeClass : function(el, className){
+		var check = new RegExp("(\\s|^)" + className + "(\\s|$)"); 
+		el.className = el.className.replace(check, " ").trim();
+	},
+
+	toggleClass : function(el, className){
+		var check = new RegExp("(\\s|^)" + className + "(\\s|$)"); 
+		
+		if (check.test(el.className)) { 
+			
+			el.className = el.className.replace(check, " ").trim(); 
+		}
+		else { 
+		
+			el.className += " " + className; 
+		
+		}
+	}
+
+};
 
 // object literal desigin
 

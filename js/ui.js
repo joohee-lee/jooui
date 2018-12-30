@@ -108,19 +108,23 @@ var  cc = {
 /*
 	category
 	: header 영역  
+	@param [element] elCnpt
+	@param [element] elBtnOpen
+	@param [element] elBtnClose
+	@param [boolean] cpntDisplay / data-dispay/ true / false
+	@param [boolean] btnExpanded / data-expended/ true / false
+	@param [eventBinding] uiCategory.init();
 */
 
 var uiCategory = {
 
 	elCnpt:'',
-	elBtn:'',
+	elBtnOpen:'',
 	elCnptDisplay:'',
 	elBtnExpanded:'',
 	elBtnClose:'',
 	
-	
 	init: function(){
-
 		this.elCnpt = document.getElementById('cpntCategory');
 		this.elBtnOpen = document.querySelector('.btn-ctg');
 		this.elBtnClose = document.querySelector('.btn-ctg-close');
@@ -128,11 +132,9 @@ var uiCategory = {
 		this.btnExpanded =  dataset.getData( this.elBtnOpen, 'data-expanded');
 		
 		this.toggle();
-		
 	},
 
 	toggle: function(){
-
 		if( this.btnExpanded === 'false' && this.cpntDisplay === 'false' ){
 
 			dataset.setData(this.elBtnOpen, 'data-expanded', true);
@@ -146,7 +148,6 @@ var uiCategory = {
 			this.elBtnOpen.focus();
 			
 		}
-
 	}
 
 };

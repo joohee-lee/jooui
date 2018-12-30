@@ -8,13 +8,15 @@
 
 * module pattern / Namespace 
 * GnbMenuUI
+
 ********************************
-* @moduel : uiRollingA
-* @param  : { Elemenet } componentID 
-* @pargm  : { Elemenet } item / { Number } current / { String } state / { Number } len 
-* @method  : init / setCurrent / setItemCurrent / next / play / stop
+
+* @moduel : uiCategory
+* @param :  { Element } elCnpt
+* @param :  { Element } elBtnOpen / elBtnClose 
+* @param :  { Element } elCnptDisplay / elBtnExpanded
+
 * 참조 @method : dataset.getData / dataset.setData
-* 참조 @method : cc.nextIdx 
 
 */
 

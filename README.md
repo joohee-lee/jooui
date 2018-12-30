@@ -84,6 +84,16 @@
 
 ## JS 
 
+### 유지보수가 가능한 코드의 특징 
+```
+	1. 읽기 쉽다. 
+	2. 일관적이다. 
+	3. 예측가능하다.
+	4. 한 사람이 작성한 것처럼 보인다. 
+	5. 문서화되어있다. 
+```
+
+
 ### 객체 리터럴 문법 
 
 ```
@@ -297,67 +307,14 @@ el.addEventListener('click', next, false);
 
 ### banner 
 
-```
-/*
+* http://jooe.kr/jooui/rolling/
 
-* module pattern / Namespace 
-* img(banner) rolling case 
-********************************
-* @moduel : uiRollingA
-* @param  : { Elemenet } componentID 
-* @pargm  : { Elemenet } item / { Number } current / { String } state / { Number } len 
-* @method  : init / setCurrent / setItemCurrent / next / play / stop
-* 참조 @method : dataset.getData / dataset.setData
-* 참조 @method : cc.nextIdx 
-
-*/
-
-```
 
 ------------------------------------------------------------
 
-1. banner 
+### toggle
 
-
-- 배너 1 . <http://jooe.kr/jooui/rolling/ui_img-rolling.html>
-
-```
-* singleton 
-
-var uiRollingA = { ..
-
-}
-```
-
--  배너 2 . <http://jooe.kr/jooui/rolling/ui_img-rolling-instance.html>
-
-```
-var uiRollingA = function( cnpt ){
-
-	this.elCnpt = cnpt;
-	this.elIem = '';
-	this.current = 0;
-	this.len = 0;
-	this.time =  2000;
-	this.state = '';
-};
-
-uiRollingA.prototype = {
-...
-}
-
-//>banner - basic -- 1
-var a = new uiRollingA();
-a.play('compBanner1', 3000);
-
-//>banner - basic -- 2
-var b = new uiRollingA();
-b.play('compBanner2', 1000);
-
-//>banner - basic -- 3
-var c = new uiRollingA();
-c.play('compBanner3', 2000);
-```
+* http://jooe.kr/jooui/toggle/
 
 
 ### 참고 URL 

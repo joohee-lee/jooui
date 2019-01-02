@@ -407,7 +407,6 @@ var uiModal = {
 		elBody.removeChild(elDimmed);
 	}
 
-
 };
 
 /* img - rolling 

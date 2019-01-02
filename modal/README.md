@@ -4,7 +4,7 @@
 ## Modal
 
 ------------------------------------------------------------
-### 1. Modal-default  <http://jooe.kr/jooui/modal/ui-modal.html>
+### 1. Modal-default  <http://jooe.kr/jooui/modal/ui-modal-1.html>
 
 * modal component
 * component id 

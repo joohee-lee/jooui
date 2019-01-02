@@ -19,9 +19,9 @@ body{
  	width: 100%;
  	height: 100%;
  	background-color: #000;
- 	opacity: 0;
- 	display: none;
  	z-index: 1000;
+ 	opacity: .5; 
+ 	display: block;
  }	 	
 
 
@@ -88,7 +88,7 @@ a:focus{
 	overflow-x: hidden;
 	overflow-y: auto;
 }
-.modal-open .modal-back{ opacity: .5; display: block;}
+/* .modal-open .modal-back{ opacity: .5; display: block;} */
 .modal[data-hidden="true"]{ display: none; }
 .modal[data-hidden="false"]{ display: block; }
 
@@ -98,11 +98,12 @@ a:focus{
 
 </head>
 <body>
-<h2>Modal</h2>
+<h2># Modal</h2>
 <!-- Button trigger modal -->
 <div class="btn-area">
-	<button  class="btn btn-modal" data-toggle="modal" onclick="toggleModal('exampleModal-1', this);">Modal-1-default</button>
-	<button type="button"class="btn btn-modal" onclick="toggleModal('exampleModal-2', this);">Modal-2-default</button>
+	<button  class="btn btn-modal" data-toggle="modal" 
+	onclick="uiModal.toggleModal('exampleModal-1', this);">Modal-1-default</button>
+	<button type="button"class="btn btn-modal" onclick="uiModal.toggleModal('exampleModal-2', this);">Modal-2-default</button>
 </div>
 
 
@@ -113,14 +114,14 @@ a:focus{
 		<div class="modal-content">
 			  <div class="modal-header">
 				    <h5 class="modal-title">#Modal title--1</h5>
-				    <button type="button"  class="btn-close" data-id="btn1" onclick="toggleModal('exampleModal-1')" >X
+				    <button type="button"  class="btn-close" data-id="btn1" onclick="uiModal.toggleModal('exampleModal-1');" >X
 				    </button>
 			  </div>
 			  <div class="modal-body">
 			    ...
 			  </div>
 			  <div class="modal-footer">
-				    <button type="button" class="btn btn-grey" data-id="btn1" onclick="toggleModal('exampleModal-1')">Close</button>
+				    <button type="button" class="btn btn-grey" data-id="btn1" onclick="uiModal.toggleModal('exampleModal-1');">Close</button>
 			  </div>
 		</div>
 
@@ -134,7 +135,7 @@ a:focus{
 		<div class="modal-content">
 			  <div class="modal-header">
 				    <h5 class="modal-title">#Modal title--2</h5>
-				    <button type="button" class="btn-close" data-id="btn2"  onclick="toggleModal('exampleModal-2')" >
+				    <button type="button" class="btn-close" data-id="btn2"  onclick="uiModal.toggleModal('exampleModal-2')" >
 				      <span aria-hidden="true">X</span>
 				    </button>
 			  </div>
@@ -155,14 +156,15 @@ a:focus{
 			   	<p> e.currentTarget.style.visibility = "hidden";</p>
 			  </div>
 			  <div class="modal-footer">
-				    <button type="button" class="btn btn-grey" data-id="btn2" onclick="toggleModal('exampleModal-2')">Close</button>
+				    <button type="button" class="btn btn-grey" data-id="btn2" onclick="uiModal.toggleModal('exampleModal-2')">Close</button>
 			  </div>
 		</div>
 
 	</div>
 </div>
 
- <div id="modalBack" class="modal-back"></div>
+<!-- dimmed image 동적으로 생성 -->
+<!--<div id="modalBack" class="modal-back"></div>-->
 
 <script>
 /*
@@ -173,55 +175,48 @@ event.currentTarget.dataset['id']
 $(event.currentTarget).data('id')
 
 */
+/*
+ui.js add
+var uiModal = {
 
-var elBody = document.body;
-//var elDimmed = document.getElementById('modalBack');
-var hideTarget;
+	elBody : document.body,
+	hideTarget : undefined,
 
-var toggleModal = function( cpnt, el ){
+	toggleModal: function(cpnt, el){
 
-	//console.log(this);
-	var elModal = document.getElementById(cpnt);
-	var elModalBtn = elModal.querySelector('.btn-close')
-	var dataHidden = dataset.getData(elModal, 'data-hidden');
-	
-	if( dataHidden === 'true' ){
-	
-		classlist.addClass( elBody, 'modal-open');
-		dataset.setData(elModal, 'data-hidden', false);
-
-		//first close button element - focus
-		elModalBtn.focus();
-
-		//focus  element 할당.
-		hideTarget = el;
-	
-	}else{
-
-		classlist.removeClass( elBody, 'modal-open');
-		dataset.setData(elModal, 'data-hidden', true);
+		//console.log(this);
+		var elModal = document.getElementById(cpnt);
+		var elModalBtn = elModal.querySelector('.btn-close')
+		var dataHidden = dataset.getData(elModal, 'data-hidden');
 		
-		if(hideTarget){
-			hideTarget.focus();
-			hideTarget = undefined;
-		}	
+		if( dataHidden === 'true' ){
+		
+			classlist.addClass( this.elBody, 'modal-open');
+			dataset.setData(elModal, 'data-hidden', false);
+
+			//first close button element - focus
+			elModalBtn.focus();
+
+			//focus  element 할당.
+			this.hideTarget = el;
+		
+		}else{
+
+			classlist.removeClass( this.elBody, 'modal-open');
+			dataset.setData(elModal, 'data-hidden', true);
+			
+			if(this.hideTarget){
+				this.hideTarget.focus();
+				this.hideTarget = undefined;
+			}	
+		}
+
 	}
 
-};
-
-var clickModalBg = function(){
-
-	var elModals = document.querySelectorAll('.modal')
-	var elModalsleng = elModals.length;
-			
-	classlist.removeClass( this.elBody, 'modal-open');
-	for(var i=0; i < elModalsleng; i++){
-		console.log(elModals[i]);
-		dataset.setData( elModals[i], 'data-hidden', true);
-		//classlist.removeClass(  elModals[i], 'show');
-	}		
 
 };
+*/
+
 
 </script>
 

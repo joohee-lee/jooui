@@ -92,13 +92,14 @@ a:focus{
 .modal[data-hidden="true"]{ display: none; }
 .modal[data-hidden="false"]{ display: block; }
 
+
 </style>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="../js/ui.js"></script>
 
 </head>
 <body>
-<h2>Modal</h2>
+<h2># Modal</h2>
 <!-- Button trigger modal -->
 <div class="btn-area">
 	<button  class="btn btn-modal" data-toggle="modal" onclick="toggleModal('exampleModal-1', this);">Modal-1-default</button>
@@ -107,20 +108,20 @@ a:focus{
 
 
 <!-- Modal -->
-<div id="exampleModal-1" class="modal" tabindex="-1" role="dialog"  data-hidden="true">
+<div id="exampleModal-1" class="modal" tabindex="-1" role="dialog" data-hidden="true">
 	<div class="modal-dialog" role="document">
 		
 		<div class="modal-content">
 			  <div class="modal-header">
 				    <h5 class="modal-title">#Modal title--1</h5>
-				    <button type="button"  class="btn-close" data-id="btn1" onclick="toggleModal('exampleModal-1')" >X
+				    <button type="button"  class="btn-close" data-id="btn1" onclick="toggleModal('exampleModal-1');">X
 				    </button>
 			  </div>
 			  <div class="modal-body">
 			    ...
 			  </div>
 			  <div class="modal-footer">
-				    <button type="button" class="btn btn-grey" data-id="btn1" onclick="toggleModal('exampleModal-1')">Close</button>
+				    <button type="button" class="btn btn-grey" data-id="btn1" onclick="toggleModal('exampleModal-1');">Close</button>
 			  </div>
 		</div>
 
@@ -134,7 +135,7 @@ a:focus{
 		<div class="modal-content">
 			  <div class="modal-header">
 				    <h5 class="modal-title">#Modal title--2</h5>
-				    <button type="button" class="btn-close" data-id="btn2"  onclick="toggleModal('exampleModal-2')" >
+				    <button type="button" class="btn-close" data-id="btn2"  onclick="toggleModal('exampleModal-2');" >
 				      <span aria-hidden="true">X</span>
 				    </button>
 			  </div>
@@ -155,7 +156,7 @@ a:focus{
 			   	<p> e.currentTarget.style.visibility = "hidden";</p>
 			  </div>
 			  <div class="modal-footer">
-				    <button type="button" class="btn btn-grey" data-id="btn2" onclick="toggleModal('exampleModal-2')">Close</button>
+				    <button type="button" class="btn btn-grey" data-id="btn2" onclick="toggleModal('exampleModal-2');">Close</button>
 			  </div>
 		</div>
 
@@ -175,7 +176,7 @@ $(event.currentTarget).data('id')
 */
 
 var elBody = document.body;
-//var elDimmed = document.getElementById('modalBack');
+var elDimmed = document.getElementById('modalBack');
 var hideTarget;
 
 var toggleModal = function( cpnt, el ){
@@ -192,8 +193,6 @@ var toggleModal = function( cpnt, el ){
 
 		//first close button element - focus
 		elModalBtn.focus();
-
-		//focus  element 할당.
 		hideTarget = el;
 	
 	}else{

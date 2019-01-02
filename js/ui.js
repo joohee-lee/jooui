@@ -1,11 +1,6 @@
 
 "use strict";
 
-
-/*
-	page class name settign 
-*/
-
 /*
 pc&mobile check 
 HTML과 script가 로드된 시점에 발생하는 이벤트
@@ -15,36 +10,25 @@ var deviceCheck = function(){
 	var elBody = document.body;
 	var appCode = "win16|win32|win64|mac|macintel";
 	var navi = navigator.platform.toLowerCase();
-
-	console.log(navi);
 	
-
-
 	if( appCode.indexOf(navi) < 0){
 
-		console.log('mobile');
-		alert("m");
-		classlist.addClass( elBody, 'mobile');
+		alert('mobile');
+		//classlist.addClass( elBody, 'mobile');
+		elBody.setAttribute('class', 'mobile');
 
 	} else {
 
 		console.log('pc');
-		alert("pc");
-		classlist.addClass( elBody, 'pc');
+		//classlist.addClass( elBody, 'pc');
+		elBody.setAttribute('class', 'pc');
 	}
 };
 
-/*
-addEventListener / attachEvent
-*/
-
 window.addEventListener('DOMContentLoaded', function(){ 
-	
 	//실행될 코드 
 	deviceCheck();
-
-})
-
+});
 
 /* classList 
  * @param [String] el (element or component.. )
@@ -76,11 +60,9 @@ var classlist = {
 		
 		}
 	}
-
 };
 
 // object literal desigin
-
 /* used Attribute  
  * data-*
  * @param [String] el (element or component.. )
@@ -88,7 +70,6 @@ var classlist = {
  * @param [Number] val (value , 0 , 1, 2 ....)
  * @method : getData, setData, removeData  
 */
-
 var dataset = {
 
 	getData : function( el, key ){
@@ -104,13 +85,6 @@ var dataset = {
 	}
 
 };
-
-/* used ClassName
-	//class 유효 체크 
-	//addClass
-	//removeClass
-*/
-
 
 /* cc
  * @param [Number] idx / current value 
@@ -360,9 +334,81 @@ var uiToggle ={
 
 */
 
-/* modal 
-	
+/* modal
+
+@param  hideTarget (focus)
+@param  elBody = document.body;
+@param  elModal = document.getElementById(cpnt);
+@param  elModalBtn = elModal.querySelector('.btn-close');
+@param  dataHidden = dataset.getData(elModal, 'data-hidden');
+
+@ method
+	toggleModal()
+	showDimmed() // diemmed 생성
+	hideDimmed() // diemmed 제거
+
+@evnet binding	
+	onclick="uiModal.toggleModal('exampleModal-1', this);"
+	onclick="uiModal.toggleModal('exampleModal-1');"
+
 */
+var uiModal = {
+
+	hideTarget : undefined,
+
+	toggleModal: function(cpnt, el){
+
+		var elBody = document.body;
+		var elModal = document.getElementById(cpnt);
+		var elModalBtn = elModal.querySelector('.btn-close');
+		var dataHidden = dataset.getData(elModal, 'data-hidden');
+		
+		if( dataHidden === 'true' ){
+	
+			//dimmed Element create
+			this.showDimmed();
+
+			classlist.addClass( elBody, 'modal-open' );
+			dataset.setData( elModal, 'data-hidden', false );
+
+			//first close button element - focus
+			elModalBtn.focus();
+
+			//focus  element 할당.
+			this.hideTarget = el;
+			
+		}else{
+
+			classlist.removeClass( elBody, 'modal-open');
+			dataset.setData(elModal, 'data-hidden', true);
+			
+			//dimmed Element remove
+			this.hideDimmed();
+			
+			if(this.hideTarget){
+				this.hideTarget.focus();
+				this.hideTarget = undefined;
+			}	
+		}
+
+	},
+
+	showDimmed: function(){
+		var elBody = document.body;
+		var newElement = document.createElement('div');
+		newElement.setAttribute("id", "modalBack");
+		newElement.setAttribute("class", "modal-back");
+		elBody.appendChild(newElement);
+	},
+
+	hideDimmed: function(){
+		var elBody = document.body;
+		var elDimmed = document.getElementById('modalBack');
+		elBody.removeChild(elDimmed);
+	}
+
+
+};
 
 /* img - rolling 
 */

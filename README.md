@@ -309,15 +309,20 @@ el.addEventListener('click', next, false);
 
 ### banner 
 
-* http://jooe.kr/jooui/rolling/
+* <http://jooe.kr/jooui/rolling/>
 
 
 ------------------------------------------------------------
 
 ### toggle
 
-* http://jooe.kr/jooui/toggle/
+* <http://jooe.kr/jooui/toggle/>
 
+------------------------------------------------------------
+
+### Modal / popOver
+
+* <http://jooe.kr/jooui/modal/>
 
 ### 참고 URL 
 

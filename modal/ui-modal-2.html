@@ -216,7 +216,14 @@ var uiModal = {
 
 };
 */
-
+// 1초 후에 
+//문서의 모든 콘텐츠(images, script, css, etc)가 로드된 후 발생하는 이벤트이다(load 이벤트라고들 한다).
+window.onload = function(){
+	//alert("test onload");
+	setTimeout( function(){  uiModal.toggleModal('exampleModal-1'); }, 
+		1000
+	);
+};
 
 </script>
 

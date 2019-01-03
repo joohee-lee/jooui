@@ -74,6 +74,11 @@
 - 대안  creatElement 와 removeElement 메소드 사용하여 dimmed element 를 동적으로 구현. 
 
 
+### 3. Modal-middle  <http://jooe.kr/jooui/modal/ui-modal-3.html>
+### 4. Modal-ani--1  <http://jooe.kr/jooui/modal/ui-modal-3.html>
+### 5. Modal-ani--2  <http://jooe.kr/jooui/modal/ui-modal-3.html>
+
+
 
 ### 참고 URL 
 

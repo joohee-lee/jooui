@@ -3,6 +3,16 @@
 
 ## Modal
 
+```
+// .modal-open      - body class for killing the scroll 
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and stuff
+// .modal-back. - dimmed bg 
+
+cf. Bootrstarp modal ui 
+```
+
 ------------------------------------------------------------
 ### 1. Modal-default  <http://jooe.kr/jooui/modal/ui-modal-1.html>
 
@@ -74,10 +84,70 @@
 - 대안  creatElement 와 removeElement 메소드 사용하여 dimmed element 를 동적으로 구현. 
 
 
-### 3. Modal-middle  <http://jooe.kr/jooui/modal/ui-modal-3.html>
-### 4. Modal-ani--1  <http://jooe.kr/jooui/modal/ui-modal-3.html>
-### 5. Modal-ani--2  <http://jooe.kr/jooui/modal/ui-modal-3.html>
+### 3. Modal-middle  <http://jooe.kr/jooui/modal/ui-modal-4-m.html>
+```
+<style> 
+#wrapper { display: table; } 
+#cell { display: table-cell; vertical-align: middle; } 
+</style> 
+<div id="wrapper">
+	 <div id="cell"> 
+	 	<div class="content">Content goes here</div> 
+	 </div> 
+</div>
 
+############################################################
+
+.modal[data-centered="true"] .modal-middle{
+	display: table;
+	width: 100%;
+	height: 100%;
+
+}
+.modal[data-centered="true"] .modal-dialog{
+	display: table-cell;
+    padding: 10%;
+    vertical-align: middle;
+}
+
+.modal[data-centered="true"] .modal-content{
+	width: inherit;
+    height: inherit;
+    margin: 0 auto;
+}
+
+
+```
+### 4. Modal-ani--1  <http://jooe.kr/jooui/modal/ui-modal-1-ani.html>
+* 참고 Bootstrap ui logic 
+```
+# ui.js add
+	
+@ data-hidden / true or false 
+@ dataset / getAttribute / setAttribute 
+@ classlist / addClass 
+
+@param 
+	
+	hideTarget : undefined,
+	
+	var elBody  // document.body;
+	var elModal // componet id element
+	var elModalBtn // modal first focus element 
+	var dataHidden // modal data-hidden true or false
+
+@method
+	uiModalAni.toggleModal(cpnt, el)
+	this.showDimmed() // dimmed create Element
+	this.hideDimmed() // remove Element
+
+@eventBinding 
+	HTMl handler event 
+	onclick="uiModalAni.toggleModal('exampleModal-1', this);"
+	onclick="uiModalAni.toggleModal('exampleModal-1');"
+
+
+```
 
 
 ### 참고 URL 

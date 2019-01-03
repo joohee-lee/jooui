@@ -334,7 +334,7 @@ var uiToggle ={
 
 */
 
-/* modal
+/* modal - basic
 
 @param  hideTarget (focus)
 @param  elBody = document.body;
@@ -408,6 +408,80 @@ var uiModal = {
 	}
 
 };
+
+/* modal - Ani 
+
+*/
+var uiModalAni = {
+
+	hideTarget : undefined,
+
+	toggleModal: function(cpnt, el){
+
+		var elBody = document.body;
+		var elModal = document.getElementById(cpnt);
+		//var elModalWrap = elModal.querySelector('.modal-middle');
+		var elModalBtn = elModal.querySelector('.btn-close');
+		var dataShow = dataset.getData(elModal, 'data-show');
+
+		if( dataShow === 'false' ){
+	
+			//dimmed Element create
+			this.showDimmed();
+
+			classlist.addClass( elBody, 'modal-open' );
+			dataset.setData( elModal, 'data-show', true );
+			elModal.style.display = 'block';
+
+			setTimeout( function(){ classlist.addClass( elModal, 'show' ); } , 200);
+		
+			//first close button element - focus
+			elModalBtn.focus();
+
+			//focus  element 할당.
+			this.hideTarget = el;
+			
+		}else{
+
+			classlist.removeClass( elModal, 'show'); 
+			
+			setTimeout( function(){ 
+				dataset.setData(elModal, 'data-show', false);
+				classlist.removeClass( elBody, 'modal-open');
+				elModal.style.display = 'none';
+			
+			} , 200);
+
+			//dimmed Element remove
+			this.hideDimmed();
+
+			//focus
+			if(this.hideTarget){
+				this.hideTarget.focus();
+				this.hideTarget = undefined;
+			}
+				
+		}
+
+	},
+
+	showDimmed: function(){
+		var elBody = document.body;
+		var newElement = document.createElement('div');
+		newElement.setAttribute("id", "modalBack");
+		newElement.setAttribute("class", "modal-back");
+		elBody.appendChild(newElement);
+	},
+
+	hideDimmed: function(){
+		var elBody = document.body;
+		var elDimmed = document.getElementById('modalBack');
+		elBody.removeChild(elDimmed);
+	}
+
+};
+
+
 
 /* img - rolling 
 */

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jooui - modal </title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+<style>
+body{
+	margin: 20px;
+}
+.modal-back{ 
+ 	position: fixed;
+ 	left: 0;
+ 	top: 0;
+ 	right: 0;
+ 	bottom: 0;
+ 	width: 100%;
+ 	height: 100%;
+ 	background-color: #000;
+ 	z-index: 1000;
+ 	opacity: .5; 
+ 	display: block;
+ }	 	
+
+
+.modal{
+	position: fixed;
+ 	left: 0;
+ 	top: 0;
+ 	right: 0;
+ 	bottom: 0;
+ 	overflow: hidden;
+ 	z-index: 1001;
+}
+
+.modal-dialog{
+	position: relative;
+	height: 100%;
+}	
+
+.modal-content{
+	width: 80%;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background-color: #fff;
+	z-index: 1003;
+}
+
+.modal-header{ 
+	position: relative;
+	border-bottom: 1px solid #ddd; 
+	padding: 10px;
+}
+.modal-header .btn-close{ 
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+.modal-header h5{ font-size: 20px; }
+.modal-body{
+	padding: 20px
+}
+.modal-footer{
+	text-align: right;
+	padding: 10px;
+	border-top: 1px solid #ddd;
+}
+	
+button{
+	border: 1px solid #ddd;
+	padding: 4px;
+}	
+
+a:focus{
+
+	border: 1px solid blue;
+}
+
+/* control */
+.modal-open{
+	overflow: hidden;
+}
+.modal-open .modal{
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+/* .modal-open .modal-back{ opacity: .5; display: block;} */
+.modal[data-hidden="true"]{ display: none; }
+.modal[data-hidden="false"]{ display: block; }
+
+/* normal */
+.modal .modal-content{
+	margin: 10% auto;
+}
+
+/*
+가로 centered 
+.modal[data-centered="true"] .modal-content{
+	display: table;
+	margin: 0 auto;
+}
+*/
+
+
+
+/* centered + middle */
+/* 포지션이 absolute일때 너비가 고정되지 않은 경우 */
+.modal[data-centered="true"] .modal-content{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+/* animate */
+.fade {
+	opacity: 0;
+	-webkit-transition: opacity 1s;
+	transition: opacity 1s;
+}
+
+.show {
+	opacity: 1;
+}
+
+
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../js/ui.js"></script>
+
+</head>
+<body>
+<h2># Modal</h2>
+<!-- Button trigger modal -->
+<div class="btn-area">
+	<button  class="btn btn-modal" data-toggle="modal" 
+	onclick="uiModal.toggleModal('exampleModal-1', this);">Modal-1-centered</button>
+	<button type="button"class="btn btn-modal" onclick="uiModal.toggleModal('exampleModal-2', this);">Modal-2-default</button>
+</div>
+
+
+<!-- Modal -->
+<div id="exampleModal-1" class="modal" tabindex="-1" role="dialog"  data-hidden="true" data-centered="true">
+	<div class="modal-dialog" role="document" data-wrap="true">
+		
+		<div class="modal-content" data-centered="true">
+			  <div class="modal-header">
+				    <h5 class="modal-title">#Modal title--1</h5>
+				    <button type="button"  class="btn-close" data-id="btn1" onclick="uiModal.toggleModal('exampleModal-1');" >X
+				    </button>
+			  </div>
+			  <div class="modal-body">
+			    ...
+			  </div>
+			  <div class="modal-footer">
+				    <button type="button" class="btn btn-grey" data-id="btn1" onclick="uiModal.toggleModal('exampleModal-1');">Close</button>
+			  </div>
+		</div>
+
+	</div>
+</div>
+
+<!-- Modal -->
+<div id="exampleModal-2" class="modal" tabindex="-1" role="dialog"  data-hidden="true">
+	<div class="modal-dialog" role="document">
+		
+		<div class="modal-content">
+			  <div class="modal-header">
+				    <h5 class="modal-title">#Modal title--2</h5>
+				    <button type="button" class="btn-close" data-id="btn2"  onclick="uiModal.toggleModal('exampleModal-2')" >
+				      <span aria-hidden="true">X</span>
+				    </button>
+			  </div>
+			  <div class="modal-body">
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			   	<p> e.currentTarget.style.visibility = "hidden";</p>
+			  </div>
+			  <div class="modal-footer">
+				    <button type="button" class="btn btn-grey" data-id="btn2" onclick="uiModal.toggleModal('exampleModal-2')">Close</button>
+			  </div>
+		</div>
+
+	</div>
+</div>
+
+<!-- dimmed image 동적으로 생성 -->
+<!--<div id="modalBack" class="modal-back"></div>-->
+
+<script>
+/*
+event.currentTarget.dataset.id
+// as array element
+event.currentTarget.dataset['id']
+// jquery method
+$(event.currentTarget).data('id')
+
+*/
+/*
+ui.js add
+var uiModal = {
+
+	elBody : document.body,
+	hideTarget : undefined,
+
+	toggleModal: function(cpnt, el){
+
+		//console.log(this);
+		var elModal = document.getElementById(cpnt);
+		var elModalBtn = elModal.querySelector('.btn-close')
+		var dataHidden = dataset.getData(elModal, 'data-hidden');
+		
+		if( dataHidden === 'true' ){
+		
+			classlist.addClass( this.elBody, 'modal-open');
+			dataset.setData(elModal, 'data-hidden', false);
+
+			//first close button element - focus
+			elModalBtn.focus();
+
+			//focus  element 할당.
+			this.hideTarget = el;
+		
+		}else{
+
+			classlist.removeClass( this.elBody, 'modal-open');
+			dataset.setData(elModal, 'data-hidden', true);
+			
+			if(this.hideTarget){
+				this.hideTarget.focus();
+				this.hideTarget = undefined;
+			}	
+		}
+
+	}
+
+
+};
+*/
+</script>
+
+
+</body>
+</html>

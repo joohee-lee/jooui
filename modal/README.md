@@ -120,8 +120,39 @@ cf. Bootrstarp modal ui
 ```
 ### 4. Modal-ani--1  <http://jooe.kr/jooui/modal/ui-modal-1-ani.html>
 * 참고 Bootstrap ui logic 
+* animation add
+* css taransition / transform 
+
 ```
-# ui.js add
+
+@ css
+
+/* animation */
+.fade { transition: opacity .15s linear;}
+.fade:not(.show) { opacity: 0; }
+
+.modal-dialog {
+   width: auto;
+ }    
+
+.modal.fade .modal-dialog{
+   /* transition:-webkit-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    transition: transform .3s ease-out,
+    -webkit-transform .3s ease-out;
+    */
+    -webkit-transform: translate(0,-25%);
+    transform: translate(0,-25%);
+    transition: transform .3s ease-out;
+}
+
+.modal.show .modal-dialog {
+    -webkit-transform: translate(0,0);
+    transform: translate(0,0);
+}
+
+
+@ ui.js add
 	
 @ data-hidden / true or false 
 @ dataset / getAttribute / setAttribute 

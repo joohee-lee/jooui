@@ -165,6 +165,52 @@ var uiCategory = {
 
 };
 
+/*
+	sideBar 
+	: header 
+	@param [element] elCnpt
+	@param [element] elDimmed
+	@param [boolean] elCpntShow / true / false 
+
+	@method this.init()
+	@method uiSideBar.setShow()
+	@method uiSideBar.setHide()
+
+*/
+var uiSideBar = {
+
+	init: function(){
+		
+		this.elCpnt = document.querySelector('.div-sidebar');
+		this.elCpntShow = dataset.getData( this.elCpnt, 'data-show');
+		this.elDimmed = document.querySelector('.div-dimmed');
+
+	},
+
+	setShow : function(){
+
+		this.init();
+
+		if( this.elCpntShow === 'false' ){
+			dataset.setData( this.elCpnt, 'data-show', true );
+			dataset.setData( this.elDimmed, 'data-show', true);
+		}
+
+	},
+
+	setHide : function(){
+
+		this.init();
+
+		if( this.elCpntShow === 'true' ){
+			dataset.setData( this.elCpnt, 'data-show', false );
+			dataset.setData( this.elDimmed, 'data-show', false );
+		}
+
+	},
+
+};
+
 /* Tab - simple 
  * data-current / data-idx
  * @param [Element] cpnt : component name ID 

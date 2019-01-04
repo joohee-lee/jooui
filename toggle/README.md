@@ -3,7 +3,7 @@
 
 ## Toggle  
 
-### 1. 카테고리 메뉴 UI   <http://jooe.kr/jooui/toggle/ui-toggle-menu-1.html>
+### 1. 카테고리 Meun UI   <http://jooe.kr/jooui/toggle/ui-toggle-menu-1.html>
 
 * 객체리터럴 표기법
 
@@ -47,7 +47,90 @@
 
 ```
 
+### 1. 카테고리 SideBar Menu UI   
 
+- Left <http://jooe.kr/jooui/toggle/ui-toggle-menu-1.html>
+- Right  <http://jooe.kr/jooui/toggle/ui-toggle-menu-1.html>
+
+
+* 객체리터럴 표기법
+
+
+```
+/* css */
+.div-sidebar{
+		
+	......
+	
+	transition: transform .5s ease, -webkit-transform .5s ease;
+	
+	}
+
+/* left */
+	.div-sidebar[data-align='left']{
+		right: auto;
+	    left: 0;
+	}
+	.div-sidebar[data-align='left'][data-show="false"]{
+		-webkit-transform: translate3d(-100%,0,0);
+	    transform: translate3d(-100%,0,0);
+	}
+	.div-sidebar[data-align='left'][data-show="true"]{
+	    -webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+	
+/* right */
+	.div-sidebar[data-align='right']{
+		left: auto;
+	    right: 0;
+	}
+	.div-sidebar[data-align='right'][data-show="false"]{
+		-webkit-transform: translate3d(100%,0,0);
+	    transform: translate3d(100%,0,0);
+	}
+	.div-sidebar[data-align='right'][data-show="true"]{
+	    -webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+/*
+
+* module pattern / Namespace 
+* uiSideBar - Gnb menu 영역 
+
+********************************
+
+* @moduel : uiSideBar
+* @param [element] elCnpt
+* @param [element] elDimmed
+* @param [boolean] elCpntShow / true / false 
+
+* @method this.init()
+* @method uiSideBar.setShow()
+* @method uiSideBar.setHide()
+
+*/
+
+@ data-show / trur / false
+@ getAttribute / setAttribute 
+
+@param 
+	elCnpt:'',
+	elDimmed: '',
+	elCpntShow
+
+@method
+	init();
+	setShow();
+	setHide();
+
+@eventBinding 
+	HTMl handler event 
+
+	onclick="uiSideBar.setShow();"
+	onclick="uiSideBar.setHide();"
+
+```
 
 
 

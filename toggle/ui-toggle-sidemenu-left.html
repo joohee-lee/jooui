@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>sideBarMenu - left </title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+	
+	body{
+		height: 100%;
+	    overflow-x: hidden;
+	    padding: 0!important;
+	}	
+	.btn-ctg{
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		padding: 10px;
+	}
+	.btn-ctg:hover{
+		border-color: tomato;
+	}	
+	
+	/*
+		data-align : sidebar position = left or right 
+		data-show : true or false 	
+		animate : transition
+	*/
+
+	.div-sidebar{
+		position:fixed;
+		top: 0;
+		left: 0;
+		width: 260px;
+		height: 100%;
+		max-height: 100%;
+		background-color: #000;
+		overflow-y: auto;
+		z-index: 102;
+		color: #fff;
+		transition: transform .5s ease, -webkit-transform .5s ease;
+	}
+
+	.div-sidebar .div-inner{
+		padding: 10px;
+	}
+
+	.div-sidebar a{ color: #fff; }
+	
+	/* left */
+	.div-sidebar[data-align='left']{
+		right: auto;
+	    left: 0;
+	}
+	.div-sidebar[data-align='left'][data-show="false"]{
+		-webkit-transform: translate3d(-100%,0,0);
+	    transform: translate3d(-100%,0,0);
+	}
+	.div-sidebar[data-align='left'][data-show="true"]{
+	    -webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+	
+	/* right */
+	.div-sidebar[data-align='right']{
+		left: auto;
+	    right: 0;
+	}
+	.div-sidebar[data-align='right'][data-show="false"]{
+		-webkit-transform: translate3d(100%,0,0);
+	    transform: translate3d(100%,0,0);
+	}
+	.div-sidebar[data-align='right'][data-show="true"]{
+	    -webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+
+
+	.div-dimmed[data-show="true"]:after{
+		content : '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #000;
+		opacity: .5;
+	}
+	
+	
+	/* desigin */
+	.menu-list{}
+	.menu-list:after {
+		content: '';
+		display: block;
+		height: 0;
+		clear: both;
+	}
+	.menu-item{ 
+		padding-bottom: 10px;
+		margin: 10px;
+		border-bottom: 1px solid #ccc;
+	}
+	</style>
+	<script src="../js/ui.js"></script>
+</head>
+<body>
+<div class="jooui-wrap">
+	
+	<h1> # SideBar Menu : Left </h1>
+	<div class="header">
+		
+		<!-- compone type="button"nt category -->
+		<div><button type="button" class="btn-ctg" onclick="uiSideBar.setShow();"><span>카테고리</span></button></div>
+		
+		<!-- component menu -->
+		<div id="cpntSideBarMenu" class="cpnt-sidebar-menu">
+			<div class="div-sidebar menu-list" data-align="left" data-show="false" >
+				<div class="div-inner">
+					<h2 class="a11y-hide">sidebar menu</h2>
+					
+					<div class="menu-item">
+						<h3><a href="">menu1</a></h3>
+						<ul>
+							<li><a href="">submenu1</a></li>
+							<li><a href="">submenu2</a></li>
+							<li><a href="">submenu3</a></li>
+							<li><a href="">submenu3</a></li>
+						</ul>
+					</div>
+
+					<div class="menu-item">
+						<h3><a href="">menu2</a></h3>
+						<ul>
+							<li><a href="">submenu1</a></li>
+							<li><a href="">submenu2</a></li>
+							<li><a href="">submenu3</a></li>
+							<li><a href="">submenu3</a></li>
+						</ul>
+					</div>
+
+					<div class="menu-item">
+						<h3><a href="">menu3</a></h3>
+						<ul>
+							<li><a href="">submenu1</a></li>
+							<li><a href="">submenu2</a></li>
+							<li><a href="">submenu3</a></li>
+							<li><a href="">submenu3</a></li>
+						</ul>
+					</div>
+
+					<div class="menu-item">
+						<h3><a href="">menu4</a></h3>
+						<ul>
+							<li><a href="">submenu1</a></li>
+							<li><a href="">submenu2</a></li>
+							<li><a href="">submenu3</a></li>
+							<li><a href="">submenu3</a></li>
+						</ul>
+					</div>
+					
+				</div>
+			</div>
+			<!-- dimmed bg -->
+			<div class="div-dimmed" data-show="false" onclick="uiSideBar.setHide();"></div>
+		</div>	
+		<!-- //component menu -->		
+				
+	</div>
+
+	
+</div>
+
+<script>
+/*
+	sideBar 
+	: header 
+	@param [element] elCnpt
+	@param [element] elDimmed
+	@param [boolean] elCpntShow / true / false 
+
+	@method this.init()
+	@method uiSideBar.setShow()
+	@method uiSideBar.setHide()
+	
+	ui.js add
+*/
+/*
+var uiSideBar = {
+
+	init: function(){
+		
+		this.elCpnt = document.querySelector('.div-sidebar');
+		this.elCpntShow = dataset.getData( this.elCpnt, 'data-show');
+		this.elDimmed = document.querySelector('.div-dimmed');
+
+	},
+
+	setShow : function(){
+
+		this.init();
+
+		if( this.elCpntShow === 'false' ){
+			dataset.setData( this.elCpnt, 'data-show', true );
+			dataset.setData( this.elDimmed, 'data-show', true);
+		}
+
+	},
+
+	setHide : function(){
+
+		this.init();
+
+		if( this.elCpntShow === 'true' ){
+			dataset.setData( this.elCpnt, 'data-show', false );
+			dataset.setData( this.elDimmed, 'data-show', false );
+		}
+
+	},
+
+};
+*/
+	
+//common - category menu 
+//uiCategory.init();
+</script>
+</body>
+</html>

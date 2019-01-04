@@ -11,7 +11,7 @@
 -  Ui Script Guide
 
 ## markup 
-### data-* 정의 (aria-* 값을 참고) 
+### Using data attributes - data-* 정의 (aria-* 값을 참고) 
 
 1. data-current : 현재 current 위치를 Number 로 정의  
 2. data-index, data-idx : item 의 index 값 정의 
@@ -21,7 +21,8 @@
 6. data-state / control : "play, paused ..."
 7. data-expanded : "true,false,undefined" (펼침:접힘)
 8. data-modal : "true,false,undefined" 
- 
+9. data-show : "true, false, undefinded"
+
 
 
 ```

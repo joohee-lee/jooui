@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jooui - modal </title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+<style>
+body{
+	margin: 20px;
+}
+/* dimmed */
+.modal-back{ 
+ 	position: fixed;
+ 	left: 0;
+ 	top: 0;
+ 	right: 0;
+ 	bottom: 0;
+ 	width: 100%;
+ 	height: 100%;
+ 	background-color: #000;
+ 	z-index: 1000;
+ 	opacity: .5; 
+    transition: opacity 0.15s linear;
+ }	 	
+
+.modal{
+	position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+    display: none;
+    z-index: -1;
+    
+}
+
+.modal-content{
+	position: relative;
+	width: 80%;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background-color: #fff;
+	z-index: 1100;
+}
+
+.modal-header{ 
+	position: relative;
+	border-bottom: 1px solid #ddd; 
+	padding: 20px 10px;
+}
+.modal-header .btn-close{ 
+	position: absolute;
+	right: 15px;
+	top: 15px;
+}
+
+.modal-header h5{ font-size: 20px; }
+.modal-body{ padding: 20px }
+.modal-footer{
+	text-align: right;
+	padding: 20px 10px;
+	border-top: 1px solid #ddd;
+}
+	
+button{
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 8px 10px;
+	margin-bottom: 5px;
+	cursor: pointer;
+}	
+
+/* control */
+.modal-open{
+	overflow: hidden;
+}
+.modal-open .modal{
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index : 1002;
+}
+
+/* .modal-open .modal-back{ opacity: .5; display: block;} */
+/* modal none / block */
+.modal[data-show="false"]{ opacity: 0;}
+.modal[data-show="true"]{ opacity: 1;}
+
+/* ani */
+/*
+.modal[data-animation="true"] {
+    -webkit-transition: opacity .1s linear;
+    -moz-transition: opacity .1s linear;
+    -o-transition: opacity .1s linear;
+    transition: opacity .1s linear;
+}
+*/
+
+/* normal */
+.modal .modal-content{
+	margin: 10% auto;
+}
+
+/* center + middle */
+.modal[data-centered="true"] .modal-middle{
+	display: table;
+	width: 100%;
+	height: 100%;
+
+}
+.modal[data-centered="true"] .modal-dialog{
+	display: table-cell;
+    padding: 10%;
+    vertical-align: middle;
+}
+
+.modal[data-centered="true"] .modal-content{
+	width: inherit;
+    height: inherit;
+    margin: 0 auto;
+}
+
+/* animation */
+.fade { transition: opacity .15s linear;}
+.fade:not(.show) { opacity: 0; }
+
+.modal-dialog {
+   width: auto;
+ }    
+
+.modal.fade .modal-dialog{
+   /* transition:-webkit-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    transition: transform .3s ease-out,
+    -webkit-transform .3s ease-out;
+    */
+    /*
+    -webkit-transform: translate(0,-25%);
+    transform: translate(0,-25%);
+    transition: transform .3s ease-out;
+    */
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    -webkit-transform: scale(0,0);
+    transform: scale(0,0);
+}
+
+.modal.show .modal-dialog {
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    -webkit-transform: scale(1,1);
+    transform: scale(1,1);
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../js/ui.js"></script>
+
+</head>
+<body>
+<h2># Modal - css transition / transform</h2>
+<!-- Button trigger modal -->
+<div class="btn-area">
+	<button  class="btn btn-modal" data-toggle="modal" onclick="uiModalAni.toggleModal('exampleModal-1', this);">Modal-1-center-middle</button> <br>
+	<button type="button"class="btn btn-modal" onclick="uiModalAni.toggleModal('exampleModal-2', this);">Modal-2-center-middle</button> <br>
+	<button type="button"class="btn btn-modal" onclick="uiModalAni.toggleModal('exampleModal-3', this);">Modal-3-center-middle</button>
+</div>
+
+
+<!-- Modal -->
+<div id="exampleModal-1" class="modal fade" tabindex="-1" role="dialog"  data-show="false" data-centered="true">
+	<div class="modal-middle">
+		<div class="modal-dialog" role="document">
+			
+			<div class="modal-content" data-centered="true">
+				  <div class="modal-header">
+					    <h5 class="modal-title">#Modal title--1</h5>
+					    <button type="button"  class="btn-close" data-id="btn1" onclick="uiModalAni.toggleModal('exampleModal-1');" >X
+					    </button>
+				  </div>
+				  <div class="modal-body">
+				    	<p>
+				  	 	<strong>modal - centered - middle - transition</strong>
+				  	</p>
+				  </div>
+				  <div class="modal-footer">
+					    <button type="button" class="btn btn-grey" data-id="btn1" onclick="uiModalAni.toggleModal('exampleModal-1');">Close</button>
+				  </div>
+			</div>
+		
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div id="exampleModal-2" class="modal fade" tabindex="-1" role="dialog"  data-show="false" data-centered="true">
+	<div class="modal-middle">
+		<div class="modal-dialog" role="document">
+			
+			<div class="modal-content">
+				  <div class="modal-header">
+					    <h5 class="modal-title">#Modal title--2</h5>
+					    <button type="button" class="btn-close" data-id="btn2"  onclick="uiModalAni.toggleModal('exampleModal-2')" >
+					      <span aria-hidden="true">X</span>
+					    </button>
+				  </div>
+				  <div class="modal-body">
+				  	<p>
+				  	 	<strong>modal - centered - middle - transition</strong>
+				  	</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				   	<p> e.currentTarget.style.visibility = "hidden";</p>
+				  </div>
+				  <div class="modal-footer">
+					    <button type="button" class="btn btn-grey" data-id="btn2" onclick="uiModalAni.toggleModal('exampleModal-2')">Close</button>
+				  </div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div id="exampleModal-3" class="modal fade" tabindex="-1" role="dialog"  data-show="false" data-centered="">
+	<div class="modal-middle">
+		<div class="modal-dialog" role="document">
+			
+			<div class="modal-content">
+				  <div class="modal-header">
+					    <h5 class="modal-title">#Modal title--3</h5>
+					    <button type="button" class="btn-close" data-id="btn2"  onclick="uiModalAni.toggleModal('exampleModal-3')" >
+					      <span aria-hidden="true">X</span>
+					    </button>
+				  </div>
+				  <div class="modal-body">
+				  	<p>
+				  	 	modal - normal 
+				  	</p>
+				   	<p>
+css <br>
+2D 변형(transform)<br>
+2D 변형(transform)을 위해 제공되는 메소드(method)<br>
+1. translate()<br>
+2. rotate()<br>
+3. scale()<br>
+4. skew()<br>
+5. matrix()<br>
+				   	</p>
+				  </div>
+				  <div class="modal-footer">
+					    <button type="button" class="btn btn-grey" data-id="btn2" onclick="uiModalAni.toggleModal('exampleModal-3')">Close</button>
+				  </div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<!-- dimmed image 동적으로 생성 -->
+<!--<div id="modalBack" class="modal-back"></div>-->
+
+<script>
+/*
+event.currentTarget.dataset.id
+// as array element
+event.currentTarget.dataset['id']
+// jquery method
+$(event.currentTarget).data('id')
+
+*/
+/*
+ui.js add
+uiModalAni.toggleModal()
+
+*/
+
+</script>
+
+
+</body>
+</html>

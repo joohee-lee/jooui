@@ -49,8 +49,8 @@
 
 ### 1. 카테고리 SideBar Menu UI   
 
-- Left <http://jooe.kr/jooui/toggle/ui-toggle-menu-1.html>
-- Right  <http://jooe.kr/jooui/toggle/ui-toggle-menu-1.html>
+- Left <http://jooe.kr/jooui/toggle/ui-toggle-sidemenu-left.html>
+- Right  <http://jooe.kr/jooui/toggle/ui-toggle-sidemenu-right.html>
 
 
 * 객체리터럴 표기법
@@ -61,7 +61,7 @@
 .div-sidebar{
 		
 	......
-	
+
 	transition: transform .5s ease, -webkit-transform .5s ease;
 	
 	}

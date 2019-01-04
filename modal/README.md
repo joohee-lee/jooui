@@ -118,16 +118,19 @@ cf. Bootrstarp modal ui
 
 
 ```
-### 4. Modal-ani--1  <http://jooe.kr/jooui/modal/ui-modal-1-ani.html>
-* 참고 Bootstrap ui logic 
+### 4.Modal - Ani
+
+- css3 / translate  <http://jooe.kr/jooui/modal/ui-modal-1-ani-translate.html>
+- css3 / scale  <http://jooe.kr/jooui/modal/ui-modal-2-ani-scale.html>
 * animation add
 * css taransition / transform 
+* 참고 Bootstrap ui
 
 ```
 
 @ css
 
-/* animation */
+/* animation - translate */
 .fade { transition: opacity .15s linear;}
 .fade:not(.show) { opacity: 0; }
 
@@ -151,6 +154,22 @@ cf. Bootrstarp modal ui
     transform: translate(0,0);
 }
 
+
+/* animation - scale */
+
+.modal.fade .modal-dialog{
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    -webkit-transform: scale(0,0);
+    transform: scale(0,0);
+}
+
+.modal.show .modal-dialog {
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    -webkit-transform: scale(1,1);
+    transform: scale(1,1);
+}
 
 @ ui.js add
 	

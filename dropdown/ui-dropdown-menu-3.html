@@ -152,9 +152,6 @@ var uiDropDown = {
 	// When user clicks anywhere outside of the modalCompanies, close it
 	clickOutside: function(evt){
 		
-		evt.stopPropagation();
-		evt.preventDefault();
-
 	    var target = evt.target || evt.srcElement; // Support IE6-8
 		
 		console.log(target);	

@@ -119,7 +119,7 @@ var uiDropDown = {
  * data-event  add ( modal, dropdown, ....)
  * @method clickOutside() add
  * @method allHide -> logic 을 javascript 로 변경 
-   ( jquery / js 퍼포먼슨 차이란 ?   )
+   ( jquery / js performance 차이란 ?   )
 
 //jquery 
 

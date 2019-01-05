@@ -58,7 +58,7 @@ body{
 
 </head>
 <body>
-<h2># Dropdown - basic --2</h2>
+<h2># Dropdown - basic --3</h2>
 
 <div class="cpnt-dropdown dropdown-1" data-index="1" data-expanded="false">
 	<button class="btn dropdown-toggle" type="button" data-event="dropdown" onclick="uiDropDown.toggle(this);">Dropdown button--1</button>
@@ -113,6 +113,10 @@ var uiDropDown = {
 	 		dataset.setData(elCpnt, 'data-expanded', true );
 	 		
 	 		window.onclick = function( evt ) {
+				uiDropDown.clickOutside(evt);
+			};
+
+			window.ontouchstart = function( evt ) {
 				uiDropDown.clickOutside(evt);
 			};
 

@@ -37,7 +37,43 @@
 <element data-modal="true, fals, undefined">
 ```
 
- 
+## css
+
+### Responsive breakpoints
+```
+//sm devices 기준 
+//sm 576px 이상 
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+//md
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+//lg
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+//xl
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+
+//xl desktop 기준
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) { ... }
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { ... }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { ... }
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { ... }
+
+```
 
 ## wai-Aria ( role / states / properties)
 

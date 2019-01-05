@@ -58,10 +58,10 @@ body{
 
 </head>
 <body>
-<h2># Dropdown - basic --1</h2>
+<h2># Dropdown - basic --2</h2>
 
 <div class="cpnt-dropdown dropdown-1" data-index="1" data-expanded="false">
-	<button class="btn dropdown-toggle" type="button" onclick="uiDropDownToggle(this);">Dropdown button--1</button>
+	<button class="btn dropdown-toggle" type="button" onclick="uiDropDown.toggle(this);">Dropdown button--1</button>
  	<div class="dropdown-menu">
 	    <a class="dropdown-item" href="http://daum.net">Action</a>
 	    <a class="dropdown-item" href="#">Another action</a>
@@ -70,7 +70,7 @@ body{
 </div>
 
 <div class="cpnt-dropdown dropdown-2" data-index="2"  data-expanded="false">
-	<button class="btn dropdown-toggle" type="button" onclick="uiDropDownToggle(this);">Dropdown button--2</button>
+	<button class="btn dropdown-toggle" type="button" onclick="uiDropDown.toggle(this);">Dropdown button--2</button>
  	<div class="dropdown-menu">
 	    <a class="dropdown-item" href="#">Action --2</a>
 	    <a class="dropdown-item" href="#">Another action--2</a>
@@ -84,34 +84,47 @@ body{
 
 
 <script>
+/* dropDown
+ * data-index 값을 가져와서 이벤트 대상 타겟을  querySelector 로 찾는다. 
+ * data-expanded control / 
+ * @param  data-expanded / true /false 
+ * @method toggle 펼침 / 닫힘 
+ * @method allHide 모두 열려져 있는 data-expanded = true 이면 false로 변경한다. 
+ * css
+ .cpnt-dropdown[data-expanded="false"] .dropdown-menu{ display: none; }
+ .cpnt-dropdown[data-expanded="true"] .dropdown-menu{ display: block; }	
+*/
+var uiDropDown = {
 
-var uiDropDownToggle = function(el){
+	toggle: function(el){
 
-	//selecting jquery or js
-	var $elNum = $(el).parent().attr('data-index');
-	var elCpnt = document.querySelector('.dropdown-'+$elNum);
-	/*var $elCnptAll = $('.cpnt-dropdown');*/
-	
-	var dataExpanded = dataset.getData(elCpnt, 'data-expanded');
+		//selecting jquery or js
+		var $elNum = $(el).parent().attr('data-index');
+		var elCpnt = document.querySelector('.dropdown-'+$elNum);
+		var dataExpanded = dataset.getData(elCpnt, 'data-expanded');
 
-	console.log($elNum);
-	console.log(elCpnt);
-	
-	/* 
-	$elCnptAll.attr('data-expanded', false);
-	*/
+		//allhide 
+		this.allHide();
 
- 	if( dataExpanded === 'false'){
- 		dataset.setData(elCpnt, 'data-expanded', true );
+	 	if( dataExpanded === 'true'){
+	 		dataset.setData(elCpnt, 'data-expanded', false );
 
- 	}else{
- 		dataset.setData(elCpnt, 'data-expanded', false );
+	 	}else{
+	 		dataset.setData(elCpnt, 'data-expanded', true );
 
- 	}
- 
+	 	}
+
+	},
+
+	allHide: function(){
+		//jquery 
+		var $elCnptAll = $('.cpnt-dropdown');
+		$elCnptAll.attr('data-expanded', false);
+
+		//js
+	}
 
 };
-
 </script>
 
 

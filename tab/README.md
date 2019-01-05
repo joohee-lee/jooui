@@ -2,7 +2,6 @@
 
 
 ## Tab
-### Tab
 
 1. Tab - simple 
 - Tab comopnent id 네이밍   

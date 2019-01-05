@@ -3,9 +3,11 @@
 
 ## Toggle  
 
-### 1. 카테고리 Meun UI   <http://jooe.kr/jooui/toggle/ui-toggle-menu-1.html>
+### 1. 카테고리 Meun UI 
 
-* 객체리터럴 표기법
+-  <http://jooe.kr/jooui/toggle/ui-toggle-menu-1.html>
+
+#### JS
 
 ```
 	
@@ -47,13 +49,13 @@
 
 ```
 
-### 1. 카테고리 SideBar Menu UI   
+### 2. 카테고리 SideBar Menu UI   
 
 - Left <http://jooe.kr/jooui/toggle/ui-toggle-sidemenu-left.html>
 - Right  <http://jooe.kr/jooui/toggle/ui-toggle-sidemenu-right.html>
 
 
-* css
+#### css
 
 ```
 
@@ -98,7 +100,7 @@
 ```
 
 
-* 객체리터럴 표기법
+#### JS 
 
 ```
 * module pattern / Namespace 

@@ -61,7 +61,7 @@ body{
 <h2># Dropdown - basic --2</h2>
 
 <div class="cpnt-dropdown dropdown-1" data-index="1" data-expanded="false">
-	<button class="btn dropdown-toggle" type="button" onclick="uiDropDown.toggle(this);">Dropdown button--1</button>
+	<button class="btn dropdown-toggle" type="button" data-event="dropdown" onclick="uiDropDown.toggle(this);">Dropdown button--1</button>
  	<div class="dropdown-menu">
 	    <a class="dropdown-item" href="http://daum.net">Action</a>
 	    <a class="dropdown-item" href="#">Another action</a>
@@ -70,7 +70,7 @@ body{
 </div>
 
 <div class="cpnt-dropdown dropdown-2" data-index="2"  data-expanded="false">
-	<button class="btn dropdown-toggle" type="button" onclick="uiDropDown.toggle(this);">Dropdown button--2</button>
+	<button class="btn dropdown-toggle" type="button" data-event="dropdown" onclick="uiDropDown.toggle(this);">Dropdown button--2</button>
  	<div class="dropdown-menu">
 	    <a class="dropdown-item" href="#">Action --2</a>
 	    <a class="dropdown-item" href="#">Another action--2</a>
@@ -108,9 +108,13 @@ var uiDropDown = {
 
 	 	if( dataExpanded === 'true'){
 	 		dataset.setData(elCpnt, 'data-expanded', false );
-
+	 
 	 	}else{
 	 		dataset.setData(elCpnt, 'data-expanded', true );
+	 		
+	 		window.onclick = function( evt ) {
+				uiDropDown.clickOutside(evt);
+			};
 
 	 	}
 
@@ -118,10 +122,10 @@ var uiDropDown = {
 
 	allHide: function(){
 		//jquery 
-	
+		/*
 		var $elCnptAll = $('.cpnt-dropdown');
 		$elCnptAll.attr('data-expanded', false);
-	
+		*/
 		//js
 		/*
 		var elCnptAll = document.querySelectorAll('.cpnt-dropdown');
@@ -135,9 +139,47 @@ var uiDropDown = {
 		  	}
 		}
 		*/
+		var elCnptAll = document.querySelectorAll('.cpnt-dropdown');
+		for (var i = 0; i < elCnptAll.length; i++) {
+			dataset.setData( elCnptAll[i], 'data-expanded', false );
+		}
+
+	},
+	// When user clicks anywhere outside of the modalCompanies, close it
+	clickOutside: function(evt){
+		
+		evt.stopPropagation();
+		evt.preventDefault();
+
+	    var target = evt.target || evt.srcElement; // Support IE6-8
+		
+		console.log(target);	
+
+		if( dataset.getData(target, 'data-event') != 'dropdown'){
+			this.allHide();
+		}
 	}
 
 };
+
+// When user clicks anywhere outside of the modalCompanies, close it
+/*
+window.onclick = function(evt) {
+	
+	evt.stopPropagation();
+	evt.preventDefault();
+
+    var target = evt.target || evt.srcElement; // Support IE6-8
+	console.log(target);	
+
+	if( dataset.getData(target, 'data-toggle') != 'dropdown'){
+		uiDropDown.allHide();
+	}
+   
+}
+*/
+
+
 </script>
 
 

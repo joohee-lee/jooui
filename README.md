@@ -349,6 +349,24 @@ el.addEventListener('click', next, false);
 
 * <http://jooe.kr/jooui/dropdown/>
 
+------------------------------------------------------------
+
+### carousel
+
+* <http://jooe.kr/jooui/carousel/>
+
+------------------------------------------------------------
+
+### plugin - swipe (carousel 대응)
+
+* <http://jooe.kr/jooui/swipe/>
+
+### plugin - tweenmax (animate )
+
+* <http://jooe.kr/jooui/tweenmax/>
+
+
+
 ### 참고 URL 
 
 

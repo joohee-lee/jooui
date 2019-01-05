@@ -109,6 +109,44 @@ var uiDropDown = {
 	onclick="uiDropDown.toggle(this);
 
 ```
+### 3. Dropdown - Basic  <http://jooe.kr/jooui/dropdown/ui-dropdown-menu-3.html>
+// 이벤트가 발생하는 element가 아니라, 사용자가  outside(window.onclick=function(evt){....}) 를  click 할 경우. 
+
+```
+
+// When user clicks anywhere outside of the dropdown button( modal componet... ), close it
+
+ * data-event  add ( modal, dropdown, ....)
+ * @method clickOutside() add
+ * @method allHide -> logic 을 javascript 로 변경 
+   ( jquery / js 퍼포먼슨 차이란 ?   )
+
+//jquery 
+
+	var $elCnptAll = $('.cpnt-dropdown');
+	$elCnptAll.attr('data-expanded', false);
+
+
+//js -- 1
+		
+	var elCnptAll = document.querySelectorAll('.cpnt-dropdown');
+
+	for (var i in elCnptAll) {
+
+		console.log(elCnptAll[i]);
+
+	  	for (var j = 0; j < elCnptAll.length; j++) {
+			dataset.setData( elCnptAll[j], 'data-expanded', false );
+	  	}
+	}
+		
+//js -- 2
+	 var elCnptAll = document.querySelectorAll('.cpnt-dropdown');
+		for (var i = 0; i < elCnptAll.length; i++) {
+			dataset.setData( elCnptAll[i], 'data-expanded', false );
+	}
+
+```
 
 ### 이슈 
 

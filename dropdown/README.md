@@ -4,11 +4,14 @@
 ## Dropdown
 
 ```
-//.cpnt-dropdown  -  container element common class naming 
+.cpnt-dropdown  -  container element common class naming 
+.dropdown-1 , dropdown-2 ... -  container element class naming :  number add. 
+.dropdown-1[data-index="1"] , dropdown-2[data-index=2] ...      -  data-index 
 
-// .dropdown-1 , dropdown-2 ...      -  container element class naming 
-
-// .dropdown-1[data-index="1"] , dropdown-2[data-index=2] ...      -  data-index 
+ex)
+<div class="cpnt-dropdown dropdown-1" data-index="1" data-expanded="false">
+...
+</div>
 
 // css /* js control */
 .cpnt-dropdown[data-expanded="false"] .dropdown-menu{ display: none; }

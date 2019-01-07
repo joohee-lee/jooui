@@ -330,9 +330,46 @@ var clerk = (function() {
 
 ```
 
+### 전역변수 대신 네임스페이스를 사용
+
+> 자바스크립트는 전역변수에 기반을 두고 있다.
+> 즉, 모든 컴파일 단위는 하나의 공용 전역 객체(window)에 로딩된다.
+> 전역변수는 언제든지 프로그램의 모든 부분에서 접근할 수 있기 때문에 편하지만,
+> 바꿔 말하면 프로그램의 모든 부분에서 변경될 수 있고, 그로 인해 프로그램에 치명적인 오류를 발생시킬 수 있다.
+> 전역변수 사용은 하위 모듈들이 독립적으로 실행되는 것을 어렵게하고, 프로그램의 신뢰도를 현격히 떨어뜨린다.
+
+- 참고:// 안티 패턴 <https://github.com/nhnent/fe.javascript/wiki/%EC%95%88%ED%8B%B0-%ED%8C%A8%ED%84%B4>
+
+```
+[Good]
+// 전역변수 global 하나만 추가
+var global = {
+    // 전역 변수 하위에 객체와 함수가 존재
+    name: '',
+    sayName: function() {
+        alert(this.name);
+    }
+};
+
+```
+```
+// ex company Name.의 네임스페이스로 cn를 사용
+var cn = window.cn || {};
+
+// 그 하위에 서비스명을 2차 네임스페이스로 사용 
+cn.serviceName = cn.serviceName || {};
+
+// 페이지별 또는 기능별 모듈명을 3차 네임스페이스로 사용
+cn.serviceName.util = {...};
+cn.serviceName.component = {...};
+cn.serviceName.model = {...};
+
+// 필요에 따라 4차, 5차 네임스페이스로 확장하여 사용
+cn.serviceName.view.layer = {...};
+cn.serviceName.view.painter = {...};
 
 
-
+```
 ### Event Binding 
 #### HTML 이벤트 핸들러  
 

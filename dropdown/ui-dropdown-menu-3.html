@@ -99,7 +99,9 @@ var uiDropDown = {
 	toggle: function(el){
 
 		//selecting jquery or js
-		var $elNum = $(el).parent().attr('data-index');
+		//var $elNum = $(el).parent().attr('data-index');
+		//console.log(el.parentNode);
+		var $elNum = dataset.getData(el.parentNode, 'data-index');
 		var elCpnt = document.querySelector('.dropdown-'+$elNum);
 		var dataExpanded = dataset.getData(elCpnt, 'data-expanded');
 
@@ -154,7 +156,7 @@ var uiDropDown = {
 		
 	    var target = evt.target || evt.srcElement; // Support IE6-8
 		
-		console.log(target);	
+		//console.log(target);	
 
 		if( dataset.getData(target, 'data-event') != 'dropdown'){
 			this.allHide();

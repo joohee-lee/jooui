@@ -220,7 +220,8 @@ window.uiProdcutOver = (function(){
 
 	// 이벤트 핸들러 
 	eventHandle = function(){
-
+		
+		/*
 		$('.card').mouseenter(function(e) {
 			e.preventDefault();
 			hoverCard(this);
@@ -230,8 +231,19 @@ window.uiProdcutOver = (function(){
 			e.preventDefault();
 			hoverCard(this);
 		});
+		*/
+		
+		$(".card").on("mouseenter", function(e){
+			e.preventDefault();
+			hoverCard(this);
+		});
+		$(".card").on("mouseleave", function(e){
+			e.preventDefault();
+			hoverCard(this);
+		});	
 
 	};
+
 
 	return{
 		init : init
@@ -239,8 +251,12 @@ window.uiProdcutOver = (function(){
 
  })();
 
- uiProdcutOver.init();
-		
+
+// jquery 문서로드  
+$(document).ready(function($) {
+	
+	uiProdcutOver.init();
+});		
 </script>
 </body>
 </html>

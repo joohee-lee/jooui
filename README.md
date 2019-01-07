@@ -252,6 +252,86 @@ var HTMLChanger = (function(){
 })();
 
 ```
+ ```
+즉시실행함수 
+var clerk = (function(){
+
+    //var. / 함수구문
+
+}());
+
+// SPA 모듈 작성 순서 예시
+var app = (function() {
+
+    // 1. 모듈 스코프 내에서 사용할 변수 작성
+    var scopeVar = {};
+    var utilMethod;
+    var manipulateDom;
+    var eventHandle;
+    var initModule;
+
+    // 2. 유틸리티 메소드 작성
+    utilMethod = function() {
+        // 실행코드
+    };
+
+    // 3. DOM 조작 메소드 작성
+    manipulateDom = function() {
+        // 실행코드
+    };
+
+    // 4. 이벤트 핸들러 작성
+    eventHandle = function() {
+        // 실행코드
+    };
+
+    // Public 메소드 작성
+    initModule = function() {
+        // 실행코드
+    };
+
+    return {
+        init : initModule
+    };
+}());
+
+var clerk = (function() {  
+
+    var name = 'Teo';
+    var sex = '남자';
+    var position = '수석 엔지니어';
+    
+    // salary private
+    var salary = 2000;
+    var taxSalary = 200;
+    var totalBonus = 100;
+    var taxBonus = 10;
+
+    var payBonus = function() {
+        totalBonus = totalBonus - taxBonus;
+        return totalBonus;
+    };
+
+    var paySalary = function() {
+        return salary - taxSalary;
+    };
+
+    // Public 속성, 메소드
+    return {
+        name : name,
+        sex : sex,                 
+        position : position,
+        paySalary : paySalary,
+        payBonus : payBonus
+    };
+
+    
+}());
+
+```
+
+
+
 
 ### Event Binding 
 #### HTML 이벤트 핸들러  

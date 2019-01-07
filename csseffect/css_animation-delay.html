@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width">
+	<meta charset="UTF-8">
+	<title>css-ani-delay </title>
+	<style>
+		
+	</style>
+
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<!-- TwM -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+	<style>
+		body, div, p, ul, li{ margin: 0; padding: 0; }
+		li{list-style: none;}
+
+		.prod-wrap{
+			width: 800px;
+			margin: 0 auto;
+			border: 1px solid #ccc;
+		}
+		.prod-wrap .prod-inner:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		.card{
+			position: relative;
+			float: left;
+			width: 262px;
+			height: 188px;
+			overflow: hidden;
+		}
+
+		.card{
+			opacity: 0;
+			visibility: hidden;
+		}
+		.card[data-index="1"]{
+			animation: fadein 0.5s ease-in 0.5s 1 forwards;
+		}
+		.card[data-index="2"]{
+			animation: fadein 0.5s ease-in 0.7s 1 both;
+		}
+		.card[data-index="3"]{
+			animation: fadein 0.5s ease-in 0.9s 1 both;
+		}
+		
+		.card .card-img img{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: auto;
+		    max-width: 100%;
+		    height: 100%;
+		    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=100)";
+		   
+		    -webkit-transform: translateZ(0);
+		    transform: translateZ(0);
+		    -webkit-transition: .45s opacity ease-in-out;
+		    transition: .45s opacity ease-in-out;
+		}
+		
+		.card .item-1{ opacity: 1;}
+		.card .item-2{ opacity: 0; }
+		.card.ishover .item-1{ opacity: 0;}
+		.card.ishover .item-2 { opacity: 1; }
+		
+
+		
+		.card .btn-buy{
+			opacity: 0;
+			visibility: hidden;
+
+		}
+		.card.ishover .btn-buy{
+			font-size: 12px;
+			padding:4px 0;
+			width: 100px;
+			text-align: center;
+			border: 1px solid #ddd;
+			border-radius: 2px;
+			background: #fff;
+			animation: fadein 0.5s ease-in 0.2s 1 forwards;
+
+			position: absolute;
+			left: 50%;
+			margin-left: -50px;
+			bottom: 10px;
+		}
+
+		
+		
+	/* animation */
+		@keyframes fadein{
+			0% {
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY( -40px);
+			}
+			100% {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY( 0);
+			}
+		}
+	</style>
+</head>
+<body>
+	
+
+<div class="prod-wrap">
+	<div class="prod-inner">
+		
+		<!-- item - card-->
+		<div class="card" data-index="1">
+			<div class="card-inner">
+				<span class="card-img">
+					<a href="#">
+						<img src="https://images.samsung.com/is/image/samsung/p5/sec/home/shopping_keyword/2019/0103/0101_shoppingkeyword_SM-G960NGBAKOO_front.png" alt="" class='item-1'>
+						<img src="https://images.samsung.com/is/image/samsung/p5/sec/home/shopping_keyword/2019/0103/0101_shoppingkeyword_SM-G960NGBAKOO_side.png?$ORIGIN_PNG$"  class='item-2' alt="" >
+					</a>
+					<a href="#" class='btn-buy'>구매하기</a>
+				</span>
+			</div>	
+		</div>
+		<!-- item - card-->
+		<div class="card" data-index="2">
+			<div class="card-inner">
+				<span class="card-img">
+					<img src="https://images.samsung.com/is/image/samsung/p5/sec/home/shopping_keyword/2019/0103/0101_shoppingkeyword_SM-G960NGBAKOO_front.png" alt="" class='item-1'>
+					<img src="https://images.samsung.com/is/image/samsung/p5/sec/home/shopping_keyword/2019/0103/0101_shoppingkeyword_SM-G960NGBAKOO_side.png?$ORIGIN_PNG$"  class='item-2' alt="" >
+				</span>
+				<a href="#" class='btn-buy'>구매하기</a>
+			</div>	
+		</div>
+		<!-- item - card-->
+		<div class="card" data-index="3">
+			<div class="card-inner">
+				<span class="card-img">
+					<img src="https://images.samsung.com/is/image/samsung/p5/sec/home/shopping_keyword/2019/0103/0101_shoppingkeyword_SM-G960NGBAKOO_front.png" alt="" class='item-1'>
+						<img src="https://images.samsung.com/is/image/samsung/p5/sec/home/shopping_keyword/2019/0103/0101_shoppingkeyword_SM-G960NGBAKOO_side.png?$ORIGIN_PNG$"  class='item-2' alt="" >
+				</span>
+				<a href="#" class='btn-buy'>구매하기</a>
+			</div>	
+		</div>
+
+
+	</div>
+</div>
+
+<script>
+/*
+	함수 선언식 . 
+*/
+/*
+	function hoverCard(el){
+
+		var el = el;
+		var hasClassName = el.className;
+		
+		if( hasClassName.indexOf('ishover') > -1 ){
+
+			var check = new RegExp("(\\s|^)" + 'ishover' + "(\\s|$)"); 
+			el.className = el.className.replace(check, " ").trim();
+			//el.className = 'card';
+
+		}else{
+
+			el.className += " " + 'ishover';
+		}
+		
+	}
+
+	function hasClass(element, cls) {
+    		return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+	}	
+
+	$('.card').mouseenter(function(event) {
+		hoverCard(this);
+	});
+
+	$('.card').mouseleave(function(event) {
+		hoverCard(this);
+	});
+*/
+
+/*
+iify 즉시실행함수
+*/
+window.uiProdcutOver = (function(){
+
+	// Public 실행코드 
+	init = function(){
+
+		eventHandle();
+	};
+
+	// DOM 조작 메소드 작성
+	hoverCard = function(el){
+
+		var el = el;
+		var hasClassName = el.className;
+		
+		if( hasClassName.indexOf('ishover') > -1 ){
+
+			var check = new RegExp("(\\s|^)" + 'ishover' + "(\\s|$)"); 
+			el.className = el.className.replace(check, " ").trim();
+			//el.className = 'card';
+
+		}else{
+
+			el.className += " " + 'ishover';
+		}
+		
+	};
+
+	// 이벤트 핸들러 
+	eventHandle = function(){
+
+		$('.card').mouseenter(function(e) {
+			e.preventDefault();
+			hoverCard(this);
+		});
+
+		$('.card').mouseleave(function(e) {
+			e.preventDefault();
+			hoverCard(this);
+		});
+
+	};
+
+	return{
+		init : init
+	}
+
+ })();
+
+ uiProdcutOver.init();
+		
+</script>
+</body>
+</html>

@@ -59,7 +59,12 @@ var classlist = {
 			el.className += " " + className; 
 		
 		}
+	},
+
+	hasClass : function(el, className){
+		return(' ' + el.clasName + ' ').indexOf(' ' + clasName + ' ') > -1;
 	}
+
 };
 
 // object literal desigin

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>ui-</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.cpnt-card-prd{ 
+			position: relative;
+			width: 600px; 
+			margin: 0 auto;
+			padding: 20px 0;
+			text-align: center;
+		}
+		.card-preview{ margin-bottom: 10px; }
+		.card-main img{ width: 410px; height: 450px;}	
+
+		
+		.card-thum-list{ 
+			width: 410px;
+			height: 80px;
+			overflow: hidden;
+			margin: 0 auto;
+
+		}
+
+		.card-thum-list .card-inner{ width: 1000px; }
+		.card-thum-list .item{ 
+			float: left; 
+			margin-left: 2px; 
+			border: 2px solid transparent; 
+			cursor: pointer; 
+			box-sizing: border-box;
+			width: 80px;
+		}
+		.card-thum-list .item:first-child{ margin-left: 0; }
+		.card-thum-list .item img{ width: 76px; height: 76px; }
+
+
+		.cpnt-card-prd .card-prd-inner:after,
+		.card-preview .card-inner:after,
+		.card-thum-list .card-inner:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		/* control */
+		.cpnt-card-prd .sp-left{ 
+		 	position: absolute;
+		 	left: 20px;
+		 	bottom: 50px;
+		 }
+
+		 .cpnt-card-prd .sp-right{ 
+		 	position: absolute;
+		 	right: 20px;
+		 	bottom: 50px;
+		 }
+		
+		/* js */
+		.card-inner{ 
+			transition-duration: .5s;
+		}
+
+		.card-thum-list[data-current="1"] .item[data-index="1"],
+		.card-thum-list[data-current="2"] .item[data-index="2"],
+		.card-thum-list[data-current="3"] .item[data-index="3"],
+		.card-thum-list[data-current="4"] .item[data-index="4"],
+		.card-thum-list[data-current="5"] .item[data-index="5"],
+		.card-thum-list[data-current="6"] .item[data-index="6"],
+		.card-thum-list[data-current="7"] .item[data-index="7"],
+		.card-thum-list[data-current="8"] .item[data-index="8"],
+		.card-thum-list[data-current="9"] .item[data-index="9"]{ 
+			border: 2px solid yellow; 
+		}
+
+
+		.card-thum-list[data-current="6"] .card-inner{ margin-left: -80px; }
+		.card-thum-list[data-current="7"] .card-inner{ margin-left: -160px; }
+		.card-thum-list[data-current="8"] .card-inner{ margin-left: -240px; }
+		.card-thum-list[data-current="9"] .card-inner{ margin-left: -320px; }
+		.card-thum-list[data-current="10"] .card-inner{ margin-left: -400px; }
+
+		
+		.btn em{
+			position: absolute;
+		    overflow: hidden;
+		    margin: -1px;
+		    border: 0;
+		    padding: 0;
+			width: 1px;
+			height: 1px;
+			font-size: 0;
+			clip: rect(0 0 0 0);
+		}
+		.btn-prev:before {
+			content: '';
+			display: block;
+			width: 15px;
+			height: 15px;
+			border-left: 1px solid #000;
+			border-top: 1px solid #000;
+			transform:rotate(-45deg);
+		}
+
+		.btn-next:before{
+			content: '';
+			display: block;
+			width: 15px;
+			height: 15px;
+			border-right: 1px solid #000;
+			border-top: 1px solid #000;
+			transform:rotate(45deg);
+		}
+	</style>
+</head>
+<body>
+	<h2># Product Detail view - Product Companent</h2>
+
+	<div class="cpnt-card-prd">
+		<div class="card-prd-inner">
+			
+			<!-- card-preview -->
+			<div class="card-preview" data-type="img">
+				<div class="card-inner">
+					
+					<div class="card-main" data-type="img"><img src="http://img.shinsegaetvshopping.com/goods/050/10053050_h_20181106162905.jpg" alt="" class="card-main-img"></div>
+					<!--
+					<div data-index="1" data-type="img"><img src="" alt=""></div>
+					<div data-index="2" data-type="img"><img src="" alt=""></div>
+					<div data-index="3" data-type="img"><img src="" alt=""></div>
+					<div data-index="4" data-type="img"><img src="" alt=""></div>
+					<div data-index="5" data-type="img"><img src="" alt=""></div>
+					<div data-index="6" data-type="img"><img src="" alt=""></div>
+					-->
+
+				</div>	
+			</div>
+			
+			<!-- card-thum-list -->
+			<div class="card-thum-list" data-current="1" data-size="" data-type="img">
+				<div class="card-inner">
+					
+					<div class="item" data-index="1" tabindex="0" data-type="img" onclick="ui.sMallPrdCpnt.setPrdPreview(this);"><img src="http://img.shinsegaetvshopping.com/goods/050/10053050_h_20181106162905.jpg" alt=""></div>
+					<div class="item" data-index="2" tabindex="0" data-type="img" onclick="ui.sMallPrdCpnt.setPrdPreview(this);"><img src="http://img.shinsegaetvshopping.com/goods/050/10053050_ah_20181106162911.jpg" alt=""></div>
+					<div class="item" data-index="3" tabindex="0" data-type="img" onclick="ui.sMallPrdCpnt.setPrdPreview(this);"><img src="http://img.shinsegaetvshopping.com/goods/050/10053050_bh_20181106162919.jpg" alt=""></div>
+					<div class="item" data-index="4" tabindex="0" data-type="img" onclick="ui.sMallPrdCpnt.setPrdPreview(this);"><img src="http://img.shinsegaetvshopping.com/goods/050/10053050_ch_20181106162926.jpg" alt=""></div>
+					<div class="item" data-index="5" data-type="img" tabindex="0" onclick="ui.sMallPrdCpnt.setPrdPreview(this);"><img src="http://img.shinsegaetvshopping.com/goods/050/10053050_dh_20181106162934.jpg" alt=""></div>
+					<div class="item" data-index="6" data-type="img" tabindex="0" onclick="ui.sMallPrdCpnt.setPrdPreview(this);"><img src="" alt="" onerror="this.src='http://www.shinsegaetvshopping.com/resources/web/img/onerror/s84x84.png'"></div>
+					
+				</div>
+			</div>
+
+			<!-- div-controlor -->
+			<div class="card-controlor">
+				<span class="sp-left"><button class="btn btn-prev" type="button" onclick="ui.sMallPrdCpnt.prev();"><em>이전</em></button></span>
+				<span class="sp-right"><button class="btn btn-next" type="button" onclick="ui.sMallPrdCpnt.next();"><em>다음</em></button></span>
+			</div>
+
+		</div>
+	</div>
+
+	<script>
+	/* 객체리터럴 / 네임스페이스 사용  */	
+	var ui = window.ui || {};
+
+	ui.sMallPrdCpnt = {
+
+		//필요한 변수 정의
+		/*
+		elCardImg :'',
+		elThumList: '',
+		current: 1,
+		elItem: [],
+		elItemLeng: 0,
+		*/
+
+		init : function(){
+			this.elCardImg = document.querySelector('.card-main-img');
+			this.elThumList = document.querySelector('.card-thum-list');
+			this.current = this.elThumList.getAttribute('data-current');
+			this.elItem = document.querySelectorAll('.item');
+			this.elItemLeng = this.elItem.length;
+		},
+		
+		//preview
+		setPrdPreview : function(el){
+
+			this.init();
+			
+			var idx = el.getAttribute('data-index');
+			var elImg = el.childNodes[0].src;
+			var type = el.getAttribute('data-type');
+
+			if(type="img"){
+				this.setCurrent( idx, elImg);	
+			}
+		},
+		//setCurrent
+		setCurrent : function( vIdx, vImg ){
+			
+			this.elThumList.setAttribute('data-current', vIdx);
+			this.elCardImg.setAttribute('src', vImg);
+		},
+
+		//next Method1
+		next : function(){
+
+			this.init();
+			
+			this.current++;
+
+			if( this.current > this.elItemLeng ){
+				this.current = 1;
+			}
+
+			this.setCurrent( this.current, this.elItem[this.current-1].childNodes[0].src);
+
+		},
+
+		//prev Method2
+		prev : function(){
+
+			this.init();
+
+			this.current--;
+
+			if( this.current <= 0 ){
+				this.current = this.elItemLeng;
+			}
+
+			this.setCurrent( this.current, this.elItem[this.current-1].childNodes[0].src);
+		}
+
+	};
+
+	</script>
+</body>
+</html>

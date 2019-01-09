@@ -130,6 +130,13 @@
 4. 한 사람이 작성한 것처럼 보인다. 
 5. 문서화되어있다. 
 
+Maintainable code means code that:
+• Is readable
+• Is consistent
+• Is predictable
+• Looks as if it was written by the same person
+• Is documented
+
 ```
 
 

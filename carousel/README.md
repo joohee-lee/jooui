@@ -54,8 +54,11 @@
 ```
 
 * <http://jooe.kr/jooui/carousel/ui-carusel-1-1.html>
-* namespace 로 함수(객체리터럴) 설계 
+
+
 ```
+
+ * namespace 로 함수(객체리터럴) 설계 
 /* 객체리터럴 / 네임스페이스 사용  */	
 	var ui = window.ui || {};
 
@@ -91,6 +94,8 @@
 	onclick="ui.sMallPrdCpnt.next();"
 
 
+
+
 ```
 
 * <http://jooe.kr/jooui/carousel/ui-carusel-2.html>
@@ -101,6 +106,7 @@
 * "hover" 추가필요.  
    mouseenter에서 캐러셀의 순환을 일시 중지하고 mouseleave에서 캐러셀을 다시 시작
 
+
 ```
    play: function(){
 
@@ -109,6 +115,7 @@
 	stop: function(){
 
   	}
+
 
 ```
 

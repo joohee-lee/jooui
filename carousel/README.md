@@ -93,9 +93,6 @@
 	onclick="ui.sMallPrdCpnt.prev();"
 	onclick="ui.sMallPrdCpnt.next();"
 
-
-
-
 ```
 
 * <http://jooe.kr/jooui/carousel/ui-carusel-2.html>
@@ -108,18 +105,23 @@
 
 
 ```
-   play: function(){
+	play: function(){
 
-  	},
+		},
 
 	stop: function(){
 
-  	}
-
-
+		}
 ```
 
-* setInterval / clearInterval / setTimeout 개념 
+* setInterval / setTimeout 개념 
+
+> setTimeout / clearTimeout
+> 타이머가 만료된 뒤 함수나 지정된 코드를 실행하는 타이머를 설정합니다.
+ <https://developer.mozilla.org/ko/docs/Web/API/WindowTimers/setTimeout>
+
+> setInterval / clearInterval 
+><https://developer.mozilla.org/ko/docs/Web/API/WindowTimers/setTimeout>
 
 
 ### 참고 URL 

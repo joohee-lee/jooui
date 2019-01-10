@@ -21,7 +21,7 @@
 		.card-thum-list{ 
 			float: left;
 			width: 100px;
-			height: 400px;
+			height: 410px;
 			overflow: hidden;
 			margin: 20px auto 0;
 		}
@@ -72,8 +72,9 @@
 		.card-thum-list[data-current="6"] .item[data-index="6"],
 		.card-thum-list[data-current="7"] .item[data-index="7"],
 		.card-thum-list[data-current="8"] .item[data-index="8"],
-		.card-thum-list[data-current="9"] .item[data-index="9"]{ 
-			border: 2px solid yellow; 
+		.card-thum-list[data-current="9"] .item[data-index="9"],
+		.card-thum-list[data-current="10"] .item[data-index="10"]{ 
+			border: 2px solid red; 
 		}
 
 
@@ -114,6 +115,12 @@
 			border-bottom: 1px solid #000;
 			transform:rotate(45deg);
 		}
+
+		.card-auto[data-state='play'] .btn-play,
+		.card-auto[data-state='pause'] .btn-pause{display: none;}
+
+		.card-auto[data-state='pause'] .btn-play,
+		.card-auto[data-state='play'] .btn-pause{display: block;}
 	</style>
 </head>
 <body>
@@ -158,6 +165,12 @@
 				<span class="sp-left"><button class="btn btn-prev" type="button" onclick="ui.sMallPrdCpnt.prev();"><em>이전</em></button></span>
 				<span class="sp-right"><button class="btn btn-next" type="button" onclick="ui.sMallPrdCpnt.next();"><em>다음</em></button></span>
 			</div>
+		
+			<!-- play / sotp -->
+			<div class="card-auto" data-state="play">
+				<button type="button" class="btn-play" onclick="ui.sMallPrdCpnt.play();"><em>play</em></button>
+				<button type="button" class="btn-pause" onclick="ui.sMallPrdCpnt.stop();"><em>stop</em></button>
+			</div>
 
 		</div>
 	</div>
@@ -175,6 +188,7 @@
 		current: 1,
 		elItem: [],
 		elItemLeng: 0,
+		elCardAuto:'',
 		*/
 
 		init : function(){
@@ -232,9 +246,33 @@
 			}
 
 			this.setCurrent( this.current, this.elItem[this.current-1].childNodes[0].src);
+		},
+
+		//play method3
+		play : function(){
+			console.log("play");
+			var elCardAuto = document.querySelector('.card-auto');
+
+			var self = this;
+			this.interval = setInterval( function(){ self.next(); }, 2000);
+
+			elCardAuto.setAttribute('data-state', 'play');
+
+		},
+
+		//stop method4
+		stop : function(){
+			console.log("stop");
+			var elCardAuto = document.querySelector('.card-auto');
+			
+			clearInterval(this.interval);
+			elCardAuto.setAttribute('data-state', 'pause');
 		}
 
 	};
+
+	//autorolling 
+	ui.sMallPrdCpnt.play();
 
 	</script>
 </body>

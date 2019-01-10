@@ -51,13 +51,13 @@
 		.cpnt-card-prd .sp-left{ 
 		 	position: absolute;
 		 	left: 20px;
-		 	bottom: 25px;
+		 	bottom: 50px;
 		 }
 
 		 .cpnt-card-prd .sp-right{ 
 		 	position: absolute;
 		 	right: 20px;
-		 	bottom: 25px;
+		 	bottom: 50px;
 		 }
 		
 		/* js */
@@ -83,12 +83,43 @@
 		.card-thum-list[data-current="8"] .card-inner{ margin-left: -240px; }
 		.card-thum-list[data-current="9"] .card-inner{ margin-left: -320px; }
 		.card-thum-list[data-current="10"] .card-inner{ margin-left: -400px; }
+
+		.btn em{
+			position: absolute;
+		    overflow: hidden;
+		    margin: -1px;
+		    border: 0;
+		    padding: 0;
+			width: 1px;
+			height: 1px;
+			font-size: 0;
+			clip: rect(0 0 0 0);
+		}
+		.btn-prev:before {
+			content: '';
+			display: block;
+			width: 15px;
+			height: 15px;
+			border-left: 1px solid #000;
+			border-top: 1px solid #000;
+			transform:rotate(-45deg);
+		}
+
+		.btn-next:before{
+			content: '';
+			display: block;
+			width: 15px;
+			height: 15px;
+			border-right: 1px solid #000;
+			border-top: 1px solid #000;
+			transform:rotate(45deg);
+		}
 	</style>
 </head>
 <body>
 	<h2># Product Detail view - Product Companent</h2>
 
-	<div class="cpnt-card-prd">
+	<div id="cpnt-prd-view" class="cpnt-card-prd">
 		<div class="card-prd-inner">
 			
 			<!-- card-preview -->

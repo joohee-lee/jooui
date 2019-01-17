@@ -1,0 +1,61 @@
+
+/// Calculate Rem
+/// @param {pixel} $px
+/// @param {pixel} $root-px [$font-size-base] - root typesize in pixels
+
+$base-typesize : 16;
+@function getRem($px, $base-px: $base-typesize) {
+  @if $is--rem == true {
+     @return #{$px / $base-px}rem;
+  } @else {
+     @return #{$px}px;
+  }
+}
+
+//calulate vw 
+//default vw
+$base-breakpoint: 1440;
+@function getVw($target, $base-breakpoint: $base-breakpoint) { 
+ @if $is--vw == true {
+    $vw-context: ($base-breakpoint*.01) * 1px;
+    @return ($target/$vw-context) * 1vw;
+  }  
+}
+
+
+/// Convert em to unitless
+/// @param {number} $value
+/// @param {number} $root [$root-typesize]
+@function unitless-convert($value, $root: $root-typesize) {
+  @if unit($value) == '' {
+    $value: $value;
+  }
+  @if unit($value) == 'em' {
+    $value: $value / 1em;
+  }
+  @if unit($value) == 'px' {
+    $value: $value / $root;
+  }
+  @return $value;
+}
+
+
+@function clear-units($value){
+    @if type-of($value) == "number" {
+        @if (unitless($value)) {
+            @return $value;
+        } @else if unit($value) == "em"{
+            @return $value / 1em;
+        } @else if unit($value) == "px" {
+            @return $value / 1px;
+        } @else if unit($value) == "pt" {
+            @return $value / 1pt;
+        }
+    } @else {
+        @warn "Not a number value: #{$value}";
+        @return $value;
+    }
+}
+
+
+

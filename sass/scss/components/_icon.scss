@@ -1,0 +1,33 @@
+//
+// Base styles
+//
+
+//icon
+.ico{
+	display: inline-block;
+	text-indent: -9999rem;
+	background-image: url(layout.png);
+	background-size: getRem(200);
+
+	&-logo{
+		width: getRem(80);
+		height: getRem(25);
+		background-position: get-rem(-82) 0;
+	}
+
+	&-search{
+		width: getRem(40);
+		height: getRem(40);
+		background-position: 0 0;
+	}
+
+	&-barcode{
+		width: getRem(40);
+		height: getRem(40);
+		background-position: getRem(-41) 0;
+	}
+
+}
+
+
+

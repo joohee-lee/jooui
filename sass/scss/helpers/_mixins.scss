@@ -1,0 +1,301 @@
+
+
+//a11y (blind text) 
+@mixin a11y{
+	visibility: hidden;
+	overflow: hidden;
+	position: absolute;
+	left: 0; top: 0;
+	width: 1px; height: 1px;
+	font-size: 0;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+}
+
+//clearfix
+@mixin clearfix{
+	&:after{
+		content: '';
+		clear: both;
+		display: block;
+	}
+}
+
+//ellipsis
+@mixin ellipsis{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+//ellipsis-line
+@mixin ellipsis-line($line){
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: $line;
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+}
+
+//placeholder
+//@include input-placeholder { color: #ddd; }
+
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+
+//border-radius
+@mixin border-radius($radii){
+	//border-radius: $radii
+	@include prefixer( border-radius, $radii, webkit moz);
+}
+
+@mixin border-top-radius($radii) {
+  //border-top-left-radius: $radii;
+  //border-top-right-radius: $radii;
+  @include prefixer( border-top-left, $radii, webkit moz);
+  @include prefixer( border-top-right, $radii, webkit moz);
+}
+
+@mixin border-right-radius($radii) {
+  //border-bottom-right-radius: $radii;
+  //border-top-right-radius: $radii;
+  @include prefixer( border-bottom-right, $radii, webkit moz);
+  @include prefixer( border-top-right, $radii, webkit moz);
+}
+
+@mixin border-bottom-radius($radii) {
+  //border-bottom-left-radius: $radii;
+  //border-bottom-right-radius: $radii;
+  @include prefixer( border-bottom-left, $radii, webkit moz);
+  @include prefixer( border-bottom-right, $radii, webkit moz);
+}
+
+
+@mixin border-left-radius($radii) {
+  //border-bottom-left-radius: $radii;
+  //border-top-left-radius: $radii;
+  @include prefixer( border-bottom-left, $radii, webkit moz);
+  @include prefixer( border-top-left, $radii, webkit moz);
+}
+
+
+//transition
+$transition-base: all .2s ease-in-out !default;
+$transition-fade: opacity .15s linear !default;
+$transition-collapse: height .35s ease !default;
+
+@mixin transition($transition...) {
+	@if is--transitions {
+
+		@if length($transition) == 0 {
+			@include prefixer( transition, $transition-base, webkit);
+		}@else{
+			@include prefixer( transition, $transition, webkit);
+		}
+
+	}
+}
+
+
+//opacity
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+//Prefix (bourbon)
+@mixin prefixer( $property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{"-" + $prefix + "-" + $property}: $value;
+  }
+  #{$property}: $value;
+}
+
+//box-sizing 
+@mixin box-sizing( $box-val ){
+	@include prefixer(box-sizing, $box-val, webkit moz);
+}
+
+//flex
+@mixin flex( $flex-val ){
+	@include prefixer(flex, $flex-val, webkit moz ms);
+}
+
+//box-shadow
+@mixin box-shadow( $prop ){
+	@include prefixer(box-shadow, $prop, webkit moz);
+}
+
+//tarnsition
+@mixin transition( $prop){
+	@include prefixer(transition, $prop, webkit moz o);
+}
+
+@mixin transition-duration($time: 0.5s){
+	@include prefix(transition-duration, $time, webkit moz o);
+}
+
+@mixin transition-delay($time){
+	@include prefix(transition-delay, $time, webkit moz o);
+}
+
+//transform 
+@mixin transform( $prop){
+	@include prefixer(transform, $prop, webkit moz o);
+}
+
+@mixin translate3d($x, $y, $z){
+    @include prefix(transform, translate3d($x, $y, $z), webkit moz ms o);
+    // -webkit-transform : translate3d($x, $y, $z);
+    // -moz-transform : translate3d($x, $y, $z);
+    // -o-transform : translate3d($x, $y, $z);
+    // transform : translate3d($x, $y, $z);
+}
+
+//animation
+
+
+//breakpoints - mediaquery 
+//xs, sm, md, lg , xl 
+$MQs: true;
+
+@mixin bp-max($point) {
+  
+  $bp-xs: "(max-width: 320px)";
+  $bp-sm: "(max-width: 576px)";
+  $bp-md: "(max-width: 768px)";
+  $bp-lg: "(max-width: 992px)";
+  $bp-xl: "(max-width: 1200px)";
+
+@if($MQs){	
+
+		@if $point == bp-xl {
+		@media #{$bp-xl} { @content; }
+		}
+		@else if $point == bp-lg {
+		@media #{$bp-lg} { @content; }
+		}
+		@else if $point == bp-md {
+		@media #{$bp-md}  { @content; }
+		}
+		@else if $point == bp-sm {
+		@media #{$bp-sm}  { @content; }
+		}
+		@else if $point == bp-xs {
+		@media #{$bp-xs}  { @content; }
+		}
+ 	}
+}
+
+@mixin bp-min($point) {
+  
+  $bp-xs: "(min-width: 0px)";
+  $bp-sm: "(min-width: 576px)";
+  $bp-md: "(min-width: 768px)";
+  $bp-lg: "(min-width: 992px)";
+  $bp-xl: "(min-width: 1200px)";
+
+@if($MQs){	
+	
+		@if $point == bp-xl {
+		@media #{$bp-xl} { @content; }
+		}
+		@else if $point == bp-lg {
+		@media #{$bp-lg} { @content; }
+		}
+		@else if $point == bp-md {
+		@media #{$bp-md}  { @content; }
+		}
+		@else if $point == bp-sm {
+		@media #{$bp-sm}  { @content; }
+		}
+		@else if $point == bp-xs {
+		@media #{$bp-xs}  { @content; }
+		}
+ 	}
+}
+
+//min-max
+@mixin bp-between($min, $max) {
+	@if($MQs){
+		 @media (min-width: $min) and (max-width: $max) {
+		    @content;
+		}
+	}	  
+}
+
+
+//sass syntex: map_has_key , map_get;
+$breakpoints: (
+    "xs":  400px, //phone
+    "s":   480px, //phone-wide
+    "sm":  560px, //phablet
+    "m":   640px, //tablet-small
+    "md":  768px, //tablet
+    "lg":  1024px, //tablet-wide
+    "xl":  1248px, //desktop
+    "xxl": 1440px  //desktop-wide
+);
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        
+        $width: map_get($breakpoints, $width);
+        
+        @if $type == max {
+            $width: $width - 1px;
+        }
+
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+//vw mixin add 
+
+// Mixin
+@mixin fontsize-vw($size, $type, $width) {
+  
+  $width: map_get($breakpoints, $width);	
+  
+  font-size: getVw($size);
+  // Prevent font-size from getting too big
+  @media only screen and (#{$type}-width: $width) {
+    font-size: $size;
+  }
+}
+
+
+//@include fontsize-vw(72px, min, xxl)
+
+//z-index
+$z-indexes: (
+	"zindex-dropdown":          1000,
+	"zindex-sticky":            1020,
+	"zindex-fixed":             1030,
+	"zindex-modal-backdrop":    1040,
+	"zindex-modal":             1050,
+	"zindex-popover":           1060,
+	"zindex-tooltip":           1070
+);
+
+//z-index mixin
+@mixin z-index($key) {
+	
+	$z-index : map_get($z-indexes, $key);
+	z-index: $z-index;
+}
+
+//@inlcude z-index(modal)
+
+
+
+
+

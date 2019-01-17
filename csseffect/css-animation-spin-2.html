@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css-effect-animation-spin</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		@-webkit-keyframes spinner {
+		  from {
+		    -webkit-transform: rotateY(0deg);
+		  }
+		  to {
+		    -webkit-transform: rotateY(-360deg);
+		  }
+		}
+
+		#stage {
+		  background: red;
+		  margin: 1em auto;
+		  -webkit-perspective: 1200px;
+		}
+
+
+		#spinner {
+		  -webkit-animation-name: spinner;
+		  -webkit-animation-timing-function: linear;
+		  -webkit-animation-iteration-count: infinite;
+		  -webkit-animation-duration: 6s;
+		 -webkit-transform-style: preserve-3d;
+		}
+		#spinner:hover {
+		  -webkit-animation-play-state: paused;
+		}
+
+		#spinner img {
+		  position: absolute;
+		  border: 1px solid #ccc;
+		  background: rgba(255,255,255,0.8);
+		  box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+		}
+		
+
+	</style>
+
+</head>
+<body>
+	
+	<div id="stage" style="padding-left: 180px; height: 160px;">
+		<div id="spinner" style="-webkit-transform-origin: 180px 0 0;">
+			<img style="-webkit-transform: rotateY(0deg) translateX(180px); padding: 0 0 0 160px;" src="https://www.the-art-of-web.com/images/beach1.jpg" width="200" height="160" alt="">
+			<img style="-webkit-transform: rotateY(-72deg) translateX(180px); padding: 0 0 0 147px;" src="https://www.the-art-of-web.com/images/beach2.jpg" width="213" height="160" alt="">
+			<img style="-webkit-transform: rotateY(-144deg) translateX(180px); padding: 0 0 0 120px;" src="https://www.the-art-of-web.com/images/beach3.jpg" width="240" height="160" alt="">
+			<img style="-webkit-transform: rotateY(-216deg) translateX(180px); padding: 0 0 0 147px;" src="https://www.the-art-of-web.com/images/beach4.jpg" width="213" height="160" alt="">
+			<img style="-webkit-transform: rotateY(-288deg) translateX(180px); padding: 0 0 0 122px;" src="https://www.the-art-of-web.com/images/beach5.jpg" width="238" height="160" alt="">
+	
+		</div>
+	</div>
+	
+	
+
+</body>
+</html>

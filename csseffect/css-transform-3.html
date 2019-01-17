@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css-transform</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		
+		.showbox{
+			/*float: left;*/
+			margin: 4em 1em;
+			width: 100px;
+			height: 60px;
+			border: 2px solid green;
+			background-color: #fff;
+			line-height: 60px;
+			text-align: center;
+			-webkit-transition: 1s ease-in-out;
+			-moz-transition: 1s ease-in-out;
+			-o-transition: 1s ease-in-out;
+			transition: 1s ease-in-out;
+			
+		}
+
+		.showbox.slideright:hover{
+			-webkit-transform : translate(3em, 0);
+			-moz-transform : translate(3em, 0);
+			-o-transform : translate(3em, 0);
+			transform : translate(3em 0)
+		
+
+		}
+
+		.showbox.rotate:hover{
+			-webkit-transform : rotate(30deg);
+			-moz-transform : rotate(30deg);
+			-o-transform : rotate(30deg);
+			transform: rotate(30deg);
+			border-color: red;
+			opacity: 1;
+		}
+
+		.showbox.translate:hover{
+			-webkit-transform : translate(-3em, 1em);
+			-moz-transform : translate(-3em, 1em);
+			-o-transform : translate(-3em, 1em);
+			transform : translate(-3em, 1em);
+		
+		}
+
+		.showbox.scale:hover{
+			-webkit-transform : scale(2);
+			-moz-transform : scale(2);
+			-o-transform : scale(2);
+			transform : scale(2);
+		}
+
+	
+
+		.showoff{
+			background-color: green;
+			color: #fff;
+		}
+		.showoff:hover{
+			background-color: red;
+			border-color: red;
+			color: #000;
+			border-radius: 10px;
+			-webkit-transform :scale(2);
+			-moz-transform :scale(2);
+			-o-transform :scale(2);
+			transform: scale(2);
+		}
+
+		.showoff2{
+			background-color: red;
+			border-color: red;
+			border-radius: 10px;
+			color: #000;
+			-webkit-transform :scale(2);
+			-moz-transform :scale(2);
+			-o-transform :scale(2);
+			transform: scale(2);
+		}
+		
+		.showoff2:hover{
+			border-radius: 0;
+			border-color: green;
+			background-color: green;
+			color: #fff;
+			transform: scale(1);
+		}
+		
+		.submenu {
+			width: 400px;
+			margin: 0 auto;
+			background-color: #eee;
+			-webkit-transition: 1s ease-in-out;
+			-moz-transition: 1s ease-in-out;
+			-o-transition: 1s ease-in-out;
+			transition: 1s ease-in-out;
+		}
+		.submenu:hover {
+			margin-top: 100px;
+			background-color: #fc3;
+			-webkit-transform: rotate(360deg) scale(2);
+			-moz-transform: rotate(360deg) scale(2);
+			-o-transform: rotate(360deg) scale(2);
+			-ms-transform: rotate(360deg) scale(2);
+			transform: rotate(360deg) scale(2);
+		}	
+	</style>
+</head>
+<body>
+	<!-- 
+	-webkit-transform
+	-moz-transform
+	--ms-transform
+	transform 	
+	-->	
+
+<div class="submenu">
+	<ul>
+		<li>1. menu1</li>
+		<li>2. menu2</li>
+		<li>3. menu3</li>
+		<li>4. menu4</li>
+		<li>5. menu5</li>
+	</ul>
+</div>	
+<div class="showbox slideright">box 1</div>
+<div class="showbox rotate">box 2</div>
+<div class="showbox translate">box 3</div>
+<div class="showbox scale">box 4</div>
+<div class="showbox showoff">box 5</div>
+<div class="showbox showoff2">box 5</div>
+</body>
+</html>

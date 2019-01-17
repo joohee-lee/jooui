@@ -1,0 +1,58 @@
+//
+// Base styles
+//
+
+.header{
+	position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    &-inner{
+		position: relative;
+		height: getRem(50);
+		border-bottom: 1px solid #ddd;
+		box-sizing: border-box;
+
+		@include clearfix;
+
+		.header-logo{
+			width: getRem(80);
+			margin: 0 auto;
+			padding-top: getRem(10);
+		}
+		
+		.header-barcode{
+			position: absolute;
+			right: getRem(10);
+			top: 0;
+		}
+
+		.header-qr{
+			position: absolute;
+			left: getRem(10);
+			top: getRem(10);
+		}
+
+		.header-search{
+			position: absolute;
+			right: getRem(60);
+			top: 0;
+		}
+
+    }
+}
+
+.header-qr-link{
+	display: block;
+	width: getRem(80);
+	height: getRem(30);
+	line-height: getRem(30);
+	border-radius: getRem(20);
+	background-color: #ccc;
+	text-align: center;
+	font-size: getRem(12);
+}
+
+
+

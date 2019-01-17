@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css-transition-timing-function</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+</head>
+<body>
+
+	<h1> css - transition-timing-function</h1>
+	<p>https://www.the-art-of-web.com/css/timing-function/</p>
+	<h2> 1. Transition Timing Function Options</h2>
+	<style>
+		.stable{ 
+			position: relative;
+			height: 320px;
+		    border: 1px solid #666;
+		    background: #87cefa;
+		}
+
+		.stable .balloon{
+			position: absolute;
+			bottom: 0;
+			width: 100px;
+			height: 163px;
+			background: url(https://www.the-art-of-web.com/images/balloon.png) no-repeat;
+			line-height: 163px;
+    		text-align: center;
+		}
+		
+		.stable:hover .balloon{
+			bottom: 157px;
+			transition-duration: 3s;
+		}
+
+		.stable .balloon.default{
+			left: 39px;
+   			background-image: url(https://www.the-art-of-web.com/images/balloon-blue.png);
+		}
+
+		.stable .balloon.linear{  
+			left: 149px;
+    		transition-timing-function: linear;
+		}
+		.stable .balloon.ease-in{  
+			left: 259px;
+    		transition-timing-function: ease-in;
+    	}
+		.stable .balloon.ease-out{  
+			left: 369px;
+			transition-timing-function: ease-out;
+		}
+		.stable .balloon.ease-in-out{  
+			left: 479px;
+			transition-timing-function: ease-in-out;
+		}
+		.stable .balloon.cubic-bezier{  
+			left: 589px;
+			transition-timing-function: cubic-bezier(0,1,1,0);
+		}
+	</style>
+	<div class="stable">
+		<div class="balloon default">default</div>
+		<div class="balloon linear">linear</div>
+		<div class="balloon ease-in">ease-in</div>
+		<div class="balloon ease-out">ease-out</div>
+		<div class="balloon ease-in-out">ease-in-out</div>
+		<div class="balloon cubic-bezier">cubic-bezier</div>
+	</div>
+
+	<h2>2.cubic-bezier  </h2>
+	<style>
+	  .stable .balloon.bezier1 {
+	  	left: 149px;
+	    transition-timing-function: cubic-bezier(0,1,0,1);
+	  }
+	  .stable .balloon.bezier2 {
+	  	left: 259px;
+	    transition-timing-function: cubic-bezier(0,1,1,0);
+	  }
+	  .stable .balloon.bezier3 {
+	  	left: 369px;
+	    transition-timing-function: cubic-bezier(1,0,1,0);
+	  }
+	  .stable .balloon.bezier4 {
+	  	left: 479px;
+	    transition-timing-function: cubic-bezier(0,1.5,0.5,1);
+	  }
+	  .stable .balloon.bezier5 {
+	  	left: 589px;
+	    transition-timing-function: cubic-bezier(0,2,1,0.5);
+  	 }
+	</style>
+	<div class="stable">
+		<div class="balloon default">default</div>
+		<div class="balloon bezier1">0,1,0,1</div>
+		<div class="balloon bezier2">0,1,1,0</div>
+		<div class="balloon bezier3">1,0,1,0</div>
+		<div class="balloon bezier4">0,1.5,0.5,1</div>
+		<div class="balloon bezier5">0,2,1,0.5</div>
+		
+	</div>
+
+
+	<h2> 3.Img cross FadeIn ( (no JavaScript  ) / transition: 1s ease-in-out;  </h2>
+	<style>
+		.fader{}
+		.fader img { 
+			position: absolute;
+			transition: 1s ease-in-out; 
+		}
+		.fader .swap1,
+		.fader:hover .swap2{opacity: 1;}
+		
+		.fader .swap2,
+		.fader:hover .swap1{opacity: 0;}
+		
+		
+		
+	</style>
+	<div class="fader">
+		<img src="https://www.the-art-of-web.com/images/clinton.jpg"  class="swap1" alt="">
+		<img src="https://www.the-art-of-web.com/images/obama.jpg"  class="swap2" alt="">
+	</div>
+	
+
+	<h2 style="margin-top: 400px">3. Timer using transition-delay</h2>
+	<style>
+		.fader2 td{ 
+				background: red;
+				color: #fff;
+				border: 1px solid #fff;
+				padding: 5px;
+
+				transition-timing-function: cubic-bezier(1,0,1,0);
+				transition-duration: 0.3s;
+		 }
+		 .fader2:hover td { background-color: green; }
+	</style>
+
+	<table class="fader2" >
+		<tr>
+		<td style="transition-delay: 0s;">10%</td>
+		<td style="transition-delay: 0.5s;">20%</td>
+		<td style="transition-delay: 1.0s;">30%</td>
+		<td style="transition-delay: 1.5s;">40%</td>
+		<td style="transition-delay: 2.0s;">50%</td>
+		<td style="transition-delay: 2.5s;">60%</td>
+		<td style="transition-delay: 3.0s;">70%</td>
+		<td style="transition-delay: 3.5s;">80%</td>
+		<td style="transition-delay: 4.0s;">90%</td>
+		<td style="transition-delay: 4.5s;">100%</td>
+		</tr>
+	</table>
+
+	<style type="text/css">
+
+  .step-right {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255,0,0,0.5);
+  }
+  .stable:hover .step-right {
+    width: 100%;
+    transition-duration: 5s;
+    transition-timing-function: steps(10, start);
+  }
+
+  .step-up {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0,0,255,0.5);
+  }
+  .stable:hover .step-up {
+    height: 100%;
+    transition-duration: 5s;
+    transition-timing-function: steps(10, end);
+  }
+
+  .stable .balloon.float{
+  	transition-timing-function: linear;
+  	transition-duration: 5s;
+  }
+
+  
+  @-webkit-keyframes wobble {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	25% {
+		-webkit-transform: rotate(5deg);
+	}
+	75% {
+		-webkit-transform: rotate(-5deg);
+	}
+	to {
+		-webkit-transform: rotateY(0deg);
+	}
+}
+
+@keyframes wobble {
+	from {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(5deg);
+	}
+	75% {
+		transform: rotate(-5deg);
+	}
+	to {
+		transform: rotateY(0deg);
+	}
+}
+
+.stable:hover .balloon {
+	-webkit-animation-name: wobble;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-duration: 2s;
+	animation-name: wobble;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-duration: 2s
+}
+
+
+
+</style>
+	<h2 style="margin-top: 400px">4. using steps(10, start) / steps(10, end)</h2>
+	<div class="stable">
+		<div class="step-right"></div>
+		<div class="step-up"></div>
+		<div class="balloon float">linear</div>
+	</div>
+	
+
+		</div>
+
+</body>
+</html>

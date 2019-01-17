@@ -1,0 +1,152 @@
+//
+// Base styles
+//
+
+//btn variables 
+//$btn-transition: all .15s ease-in-out !default;
+$white : #fff;
+$black : #000;
+$blue : #007bff;
+
+@mixin hover{
+	&:hover { @content }
+}
+@mixin hover-focus{
+	&:hover,
+	&:focus { @content }
+}
+@mixin hover-focus-active{
+	&:hover,
+	&:focus,
+	&:active { @content }
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.btn{
+	display: inline-block;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	user-select: none;
+	border: 1px solid transparent;
+	padding: getRem(6) getRem(12);
+	font-size: getRem(16);
+	line-height: 1.5;
+	box-size: border-box;
+	 @include border-radius(getRem(4));
+	 @include transition(all .15s ease-in-out);
+
+	&[disabled],
+    &.btn--disabled {
+      opacity: .4;
+      pointer-events: none;
+    }
+
+
+	&-primary{     
+		color: $white;
+	    background-color: #007bff;
+	    border-color: #007bff; 
+	    
+	    @include hover{
+	    	color: #007bff;
+	    	background-color: #fff;
+	    	border-color: #007bff;
+	    }
+	}
+	
+	&-secondary{
+		color: $white;
+	    background-color: #6c757d;
+	    border-color: #6c757d;
+	}
+	
+	&-success{
+		color: $white;
+	    background-color: #28a745;
+	    border-color: #28a745;
+	}
+	
+	&-danger{
+		color: $white;
+		background-color: #c82333;
+    	border-color: #bd2130;
+	}
+
+	&-warning{
+		color: $white;
+		background-color: #ffc107;
+    	border-color: #ffc107;
+	}
+
+	&-info{
+		    color: $white;
+		    background-color: #17a2b8;
+		    border-color: #17a2b8;
+	}
+	
+	@include bp-max(bp-sm){
+		display: block;
+		float: left;
+		width: 50%;
+		margin-bottom: getRem(5);
+	}
+
+	@include bp-between(0px, 320px){
+		width: 100%;
+	}
+
+}
+
+.btn-outline{
+	
+	&-primary{
+		color: #007bff;
+	    background-color: $white;
+	    border-color: #007bff;
+	}
+
+	&-secondary{
+		color: #6c757d;
+	    background-color: $white;
+	    border-color: #6c757d;
+	}
+
+	&-success{
+		color: #28a745;
+	    background-color: $white;
+	    border-color: #28a745;
+	}
+	
+	&-danger{
+		color: #c82333;
+		background-color: $white;
+    	border-color: #bd2130;
+	}
+
+	&-warning{
+		color: #ffc107;
+		background-color: $white;
+    	border-color: #ffc107;
+	}
+
+	&-info{
+		    color: #17a2b8;
+		    background-color: $white;
+		    border-color: #17a2b8;
+	}
+
+}
+
+//
+// Block button
+//
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+

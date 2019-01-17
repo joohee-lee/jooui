@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css-effect-transition-rotate</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+
+		html{ height: 100%; }
+		body{ 
+			background-color: #000; 
+		}
+
+		.hero-octonaut {
+			position: absolute;
+			top: 100px;
+			left: calc(50% - 380px);
+			
+			animation: hero-octonaut 2s alternate ease-in-out infinite;
+			will-change: transform;
+			-webkit-user-select: none;
+			user-select: none;
+		}
+
+		@keyframes hero-octonaut{
+			0%{
+				transform: translateY(-8px)
+			}
+			100%{
+
+				transform: translateY(8px)
+			}
+		}
+		
+
+		.hero-logo {
+		    flex: 0 0 500px;
+		    height: 366px;
+		    background-repeat: no-repeat;
+		    background-image: url(http://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-logo-26e553c6c1458b0eca8cd11a50db2abf.svg), url(//github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-sides-3a6de6abb2618541ffcae29405b174c0.svg);
+		    background-position: center;
+		    -webkit-user-select: none;
+		    user-select: none
+		}
+
+		.hero-logo-circles {
+		    width: 366px;
+		    height: 366px;
+		    margin: auto;
+		    position: relative
+		}
+
+		.hero-logo-circle {
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    animation: hero-logo-circle 1s linear infinite;
+		    will-change: transform
+		}
+
+		.hero-logo-circle:nth-child(1) {
+		    animation-duration: 30s
+		}
+
+		.hero-logo-circle:nth-child(2) {
+		    animation-duration: 40s
+		}
+
+		.hero-logo-circle:nth-child(3) {
+		    animation-duration: 50s
+		}
+
+		.hero-logo-circle:nth-child(4) {
+		    animation-duration: 60s
+		}
+
+		.hero-logo-circle:nth-child(5) {
+		    animation-duration: 70s
+		}
+
+		.hero-logo-circle:nth-child(6) {
+		    animation-duration: 80s
+		}
+
+		.hero-logo-circle:nth-child(7) {
+		    animation-duration: 90s
+		}
+
+		.hero-logo-circle:nth-child(8) {
+		    animation-duration: 100s
+		}
+
+		.hero-logo-circle:nth-child(9) {
+		    animation-duration: 110s
+		}
+
+		.hero-logo-circle:nth-child(10) {
+		    animation-duration: 120s
+		}
+
+		@keyframes hero-logo-circle {
+		    100% {
+		        transform: rotate(1turn)
+		    }
+		}
+
+	</style>
+
+</head>
+<body>
+	
+<div class="hero-wrap">
+	<div class="hero-octonaut"><img src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-octonaut-aa46769a0faab2d9401eacaac4d1528e.svg" alt=""></div>
+
+	<div class="hero-logo">
+		<div class="hero-logo-circles">
+		  <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-red-semi-206422653d447e981744a5f5865e8225.svg" alt="Index portal red semi" />
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-red-9bff954009d893312ac619e31af14ae1.svg" alt="Index portal red" />
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-orange-semi-c671a2be2b56754be0c2fdf64244b1bb.svg" alt="Index portal orange semi" />
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-orange-4ba73231728c110e0fe16aba5194e92b.svg" alt="Index portal orange" />
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-yellow-semi-93c8853cbd3ebf297aead4efaf5a6ca3.svg" alt="Index portal yellow semi" />
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-yellow-1a0199e2dd6d8df832c4bbbda2b0392b.svg" alt="Index portal yellow" />
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-green-semi-dbb1db021647238b23d575ba492441e6.svg" alt="Index portal green semi" />
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-green-2c971eb899d32fa7bdb26fac8b1bedd7.svg" alt="Index portal green" />
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-blue-semi-c37d271ed0200999eed96db9a3d9ebef.svg" alt="Index portal blue semi" />
+          <img class="hero-logo-circle" src="https://github-atom-io-herokuapp-com.freetls.fastly.net/assets/index-portal-blue-c2e705932469b61cbb9ceb0b6b778e35.svg" alt="Index portal blue" />
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

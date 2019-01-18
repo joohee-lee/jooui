@@ -1,10 +1,10 @@
 # JSON 
-> JSON (Javascirpt Object Notatioln)
-> <http://json.org>
-> <https://www.json.org/json-ko.html>
+- JSON (Javascirpt Object Notatioln)
+- <http://json.org>
+- <https://www.json.org/json-ko.html>
 
 ## JSON 문서 
-> application/json / 확장자 .json 
+- application/json / 확장자 .json 
 
 ## 자바스크립트의 JSON 오브젝트 
 - new 연산자를 사용해서 인스턴스를 생성할 수 없음. 

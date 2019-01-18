@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-event-touch</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+
+	<style>
+		h1{ font-size: 30px; }
+		p{ 
+			width: 100%;
+			box-sizing: border-box;
+			font-size: 16px;
+			line-height: 1.5;
+			padding: 10px;
+			margin: 0 auto;
+			background-color: #000; 
+			color: #fff; 
+			
+		}
+	</style>
+</head>
+<body>
+	<h1>Touch event</h1>
+	<p>
+		This is a paragraph with some text. 
+		It is waiting to be touched. 
+		It can only be touched on a touch capable device like a mobile
+		phone on tablet. 
+		clicking it with a mouse will not accomplish anything 
+	</p>
+
+	<script>
+		//touch events - touchstart, touchend, touchmove, touchcancel
+		//work on devices that are touch capable
+		//No error on other devices because 'touchstart' is just a name like winlottery 
+		//the event will probably just never happen on my laptop
+
+		document.querySelector('p').addEventListener('touchstart', f);
+		document.querySelector('p').addEventListener('touchend', f);
+		document.querySelector('p').addEventListener('touchmove', f);
+		
+
+		function f(ev){
+
+			console.log(ev.touches, ev.type)
+
+		}
+	</script>
+</body>
+</html>

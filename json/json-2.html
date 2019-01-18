@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>json - test</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<p>console 창 실행.</p>
+</body>
+<script>
+	console.log(JSON.parse("null"));
+
+	var result = JSON.parse('{"sports" : "soccer"}');
+	for (var name in result){
+		console.log( 'name: ' + name + ', value :' + result[name]);
+	}
+
+</script>
+
+
+</html>

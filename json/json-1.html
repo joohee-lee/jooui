@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>json - test</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<p>console 창 실행.</p>
+</body>
+<script>
+	var result = JSON.parse("123");
+	
+	console.log("result : " + result);
+	console.log("result : " + typeof result);
+
+	result = JSON.parse('["ABC","가나다"]');
+	for (var k = 0; k < result.length; k++){
+
+		console.log(result[k]) ;
+	}
+
+
+	
+</script>
+
+
+</html>

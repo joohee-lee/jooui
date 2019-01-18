@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>json - test</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<p>console 창 실행.</p>
+</body>
+<script>
+	try{
+		var result = JSON.parse('{"soccer" : "55", "ball": "22"}',
+			function(key, value){
+				return key === 'soccer' ? 11 : value;
+			});
+
+	}catch(e){
+
+		console.log("JSON 변환 에러");
+
+	}
+
+
+	for (var key in result){
+		console.log( 'name: ' + key + ', vaule: ' + result[key]);
+	}
+
+</script>
+
+
+</html>

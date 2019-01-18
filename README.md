@@ -39,6 +39,79 @@
 
 ## css
 
+### code Guide
+<http://codeguide.co/>
+
+### css declaration order
+1. Positioning
+2. Box model
+3. Typographic
+4. Visual
+
+```
+declaration-order {
+  /* Positioning */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+
+  /* Box-model */
+  display: block;
+  float: right;
+  width: 100px;
+  height: 100px;
+
+  /* Typography */
+  font: normal 13px "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  color: #333;
+  text-align: center;
+
+  /* Visual */
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+
+  /* Misc */
+  opacity: 1;
+}
+```
+
+### css Attribute order
+```
+
+> Attribute order
+1. class
+2. id, name
+3. data-*
+4. src, for, type, href, value
+5. title, alt
+6. role, aria-*
+
+
+<a class="..." id="..." data-toggle="modal" href="#">
+  Example link
+</a>
+
+<input class="form-control" type="text">
+
+<img src="..." alt="...">
+
+> Boolean attributes
+
+<input type="text" disabled>
+
+<input type="checkbox" value="1" checked>
+
+<select>
+  <option value="1" selected>1</option>
+</select>
+
+```
+
 ### Responsive breakpoints
 ```
 //sm devices 기준 

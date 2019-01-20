@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>coupang-cpnt-main-prd</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!--<link rel="stylesheet" href="../dist/base.css">-->
+	<link rel="stylesheet" href="../dist/css/main.css">
+</head>
+<body>
+<!-- coupang main prd compnt-->
+<!--
+
+data-cateory ="woman"
+data-cateory ="man"
+data-cateory ="baby"
+
+
+cpnt-ctgbest
+	.cpnt-inner
+
+	.ctgbest-header
+		
+		.ctgbest-title
+			.ctgbest-name
+			.ctgbest-link
+
+		.ctgbest-keyword
+			.keyword-title
+			.keyword-list
+				.keyword-item
+	
+	.ctgbest-promo
+		.promo-list ( data-current=1 )
+			.promo-item (data-index=1)
+				.promo-caption
+					.promo-title
+					.promo-desc
+				.promo-img
+				
+			.promo-item
+			.promo-item
+			.promo-item
+			.promo-item
+
+		.div-nav
+			.sp-dot
+			.sp-dot
+			.sp-dot
+			.sp-dot
+			.sp-dot
+
+		.div-control
+			.btn-prev
+			.btn-next	
+
+
+	.ctgbest-prd (#list1 ~ list5)
+		
+		.prd-lists (data-current="1")
+			.prd-list
+				.prd-item   (data-index="1")
+					.prd-img
+					.prd-name
+					.prd-discount-price
+					.prd-price
+						.badge-discount
+						.badge-rocket
+				.prd-item 
+				.prd-item 
+				.prd-item 
+				.prd-item 		
+				.prd-item 
+
+		.div-nav
+			.sp-dot
+			.sp-dot
+			.sp-dot
+			.sp-dot
+			.sp-dot
+
+		.div-control
+			.btn-prev
+			.btn-next
+						
+-->	
+	<div id="cpntCtgBestWoman" class="cpnt-ctgbest" data-category="woman">
+		<div class="cpnt-inner">
+
+			<!-- ctgbest-header -->
+			<div class="ctgbest-header">
+				<div class="ctgbest-title">
+					<h2 class="ctgbest-name">여성</h2>
+					<p class="ctgbest-link"><a href="#">바로가기</a></p>
+				</div>
+
+				<div class="ctgbest-keyword">
+					<h3 class="keyword-title">HOT 키워드</h3>
+					<div class="keyword-list">
+						<a href="#" class="keyword-item">#keyword1</a>
+						<a href="#" class="keyword-item">#keyword2</a>
+						<a href="#" class="keyword-item">#keyword3</a>
+						<a href="#" class="keyword-item">#keyword4</a>
+						<a href="#" class="keyword-item">#keyword5</a>
+						<a href="#" class="keyword-item">#keyword6</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- ctgbest-promo -->
+			<div class="ctgbest-promo">
+				
+				<!--promo list -->
+				<div class="promo-list" data-current="1">
+					<div class="promo-item" data-index="1">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title"></strong>
+								<span class="promo-desc"></span>
+							</span>
+							<span class="promo-img"><img src="" alt=""></span>
+						</a>
+					</div>
+					<div class="promo-item" data-index="2">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title"></strong>
+								<span class="promo-desc"></span>
+							</span>
+							<span class="promo-img"><img src="" alt=""></span>
+						</a>
+					</div>
+					<div class="promo-item" data-index="3">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title"></strong>
+								<span class="promo-desc"></span>
+							</span>
+							<span class="promo-img"><img src="" alt=""></span>
+						</a>
+					</div>
+					<div class="promo-item" data-index="4">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title"></strong>
+								<span class="promo-desc"></span>
+							</span>
+							<span class="promo-img"><img src="" alt=""></span>
+						</a>
+					</div>
+					<div class="promo-item" data-index="5">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title"></strong>
+								<span class="promo-desc"></span>
+							</span>
+							<span class="promo-img"><img src="" alt=""></span>
+						</a>
+					</div>
+				</div>
+				
+				<!-- nav-dot -->
+				<div class="nav-list">
+					<ul>
+						<li class="nav-item" data-index="1"><a href="#"><span class="ico-dot">1</span></a></li>
+						<li class="nav-item" data-index="2"><a href="#"><span class="ico-dot">2</span></a></li>
+						<li class="nav-item" data-index="3"><a href="#"><span class="ico-dot">3</span></a></li>
+						<li class="nav-item" data-index="4"><a href="#"><span class="ico-dot">4</span></a></li>
+						<li class="nav-item" data-index="5"><a href="#"><span class="ico-dot">5</span></a></li>
+					</ul>
+				</div>
+
+				<!-- control -->
+				<div class="div-controls">
+					 <button type="button" class="btn-prev"><span>이전</span></button>
+					 <button type="button" class="btn-next"><span>다음</span></button>
+				</div>
+				
+			</div>
+			<!-- //ctgbest-promo -->
+
+			<!-- ctgbest-prds -->
+			<div class="ctgbest-prds">
+				<!-- list -->
+				<div class="prd-list" data-current="1">
+					<ul>
+						<li class="item" data-index="1">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price--sale">7,000원</span>
+									<span class="prd-price">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="2">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price--sale">7,000원</span>
+									<span class="prd-price">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="3">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price--sale">7,000원</span>
+									<span class="prd-price">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="4">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price--sale">7,000원</span>
+									<span class="prd-price">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="5">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price--sale">7,000원</span>
+									<span class="prd-price">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="6">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price--sale">7,000원</span>
+									<span class="prd-price">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<!-- nav-dot -->
+				<div class="nav-list">
+					<ul>
+						<li class="nav-item" data-index="1"><a href="#"><span class="ico-dot">1</span></a></li>
+						<li class="nav-item" data-index="2"><a href="#"><span class="ico-dot">2</span></a></li>
+						<li class="nav-item" data-index="3"><a href="#"><span class="ico-dot">3</span></a></li>
+						<li class="nav-item" data-index="4"><a href="#"><span class="ico-dot">4</span></a></li>
+						<li class="nav-item" data-index="5"><a href="#"><span class="ico-dot">5</span></a></li>
+					</ul>
+				</div>
+
+				<!-- control -->
+				<div class="div-controls">
+					 <button type="button" class="btn-prev"><span>이전</span></button>
+					 <button type="button" class="btn-next"><span>다음</span></button>
+				</div>	
+
+			</div>
+			<!-- //ctgbest-prds -->
+
+		</div>
+	</div>
+</body>
+</html>

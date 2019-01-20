@@ -109,6 +109,12 @@ var c = new uiRollingA();
 c.play('compBanner3', 2000);
 ```
 
+### 4. coupang main  - 카테고리별  BEST 상품 component 
+
+- <https://www.coupang.com/>
+- 2019.01.20
+- <http://jooe.kr/jooui/rolling/coupang_product.html>
+- <http://jooe.kr/jooui/rolling/coupang_product-2.html>
 
 
 

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>coupang-cpnt-main-prd</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="css_coupang_product.css">
+</head>
+<body>
+<!-- coupang main prd compnt-->
+<!--
+
+data-cateory ="woman"
+data-cateory ="man"
+data-cateory ="baby"
+
+
+cpnt-ctgbest
+	.cpnt-inner
+
+	.ctgbest-header
+		
+		.ctgbest-title
+			.ctgbest-name
+			.ctgbest-link
+
+		.ctgbest-keyword
+			.keyword-title
+			.keyword-list
+				.keyword-item
+	
+	.ctgbest-promo
+		.promo-list ( data-current=1 )
+			.promo-item (data-index=1)
+				.promo-caption
+					.promo-title
+					.promo-desc
+				.promo-img
+				
+			.promo-item
+			.promo-item
+			.promo-item
+			.promo-item
+
+		.div-nav
+			.sp-dot
+			.sp-dot
+			.sp-dot
+			.sp-dot
+			.sp-dot
+
+		.div-control
+			.btn-prev
+			.btn-next	
+
+
+	.ctgbest-prds 
+		
+		.prd-lists (data-current="1")
+			.prd-list
+				.prd-item   (data-index="1") (1~18개)
+					.prd-img
+					.prd-name
+					.prd-price (data-type="sale")
+					.prd-price (data-type="normal")
+						.badge-discount
+						.badge-rocket
+				.prd-item 
+				.prd-item 
+				.prd-item 
+				.prd-item 		
+				.prd-item 
+
+		.div-nav
+			.sp-dot
+			.sp-dot
+			.sp-dot
+			.sp-dot
+			.sp-dot
+
+		.div-control
+			.btn-prev
+			.btn-next
+						
+-->	
+	<h2 style="text-align: center">쿠팡 - Main - 카테고리 베스트 상품 컴포넌트 </h2>
+	<!-- 여성 -->
+	<div id="cpntCtgBestWoman" class="cpnt-ctgbest ctgWoman" data-category="woman">
+		<div class="cpnt-inner">
+
+			<!-- ctgbest-header -->
+			<div class="ctgbest-header">
+				<div class="ctgbest-title">
+					<h2 class="header-txt"><img src="http://image15.coupangcdn.com/image/coupang/main/categoryBest/best_title_womanclothe2.png" alt="여성패"></h2>
+					<a href="#" class="header-link">바로가기</a>
+				</div>
+
+				<div class="ctgbest-keyword">
+					<h3 class="keyword-title">HOT 키워드</h3>
+					<div class="keyword-list">
+						<a href="#" class="keyword-item"><span>#keyword1</span></a>
+						<a href="#" class="keyword-item"><span>#keywordddd2</span></a>
+						<a href="#" class="keyword-item"><span>#keyword3</span></a>
+						<a href="#" class="keyword-item"><span>#keyword4</span></a>
+						<a href="#" class="keyword-item"><span>#keyword5</span></a>
+						<a href="#" class="keyword-item"><span>#key6</span></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- ctgbest-promo -->
+			<div class="ctgbest-promo" data-current="1" data-state="">
+				
+				<!--promo list -->
+				<div class="promo-list">
+					<div class="promo-item" data-index="1">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title">xxxx</strong>
+								<span class="promo-desc">xxx</span>
+							</span>
+							<span class="promo-img"><img src="http://thumbnail15.coupangcdn.com/thumbnails/remote/x/image/bannerunit/bannerunit_b8d0a149-31eb-4a7d-93f6-f37bc3e108f9.jpg" alt=""></span>
+						</a>
+					</div>
+					<div class="promo-item" data-index="2">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title">2</strong>
+								<span class="promo-desc">2</span>
+							</span>
+							<span class="promo-img"><img src="http://thumbnail13.coupangcdn.com/thumbnails/remote/x/image/bannerunit/bannerunit_3948a8f3-ecc3-437a-adf1-fa3802121ccd.jpg" alt=""></span>
+						</a>
+					</div>
+					<div class="promo-item" data-index="3">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title">3</strong>
+								<span class="promo-desc">3</span>
+							</span>
+							<span class="promo-img"><img src="http://thumbnail13.coupangcdn.com/thumbnails/remote/x/image/bannerunit/bannerunit_1fd35925-2cb5-41ee-a319-a39a310f1f0e.jpg" alt=""></span>
+						</a>
+					</div>
+					<div class="promo-item" data-index="4">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title">4</strong>
+								<span class="promo-desc">4</span>
+							</span>
+							<span class="promo-img"><img src="http://thumbnail14.coupangcdn.com/thumbnails/remote/x/image/bannerunit/bannerunit_241b9199-7dba-4992-a535-81a388ab75e5.jpg" alt=""></span>
+						</a>
+					</div>
+					<div class="promo-item" data-index="5">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title">5</strong>
+								<span class="promo-desc">5</span>
+							</span>
+							<span class="promo-img"><img src="http://thumbnail12.coupangcdn.com/thumbnails/remote/x/image/bannerunit/bannerunit_d6f111c3-0bba-4a12-9e47-426a0d8075e8.jpg" alt=""></span>
+						</a>
+					</div>
+				</div>
+				
+				<!-- nav-dot -->
+				<div class="nav-list">
+					<ul>
+						<li class="nav-item" data-index="1"><a href="#"><span class="ico-dot">1</span></a></li>
+						<li class="nav-item" data-index="2"><a href="#"><span class="ico-dot">2</span></a></li>
+						<li class="nav-item" data-index="3"><a href="#"><span class="ico-dot">3</span></a></li>
+						<li class="nav-item" data-index="4"><a href="#"><span class="ico-dot">4</span></a></li>
+						<li class="nav-item" data-index="5"><a href="#"><span class="ico-dot">5</span></a></li>
+					</ul>
+				</div>
+
+				<!-- control -->
+				<div class="div-controls">
+					 <button type="button" class="btn btn-prev" onclick="uiBestWoman.prev('ctgWoman');"><span class="a11y">이전</span></button>
+					 <button type="button" class="btn btn-next" onclick="uiBestWoman.next('ctgWoman');"><span class="a11y">다음</span></button>
+				</div>
+			</div>
+			<!-- //ctgbest-promo -->
+
+			<!-- ctgbest-prds -->
+			<div class="ctgbest-prds" data-current="1" data-show="6">
+				<!-- list -->
+				<div class="prd-list">
+					<ul>
+						<li class="item" data-index="1">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail15.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/19/17/9/321a0724-d330-4d94-921b-b677fd9f3541.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="2">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail15.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/19/17/9/321a0724-d330-4d94-921b-b677fd9f3541.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="3">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail15.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/19/17/9/321a0724-d330-4d94-921b-b677fd9f3541.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="4">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail15.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/19/17/9/321a0724-d330-4d94-921b-b677fd9f3541.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="5">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail15.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/19/17/9/321a0724-d330-4d94-921b-b677fd9f3541.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="6">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail15.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/19/17/9/321a0724-d330-4d94-921b-b677fd9f3541.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+
+
+						<li class="item" data-index="7">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/25/19/8/edec5048-1296-4381-8f0b-c9f27b824c85.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="8">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/25/19/8/edec5048-1296-4381-8f0b-c9f27b824c85.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="9">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/25/19/8/edec5048-1296-4381-8f0b-c9f27b824c85.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>								</a>
+							</div>
+						</li>
+						<li class="item" data-index="10">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/25/19/8/edec5048-1296-4381-8f0b-c9f27b824c85.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="11">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/25/19/8/edec5048-1296-4381-8f0b-c9f27b824c85.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="12">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/25/19/8/edec5048-1296-4381-8f0b-c9f27b824c85.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+
+
+						<li class="item" data-index="13">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http:////thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/04/11/2/b8a7e8fa-f2ea-4479-a1fe-83a181fb3d65.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="14">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http:////thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/04/11/2/b8a7e8fa-f2ea-4479-a1fe-83a181fb3d65.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="15">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http:////thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/04/11/2/b8a7e8fa-f2ea-4479-a1fe-83a181fb3d65.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="16">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http:////thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/04/11/2/b8a7e8fa-f2ea-4479-a1fe-83a181fb3d65.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="17">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http:////thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/04/11/2/b8a7e8fa-f2ea-4479-a1fe-83a181fb3d65.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="18">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http:////thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/04/11/2/b8a7e8fa-f2ea-4479-a1fe-83a181fb3d65.png" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+
+				<!-- nav-dot -->
+				<div class="nav-list" style="position: absolute; left: 0; bottom: 20px; background: #fff; width: 100%; text-align: center">
+					<ul>
+						<li class="nav-item" data-index="1"><a href="#" onclick="uiCtgBestPrds.setShow(this, 'ctgWoman'); return false;"><span class="ico-dot">1</span></a></li>
+						<li class="nav-item" data-index="2"><a href="#" onclick="uiCtgBestPrds.setShow(this, 'ctgWoman'); return false;"><span class="ico-dot">2</span></a></li>
+						<li class="nav-item" data-index="3"><a href="#" onclick="uiCtgBestPrds.setShow(this, 'ctgWoman'); return false;"><span class="ico-dot">3</span></a></li>
+					</ul>
+				</div>
+
+				<!-- control -->
+				<div class="div-controls">
+					 <button type="button" class="btn btn-prev" onclick="uiCtgBestPrds.prev('ctgWoman');"><span class="a11y">이전</span></button>
+					 <button type="button" class="btn btn-next" onclick="uiCtgBestPrds.next('ctgWoman');"><span class="a11y">다음</span></button>
+				</div>	
+
+			</div>
+			<!-- //ctgbest-prds -->
+	
+		</div>
+	</div>
+
+	<br />
+	
+	<!-- 남성  id="cpntCtgBestMan" class="cpnt-ctgbest ctgMan" -->
+	<div id="cpntCtgBestMan" class="cpnt-ctgbest ctgMan" data-category="man">
+		<div class="cpnt-inner">
+
+			<!-- ctgbest-header -->
+			<div class="ctgbest-header">
+				<div class="ctgbest-title">
+					<h2 class="header-txt"><img src="http://image15.coupangcdn.com/image/coupang/main/categoryBest/best_title_manclothe.png" alt="여성패"></h2>
+					<a href="#" class="header-link">바로가기</a>
+				</div>
+
+				<div class="ctgbest-keyword">
+					<h3 class="keyword-title">HOT 키워드</h3>
+					<div class="keyword-list">
+						<a href="#" class="keyword-item"><span>#keyword1</span></a>
+						<a href="#" class="keyword-item"><span>#keywordddd2</span></a>
+						<a href="#" class="keyword-item"><span>#keyword3</span></a>
+						<a href="#" class="keyword-item"><span>#keyword4</span></a>
+						<a href="#" class="keyword-item"><span>#keyword5</span></a>
+						<a href="#" class="keyword-item"><span>#key6</span></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- ctgbest-promo -->
+			<div class="ctgbest-promo" data-current="1" data-state="">
+				
+				<!--promo list -->
+				<div class="promo-list">
+					<div class="promo-item" data-index="1">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title">xxxx</strong>
+								<span class="promo-desc">xxx</span>
+							</span>
+							<span class="promo-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/x/image/bannerunit/bannerunit_7d0f8e0b-3409-491a-8c5e-af2c15717883.jpg" alt=""></span>
+						</a>
+					</div>
+					<div class="promo-item" data-index="2">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title">2</strong>
+								<span class="promo-desc">2</span>
+							</span>
+							<span class="promo-img"><img src="https://static.coupangcdn.com/image/cmg/display-service/paper-boy/ad-image/1547192728782/C3_MY181226_13_2_PC.jpg" alt=""></span>
+						</a>
+					</div>
+					<div class="promo-item" data-index="3">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title">3</strong>
+								<span class="promo-desc">3</span>
+							</span>
+							<span class="promo-img"><img src="http://thumbnail15.coupangcdn.com/thumbnails/remote/x/image/bannerunit/bannerunit_a18de455-70fd-4fc7-9beb-f611161caab1.jpg" alt=""></span>
+						</a>
+					</div>
+					<div class="promo-item" data-index="4">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title">4</strong>
+								<span class="promo-desc">4</span>
+							</span>
+							<span class="promo-img"><img src="http://thumbnail15.coupangcdn.com/thumbnails/remote/x/image/bannerunit/bannerunit_acc11b8f-6ce6-4789-a0cc-31701288a44a.jpg" alt=""></span>
+						</a>
+					</div>
+					<div class="promo-item" data-index="5">
+						<a href="#">
+							<span class="promo-caption">
+								<strong class="promo-title">5</strong>
+								<span class="promo-desc">5</span>
+							</span>
+							<span class="promo-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/x/image/bannerunit/bannerunit_b0aacbbd-708f-47ff-bc7f-fc8b7d2257fb.jpg" alt=""></span>
+						</a>
+					</div>
+				</div>
+				
+				<!-- nav-dot -->
+				<div class="nav-list">
+					<ul>
+						<li class="nav-item" data-index="1"><a href="#"><span class="ico-dot">1</span></a></li>
+						<li class="nav-item" data-index="2"><a href="#"><span class="ico-dot">2</span></a></li>
+						<li class="nav-item" data-index="3"><a href="#"><span class="ico-dot">3</span></a></li>
+						<li class="nav-item" data-index="4"><a href="#"><span class="ico-dot">4</span></a></li>
+						<li class="nav-item" data-index="5"><a href="#"><span class="ico-dot">5</span></a></li>
+					</ul>
+				</div>
+
+				<!-- control -->
+				<div class="div-controls">
+					 <button type="button" class="btn btn-prev" onclick="uiBestMan.prev('ctgMan');"><span class="a11y">이전</span></button>
+					 <button type="button" class="btn btn-next" onclick="uiBestMan.next('ctgMan');"><span class="a11y">다음</span></button>
+				</div>
+			
+			</div>
+			<!-- //ctgbest-promo -->
+
+			<!-- ctgbest-prds -->
+			<div class="ctgbest-prds" data-current="1" data-show="6">
+				<!-- list -->
+				<div class="prd-list">
+					<ul>
+						<li class="item" data-index="1">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/29/23/7/0f60a872-66b0-4f9a-82e5-50da5ea12126.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="2">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/29/23/7/0f60a872-66b0-4f9a-82e5-50da5ea12126.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="3">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/29/23/7/0f60a872-66b0-4f9a-82e5-50da5ea12126.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="4">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/29/23/7/0f60a872-66b0-4f9a-82e5-50da5ea12126.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="5">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/29/23/7/0f60a872-66b0-4f9a-82e5-50da5ea12126.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="6">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/vendor_inventory/images/2018/12/29/23/7/0f60a872-66b0-4f9a-82e5-50da5ea12126.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+
+
+						<li class="item" data-index="7">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/01/04/3892208831/d8649a7e-4f1b-4b23-baee-f39a7e1fe5dd.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="8">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/01/04/3892208831/d8649a7e-4f1b-4b23-baee-f39a7e1fe5dd.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="9">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/01/04/3892208831/d8649a7e-4f1b-4b23-baee-f39a7e1fe5dd.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>								</a>
+							</div>
+						</li>
+						<li class="item" data-index="10">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/01/04/3892208831/d8649a7e-4f1b-4b23-baee-f39a7e1fe5dd.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="11">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/01/04/3892208831/d8649a7e-4f1b-4b23-baee-f39a7e1fe5dd.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="12">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail11.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/01/04/3892208831/d8649a7e-4f1b-4b23-baee-f39a7e1fe5dd.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+
+
+						<li class="item" data-index="13">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail12.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/01/03/4145771102/de5dd8ad-e95a-4167-810d-af88514188dc.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="14">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail12.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/01/03/4145771102/de5dd8ad-e95a-4167-810d-af88514188dc.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="15">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail12.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/01/03/4145771102/de5dd8ad-e95a-4167-810d-af88514188dc.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="16">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail12.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/01/03/4145771102/de5dd8ad-e95a-4167-810d-af88514188dc.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="17">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail12.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/01/03/4145771102/de5dd8ad-e95a-4167-810d-af88514188dc.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="item" data-index="18">
+							<div class="prd-item">
+								<a href="#">
+									<span class="prd-img"><img src="http://thumbnail12.coupangcdn.com/thumbnails/remote/160x160ex/image/product/image/vendoritem/2019/01/03/4145771102/de5dd8ad-e95a-4167-810d-af88514188dc.jpg" alt=""></span>
+									<span class="prd-name">상품명</span>
+									<span class="prd-price" data-type="sale">7,000원</span>
+									<span class="prd-price" data-type="normal">
+										10,000원
+										<em class="badge badge-roket">로켓배송</em>	
+									</span>
+								</a>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+
+				<!-- nav-dot -->
+				<div class="nav-list" style="position: absolute; left: 0; bottom: 20px; background: #fff; width: 100%; text-align: center">
+					<ul>
+						<li class="nav-item" data-index="1"><a href="#" onclick="uiCtgBestPrds.setShow(this, 'ctgMan'); return false;"><span class="ico-dot">1</span></a></li>
+						<li class="nav-item" data-index="2"><a href="#" onclick="uiCtgBestPrds.setShow(this, 'ctgMan'); return false;"><span class="ico-dot">2</span></a></li>
+						<li class="nav-item" data-index="3"><a href="#" onclick="uiCtgBestPrds.setShow(this, 'ctgMan'); return false;"><span class="ico-dot">3</span></a></li>
+					</ul>
+				</div>
+
+				<!-- control -->
+				<div class="div-controls">
+					 <button type="button" class="btn btn-prev" onclick="uiCtgBestPrds.prev('ctgMan');"><span class="a11y">이전</span></button>
+					 <button type="button" class="btn btn-next" onclick="uiCtgBestPrds.next('ctgMan');"><span class="a11y">다음</span></button>
+				</div>	
+
+			</div>
+			<!-- //ctgbest-prds -->
+	
+		</div>
+	</div>
+	
+	<!-- script -->
+	<script src="ui_coupang_product.js"></script>
+
+</body>
+</html>

@@ -188,7 +188,17 @@ table.data img {
 
  pre, code, samp, .sourcecode {
     color: hsl(11, 81%, 43%);
-}   
+}  
+
+.a11y{
+    visibility: hidden;
+    overflow: hidden;
+    position: absolute;
+    left: 0; top: 0;
+    width: 1px; height: 1px;
+    font-size: 0;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+} 
 /*
 .header{
     background-color: green;

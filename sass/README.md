@@ -1,6 +1,7 @@
 # Sass 구조 
 
 ## main.scss
+	> 
 
 
 ## base/ 
@@ -38,9 +39,11 @@
 ## pages/
 	> _home.scss # Home 페이지에 특화된 스타일 
 	> _contact.scss # contact 페이지에 특화된 스타일 
+	> _pagenaming.scss 
 
 
 ## vendors/
 	> _bootstrap.scss # 부트스트랩
 	> _jquery-ui.scss # jquery ui 
+	
 

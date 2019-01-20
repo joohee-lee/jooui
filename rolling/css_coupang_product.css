@@ -148,6 +148,12 @@
  	margin-top: 5px;
  }
 
+.ctgbest-prds .nav-list{
+	position: absolute; left: 0; bottom: 20px; 
+	width: 100%;
+	text-align: center;
+	background: #fff; 
+}
 
 .ctgbest-prds .btn-prev{
 	position: absolute;

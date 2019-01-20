@@ -116,9 +116,122 @@ c.play('compBanner3', 2000);
 - <http://jooe.kr/jooui/rolling/coupang_product.html>
 - <http://jooe.kr/jooui/rolling/coupang_product-2.html>
 
+```
+// markup  
+
+data-cateory ="woman"
+data-cateory ="man"
+data-cateory ="baby"
+..
+
+cpnt-ctgbest
+	.cpnt-inner
+
+	.ctgbest-header
+		
+		.ctgbest-title
+			.ctgbest-name
+			.ctgbest-link
+
+		.ctgbest-keyword
+			.keyword-title
+			.keyword-list
+				.keyword-item
+	
+	.ctgbest-promo
+		.promo-list ( data-current=1 )
+			.promo-item (data-index=1)
+				.promo-caption
+					.promo-title
+					.promo-desc
+				.promo-img
+				
+			.promo-item
+			.promo-item
+			.promo-item
+			.promo-item
+
+		.div-nav
+			.sp-dot
+			.sp-dot
+			.sp-dot
+			.sp-dot
+			.sp-dot
+
+		.div-control
+			.btn-prev
+			.btn-next	
+
+
+	.ctgbest-prds 
+		
+		.prd-lists (data-current="1")
+			.prd-list
+				.prd-item   (data-index="1") (1~18개)
+					.prd-img
+					.prd-name
+					.prd-price (data-type="sale")
+					.prd-price (data-type="normal")
+						.badge-discount
+						.badge-rocket
+				.prd-item 
+				.prd-item 
+				.prd-item 
+				.prd-item 		
+				.prd-item 
+
+		.div-nav
+			.sp-dot
+			.sp-dot
+			.sp-dot
+			.sp-dot
+			.sp-dot
+
+		.div-control
+			.btn-prev
+			.btn-next
+
+// 쿠팡 메인 카테고리멸 BEST 상품 컴포넌트 
+// coupang_product-2.html
+
+
+// 프로모션 배너 
+@namespace
+
+	var uiCtgBestPromo = function( cnpt ){
+
+		this.elCnpt = cnpt;
+		this.elIem = '';
+		this.current = 0;
+		this.len = 0;
+		this.time =  2000;
+		this.state = '';
+	};
+
+	uiCtgBestPromo.prototype = {
+	...
+	}
+	
+	//카테고리별 
+	//>banner - woman
+	var uiBestWoman = new uiCtgBestPromo();
+	uiBestWoman.play('ctgWoman');
+
+	//>banner - man
+	var uiBestMan = new uiCtgBestPromo();
+	uiBestMan.play('ctgMan');
+
+// 베스트 상품 리스트 
+	var uiCtgBestPrds = {
+		...
+	}
+
+
+// top 기능 추가 
 
 
 
+```
 
 ### 참고 URL 
 

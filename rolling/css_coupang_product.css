@@ -300,3 +300,49 @@
 .ctgbest-prds[data-current="4"] .nav-item[data-index="4"] .ico-dot,
 .ctgbest-prds[data-current="5"] .nav-item[data-index="5"] .ico-dot,
 .ctgbest-prds[data-current="6"] .nav-item[data-index="6"] .ico-dot{ background-color: #000; }
+
+/* top */
+.side-top{
+		position: fixed;
+		left: 50%;
+		bottom: 10px;
+		margin-left: 550px;
+	}
+	.btn-top{ cursor: pointer; }
+	.ico-top{
+		position: relative;
+		width: 40px;
+		height: 40px;
+		display: block;
+		color: #fff;
+		text-align: center;
+		font-size: 12px;
+		background: #ccc;
+		box-sizing: border-box;
+		padding-top: 20px;
+	}
+
+	.ico-top::before{
+		content: '';
+		display: block;
+		position: absolute;
+		left: 50%;
+		margin-left: -5px;
+		top: 10px;
+		width: 10px;
+		height: 10px;
+		border-top: 1px solid #fff;
+		border-left: 1px solid #fff;
+		transform: rotate(45deg);
+	}
+	/* js */
+	
+	.side-top[data-display="false"]{
+		opacity: 0;
+		visibility: hidden;
+	} 
+
+	.side-top[display="true"]{
+		opacity: 1;
+		visibility: visibel;
+	}

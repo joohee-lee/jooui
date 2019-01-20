@@ -169,6 +169,31 @@ var uiCtgBestPrds = {
 
 	};
 
+/* top button */
+var uiTopShow = function (){
 
+	var isScroll = true;
+	var elTop = document.querySelector('.side-top');
+	var scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
 
+	if(isScroll){
+
+		if( scrollTop > 200){
+				elTop.setAttribute('data-display', 'true');
+		}else{
+				elTop.setAttribute('data-display', 'false');
+		}
+	}
+};
+
+var uiTop = function(el){
+
+	$('html, body').animate({
+      scrollTop: 0
+    }, 300);
+    return false;
+
+};
+
+document.body.onscroll = uiTopShow ;
 

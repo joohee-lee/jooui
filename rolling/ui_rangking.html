@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>keyword - ranking(daum, naver)</title>
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.rank-block {
+				border:2px solid green;
+				padding:0; 
+				width:200px; height:30px; 
+				margin: 0 auto;
+				overflow:hidden; 
+				background:#fff;
+				font-size:14px;
+				
+		}
+
+		.rank-block ul,
+		.rank-block li {
+			margin:0; 
+			padding:0; 
+			list-style:none;
+			transition: all .3s;
+		}
+
+		.rank-block li a {
+			display:block; 
+			height:30px; line-height:30px; 
+			color:#555; text-decoration:none;
+		}
+		.rank-block li span {
+			display: inline-block;
+			padding:0 5px;
+			line-height: 30px;
+			background: green;
+			color:#fff; 
+			font-weight:bold; 
+			margin-right:3px;
+		}
+	</style>
+</head>
+<body>
+
+<h2 style="text-align: center;"> # 실시간 랭킹 (UP) - rolling </h2>
+
+<div class="rank-block">
+    <ul id="ticker">
+        <li><a href="#"><span>1</span> 김연아</a></li>
+        <li><a href="#"><span>2</span> 손연재</a></li>
+        <li><a href="#"><span>3</span> 유아니</a></li>
+        <li><a href="#"><span>4</span> 차승원</a></li>
+        <li><a href="#"><span>5</span> 전지현</a></li>
+        <li><a href="#"><span>6</span> 유이</a></li>
+        <li><a href="#"><span>7</span> xxxx</a></li>
+        <li><a href="#"><span>8</span> YYYY</a></li>
+        <li><a href="#"><span>9</span> 손연재</a></li>
+        <li><a href="#"><span>10</span> 유아인xxxxx </a></li>
+    </ul>
+</div>
+
+<!--
+<button type="button" onclick="next2();">다음</button>
+-->
+
+<script>
+/*	
+	function next2(){
+
+		var elList = document.getElementById("ticker");
+		var elItem = elList.getElementsByTagName("li");
+		var leng = elItem.length;
+
+		elItem[0].style.marginTop = "-30px";
+
+		setTimeout(function(){ 
+
+			var elClone = elItem[0];
+			elList.appendChild(elClone).removeAttribute("style");
+
+		}, 1000);
+
+	}
+
+	var aurorolling = setInterval( next2,  2500 );
+
+*/
+	var uiRankingUp = {
+
+		next : function(){
+
+			var elList = document.getElementById("ticker");
+			var elItem = elList.getElementsByTagName("li");
+			var leng = elItem.length;
+
+			elItem[0].style.marginTop = "-30px";
+
+			setTimeout(function(){ 
+
+				var elClone = elItem[0];
+				elList.appendChild(elClone).removeAttribute("style");
+
+			}, 1000);
+
+		},
+
+		play : function(){
+
+			var self = this;
+			this.interval = setInterval( function(){ self.next(); },  2500 );
+
+		}
+	};
+
+	//auto rolling 
+	uiRankingUp.play();
+
+</script>
+</body>
+</html>

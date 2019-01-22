@@ -47,7 +47,7 @@
 <h2 style="text-align: center;"> # 실시간 랭킹 (UP) - rolling </h2>
 
 <div class="rank-block">
-    <ul id="ticker">
+    <ul id="ticker" onmouseover="uiRankingUp.stop();" onmouseout="uiRankingUp.play();">
         <li><a href="#"><span>1</span> 김연아</a></li>
         <li><a href="#"><span>2</span> 손연재</a></li>
         <li><a href="#"><span>3</span> 유아니</a></li>
@@ -111,7 +111,14 @@
 			var self = this;
 			this.interval = setInterval( function(){ self.next(); },  2500 );
 
+		},
+
+		stop : function(){
+
+			clearInterval(this.interval);
 		}
+
+
 	};
 
 	//auto rolling 

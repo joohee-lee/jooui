@@ -1,1 +1,44 @@
-﻿article,blockquote,body,button,dd,div,dl,dt,fieldset,figure,footer,form,h1,h2,h3,h4,h5,h6,header,html,input,legend,li,main,nav,ol,p,pre,section,select,span,td,textarea,th,ul{margin:0;padding:0}body{word-wrap:break-word;word-break:break-all;-webkit-text-size-adjust:none;background-color:#fff}li,ol,ul{list-style:none}a{text-decoration:none;-webkit-touch-callout:none;-webkit-user-select:none}button,fieldset,img,input{border:0 none}img,input,select,textarea{vertical-align:middle}address,em{font-style:normal}input{border-radius:0}input[type=search],input[type=select],input[type=submit],input[type=text]{-webkit-appearance:none;-moz-appearance:none;box-sizing:border-box}input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none}hr{clear:both;height:0;border:0;overflow:hidden}body,button,h1,h2,h3,h4,h5,h6,input,select,textarea{font-family:Helvetica,Apple-Gothic,Dotum,돋움,Gulim,굴림}html{font-size:16px}@media only screen and (max-width: 359px){html{font-size:14.22222px}}.a11y{visibility:hidden;overflow:hidden;position:absolute;left:0;top:0;width:1px;height:1px;font-size:0;clip:rect(1px 1px 1px 1px)}
+@charset "UTF-8";
+/* $transition-base: all .2s ease-in-out !default; $transition-fade: opacity .15s linear !default; $transition-collapse: height .35s ease !default; @mixin transition($transition...) { @if is--transitions { @if length($transition) == 0 { @include prefixer( transition, $transition-base, webkit); }@else{ @include prefixer( transition, $transition, webkit); } } } */
+/* // use of keyframes mixin @include keyframes(bgcolor) { 0% { background-color: #ffccf2; } 50% { background-color: #ccffcc; } 100% { background-color: #ccffff; }  } */
+/* Example usage:  @include animation(changecolour, 10s, cubic-bezier(.645,.045,.355,1)) */
+/*
+animation - shortnand property 
+animation-name 
+animation-duration 
+animation-timing-function (linear, ease-in-out, steps(4, end),cubic-bezier(0.1, -0.6, 0.2, 0) ) 
+animation-delay 3s , 2.1s 480ms
+animation-iteration-count (0, 1, ..infinite)
+animation-direction (alternate, reverse, normal)
+animation-fill-mode (none, forwards, backwards,  both)
+animation-play-state (paused, running )
+*/
+article, blockquote, body, button, dd, div, dl, dt, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, input, legend, li, main, nav, ol, p, pre, section, select, span, td, textarea, th, ul { margin: 0; padding: 0; }
+
+body { word-wrap: break-word; word-break: break-all; -webkit-text-size-adjust: none; background-color: #fff; }
+
+li, ol, ul { list-style: none; }
+
+a { text-decoration: none; -webkit-touch-callout: none; -webkit-user-select: none; }
+
+button, fieldset, img, input { border: 0 none; }
+
+img, input, select, textarea { vertical-align: middle; }
+
+address, em { font-style: normal; }
+
+input { border-radius: 0; }
+
+input[type=search], input[type=select], input[type=submit], input[type=text] { -webkit-appearance: none; -moz-appearance: none; box-sizing: border-box; }
+
+input[type=search]::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+hr { clear: both; height: 0; border: 0; overflow: hidden; }
+
+body, button, h1, h2, h3, h4, h5, h6, input, select, textarea { font-family: Helvetica, Apple-Gothic, Dotum, 돋움, Gulim, 굴림; }
+
+html { font-size: 16px; }
+
+@media only screen and (max-width: 359px) { html { font-size: 14.22222px; } }
+
+.a11y { visibility: hidden; overflow: hidden; position: absolute; left: 0; top: 0; width: 1px; height: 1px; font-size: 0; clip: rect(1px 1px 1px 1px); /* IE6, IE7 */ }

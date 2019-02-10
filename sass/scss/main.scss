@@ -16,9 +16,11 @@
 @import "base";
 
 //import components 
+@import "components/loading";
 @import "components/button";
 @import "components/icon";
 @import "components/header";
+@import "components/block-ani";
 
 //import page
 @import "pages/page-vw"; //vw unit test 

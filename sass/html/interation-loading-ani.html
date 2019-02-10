@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>loading-keyframe</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!--<link rel="stylesheet" href="../dist/base.css">-->
+	<link rel="stylesheet" href="../dist/css/main.css">
+	<style>
+		
+/* keyframes 정의 */
+/*
+@keyframes circleLeft {
+  0%{
+    transform: translateX(-20px);
+  }
+  50%{
+    transform: translateX(20px);
+  }
+  100%{
+    transform: translateX(-20px);
+  }
+}
+
+
+@keyframes circleRight {
+  0%{
+    transform: translateX(20px);
+  }
+  50%{
+    transform: translateX(-20px);
+  }
+  100%{
+    transform: translateX(20px);
+  }
+}
+
+.loader-moving{
+  position: fixed;
+  width:100%;
+  height: 100%;
+  left:0;
+  top:0;
+  background: #fff;
+  z-index:100;
+  transition:all 1s;
+}
+.loader-moving > span{
+  position: absolute;
+  top:50%;
+  left:50%;
+  width:20px;
+  height:20px;
+  border-radius: 100%;
+  margin:-10px 0 0;
+}
+.loader-moving > span.left{
+  background: pink;
+  transform: translateX(-30px);
+  animation:circleLeft 1s cubic-bezier(.645,.045,.355,1) infinite;
+}
+.loader-moving > span.right{
+  background: grey;
+  transform: translateX(30px);
+  animation:circleRight 1s cubic-bezier(.645,.045,.355,1) infinite;
+}
+.loader-moving.end{
+  opacity: 0;
+  z-index:-1;
+}
+
+html, body { height: 100%; }
+iframe { width: 100%; height: 100%; }
+*/
+html, body { height: 100%; }
+iframe { width: 100%; height: 100%; }
+
+	</style>
+	<script>
+		
+		function loader(){
+			var el = document.querySelector('.loader-moving');
+			//console.log(el);	
+			el.className += " end";
+		}
+
+		//event binding
+		window.addEventListener("load", function(e){
+				e.preventDefault();
+				setTimeout( function(){ loader(); }, 1000);
+		}, false);
+	</script>
+</head>
+<body>
+
+	<div class="loader-moving">
+		<span class="left"></span>
+  		<span class="right"></span>
+	</div>
+
+	<iframe src="http://www.daum.net" frameborder="0"></iframe>
+
+</body>
+</html>

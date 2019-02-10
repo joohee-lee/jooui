@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>button-ani</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!--<link rel="stylesheet" href="../dist/base.css">-->
+	<link rel="stylesheet" href="../dist/css/main.css">
+
+</head>
+<style>
+
+.cpnt-cards{
+	width: 90%;
+	background-color: white;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+.cpnt-cards .div-inner{ position: relative; }
+.card{
+	position:relative;
+	display: inline-block;
+	max-width:500px;
+	width:32%;
+	margin-left: 1%;
+	font-size:0;
+	overflow: hidden;
+}
+
+.card > a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.card .card-img > img{
+	max-width: 100%;
+}
+
+.card .card-text{
+	display: block;
+	position: absolute;
+	top:0;
+	left:-100%;
+	width: 100%;
+	height:100%;
+	font-size: 4vw;
+	text-align:center;
+	transition:all .5s;
+	color:#fff;
+	z-index:10;
+}
+.card .card-text:before{
+	content:'';
+	display: inline-block;
+	height: 100%;
+	width:1px;
+	vertical-align: middle;
+}
+
+.card:after{
+	content:'';
+	position: absolute;
+	top:0;
+	left:-200%;
+	width:200%;
+	height:200%;
+	background:#000;
+	opacity: .4;
+	transition:all .5s;
+	z-index:1;
+	
+}
+
+.card:hover:after,
+.card:hover .card-text{
+	left:0;
+
+}
+
+
+</style>
+<body>
+	
+	<h2 style="text-align: center"> # Hover effect </h2>
+	<section class="cpnt-cards">
+		<div class="div-inner">
+			
+			<div class="card">
+				<a href="#">
+					<span class="card-img"><img src="https://i.pinimg.com/564x/58/96/d5/5896d54ee6bad26da9ad5866b30821bc.jpg" alt=""></span>
+					<span class="card-text">
+						Hello! world
+					</span>
+				</a>
+			</div>
+
+			<div class="card">
+				<a href="#">
+					<span class="card-img"><img src="https://i.pinimg.com/564x/97/8f/6e/978f6e35f3cfc74085bf7473c72279d6.jpg" alt=""></span>
+					<span class="card-text">
+						Hello! world
+					</span>
+				</a>
+			</div>
+
+			<div class="card">
+				<a href="#">
+					<span class="card-img"><img src="https://i.pinimg.com/564x/09/4a/66/094a660fbbd5cec62ced6935442a06b2.jpg" alt=""></span>
+					<span class="card-text">
+						Hello! world
+					</span>
+				</a>
+			</div>
+
+		</div>
+	</section>
+</body>
+</html>

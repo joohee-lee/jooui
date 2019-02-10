@@ -30,12 +30,15 @@ gulp.task('sass', function(){
 });
 
 https://stackoverflow.com/questions/39665773/gulp-error-watch-task-has-to-be-a-function
-
+nested
+compact
+expanded
+compressed
 */
 
 gulp.task('sass', function(){
 	return gulp.src('./scss/*.scss')
-	.pipe(sass({outputStyle : 'compressed'}).on('error', sass.logError))
+	.pipe(sass({outputStyle : 'compact'}).on('error', sass.logError))
 	.pipe(gulp.dest('./dist/css'));
 });
 

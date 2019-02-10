@@ -275,7 +275,6 @@
 //banner 
 .ctgbest-promo .promo-item{ display: none; }
 
-$i : 1;
 @for $i from 1 through 6 {
   .ctgbest-promo[data-current = '#{$i}'] .promo-item[data-index = '#{$i}']{ display: block; }
 }

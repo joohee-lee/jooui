@@ -86,6 +86,7 @@
 
 
 //transition
+/*
 $transition-base: all .2s ease-in-out !default;
 $transition-fade: opacity .15s linear !default;
 $transition-collapse: height .35s ease !default;
@@ -101,7 +102,7 @@ $transition-collapse: height .35s ease !default;
 
 	}
 }
-
+*/
 
 //opacity
 @mixin opacity($opacity) {
@@ -159,7 +160,95 @@ $transition-collapse: height .35s ease !default;
     // transform : translate3d($x, $y, $z);
 }
 
+//keyframe
+/*
+// use of keyframes mixin
+@include keyframes(bgcolor) {
+  0% {
+    background-color: #ffccf2;
+  }
+  50% {
+    background-color: #ccffcc;
+  }
+  100% {
+    background-color: #ccffff;
+  } 
+}
+*/
+@mixin keyframes ($animation_name) {
+    @-webkit-keyframes #{$animation_name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animation_name} {
+        @content;
+    }
+
+    @-o-keyframes #{$animation_name} {
+        @content;
+    }
+
+    @keyframes #{$animation_name} {
+        @content;
+    }
+}
+
 //animation
+/*
+	Example usage: 
+    @include animation(changecolour, 10s, cubic-bezier(.645,.045,.355,1))
+ */
+ 
+/*
+animation - shortnand property 
+animation-name 
+animation-duration 
+animation-timing-function (linear, ease-in-out, steps(4, end),cubic-bezier(0.1, -0.6, 0.2, 0) ) 
+animation-delay 3s , 2.1s 480ms
+animation-iteration-count (0, 1, ..infinite)
+animation-direction (alternate, reverse, normal)
+animation-fill-mode (none, forwards, backwards,  both)
+animation-play-state (paused, running )
+*/
+@mixin animation( $animation, $duration, $timingfunction, $delay, $count,
+ $direction:normal, $fillmode:none, $playstate:running) {
+
+	-webkit-animation-name: $animation;
+	-webkit-animation-duration: $duration;
+	-webkit-animation-timing-function: $timingfunction;
+	-webkit-animation-delay: $delay;
+    -webkit-animation-iteration-count: $count;
+    -webkit-animation-direction: $direction;
+    -webkit-animation-fill-mode: $fillmode;
+	-webkit-animation-play-state: $playstate;
+
+	-moz-animation-name: $animation;
+	-moz-animation-duration: $duration;
+	-moz-animation-timing-function: $timingfunction;
+	-moz-animation-delay: $delay;
+    -moz-animation-iteration-count: $count;
+    -moz-animation-direction: $direction;
+    -moz-animation-fill-mode: $fillmode;
+	-moz-animation-play-state: $playstate;
+
+	-o-animation-name: $animation;
+	-o-animation-duration: $duration;
+	-o-animation-timing-function: $timingfunction;
+	-o-animation-delay: $delay;
+    -o-animation-iteration-count: $count;
+    -o-animation-direction: $direction;
+    -o-animation-fill-mode: $fillmode;
+	-o-animation-play-state: $playstate;
+
+	animation-name: $animation;
+	animation-duration: $duration;
+	animation-timing-function: $timingfunction;
+	animation-delay: $delay;
+    animation-iteration-count: $count;
+    animation-direction: $direction;
+    animation-fill-mode: $fillmode;
+	animation-play-state: $playstate;
+}
 
 
 //breakpoints - mediaquery 
@@ -283,7 +372,8 @@ $z-indexes: (
 	"zindex-modal-backdrop":    1040,
 	"zindex-modal":             1050,
 	"zindex-popover":           1060,
-	"zindex-tooltip":           1070
+	"zindex-tooltip":           1070,
+	"zindex-loading" :          1100
 );
 
 //z-index mixin
@@ -295,7 +385,56 @@ $z-indexes: (
 
 //@inlcude z-index(modal)
 
+//css3 prefix
+@mixin css3-prefix($prop, $value) {
+   -webkit-#{$prop}: #{$value};
+   -moz-#{$prop}: #{$value};
+   -ms-#{$prop}: #{$value};
+   -o-#{$prop}: #{$value};
+   #{$prop}: #{$value};
+}
 
+//div { @include css3-prefix(transform, scale3d(2.5, 2, 1.5)); }
 
+//vertical-center
+@mixin vertical-center {
+   position: relative;
+   top: 50%;
+   -ms-transform: translateY(-50%);
+   -webkit-transform: translateY(-50%);
+   transform: translateY(-50%);
+}
+
+//arrow
+@mixin arrow($direction: down, $size: 5px, $color: #555) {
+   width: 0;
+   height: 0;
+   @if ($direction == left) {
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent; 
+      border-right: $size solid $color;
+   }
+   @else if ($direction == right) {
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent; 
+      border-left: $size solid $color;
+   }
+   @else if ($direction == down) {
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      border-top: $size solid $color;
+   }
+   @else {
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      border-bottom: $size solid $color;
+   }
+}
+
+// without arguments (default)
+//div { @include arrow(); }
+
+// with custom arguments
+//div { @include arrow(up, 10px, #efefef); }
 
 

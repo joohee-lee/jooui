@@ -1,17 +1,17 @@
 # Form 
 
-- [ ] a task list item
-- [ ] list syntax required
-- [ ] normal **formatting**, @mentions, #1234 refs
-- [ ] incomplete
-- [x] completed
+
+## task
+
+- [ ] 폼 요소 재정리 
 
 ## Form 
+
 1. button
 	> 허용된 ARIA ROLE : checkbox , link, menuitem, menuitemcheckbox, menuitemradio, radio, switch, tab
-	> DOM 인터페이스 : HTMLButtom Element 
-	> button mdn <https://developer.mozilla.org/ko/docs/Web/HTML/Element/button>
-	> html.spec.whatwg.org <https://developer.mozilla.org/ko/docs/Web/HTML/Element/button>
+	- DOM 인터페이스 : HTMLButtom Element 
+	- button mdn <https://developer.mozilla.org/ko/docs/Web/HTML/Element/button>
+	- html.spec.whatwg.org <https://developer.mozilla.org/ko/docs/Web/HTML/Element/button>
 
 	```
 		//type
@@ -22,10 +22,11 @@
 	```
 
 2. datalist
-	> 허용되는 부모 요소 Any element that accepts phrasing content. <https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories#Phrasing_content>
-	> Dom 인터페이스 : HTMLDataListElement
-	> safari 지원 안함. 
-	> chrome 20 / ff4.0 / IE 10/ ..
+	> 허용되는 부모 요소 Any element that accepts phrasing content. 
+	- <https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories#Phrasing_content>
+	- Dom 인터페이스 : HTMLDataListElement
+	- safari 지원 안함. 
+	- chrome 20 / ff4.0 / IE 10/ ..
 
 ```
 	
@@ -98,17 +99,18 @@
 
 
 6. keygen
-7. <label>
-8. <legend> - HTMl <legend> 요소는 유저 인터페이스 내 아이템의 캡션 
-9. <meter>
-10. <optgroup>
-11. <option>
-12. <output> - 계산이나 사용자 행동의 결과 
-13. <select> - 
-14. <textarea> 
+7. label
+8. legend - HTMl legend 요소는 유저 인터페이스 내 아이템의 캡션 
+9. meter
+10. optgroup
+11. option
+12. output - 계산이나 사용자 행동의 결과 
+13. select - 
+14. textarea 
 
 
 ## HTML5 forms introduction and new attributes
 
 ## 참고 URL 
-- http://html5doctor.com/html5-forms-introduction-and-new-attributes/
+
+- html5-forms-introduction-and-new-attributes <http://html5doctor.com/html5-forms-introduction-and-new-attributes/>

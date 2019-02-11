@@ -273,6 +273,9 @@ element {
 
 ## TEST HTML 
 
+- ss-will-change <https://dev.opera.com/articles/ko/css-will-change-property/>
+- CSS 애니메이션 성능 개선 방법(reflow 최소화, will-change 사용)  https://wit.nts-corp.com/2017/06/05/4571
+
 ### css-animation
 - css-animation-loading-1 <http://jooe.kr/jooui/csseffect/css-animation-loading.html>
 - css-animation-loading-2 <http://jooe.kr/jooui/csseffect/css-transition-loading.html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Collapse</title>
+  <style>
+    *, *:before, *:after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-size: 16px;
+    }
+
+    body {
+      background: #ddd;
+    }
+
+    /* padding에 의해 height가 0이 되지 않는 문제를 해결하기 위한 컨테이너 */
+    .collapse {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.4s ease;
+    }
+
+    .collapse-body {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .toggle{
+      background: none;
+      border: 1px solid #333;
+      border-radius: 3px;
+      background-color: #fff;
+      padding: 10px;
+
+    }
+
+    .active {
+      /* height: 0 -> height: auto;는 transition이 동작하지 않는다. */
+      /* height: auto; */
+    }
+  </style>
+</head>
+<body>
+  <button type="button" class="toggle">Toggle</button>
+  <!-- padding에 의해 height가 0이 되지 않는 문제를 해결하기 위한 컨테이너 -->
+  <div class='collapse'>
+    <div class="collapse-body">
+        등산의 기쁨은 정상에 올랐을 때 가장 크다. 그러나 나의 최상의 기쁨은 험악한 산을 기어올라가는 순간에 있다. 길이 험하면 험할수록 가슴이 뛴다. 인생에 있어서 모든 고난이 자취를 감췄을 때를 생각해 보라! 그 이상 삭막한 것이 없으리라.
+프리드리히 니체
+    </div>
+  </div>
+  <script>
+    var btnToggle = document.querySelector('.toggle');
+    var collapse = document.querySelector('.collapse');
+
+    btnToggle.addEventListener('click', function(e){
+
+      collapse.classList.toggle('active');
+
+      /**
+       * javascript : classList https://developer.mozilla.org/ko/docs/Web/API/Element/classList
+       * `height: 0`에서 `height: auto`로의 변화는 transition이 동작하지 않는다.
+       * 이 문제를 회피하기 위해 자바스크립트를 사용하여 height에 명확한 수치를 지정할 필요가 있다.
+       * max-height에 임의의 높이를 지정하는 방법도 있지만 이 방법을 사용하면 애니메이션 타이밍이 망가진다.
+       */
+
+      if( collapse.classList.contains('active') ){ 
+          collapse.style.height = collapse.scrollHeight + 'px';
+      }else{
+          collapse.style.height = 0;
+      }
+
+    }, false);
+   
+  </script>
+</body>
+</html>

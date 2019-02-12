@@ -25,5 +25,7 @@ ECMAscript 5에는 JSON을 공식적으로 지원하는 API가 포함되었다.
 인자로 전달된 자바스크립트의 데이터를 문자열로 변환.
 
 ## Ajax와 JSON
-- <heroes.html>
+- <http://http://jooe.kr/jooui/json/heroes.html>
+
+
 

@@ -163,11 +163,13 @@
 - ex2. es5/option - single  <http://jooe.kr/jooui/toggle/ui-accordion-option-es5.html>
 - ex3. es5/option - multi  <http://jooe.kr/jooui/toggle/ui-accordion-option-es5-2.html>
 
+
  	* data-multi="true" ( mutil open )
 	* data-multi="false" ( single open )
 	* array -  [].filter.call 
 	* array.filter()를 이해한다. 
-	<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter>
+	- <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter>
+
 
 ```
 	

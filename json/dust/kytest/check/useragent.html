@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>check 'userAgent'</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.check__ {
+			font-size: small; 
+			font-family: '맑은 고딕', sans-serif; 
+			line-height: 1.6; 
+			-webkit-text-size-adjust: 100%;
+		}
+
+		.check__ .log { display: block; }
+		.check__ .log strong { text-transform: uppercase; }
+	</style>
+</head>
+<body class="check__">
+	
+	<h1>userAgent</h1>
+
+	<p>특정단어가 포함되어있는지 확인 (indexOf)</p>
+	<ul>
+		<li>Pad</li>
+		<li>Android</li>
+		<li>Phone</li>
+	</ul>
+
+	<p>
+		값 미리보기  [pc=false, mobile=true] : 
+		<span id="log" class="log">value</span>
+	</p>
+
+
+	<script>
+		var log = document.getElementById('log'); 
+		var useragent = window.navigator.userAgent; 
+		var mediaState = false; // false =  PC, true = mobile
+
+		if(useragent.indexOf('Pad') > -1 || useragent.indexOf('Android') > -1 || useragent.indexOf('Phone') > -1)  {
+			mediaState = true; 
+		} else {
+			mediaState = false; 
+		}
+		
+		log.innerHTML = "<strong>" + mediaState + "</strong>, " + useragent; 
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,402 @@
+@charset "utf-8";
+
+html,body,form,div,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,ol,li,fieldset,th,td,button,small, big, span{
+	margin:0;
+	padding:0;
+	border:0; 
+	color:#7a6e67;
+	font-family:"Apple SD Gothic Neo", "Droid Sans Fallback", "Helvetica", "맑은 고딕", sans-serif;
+	font-size: 16px; 
+	line-height:1.4;
+	-webkit-text-size-adjust: 100%; 
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%; 
+
+}
+
+ol,ul{list-style:none;}
+img,fieldset{border:none;}
+
+address,cite,code,dfn,em,var{font-style:normal;}
+a, a:active, a:hover{text-decoration:none;color:#7a6e67;}
+header, nav, main, article, section, aside, figure, footer{display: block;} 
+caption, legend {display:none;overflow:hidden;height:0;width:0;line-height:0;font-size:0;visibility:hidden;-webkit-padding-start:0;-webkit-padding-end:0;}
+.hidden{display:block;overflow:hidden;position:absolute;left:-9999px;width:1px;height:1px;font-size:0;line-height:0;text-indent:-9999px}
+
+
+body{
+	background-color:#d2cecd;
+	color:#7a6e67;
+}
+
+header{
+		width: 100%; 
+		padding: 0px 0px 30px 0;
+		margin-bottom: 10px;
+		background-color: #fff;
+		box-shadow:2px 2px 4px rgba(0,0,0,.3);
+
+}
+
+footer{ 
+	margin: 0 1.5em 20px; 
+	text-align: right; 
+
+
+}
+footer li{font-size: 0.75em;}
+footer strong{font-weight: normal;}
+
+header:after, main:after, footer:after{content:""; display: block; height: 0; clear: both; }
+
+
+nav{
+	text-align: right;
+	width: 97%;
+	margin-right: 3%;
+	margin-bottom: 10px;
+
+}
+nav li{
+	display: inline; 
+	font-size: 0.75em;
+	padding: 0 0.1em;
+}
+nav li a:before{content:'|'; color: #ddd; padding-right: 0.2em;}
+nav li strong{display: block;}
+nav li.wr a:before{content:'';}
+
+/*search*/
+.search_inner{
+	clear: both;
+	position: relative;
+	margin: 0 3%;
+	border: 5px solid #3f3128;
+	background-color: #ffffff;
+	height: 45px;
+
+}
+
+.search_inner input.search_keyword{
+	border: 0; 
+	font-size: 1em;
+	width: 88%; 
+	height: 45px; 
+	padding-left: 105px; 
+	box-sizing: border-box;
+}
+
+
+.search_inner .output{position: absolute; left: 0; top: 0;}
+.output a{
+	
+	display: block; 
+	font-size: 1em;
+	width: 80px;
+	height: 45px;
+	line-height: 43px;
+	padding: 0 10px;
+	background:#fff url(http://image.kyobobook.co.kr/kiosk/images/bg_sch_option.png) no-repeat 90% 17px;
+
+}
+
+.search_inner .search_submit{
+	position: absolute; 
+	right: 0; 
+	top: 0; 
+}
+.search_submit{ 
+	border: 0; 
+	/*background: url(../images/icon_search.gif) no-repeat 0 0;*/
+	width: 75px;
+	height: 45px;
+	cursor: pointer;
+}
+
+.logo a{
+		display: none;
+		float: left; 
+		margin-left: 5%;
+		margin-top: 23px;
+		width: 155px; height: 55px; 
+		background: url(http://image.kyobobook.co.kr/kiosk/images/logo.png) no-repeat 0 0;
+		text-indent: -9999em;	
+}
+
+aside img{max-width: 100%; height: 92px;}
+
+.section_title{	
+	font-size: 1.125em;
+	border-bottom: 3px solid #3f3129;
+	padding-bottom: 10px;
+	margin-bottom: 25px;
+	margin-left: 1em;
+	margin-right: 1em;
+
+}
+
+.today_book .section_title, .best_book .section_title{
+	border-bottom-color: #c5c1be;
+}
+
+
+
+.cover_image img{border: 1px solid #dddddd; width: 148px; height: 203px; }
+
+/*book-obj*/
+.book_info{ 
+	float: left;
+	position: relative;  
+	width: 9.375em; 
+	min-height: 260px; 
+	margin-right: 1.25em;
+	overflow: hidden;
+}
+
+.book_info a{display: block;}
+
+.book_info .cover_image{ 
+	position: absolute; left: 50%; top: 0; 
+	margin-left: -75px; 
+}
+
+.book_info  h1{
+	padding-top: 210px; 
+	text-align: center;
+}
+
+
+/*rank*/
+.rank label{
+	position: absolute; left: 0; top: 0;  
+	display: block; 
+	background-color: #fff; 
+	border: 1px solid #ddd;
+	padding:3px;
+}
+
+.rank em{ 
+	display: inline-block; 
+	color: #000; 
+	width: 10px; 
+	height: 10px; 
+	font-size: 0.725em; 
+	padding-top: 10px;
+	text-align: center; 
+}
+.rank .rank_num{
+	font-size: 1.375em;
+	color: #000;
+}
+.rank .rank_up{ background: yellow url(http://image.kyobobook.co.kr/kiosk/images/ico_2up.png) no-repeat 2px 3px;}
+.rank .rank_down{ background: url(http://image.kyobobook.co.kr/kiosk/images/ico_2down.png) no-repeat 2px 3px;}
+.rank .rank_same{ background: url(../images/kyobo/ico_same.png) no-repeat 2px 10px;}
+
+/*content-design*/
+.weekly_ranking, .today_book, .best_book, .news {
+	position: relative;
+	background-color: #fff; 
+	width: 94%; 
+	padding: 20px 0 20px;
+	margin: 0 auto 30px;
+	box-shadow:2px 2px 4px rgba(0,0,0,.3);
+}
+
+.weekly_ranking div:after,
+.today_book div:after,
+.best_book div:after{content:""; display: block; height: 0; clear: both; }
+
+.weekly_ranking .more_view, .news .more_view{
+	position: absolute;
+	right: 1em;
+	top: 25px;
+}
+
+.more_view{font-size: 0.825em;}
+.more_view:before{content:' + ';}
+
+/*news*/
+.news h1{margin-bottom: 4px;}
+.news ol{margin: 0 1em;}
+.news li a{
+	font-size: 0.875em;
+	display: block; 
+	border-top: 1px solid #ddd;
+	padding: 14px 0 10px 1em;
+}
+.news li:first-child a{border-top: 0;}
+.news small, .news big, .news span{ font-size: 1em;}
+.news small:after{content: " | "; color: #ddd;}
+
+.event_type{font-weight: bold;}
+.event_term{
+	display: block; 
+	padding-left: 10px;
+}
+
+/*companent*/
+.slide_gallery_comp{
+	width: 9.375em; 
+	height: 260px; 
+	margin: 0 auto; 
+	overflow: hidden
+}
+.slide_gallery{
+	width: 125em; 
+	height: 260px;
+}
+.slide_gallery section { display: none; }
+.slide_gallery section.on { display: block; }
+
+/*prev/next*/
+.slide_btn a {
+	position: absolute; 
+	top: 50%; 
+	display: block; 
+	width: 50px; 
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: url('') no-repeat  center 50%; 
+	text-indent: -9999em;
+	cursor: pointer;
+}
+.slide_btn .slide_prev{ left: 0; background-image: url(http://image.kyobobook.co.kr/kiosk/images/btn_pre.png); }
+.slide_btn .slide_next{ right: 0; background-image: url(http://image.kyobobook.co.kr/kiosk/images/btn_next.png); }
+
+/*paging*/
+.paging{
+	display: none; 
+	clear: both; 
+	text-align: center; 
+	padding-top: 10px;
+}
+.paging a{
+	display: inline-block; 
+	margin: 0 .1em;
+	width: 18px; 
+	height: 20px; 
+	background: transparent url(http://image.kyobobook.co.kr/kiosk/images/nav_dot_off.png) no-repeat  center 50%; 
+	text-indent: -9999em;
+	cursor: pointer;
+}
+.paging a.on, 
+.paging a:hover{ background-image: url(http://image.kyobobook.co.kr/kiosk/images/nav_dot_on.png); }
+
+	/* 임시 */
+	/*.slide_btn a,
+	.paging a { 
+		text-indent: 0;
+		background-color: #333; 
+		color: #fff; 
+	}
+
+	.paging a.on, 
+	.paging a:hover, 
+	.slide_btn a:hover { background-color: green; }*/
+
+
+
+.count{
+	clear: both; 
+	display:block; 
+	text-align: center; 
+	padding-top: 10px;
+}
+
+
+/* 가장 작은 화면, count가 표시되어야 하는 BreakPoint  */
+@media all and (max-width: 28.74em)  {}
+
+/*460px  - contents */  
+@media all and (min-width: 28.75em)  {
+	
+	.weekly_ranking .slide_gallery_comp{
+		width: 20em;
+	}
+
+	.paging{display: block;}
+	.count{display: none;}
+}
+
+/*630px - contents*/
+@media all and (min-width: 39.375em){
+
+	header{padding-top: 45px;}
+
+	.weekly_ranking .slide_gallery_comp{width: 30.625em;}
+
+	nav li{
+		font-size: 0.825em;
+	}
+
+	nav li strong{display: inline;}
+	nav li.wr a:before{content:'|';}
+
+}
+
+
+/*only layout*/
+@media all and (min-width: 39.375em) and (max-width: 62.49em) {
+	
+	.logo a{display: block;}
+
+	.today_book{
+		float: left; 
+		width: 45%; 
+		margin-left: 3%;
+	}
+	.best_book{
+		float: right; 
+		width: 45%; 
+		margin-right: 3%;
+	}
+	.news {
+		clear: both;
+	}
+
+}
+
+/*1000px이상 only layout*/
+@media all and (min-width: 62.5em)  {
+	
+	.logo a{display: block;}
+
+	.header_inner,main,aside,footer{
+		
+		clear: both;
+		/*width: 1000px;*/
+		width: 62.5em;
+		margin: 0 auto;
+	
+	}
+
+	nav{margin-right: 0;}
+
+	
+	.weekly_ranking, .news{
+		
+		float: left; 
+		width: 64.6%;
+		margin: 0 0 10px 0;
+	}
+
+	.today_book, .best_book{
+		
+		float: right; 
+		width: 34.4%; 
+		margin: 0 0 10px 0;
+	}
+
+	footer ul li{
+		display: inline; 
+		margin-left: 10px;
+	}
+
+}	
+
+
+
+
+
+

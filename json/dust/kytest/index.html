@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<title>판교점: 교보 무인안내 시스템</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="교보문고 무인안내 시스템 ">
+	<meta name="keywords" content="교보문고, 검색, 무인, 안내 ">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+	<link rel="stylesheet" type="text/css" href="css/ky_v1.css">
+	<!--[if lt IE 9]>
+		<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<link rel="stylesheet" href="./css/ky_ie.css">
+	<![endif]-->
+	<!--[if lte IE 7]>
+		<style>
+			.best_book { clear: right; }
+		</style>
+	<![endif]-->
+</head>
+<body>
+	<!-- header-->
+	<header>
+		<div class="header_inner">
+
+			<!--logo-->	
+			<p class="logo"><a href="#">교보문고</a></p>
+			
+			<!--nav-->
+			<nav class="nav_menu">
+				<ul>
+					<li><strong>판교 바로드림센터</strong></li>
+					<li class="wr"><a href="#">주간베스트</a></li>
+					<li class="sg"><a href="#">영업점안내</a></li>
+					<li class="mg"><a href="#">회원안내</a></li>
+					<li class="bo"><a href="#">바로드림</a></li>
+					<li class="dc"><a href="#">드림카드</a></li>	
+				</ul>
+			</nav>
+
+			<!--search-->
+			<form action="a.html" name="search_form" method="post">
+				<fieldset class="book_search">
+					<legend>책 검색</legend>
+					<div class="search_inner">
+						<div>
+							<p class="output"><a href="#">통합검색</a></p>
+							<ul style="display: none">
+								<li><a href="#"><input type="radio" name="search_option" value="1"/></a></li>
+								<li><a href="#"><input type="radio" name="search_option" value="2"/></a></li>
+								<li><a href="#"><input type="radio" name="search_option" alue="3"/></a></li>
+								<li><a href="#"><input type="radio" name="search_option" value="4"/></a></li>
+							</ul>
+							<input type="text" name="keyword" class="search_keyword">
+						</div>
+						<input type="image" src="images/kyobo/icon_search.gif" name="submit" class="search_submit"/>
+					</div>
+				</fieldset>
+			</form>
+		</div>	
+	</header>
+
+	<!--banner-->
+	<aside>
+		<a href="#" target="_blank" title="새창 열림">
+			<img src="images/pc/bnr_img.gif" alt="월 14,900원으로 ebook 2권과 태블릿 디바이스를 손에 넣을 기회 sam2 프리미엄팩 한정판매 ">
+		</a>
+	</aside>
+	
+	<!--main-->
+	<main>
+			<!--주간 베스트-->
+			<section class="weekly_ranking" id="weekly_ranking">
+				<h1 class="section_title">주간 베스트</h1>
+
+				<div class="_hidden">
+					<template id="weekly_ranking_section" class="weekly_ranking_section">
+						{#items}
+						<section class="book_info">
+							<a href="http://mkiosk.kyobobook.co.kr/kiosk/product/detailViewMain.ink?site=69&amp;ejkGb=KOR&amp;barcode={productInfo.barcode}" target="_blank">
+								<h1>{bookInfo.title}</h1>
+
+								{#productInfo}
+								<p class="cover_image">
+									<img src="http://image.kyobobook.co.kr/images/book/large/{coverImage}" alt="책 커버 이미지">
+								</p>
+								{/productInfo}
+
+								{#rankInfo}
+								<p class="rank">
+									<label>
+										<span class="hidden">순위</span>
+										<strong class="rank_num">{idx}</strong>
+										<em class="rank_{?upDown}{upDown}{:else}same{/upDown}" title='{^change}변동없음{:else}{comment}{/change}'>
+											{?upDown}
+												{change}
+											{/upDown}
+										</em>
+									</label>
+								</p>
+								{/rankInfo}
+							</a>
+						</section>
+						{/items}
+					</template>
+				</div>
+
+				<div class="slide_gallery_comp">
+					<div class="slide_gallery">
+						<!--
+							<template>
+							#weekly_ranking_section의 내용을 활용 
+						-->
+					</div>
+				</div>
+
+				<!-- 이전/ 다음 -->
+				<div class="slide_btn">
+					<a class="slide_prev" id="weekly_ranking_prev">이전</a>
+					<a class="slide_next" id="weekly_ranking_next">다음</a>
+				</div>
+
+				<!--paging-->
+				<div class="paging" id="weekly_ranking_paging">
+					<!-- 
+						자바스크립트를 통해 BP2,3,4에 추가.
+						BP1에는 HTML을 모두 삭제.
+					-->
+				</div>
+
+				<!--count-->
+				<div class="count">
+					<strong id="weekly_ranking_current">현재 그룹</strong> / <span id="weekly_ranking_length">전체 그룹</span>
+				</div>
+				<p class="more_view"><a>더보기</a></p>
+			</section>
+
+
+
+
+			<!--오늘의 책-->
+			<section class="today_book" id="today_book">
+				<h1 class="section_title">오늘의 책</h1>
+
+				<div class="slide_gallery_comp">
+					<div class="slide_gallery">
+						<section class="book_info">
+							<a href="#">
+								<h1>나를 의심한다</h1>
+								<p class="cover_image"><img src="http://image.kyobobook.co.kr/images/book/large/280/l9788934972280.jpg" alt="책 커버 이미지"></p>
+							</a>
+						</section>
+						<section class="book_info">
+							<a href="#">
+								<h1>라이프 트렌드 2016: 그들의 은밀한 취향</h1>
+								<p class="cover_image"><img src="http://image.kyobobook.co.kr/images/book/large/215/l9788960515215.jpg" alt="책 커버 이미지"></p>
+							</a>
+						</section>
+						<section class="book_info">
+							<a href="#">
+								<h1>정반합</h1>
+								<p class="cover_image"><img src="http://image.kyobobook.co.kr/images/book/large/077/l9791186805077.jpg" alt="책 커버 이미지"></p>
+							</a>
+						</section>
+						<section class="book_info">
+							<a href="#">
+								<h1>책벌레와 메모광</h1>
+								<p class="cover_image"><img src="http://image.kyobobook.co.kr/images/book/large/159/l9788954638159.jpg" alt="책 커버 이미지"></p>
+							</a>
+						</section>
+						<section class="book_info">
+							<a href="#">
+								<h1>인문학 습관</h1>
+								<p class="cover_image"><img src="http://image.kyobobook.co.kr/images/book/large/354/l9791130606354.jpg" alt="책 커버 이미지"></p>
+							</a>
+						</section>
+					</div>
+				</div>
+				
+				<!-- 이전/ 다음 -->
+				<div class="slide_btn">
+					<a class="slide_prev" id="today_book_prev" href="#">이전</a>
+					<a class="slide_next" id="today_book_next" href="#">다음</a>
+				</div>
+
+				<!--paging-->
+				<div class="paging" id="today_book_paging">
+					 <a>1</a><a>2</a><a>3</a><a>4</a><a>5</a>
+				</div>
+
+				<!--count-->
+				<div class="count">
+					<strong id="today_book_current">현재 그룹</strong> / <span id="today_book_length">전체 그룹</span>
+				</div>
+			</section>
+
+
+
+
+
+			<!--  요즘 이책 -->
+			<section class="best_book" id="best_book">
+				<h1 class="section_title">요즘 이책</h1>
+				
+				<div class="slide_gallery_comp">
+					<div class="slide_gallery">
+						<section class="book_info">
+							<a href="#">
+								<h1>거기, 우리가 있었다</h1>
+								<p class="cover_image"><img src="http://image.kyobobook.co.kr/images/book/large/912/l9788927806912.jpg" alt="책 커버 이미지"></p>
+							</a>
+						</section>
+						<section class="book_info">
+							<a href="#">
+								<h1>자본에 관한 불편한 진실</h1>
+								<p class="cover_image"><img src="http://image.kyobobook.co.kr/images/book/large/049/l9788998241049.jpg" alt="책 커버 이미지"></p>
+							</a>
+						</section>
+						<section class="book_info">
+							<a href="#">
+								<h1>도올의 중국일기</h1>
+								<p class="cover_image"><img src="http://image.kyobobook.co.kr/images/book/large/511/l9788982644511.jpg" alt="책 커버 이미지"></p>
+							</a>
+						</section>
+					</div>
+				</div>
+
+				<!-- 이전/ 다음 -->
+				<div class="slide_btn">
+					<a class="slide_prev" id="best_book_prev">이전</a>
+					<a class="slide_next" id="best_book_next">다음</a>
+				</div>
+				<!--paging-->
+				<div class="paging" id="best_book_paging">
+					<a class="on">1</a><a>2</a><a>3</a>
+				</div>
+
+				<!--count-->
+				<div class="count">
+					<strong id="best_book_current">현재 그룹</strong> / <span id="best_book_length">전체 그룹</span>
+				</div>	
+			</section>
+
+
+
+			<!--소식-->
+			<section class="news">
+				<h1 class="section_title">판교 바로드림 센터 소식</h1>
+				<ol>
+					<li>
+						<a href="#">
+							1.<small>교보문고</small>
+							<big><span class="event_type">[일반행사]</span>GS&amp;Point 사용하고 1% 돌려받자</big>
+							<span class="event_term"><time class="start_time">2015-11-10</time>~<time class="end_time">2015-11-10</time></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							2.<small>교보문고</small>
+							<big><span class="event_type">[일반행사]</span>GS&amp;Point 사용하고 1% 돌려받자</big>
+							<span class="event_term"><time class="start_time">2015-11-10</time>~<time class="end_time">2015-11-10</time></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							3.<small>교보문고</small>
+							<big><span class="event_type">[일반행사]</span>GS&amp;Point 사용하고 1% 돌려받자</big>
+							<span class="event_term"><time class="start_time">2015-11-10</time>~<time class="end_time">2015-11-10</time></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							4.<small>교보문고</small>
+							<big><span class="event_type">[일반행사]</span>GS&amp;Point 사용하고 1% 돌려받자</big>
+							<span class="event_term"><time class="start_time">2015-11-10</time>~<time class="end_time">2015-11-10</time></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							5.<small>교보문고</small>
+							<big><span class="event_type">[일반행사]</span>GS&amp;Point 사용하고 1% 돌려받자</big>
+							<span class="event_term"><time class="start_time">2015-11-10</time>~<time class="end_time">2015-11-10</time></span>
+						</a>
+					</li>
+				</ol>
+				<p class="more_view"><a href="#">더보기</a></p>
+			</section>
+	
+	</main>
+
+	<!--footer : 점포 정보 -->
+	<footer>
+		<h1 class="hidden">점포 정보</h1>
+		<ul>
+			<li><strong>영업시간 : 월 ~ 목 10:30 ~ 20:00 / 금요일 ~ 일요일 10:30 ~ 20:30</strong></li>
+			<li><strong>휴무안내 : 설(당일), 추석(당일), 비정기</strong></li>
+			<li><strong><a href="#">개인정보취급방침</a></strong></li>
+		</ul>
+	</footer>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dustjs-linkedin/2.7.2/dust-full.min.js"></script>
+	<script src="./scripts/data.js"></script>
+	<script src="./scripts/kyobo.js"></script>
+</body>
+</html>

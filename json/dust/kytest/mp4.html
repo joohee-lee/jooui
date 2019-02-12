@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>동영상파일</title>
+	<style>
+	body{margin: 0; padding: 0;}
+	video {max-width: 100%; margin: 0; padding: 0;}
+	</style>
+
+</head>
+<body>
+	<video autoplay controls='false' loop >
+		
+		<source src="http://soopul.com/mv.mp4" type="video/mp4" />
+	</video>
+	
+	<script src="http://www.sdgn.co.kr/js/jquery-1.10.2.min.js"></script>
+	<script>
+		$('video').on('canplaythrough', function() {
+			this.play(); 
+		});
+	</script>
+</body>
+</html>

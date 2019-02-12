@@ -1,0 +1,51 @@
+@charset "utf-8"; 
+
+
+
+.logo {
+	position: relative; 
+	top: 2.5em; 
+}
+.logo a{display: block; }
+
+.header_inner,main,aside,footer{
+	
+	clear: both;
+	width: 1000px; 
+	margin: 0 auto;
+
+}
+
+nav{margin-right: 0;}
+
+
+.weekly_ranking .count, 
+.today_book .count, 
+.best_book .count { display: none; }
+.weekly_ranking .paging, 
+.today_book .paging, 
+.best_book .paging { display: block; }
+
+.weekly_ranking, 
+.news{
+	
+	float: left; 
+	width: 64.6%;
+	margin: 0 0 10px 0;
+}
+
+/*.weekly_ranking .slide_gallery_comp { width: 500px; }*/
+
+.weekly_ranking .slide_gallery_comp { margin: 0 auto; width: 31em; }
+
+.today_book, .best_book{
+	
+	float: right; 
+	width: 34.4%; 
+	margin: 0 0 10px 0;
+}
+
+footer ul li{
+	display: inline; 
+	margin-left: 10px;
+}

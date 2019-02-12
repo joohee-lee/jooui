@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>Current Pattern ver1</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./styles/current_pattern.css">
+</head>
+<body class="demo__">
+
+	<div class="view_log_box">
+		<p>[ LOG ]</p>
+		<ul>
+			<li>check_size : <span id="check_size">' '</span></li>
+			<li>breakpoint : <span id="breakpoint_size">' '</span></li>
+		</ul>
+	</div>
+	
+	<!-- 
+		[ dataset 정의 ]
+		- data-js : javascript를 사용할수 있는 (component의 기능을 제대로 사용 가능한 ) 환경인지를 확인하여 true/false를 설정
+		- data-bpc (breakpoint-case) 
+	-->
+
+	<div id="elemt" class="elemt">
+		<!-- 
+			dataset properties : 
+			- js
+			- bpc
+		-->
+		<h1>list</h1>
+
+		<div class="list" data-box="3" data-bc="0">
+			<!-- li{[ $ ]}*12 -->
+			<ul>
+				<li class="_current">[ 1 ]</li>
+				<li>[ 2 ]</li>
+				<li>[ 3 ]</li>
+				<li>[ 4 ]</li>
+				<li>[ 5 ]</li>
+				<li>[ 6 ]</li>
+				<li>[ 7 ]</li>
+				<li>[ 8 ]</li>
+				<li>[ 9 ]</li>
+				<li>[ 10 ]</li>
+				<li>[ 11 ]</li>
+				<li>[ 12 ]</li>
+			</ul>
+		</div>
+
+		<div class="control buttons">
+			<div>
+				<span id="elemt_item_prev_btn" class="prev">item -1</span>
+				<span id="elemt_item_next_btn" class="next">item +1</span>
+			</div>
+			<div>
+				<span id="elemt_box_prev_btn" class="prev">box -1</span>
+				<span id="elemt_box_next_btn" class="next">box +1</span>
+			</div>
+		</div>
+	</div>
+	<!-- #elemt -->
+
+	<script src="./scripts/soopul.js"></script>
+	<script src="./scripts/comp.js"></script>
+</body>
+</html>

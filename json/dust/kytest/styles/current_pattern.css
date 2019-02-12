@@ -1,0 +1,94 @@
+@charset "utf-8"; 
+
+.demo__ { 
+	/*font-size: 14px;*/
+	font-size: small;
+	font-family: '맑은 고딕', sans-serif; 
+	-webkit-text-size-adjust: 100%; 
+}
+
+h1, 
+h2, 
+h3 { font-size: 1em; }
+
+
+.view_log_box { display: none; }
+
+
+
+.elemt {
+	position: relative;
+	padding: .5em 1em; 
+	border: 1px solid #eee; 
+}
+
+	.elemt .list {
+		border: 1px solid #ddd; 
+		width: 300px;
+		height: 100px;
+		overflow: hidden;
+	}
+	.elemt .list ul { 
+		margin: 0; 
+		padding: 0; 
+		width: 300px; 
+		list-style-type: none; 
+	}
+	.elemt .list[data-box="3"] {}
+	.elemt .list[data-box="3"][data-bc="0"] ul {}
+	/*.elemt .list[data-box="3"][data-bc="1"] ul { margin-top: -116px; }*/
+	/*.elemt .list[data-box="3"][data-bc="2"] ul { margin-top: -116px; }*/
+	.elemt .list li { 
+		float: left; 
+		margin: 0; 
+		/*border-bottom: 1px dashed #eee; */
+		width: 100px;
+		height: 100px;
+		font-size: 2em;
+		font-weight: 100;
+		text-align: center;
+	}
+	.elemt .list ._current { 
+		display: block; 
+		font-weight: 200;
+		background-color: #f5f5f5;
+		color: green; 
+	}
+
+
+.elemt .buttons { margin-top: 1em; }
+.elemt .buttons div + div  { margin-top: .5em; }
+.elemt .buttons  span { 
+	display: inline-block;
+	padding: 0 .5em;
+	/*background-color: #333; */
+	/*color: #fff; */
+	border: 1px solid #333; 
+	line-height: 2;
+	cursor: pointer; 
+}
+.elemt .buttons  span:hover {
+	background-color: #333; 
+	color: #fff;
+	font-weight: bold;
+}
+
+
+
+
+.elemt[data-js="true"]:before {
+	content: '[data-js="true"]'; 
+	display: block; 
+	margin-top: .5em;
+	border-bottom: 1px solid #ccc; 
+}
+
+
+
+
+@media (max-width: 630px) {
+	.elemt[data-js="true"]:before { color: red; }
+}
+@media (min-width: 650px) {
+	.elemt[data-js="true"]:before { color: blue; }
+}

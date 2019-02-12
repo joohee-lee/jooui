@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>accordion</title>
+  <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet">
+  <style>
+  	*, *:before, *:after {
+  		margin: 0;
+  		padding: 0;
+  		box-sizing: border-box;
+  	}
+
+  	html, body{
+  		height: 100%;
+  	}
+
+  	body{
+  		background: #333;
+  		font-family: Arial, Helvetica, Sans-serif;
+  		font-size: 16px;
+  	}
+
+  	ul, li{
+  		list-style: none;
+  	}
+
+  	h1{
+  		font-size: 2.5rem;
+  		color: #000;
+  		text-align: center;
+  		padding: 50px 0;
+  	}
+
+  	.accordion{
+  		width: 100%;
+  		max-width: 360px;
+  		margin: auto;
+  		background: #fff;
+  		border-radius: 4px;
+  	}
+
+  	.accordion .menu{
+  		position: relative;
+  		padding: 15px 15px 15px 45px;
+  		color: #4e4e4e;
+  		font-weight: bold;
+  		border-bottom: 1px solid #ccc;
+  		cursor : pointer;
+  		transition: all .4s ease;
+  	}
+
+  	.accordion li:last-child .menu{
+  		border-bottom: 0;
+  	}
+
+  	.accordion li i{
+  		position: absolute;
+  		top: 1.2rem;
+  		left: 1rem;
+  		color: #595959;
+  		transition: all .4s ease;
+  	}
+
+  	.accordion li i.fa-chevron-down{
+  		right: 1rem;
+  		left: auto;
+  	}
+
+  	.accordion li.active i.fa-chevron-down{
+  		transform: rotate(180deg);
+  	}
+
+  	.accordion li.active .menu {
+  		color: #b63b4d;
+  	}
+
+  	.accordion li.active i {
+  		color: #b63b4d;
+  	}
+
+  	.accordion li.active .submenu{
+
+  	}
+
+  	.submenu{
+  		height: 0;
+  		overflow: hidden;
+  		background: #444359;
+  		font-size: 14px;
+  		transition: height .4s ease;
+  	}
+
+  	.submenu li{
+  		border-bottom: 1px solid #4b4a5e;
+  	}
+
+  	.accordion li:last-child .submenu{
+  		border-radius: 0 0 4px 4px;
+  	}
+
+  	.accordion li:last-child .submenu li:last-child{
+  		border-bottom: 0;
+  	}
+
+  	.submenu a{
+  		display: block;
+  		text-decoration: none;
+  		color: #d9d9d9;
+  		padding: 12px;
+  		padding-left: 42px;
+  		transition: all .25s ease-in-out;
+  	}
+
+	.submenu a:hover{
+		background: #b63b4d;
+		color: #fff;
+	}
+
+  	
+  </style>
+</head>
+<body>
+
+	<h1>Accordion Menu</h1>
+	
+	<ul id="accordion" class="accordion" data-multi="true">
+		<li class="active" onclick="uiAccordion.toggle(this); return false;">
+			<div class="menu"><i class="fa fa-code"></i>Front-end <i class="fa fa-chevron-down"></i></div>
+			<ul class="submenu">
+				<li><a href="#">HTML</a></li>
+				<li><a href="#">CSS</a></li>
+				<li><a href="#">Javascript</a></li>
+			</ul>
+		</li>
+		<li onclick="uiAccordion.toggle(this); return false;">
+			<div class="menu"><i class="fa fa-code"></i>Front-end <i class="fa fa-chevron-down"></i></div>
+			<ul class="submenu">
+				<li><a href="#">HTML</a></li>
+				<li><a href="#">CSS</a></li>
+				<li><a href="#">Javascript</a></li>
+			</ul>
+		</li>
+		<li onclick="uiAccordion.toggle(this); return false;">
+			<div class="menu"><i class="fa fa-code"></i>Front-end <i class="fa fa-chevron-down"></i></div>
+			<ul class="submenu">
+				<li><a href="#">HTML</a></li>
+				<li><a href="#">CSS</a></li>
+				<li><a href="#">Javascript</a></li>
+			</ul>
+		</li>
+	</ul>
+
+	<script>
+	
+	/*
+	var accordion = document.querySelector("#accordion");
+
+	var init = function(){
+
+		var activSubmenu = accordion.querySelector('.active .submenu');
+
+		if(activSubmenu){
+			activSubmenu.style.height = activSubmenu.scrollHeight + 'px';
+		}
+	};
+
+
+	var toggle = function(el){
+
+		var isActive = el.getAttribute('class');
+		console.log(el);
+		console.log(isActive);
+		console.log(el.children[1]);
+
+		if(isActive){
+			el.className = '';
+			el.children[1].style.height = 0;
+
+		}else{
+			el.className = 'active';
+			el.children[1].style.height = el.children[1].scrollHeight + 'px'; 
+		}
+
+	};
+
+	//초기 셋팅 	
+	this.init();
+	*/
+
+
+	var uiAccordion = {
+
+		init : function(){
+
+			var accordion = document.querySelector("#accordion");
+			var activSubmenu = accordion.querySelector('.active .submenu');
+
+			if(activSubmenu){
+				activSubmenu.style.height = activSubmenu.scrollHeight + 'px';
+			}
+
+		},
+
+		toggle : function(el){
+
+			/*
+			var isActive = el.getAttribute('class');
+			
+			if(isActive){
+				el.className = '';
+				el.children[1].style.height = 0;
+			}else{
+				el.className = 'active';
+				el.children[1].style.height = el.children[1].scrollHeight + 'px'; 
+			}
+			*/
+
+			//classList used
+			el.classList.toggle('active');
+			
+			if( el.classList.contains('active') ){ 
+		          el.children[1].style.height = el.children[1].scrollHeight + 'px';
+		    }else{
+		          el.children[1].style.height = 0;
+		    }
+		},
+
+		openMulti : function(){
+			// data-multi : true;
+			//여러개 열림 
+
+		},
+
+		openSingle : function(){
+			// data-multi : false;
+			//하나씪만 열림 
+
+		}
+	};
+
+	//call init
+	uiAccordion.init();
+  
+</script>
+</body>
+</html>

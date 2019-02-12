@@ -140,17 +140,20 @@
 
 ```
 
-### 3. js - classList used simeple test  (2019.02.11)
- - Element.classList
- - ie10++
- - mdn <https://developer.mozilla.org/ko/docs/Web/API/Element/classList>
- 
- - Test HTML
- 	* ex1. es5 <http://jooe.kr/jooui/toggle/ui-toggle-classlist-es6.html>
- 	* ex2. es6 <http://jooe.kr/jooui/toggle/ui-toggle-classlist-es6.html>
+### 3. js - classList used simeple test  
 
-### 4.accordion (2019.02.12)
- 
+- 2019.02.11
+- Element.classList
+- ie10++
+- mdn <https://developer.mozilla.org/ko/docs/Web/API/Element/classList>
+
+- Test HTML
+	* ex1. es5 <http://jooe.kr/jooui/toggle/ui-toggle-classlist-es6.html>
+	* ex2. es6 <http://jooe.kr/jooui/toggle/ui-toggle-classlist-es6.html>
+
+
+### 4.accordion 
+ - 2019.02.12
  - Todo.
 	* Element.classList 사용.
 	* array.filter()를 이해.
@@ -169,7 +172,7 @@
 	* array -  [].filter.call 
 	* array.filter()를 이해한다. 
 	- <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter>
-```
+``
 
 ```
 	

@@ -148,14 +148,36 @@
  - ex2. es6 <http://jooe.kr/jooui/toggle/ui-toggle-classlist-es6.html>
 
  ### 4.accordion (2019.02.12)
- - Element.classList 
+ 
+ - Todo.
+	* Element.classList 사용.
+	* array.filter()를 이해.
+	* CSS animation/transition를 이용하여 슬라이드 효과를 구현함.  
+	* CSS animation/transition은 적절한 타이밍을 유지.(열고 닫히는 타이밍이 동일해야함) 
+	* data-* 사용하지 않고, '.active' class + js control 
+
  - ex1. es5 <http://jooe.kr/jooui/toggle/ui-accordion-es5.html>
  - ex2. es5/option  <http://jooe.kr/jooui/toggle/ui-accordion-option-es5.html>
  	* data-multi="true" ( mutil open )
 	* data-multi="false" ( single open )
+	* array -  [].filter.call 
+	* array.filter()를 이해한다. <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter>
+
+```
+	
+	list = document.getElementById("raffles-list").children; 
+				list = [].filter.call(list, function(j) {
+				    if (j.getAttribute("style") === "") {
+				        return true;
+				    } else {
+				        return false;
+				    }
+	});
+
+```
 
  - ex3. ex6 <http://jooe.kr/jooui/toggle/ui-accordion.html>	
-
+	* 참고 <https://poiemaweb.com/js-accordion-ui>
 
 
 

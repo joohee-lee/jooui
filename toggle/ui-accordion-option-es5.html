@@ -18,7 +18,6 @@
   	}
 
   	body{
-  		background: #333;
   		font-family: Arial, Helvetica, Sans-serif;
   		font-size: 16px;
   	}
@@ -29,7 +28,7 @@
 
   	h1{
   		font-size: 2.5rem;
-  		color: #000;
+  		color: #333;
   		text-align: center;
   		padding: 50px 0;
   	}
@@ -39,6 +38,7 @@
   		max-width: 360px;
   		margin: auto;
   		background: #fff;
+  		border: 1px solid #ccc;
   		border-radius: 4px;
   	}
 
@@ -126,27 +126,27 @@
 
 	<h1>Accordion Menu</h1>
 	
-	<ul id="accordion" class="accordion" data-multi="true">
-		<li class="active" onclick="uiAccordion.toggle(this); return false;">
-			<div class="menu"><i class="fa fa-code"></i>Front-end <i class="fa fa-chevron-down"></i></div>
+	<ul id="accordion" class="accordion" data-multi="false">
+		<li  class="active">
+			<div class="menu"  onclick="uiAccordion.toggle(this); return false;">Menu1<i class="fa fa-chevron-down"></i></div>
 			<ul class="submenu">
-				<li><a href="#">HTML</a></li>
+				<li><a href="#">HTML1</a></li>
 				<li><a href="#">CSS</a></li>
 				<li><a href="#">Javascript</a></li>
 			</ul>
 		</li>
-		<li onclick="uiAccordion.toggle(this); return false;">
-			<div class="menu"><i class="fa fa-code"></i>Front-end <i class="fa fa-chevron-down"></i></div>
+		<li>
+			<div class="menu" onclick="uiAccordion.toggle(this); return false;">Menu2<i class="fa fa-chevron-down"></i></div>
 			<ul class="submenu">
-				<li><a href="#">HTML</a></li>
+				<li><a href="#">HTML2</a></li>
 				<li><a href="#">CSS</a></li>
 				<li><a href="#">Javascript</a></li>
 			</ul>
 		</li>
-		<li onclick="uiAccordion.toggle(this); return false;">
-			<div class="menu"><i class="fa fa-code"></i>Front-end <i class="fa fa-chevron-down"></i></div>
+		<li>
+			<div class="menu" onclick="uiAccordion.toggle(this); return false;">Menu3<i class="fa fa-chevron-down"></i></div>
 			<ul class="submenu">
-				<li><a href="#">HTML</a></li>
+				<li><a href="#">HTML3</a></li>
 				<li><a href="#">CSS</a></li>
 				<li><a href="#">Javascript</a></li>
 			</ul>
@@ -193,19 +193,47 @@
 
 	var uiAccordion = {
 
+		_init : function(){
+
+			this.accordion = document.querySelector("#accordion");
+			this.multi = this.accordion.getAttribute('data-multi');
+			this.activSubmenu = accordion.querySelector('.active .submenu');
+		},
+
 		init : function(){
 
-			var accordion = document.querySelector("#accordion");
-			var activSubmenu = accordion.querySelector('.active .submenu');
+			this._init();
 
-			if(activSubmenu){
-				activSubmenu.style.height = activSubmenu.scrollHeight + 'px';
+			if(this.activSubmenu){
+				this.activSubmenu.style.height = this.activSubmenu.scrollHeight + 'px';
 			}
 
 		},
 
 		toggle : function(el){
 
+			this._init();
+
+			var isMulti = this.multi;
+
+			//console.log(isMulti);
+
+			if(isMulti === 'true'){
+				//self / multi
+				this._openMulti(el);
+			}else{
+				//condition
+				this._openSingle(el);
+
+				//self
+				this._openMulti(el);
+			}
+		},
+
+		_openMulti : function(el){
+			console.log('multi');
+			// data-multi : true;
+			//여러개 열림 
 			/*
 			var isActive = el.getAttribute('class');
 			
@@ -219,25 +247,58 @@
 			*/
 
 			//classList used
-			el.classList.toggle('active');
+			el.parentNode.classList.toggle('active');
 			
-			if( el.classList.contains('active') ){ 
-		          el.children[1].style.height = el.children[1].scrollHeight + 'px';
+			if( el.parentNode.classList.contains('active') ){ 
+		          el.parentNode.children[1].style.height = el.parentNode.children[1].scrollHeight + 'px';
 		    }else{
-		          el.children[1].style.height = 0;
+		          el.parentNode.children[1].style.height = 0;
 		    }
-		},
-
-		openMulti : function(){
-			// data-multi : true;
-			//여러개 열림 
 
 		},
 
-		openSingle : function(){
+		_openSingle : function(el){
 			// data-multi : false;
-			//하나씪만 열림 
+			// 하나씪만 열림 	
+			// [].filter.call ?
+			/*
+				list = document.getElementById("raffles-list").children; 
+				list = [].filter.call(list, function(j) {
+				    if (j.getAttribute("style") === "") {
+				        return true;
+				    } else {
+				        return false;
+				    }
+				});
+			*/ 
+			// array.filter()
+			// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+			this.accordion.childNodes = [].filter.call( this.accordion.childNodes , function(li){
 
+					if(li.nodeType === Node.ELEMENT_NODE && li !== el.parentNode && li.classList.contains('active')){
+
+
+						li.classList.remove('active');
+						console.log(li.querySelector('.submenu'));
+						li.querySelector('.submenu').style.height = '0';
+				
+					}
+					
+				});
+
+			//es6
+			/*
+				if (!this.config.multi) {
+			        [].filter.call(
+			          this.$accordion.childNodes,
+			          li => li.nodeType === Node.ELEMENT_NODE && li !== $targetItem && li.classList.contains('active')
+			        ).forEach(li => {
+			          li.classList.remove('active');
+			          li.querySelector('.submenu').style.height = '0';
+			        });
+		      	}
+			*/
+			
 		}
 	};
 

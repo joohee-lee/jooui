@@ -144,10 +144,12 @@
  - Element.classList
  - ie10++
  - mdn <https://developer.mozilla.org/ko/docs/Web/API/Element/classList>
- - ex1. es5 <http://jooe.kr/jooui/toggle/ui-toggle-classlist-es6.html>
- - ex2. es6 <http://jooe.kr/jooui/toggle/ui-toggle-classlist-es6.html>
+ 
+ - Test HTML
+ 	* ex1. es5 <http://jooe.kr/jooui/toggle/ui-toggle-classlist-es6.html>
+ 	* ex2. es6 <http://jooe.kr/jooui/toggle/ui-toggle-classlist-es6.html>
 
- ### 4.accordion (2019.02.12)
+### 4.accordion (2019.02.12)
  
  - Todo.
 	* Element.classList 사용.
@@ -156,12 +158,13 @@
 	* CSS animation/transition은 적절한 타이밍을 유지.(열고 닫히는 타이밍이 동일해야함) 
 	* data-* 사용하지 않고, '.active' class + js control 
 
- - ex1. es5 <http://jooe.kr/jooui/toggle/ui-accordion-es5.html>
- - ex2. es5/option  <http://jooe.kr/jooui/toggle/ui-accordion-option-es5.html>
- 	* data-multi="true" ( mutil open )
-	* data-multi="false" ( single open )
-	* array -  [].filter.call 
-	* array.filter()를 이해한다. <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter>
+- Test HTML
+ 	* ex1. es5 <http://jooe.kr/jooui/toggle/ui-accordion-es5.html>
+ 	* ex2. es5/option  <http://jooe.kr/jooui/toggle/ui-accordion-option-es5.html>
+	 	* data-multi="true" ( mutil open )
+		* data-multi="false" ( single open )
+		* array -  [].filter.call 
+		* array.filter()를 이해한다. <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter>
 
 ```
 	

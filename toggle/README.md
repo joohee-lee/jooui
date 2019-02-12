@@ -146,8 +146,8 @@
  - mdn <https://developer.mozilla.org/ko/docs/Web/API/Element/classList>
  
  - Test HTML
- 	- ex1. es5 <http://jooe.kr/jooui/toggle/ui-toggle-classlist-es6.html>
- 	- ex2. es6 <http://jooe.kr/jooui/toggle/ui-toggle-classlist-es6.html>
+ 	* ex1. es5 <http://jooe.kr/jooui/toggle/ui-toggle-classlist-es6.html>
+ 	* ex2. es6 <http://jooe.kr/jooui/toggle/ui-toggle-classlist-es6.html>
 
 ### 4.accordion (2019.02.12)
  
@@ -159,12 +159,12 @@
 	* data-* 사용하지 않고, '.active' class + js control 
 
 - Test HTML
- 	- ex1. es5 <http://jooe.kr/jooui/toggle/ui-accordion-es5.html>
- 	- ex2. es5/option  <http://jooe.kr/jooui/toggle/ui-accordion-option-es5.html>
-	 	> data-multi="true" ( mutil open )
-		> data-multi="false" ( single open )
-		> array -  [].filter.call 
-		> array.filter()를 이해한다. <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter>
+ 	* ex1. es5 <http://jooe.kr/jooui/toggle/ui-accordion-es5.html>
+ 	* ex2. es5/option  <http://jooe.kr/jooui/toggle/ui-accordion-option-es5.html>
+ 	* data-multi="true" ( mutil open )
+	* data-multi="false" ( single open )
+	* array -  [].filter.call 
+	* array.filter()를 이해한다. <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter>
 
 ```
 	
@@ -179,7 +179,8 @@
 
 ```
 
- - ex3. es6 <http://jooe.kr/jooui/toggle/ui-accordion.html>	
+ - ex3. 
+ 	* es6 <http://jooe.kr/jooui/toggle/ui-accordion.html>	
 
 
 - 참고 <https://poiemaweb.com/js-accordion-ui>

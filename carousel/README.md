@@ -124,6 +124,74 @@
 ><https://developer.mozilla.org/ko/docs/Web/API/WindowTimers/setTimeout>
 
 
+### 2. es6 / class 개념 이해 하기 
+
+#### Todo 
+* <http://jooe.kr/jooui/carousel/ui-carusel-es6-1.html>
+
+- es6 문법을 사용하여 만들어본다. 
+	- es6에서 class(함수를 의미) 란 무엇인가?
+	- class 를 이용한 객체생성 
+	- class 상속 
+	- class 특징 
+	- mdn <https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes> 
+```
+	
+	// Class는 사실 함수입니다. 함수를 함수 표현식과 함수 선언으로 정의할 수 있듯이 class 문법도 class 표현식과 class 선언 두 가지 방법을 제공합니다.
+	// sclass 선언 : class를 정의하는 한 가지 방법은 class 선언을 이용하는 것입니다. class를 선언하기 위해서는 클래스의 이름과 함께 class 키워드를 사용해야 합니다.
+	// 최근 리액트 프로젝트들은 컴포넌트를 es6 class를 사용하는 추세입니다.
+
+	class Polygon {
+	  constructor(height, width) {
+	    this.height = height;
+	    this.width = width;
+	  }
+	}
+
+```
+- carusel 을 HtmlElement.offsetWidth 와 HtmlElement.offsetHeight 이용하여 아이템을 move 한다.
+
+```
+class Carousel {
+
+			constructor(){
+
+				this.carousel = document.querySelector('.comp-carousel');
+				this.container = document.querySelector('.comp-carousel-inner');
+				this.item = document.querySelector('.carousel-item');
+
+				this.prevBtn = this.carousel.querySelector('.btn-prev');
+				this.nextBtn = this.carousel.querySelector('.btn-next');
+				
+				this.itemWidth = this.item.offsetWidth;
+				this.itemHeight = this.item.offsetHeight;
+				this.itemLength = this.carousel.querySelectorAll('.carousel-item').length;
+
+				
+				//carousle move width 
+				this.offset = 0;
+				this.current = 1;
+
+
+				//설정정보 
+				this.config = {
+					duration: 200,
+					easing: 'ease-out'
+				}
+
+				//초기화 
+				this.init();
+
+				//evnet bining 
+				this.attachEvent();
+
+			}
+
+			....
+}			
+
+```
+
 ### 참고 URL 
 
 

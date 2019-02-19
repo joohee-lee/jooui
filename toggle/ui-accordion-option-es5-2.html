@@ -273,14 +273,14 @@
 			*/ 
 			// array.filter()
 			// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
-			this.accordion.childNodes = [].filter.call( this.accordion.childNodes , function(li){
+			var list = this.accordion.childNodes;
+			list = [].filter.call( list , function(obj){
 
-					if(li.nodeType === Node.ELEMENT_NODE && li !== el.parentNode && li.classList.contains('active')){
+					if(obj.nodeType === Node.ELEMENT_NODE && obj !== el.parentNode && obj.classList.contains('active')){
 
-
-						li.classList.remove('active');
-						console.log(li.querySelector('.submenu'));
-						li.querySelector('.submenu').style.height = '0';
+						obj.classList.remove('active');
+						console.log(obj.querySelector('.submenu'));
+						obj.querySelector('.submenu').style.height = '0';
 				
 					}
 					

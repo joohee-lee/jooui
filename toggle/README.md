@@ -155,8 +155,20 @@
 ### 4.accordion 
  - 2019.02.12
  - Todo.
-	* Element.classList 사용.
-	* array.filter()를 이해.
+	* Element.classList 사용. / mdn <https://developer.mozilla.org/ko/docs/Web/API/Element/classList>
+	* array.filter()를 이해. / mdn <https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter>
+	* Function.prototype.call() / 익명함수 호출 mdn<https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/call>
+
+```
+	
+	function isBigEnough(value) {
+	  return value >= 10;
+	}
+
+	var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+	// filtered 는 [12, 130, 44]
+
+```	
 	* CSS animation/transition를 이용하여 슬라이드 효과를 구현함.  
 	* CSS animation/transition은 적절한 타이밍을 유지.(열고 닫히는 타이밍이 동일해야함) 
 	* data-* 사용하지 않고, '.active' class + js control 

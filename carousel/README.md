@@ -128,6 +128,7 @@
 
 #### Todo 
 * <http://jooe.kr/jooui/carousel/ui-carusel-es6-1.html>
+* 무한루프 <http://jooe.kr/jooui/carousel/ui-carusel-es6-2.html>
 
 - es6 문법을 사용하여 만들어본다. 
 	- es6에서 class(함수를 의미) 란 무엇인가?
@@ -191,6 +192,36 @@ class Carousel {
 }			
 
 ```
+
+### es6 - classes
+	- class
+		- constructor
+		- extends
+		- static
+
+#### Constructor
+- mdn <https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/constructor> 
+- <https://googlechrome.github.io/samples/classes-es6/index.html>
+- 생성자(constructor) 메소드는 클래스가 오브젝트로 생성되고 초기되기 위한 특별한 메소드 입니다.
+```
+	//constructor([arguments]) { ... }
+
+	class Polygon {
+		constructor {
+			this.name = "polygon";
+		}
+	}
+
+	var poly1 = new Polygon();
+
+	console.log(poly1.name);
+	// 'polygon'
+```		
+
+#### extends
+
+#### static
+
 
 ### 참고 URL 
 

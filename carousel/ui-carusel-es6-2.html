@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>carusel</title>
+	<style>
+		body{
+			font-family: '맑은고딕', 'malgun gothic', sans-serif;
+			font-size: 14px;
+			line-height: 1.2;
+		}
+
+		.comp-carousel {
+			position: relative;
+			margin: 0 auto;
+			overflow: hidden;
+			opacity: 0;
+		}
+
+		.comp-carousel-inner{
+			display: flex;
+		}
+
+		.carousel-item{}
+
+		.carousel-item img{
+			vertical-align: bottom;
+		}
+
+		.comp-carousel .btn{
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 2em;
+			color: #fff;
+			background-color: transparent;
+			border-color: transparent;
+			cursor: pointer;
+			z-index: 1000;
+		}
+
+		.comp-carousel .btn.disabled{
+			opacity: 0.2;
+		}
+
+		.comp-carousel .btn-prev{ left: 0; }
+		.comp-carousel .btn-next{ right: 0; }
+	</style>
+</head>
+<body>
+<!--
+	* carousel 
+	* width / height
+	* HtmlElement.offsetWidth 와 HtmlElement.offsetHeight 
+-->
+	<div class="comp-carousel">
+		<div class="comp-carousel-inner">
+			
+			<div class="carousel-item">
+				<a href="#"><img src="http://via.placeholder.com/400x150/3498db/fff&text=1" alt=""></a>
+			</div>
+			<div class="carousel-item">
+				<a href="#"><img src="http://via.placeholder.com/400x150/3498db/fff&text=2" alt=""></a>
+			</div>
+			<div class="carousel-item">
+				<a href="#"><img src="http://via.placeholder.com/400x150/3498db/fff&text=3" alt=""></a>
+			</div>
+			
+
+		</div>
+
+		<div class="control">
+			<button type="button" class="btn btn-prev">prev</button>
+			<button type="button" class="btn btn-next">next</button>
+		</div>
+	</div>
+	<script>
+		class Carousel {
+			constructor(config) {
+
+				//기본 설정과 사용자 지정 설정을 병합 
+				this.config = Carousel.mergeConfig(config);
+
+				//DOM 
+				this.carousel = document.querySelector(this.config.selector);
+				this.container = this.carousel.querySelector('.comp-carousel-inner');
+				this.item = this.carousel.querySelector('.carousel-item');
+				this.items = this.carousel.querySelectorAll('.carousel-item');
+				this.prevBtn = this.carousel.querySelector('.btn-prev');
+				this.nextBtn = this.carousel.querySelector('.btn-next');
+
+
+				//carousel item width / height
+				this.itemWidth = this.item.offsetWidth;
+				this.itemHeight = this.item.offsetHeight;
+				this.itemLength = this.items.length;
+
+				console.log( this.itemLength);
+
+				//초기 setting
+				this.offset = 0;
+				this.current = 1; //현재 item index
+				this.isTransiting = false; //transition state
+
+
+				//초기 setting 
+				this.init();
+				//event binding
+				this.attachEvent(); 
+			}
+
+
+			static mergeConfig(config) {
+
+				const defaultConfig = {
+
+					selector: '.comp-carousel',
+					duration: 200,
+					easing: 'ease-out',
+					infinite : true,
+				};
+
+				return { ... defaultConfig, ... config };
+			}
+
+			//init 
+			init() {
+				this.carousel.style.width = this.itemWidth + 'px';
+				this.carousel.style.height = this.itemHeight + 'px';
+				
+				//무한 루핑 여부 체크 
+				if (this.config.infinite) {
+					
+					this.insertClone();
+					this.offset = -this.itemWidth;
+
+					this.moveWithoutAni();
+					
+				} else {
+					//무한 루프 아닐 경우 
+					//prev , next 버튼 활성화 / 비활성화 결정 
+				}
+
+				this.carousel.style.opacity = 1;
+			}
+
+			//eventBinding 
+			attachEvent(){	
+
+				this.prevBtn.addEventListener('click', this.prev.bind(this), false);
+				
+				this.nextBtn.addEventListener('click', this.next.bind(this), false);
+				
+				this.container.addEventListener('transtion', () => this.isTransiting = false);
+			}
+
+			//Infinite looping : 캐러셀 item 의 첫번째, 마지막 요소를 클론하여 삽입. 
+			insertClone() {
+				const firstItem = this.items[0];
+				const lastItem = this.items[this.items.length - 1];
+				
+				this.container.insertBefore(lastItem.cloneNode(true), this.container.firstChild);
+
+				this.container.appendChild(firstItem.cloneNode(true));
+					
+			}
+
+			
+
+			prev() {
+
+				if (this.isTransiting) return;
+
+				this.offset += this.itemWidth;
+				this.move();
+				this.current--;
+
+				if (this.config.infinite) {
+					if (this.isClone()) {
+
+						this.offset -= this.itemLength * this.itemWidth;
+						setTimeout(() => this.moveWithoutAni(), this.config.duration);
+						this.current = this.current + this.itemLength;
+
+					} else {
+
+						// 버튼 체크 
+						//this.checkMovalble();
+					}
+				}
+
+			}
+
+			next() {
+
+				if ( this.isTransiting) return;
+
+				this.offset -= this.itemWidth;
+				console.log("offset:" + this.offset);
+				this.move();
+				this.current++;
+
+				//infinite check
+				console.log(this.config.infinite);
+				if (this.config.infinite) {
+
+					console.log(this.isClone());
+					if (this.isClone()) {
+						this.offset += this.itemLength * this.itemWidth;
+						console.log("clone-offset:" + this.offset);
+						setTimeout( () => this.moveWithoutAni(), this.config.duration );
+						this.current = this.current - this.itemLength;
+					} else {
+						//this.checkMovable();
+					}
+				}
+
+
+
+			}
+
+			//clone element check
+			isClone() {
+				return this.current === 0 || this.current === this.itemLength +1;
+				console.log(this.current);
+			}
+
+			move() {
+
+				this.isTransition = true;
+				this.container.style.transition = `transform ${this.config.duration}ms ${this.config.easing}`;
+				this.container.style.transform = `translate3D(${this.offset}px, 0 , 0)`;
+			}
+
+			moveWithoutAni() {
+				this.container.style.transition = 'none';
+				this.container.style.transform = `translate3D(${this.offset}px, 0, 0)`;
+			}
+		}
+
+		window.onload = function(){
+			const carousel = new Carousel();
+			//const carousel = new Carousel({ infinite : false});
+		}
+	</script>
+</body>
+</html>

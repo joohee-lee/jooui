@@ -151,7 +151,7 @@
 				
 				this.nextBtn.addEventListener('click', this.next.bind(this), false);
 				
-				this.container.addEventListener('transtion', () => this.isTransiting = false);
+				this.container.addEventListener('transition', () => this.isTransiting = false);
 			}
 
 			//Infinite looping : 캐러셀 item 의 첫번째, 마지막 요소를 클론하여 삽입. 
@@ -236,11 +236,19 @@
 				this.container.style.transition = 'none';
 				this.container.style.transform = `translate3D(${this.offset}px, 0, 0)`;
 			}
+
+			rolling() {
+				const interval = setInterval( this.next.bind(this), 2000);
+			}
 		}
 
 		window.onload = function(){
 			const carousel = new Carousel();
 			//const carousel = new Carousel({ infinite : false});
+
+			carousel.rolling();
+
+
 		}
 	</script>
 </body>

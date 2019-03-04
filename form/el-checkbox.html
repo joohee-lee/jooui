@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="../css/reset.css">
 	<style>
 		body{
-			margin: 1em;
+			margin: 10px;
 		}
 		code{
 			display: block;
@@ -365,12 +365,12 @@
 		function filterExpanded(el){
 
 			var el = el;
-			var elExpanded = el.getAttribute('data-expanded');
-			var elpressed = el.getAttribute('data-pressed');
+			var isExpanded = el.getAttribute('data-expanded');
+			var ispressed = el.getAttribute('data-pressed');
 
-			console.log(el);
+			//console.log(el);
 
-			if ( elExpanded === 'false' ){
+			if ( isExpanded === 'false' ){
 
 				el.setAttribute('data-expanded', true);
 				el.setAttribute('data-pressed', true);
@@ -384,6 +384,133 @@
 			
 		}
 	</script>
+
+	<br>
+
+	<h2> # filter-group-list  / data-current / data-index </h2>
+	
+	<style>
+		.filter-list{}
+		.filter-list .filter-list-inner:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.filter-list .filter-group{ 
+			float: left;
+			width: 24%; 
+			margin-left: 1%;
+		}
+		
+			
+		.filter-list .filter-group .filter-pop{ display: none; }
+		.filter-list[data-current="1"] .filter-group[data-index="1"] .filter-pop,
+		.filter-list[data-current="2"] .filter-group[data-index="2"] .filter-pop,
+		.filter-list[data-current="3"] .filter-group[data-index="3"] .filter-pop,
+		.filter-list[data-current="4"] .filter-group[data-index="4"] .filter-pop{
+			display: block;
+		}
+
+
+		.filter-list[data-current="1"] .filter-group[data-index="1"] .filter-btn{
+
+		}
+
+
+		.filter-list .filter-btn::after{
+			border: 1px solid #ddd;
+			border-right: 0;
+			border-bottom: 0;
+			transform: rotate(45deg);
+		}
+		
+		.filter-list[data-current="1"] .filter-group[data-index="1"] .filter-btn,
+		.filter-list[data-current="2"] .filter-group[data-index="2"] .filter-btn,
+		.filter-list[data-current="3"] .filter-group[data-index="3"] .filter-btn,
+		.filter-list[data-current="4"] .filter-group[data-index="4"] .filter-btn{
+			border-color: #000;
+			border-bottom: 0;
+		}
+
+		.filter-list[data-current="1"] .filter-group[data-index="1"] .filter-btn::after,
+		.filter-list[data-current="2"] .filter-group[data-index="2"] .filter-btn::after,
+		.filter-list[data-current="3"] .filter-group[data-index="3"] .filter-btn::after,
+		.filter-list[data-current="4"] .filter-group[data-index="4"] .filter-btn::after{
+			border: 1px solid #000;
+			border-right: 0;
+			border-top: 0;
+			transform: rotate(-45deg);
+		}
+	</style>
+	<div id="compFilterList" class="filter-list" data-current="" data-expanded="false">
+		<div class="filter-list-inner">
+			<!-- 조건 1 -->
+			<div class="filter-group" data-index="1">
+				<div class="filter-inner">
+					<button type="button" class="filter-btn" name="" id="" value="" data-expanded="false" onclick="filtersExpanded(this, 1);">조건 1</button>
+					<div class="filter-pop">
+						text --1
+					</div>
+				</div>
+			</div>
+			<!-- 조건 2 -->
+			<div class="filter-group" data-index="2">
+				<div class="filter-inner">
+					<button type="button" class="filter-btn" name="" id="" value="" data-expanded="false" onclick="filtersExpanded(this, 2);">조건 2</button>
+					<div class="filter-pop">
+						text -- 2
+					</div>
+				</div>
+			</div>
+			<!-- 조건 3 -->
+			<div class="filter-group" data-index="3">
+				<div class="filter-inner">
+					<button type="button" class="filter-btn" name="" id="" value="" data-expanded="false" onclick="filtersExpanded(this, 3);">조건 3</button>
+					<div class="filter-pop">
+						text -- 3
+					</div>
+				</div>
+			</div>
+			<!-- 조건 4 -->
+			<div class="filter-group" data-index="4">
+				<div class="filter-inner">
+					<button type="button" class="filter-btn" name="" id="" value="" data-expanded="false" onclick="filtersExpanded(this, 4);">조건 4</button>
+					<div class="filter-pop">
+						text -- 4
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<script>
+		function filtersExpanded(el, idx){
+
+			var el = el;
+			var elCurrent = idx;
+			var elComp = document.getElementById('compFilterList');
+			var elCompCurrent = Number(elComp.getAttribute('data-current'));
+
+			//console.log(elCurrent);
+			//console.log(elCompCurrent);
+
+			if( elCurrent === elCompCurrent ){
+				
+				elComp.setAttribute('data-current', ' ');
+				elComp.setAttribute('data-expanded', false);
+				el.setAttribute('data-expanded', false);
+
+			} else {
+				
+				elComp.setAttribute('data-current', elCurrent);
+				elComp.setAttribute('data-expanded', true);
+				el.setAttribute('data-expanded', true);
+	
+			}
+
+		}
+	</script>
+
 
 </body>
 </html>

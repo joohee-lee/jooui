@@ -117,7 +117,8 @@
 
 
 		.check-list,
-		.radio-list{ margin-bottom: 20px; }
+		.radio-list,
+		.button-list{ margin-bottom: 20px; }
 
 	</style>
 </head>
@@ -239,5 +240,150 @@
 			}
 		}
 	</script>
+
+
+	<h2> # filter box - expanded / pressed - 1 </h2>
+	<style>
+		.filter-btn{
+			position: relative;
+			border: 1px solid #ddd;
+			padding: 7px 30px 7px 10px;
+			text-align: left;
+			width: 100%;
+			box-sizing: border-box;
+		}
+
+		.filter-btn::after{
+			content: '';
+			display: block;
+			width: 5px;
+			height: 5px;
+			position: absolute;
+			right: 10px;
+			top: 50%;
+			margin-top: -2.5px;
+		}
+
+		.filter-btn[data-pressed="false"]::after{
+			border: 1px solid #ddd;
+			border-right: 0;
+			border-bottom: 0;
+			transform: rotate(45deg);
+		}
+		
+		
+		.filter-btn[data-pressed="true"]{
+			border-color: #000;
+			border-bottom: 0;
+		}
+		.filter-btn[data-pressed="true"]::after{
+			border: 1px solid #000;
+			border-right: 0;
+			border-top: 0;
+			transform: rotate(-45deg);
+		}
+	
+
+		.filter-pop{
+			border: 1px solid #000;
+			padding: 10px;
+			margin-top: -1px;
+		}
+
+		.filter-btn[data-expanded="false"] + .filter-pop{
+			display: none;
+		}
+
+		.filter-btn[data-expanded="true"] + .filter-pop{
+			display: block;
+		}
+
+		.filter-group .check-list{ margin-bottom: 0; }
+	</style>
+	<div class="filter-group" data-index="1">
+		<div class="filter-inner">
+			<button type="button" class="filter-btn" name="" id="" value="" data-haspop="true" data-expanded="false" data-pressed="false" onclick="filterExpanded(this);">조건 1</button>
+			<div class="filter-pop">
+				<!-- checklist comp -->
+				<div class="check-list">
+					<div class="check-inner">
+						<ul>
+							<li class="item">
+								<input type="checkbox" id="cck1" name="cck1" class="checkbox-input">
+								<label for="cck1" class="checkbox-label">check 1</label>
+							</li>
+							<li class="item">
+								<input type="checkbox" id="cck2" name="cck2" class="checkbox-input">
+								<label for="cck2" class="checkbox-label">check 2</label>
+							</li>
+							<li class="item">
+								<input type="checkbox" id="cck3" name="cck3" class="checkbox-input">
+								<label for="cck3" class="checkbox-label">check 3</label>
+							</li>
+						</ul>
+						
+					</div>	
+				</div>
+				<!-- //checklist comp -->
+			</div>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="filter-group" data-index="2">
+		<div class="filter-inner">
+			<button type="button" class="filter-btn" name="" id="" value="" data-haspop="true" data-expanded="false" data-pressed="false" onclick="filterExpanded(this);">조건 2</button>
+			<div class="filter-pop">
+				<!-- radiolist comp -->
+				<div class="radio-list">
+					<div class="radio-inner">
+
+						<ul>
+							<li class="item">
+								<input type="radio" id="rradio1" name="radio-name2" class="radio-input">
+								<label for="rradio1" class="radio-label">Radio 1</label>
+							</li>
+							<li class="item">
+								<input type="radio" id="rradio2" name="radio-name2" class="radio-input">
+								<label for="rradio2" class="radio-label">Radio 2</label>
+							</li>
+							<li class="item">
+								<input type="radio" id="rradio3" name="radio-name2" class="radio-input">
+								<label for="rradio3" class="radio-label">Radio 3</label>
+							</li>
+						</ul>
+						
+					</div>	
+				</div>
+				<!-- //radiolist comp -->
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		function filterExpanded(el){
+
+			var el = el;
+			var elExpanded = el.getAttribute('data-expanded');
+			var elpressed = el.getAttribute('data-pressed');
+
+			console.log(el);
+
+			if ( elExpanded === 'false' ){
+
+				el.setAttribute('data-expanded', true);
+				el.setAttribute('data-pressed', true);
+
+			} else {
+
+				el.setAttribute('data-expanded', false);
+				el.setAttribute('data-pressed', false);
+
+			}
+			
+		}
+	</script>
+
 </body>
 </html>

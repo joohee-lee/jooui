@@ -117,7 +117,7 @@
 
 
 		.check-list,
-		.raido-list{ margin-bottom: 20px; }
+		.radio-list{ margin-bottom: 20px; }
 
 	</style>
 </head>
@@ -181,6 +181,63 @@
 			
 		</div>	
 	</div>
+	
+	<h2> # button toggle & javascript </h2>
+	<style>
+		
+	.button-filter{
+	    display: inline-block;
+	    height: 30px;
+	    margin: 3px 6px 0 0;
+	    padding: 5px 15px;
+	    border: 1px solid rgba(0,0,0,0.15);
+	    border-radius: 30px;
+	    vertical-align: top;
+	    color: #424242;
+	    cursor: pointer;
+	    -webkit-box-sizing: border-box;
+	    box-sizing: border-box;
+	    font-size: 13px;
+	    line-height: 18px;
+	    letter-spacing: -.5px;
+	}
 
+	.button-filter[data-pressed='true']{
+		padding: 5px 9px 5px 5px;
+		border-color: #000;
+		font-weight: bold;
+	}
+	
+	.button-filter[data-pressed='true']::before{
+		content: '';
+	    display: inline-block;
+	    background: url(./icons8-checkmark-filled-50.png) 0 5px no-repeat;
+	    margin-left: 0;
+	    width: 9.8px;
+	    height: 14px;
+	    background-size: 100%;
+		color: #000;
+	}
+	</style>
+	<div class="button-list">
+		<button type="button" class="button-filter" name="" id="" value="button-name1" data-pressed="true" onclick="btnToggle(this);"> name 1</button>
+		<button type="button" class="button-filter" name="" id="" value="button-name2" data-pressed="false" onclick="btnToggle(this);"> name 2</button>
+		<button type="button" class="button-filter" name="" id="" value="button-name3" data-pressed="false" onclick="btnToggle(this);"> name 3</button>
+	</div>
+	<script>
+		function btnToggle(el){
+			var el = el;
+			var elDataPressed = el.getAttribute('data-pressed');
+
+			//console.log(elDataPressed);
+			//console.log(el.getAttribute('value'));
+
+			if (elDataPressed === 'false') {
+				el.setAttribute('data-pressed', 'true');
+			} else {
+				el.setAttribute('data-pressed', 'false');
+			}
+		}
+	</script>
 </body>
 </html>

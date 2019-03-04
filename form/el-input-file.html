@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>input-file</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		body{
+			margin: 10px;
+		}
+		code{
+			display: block;
+			margin: 10px;
+			padding: 0;
+			text-align: left;
+		}
+
+		.comp-upload{
+			position: relative;
+		}
+		
+		
+		.comp-upload input[type="file"] { 
+			position: absolute; 
+			width: 1px; height: 1px;
+			padding: 0; margin: -1px; 
+			overflow: hidden; 
+			clip:rect(0,0,0,0);
+			border: 0; 
+			-webkit-appearance: none; /* 네이티브 외형 감추기 */
+			-moz-appearance: none; 
+			appearance: none;
+		} 
+
+		.comp-upload .input-file-path{
+			position: absolute;
+			left: 0;
+			top: 0;
+			border: 1px solid #ddd;
+			width: 200px;
+			height: 30px;
+			padding-left: 10px;
+			box-sizing: border-box;
+			color: #333;
+    		font-size: 14px;
+		}
+		
+		.comp-upload label{
+			position: absolute;
+			left: 200px;
+			top: 0;
+			display: inline-block;
+			background-color: #333;
+			color: #fff;
+			width: 100px;
+			height: 30px;
+			line-height: 30px;
+			box-sizing: border-box;
+			text-align: center;
+		}
+		
+		input[type="file" i] {
+		    align-items: baseline;
+		    color: inherit;
+		    text-align: start !important;
+		    -webkit-appearance: initial;
+		    background-color: initial;
+		    cursor: default;
+		}
+
+	</style>
+</head>
+<body>
+	<h2> # input file && javascript  </h2>
+	<h3> browser - input - file </h3>
+	<div><img src="inpufile.png" alt=""></div>
+	
+	<div class="comp-upload">
+		<label for="findFile">찾기</label>
+		<input type="file" name="fileAttach" class="input-file" id="findFile" valule=""/>
+		<!--<div class="input-file-path">xxx.png</div>-->
+		<input type="text" class="input-file-path" value="파일선택" disabled="disabled">
+	</div>
+
+	<script>
+		var fileTarget = document.querySelector('.input-file');
+
+		//console.log(fileTarget);
+		fileTarget.onchange = function(){
+
+			if(window.FileReader){
+				var fileName = fileTarget.files[0].name;
+				console.log(fileName);
+			}
+			//filename setting
+			fileTarget.nextElementSibling.setAttribute('value', fileName);
+		};
+	</script>
+</body>
+</html>

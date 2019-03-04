@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>checkbox</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		body{
+			margin: 1em;
+		}
+		code{
+			display: block;
+			margin: 10px;
+			padding: 0;
+			text-align: left;
+		}
+		/* reset checkbox - radio */
+		input[type='checkbox'], input[type='radio']{
+			position: absolute;
+		    clip: rect(0 0 0 0);
+		    width: 1px;
+		    height: 1px;
+		    margin: -1px;
+		    overflow: hidden;
+		}
+
+		input[type='checkbox']+label, 
+		input[type='radio']+label{ cursor: pointer;}
+		
+		.checkbox-label{
+			position: relative;
+			width: 100%;
+			padding-left: 25px;
+		}
+
+		.checkbox-label::before{
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			width: 15px;
+			height: 15px;
+			margin-top: -7.5px;
+			border: 1px solid #ddd;
+			background-color: #f3f3f3;
+			color: #fff;
+			box-sizing: border-box;
+		}
+
+		.checkbox-input:checked+.checkbox-label::before {
+		    border: 1px solid rgba(0,0,0,0.1);
+		    background-color: #35c44b;
+		}
+
+		.checkbox-input:checked+.checkbox-label::after {
+		    content: '';
+		    display: block;
+		    background-image: url(./icons8-checkmark-filled-50.png);
+		    background-repeat: no-repeat;
+		    position: absolute;
+		    left: 0;
+		    top: 50%;
+		    margin-top: -7px;
+		    width: 14px;
+		    height: 14px;
+		    background-size: 100%;
+			color: #fff;
+		}
+		
+		/* radio */
+
+		.radio-label{
+			position: relative;
+			width: 100%;
+			padding-left: 25px;
+		}
+
+		.radio-label::before{
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			width: 20px;
+			height: 20px;
+			margin-top: -10px;
+			border: 1px solid #ddd;
+			border-radius: 50%;
+			background-color: #f3f3f3;
+			color: #fff;
+			box-sizing: border-box;
+		}
+
+		.radio-input:checked+.radio-label::before {
+		    background-color: #fff;
+		    border: 0;
+		}
+
+		.radio-input:checked+.radio-label::after {
+		    content: '';
+		    display: block;
+		    background-image: url(./icons8-ok-50.png);
+		    background-repeat: no-repeat;
+		    position: absolute;
+		    left: 0;
+		    top: 50%;
+		    margin-top: -10px;
+		    width: 20px;
+		    height: 20px;
+		    background-size: 100%;
+			color: #fff;
+		}
+
+
+
+		.check-list,
+		.raido-list{ margin-bottom: 20px; }
+
+	</style>
+</head>
+<body>
+	<h2> # checkbox only CSS </h2>
+	<code>
+		
+		&ltinput  type="checkbox" id="ck1" name="" class="checkbox-input"&gt
+		<br>
+		&ltlabel // for="ck1" class="checkbox-label"&gt 체크 1&lt/lable&gt
+		
+	</code>
+	
+	<div class="check-list">
+		<div class="check-inner">
+			<ul>
+				<li class="item">
+					<input type="checkbox" id="ck1" name="" class="checkbox-input">
+					<label for="ck1" class="checkbox-label">check 1</label>
+				</li>
+				<li class="item">
+					<input type="checkbox" id="ck2" name="" class="checkbox-input">
+					<label for="ck2" class="checkbox-label">check 2</label>
+				</li>
+				<li class="item">
+					<input type="checkbox" id="ck3" name="" class="checkbox-input">
+					<label for="ck3" class="checkbox-label">check 3</label>
+				</li>
+			</ul>
+			
+		</div>	
+	</div>
+
+
+	<h2> # radio only CSS </h2>
+	<code>
+		
+		&ltinput  type="radio" id="radio1" name="" class="radio-input"&gt
+		<br>
+		&ltlabel // for="radio1" class="radio-label"&gt radio 1&lt/lable&gt
+		
+	</code>
+
+	<div class="radio-list">
+		<div class="radio-inner">
+
+			<ul>
+				<li class="item">
+					<input type="radio" id="radio1" name="" class="radio-input">
+					<label for="radio1" class="radio-label">Radio 1</label>
+				</li>
+				<li class="item">
+					<input type="radio" id="radio2" name="" class="radio-input">
+					<label for="radio2" class="radio-label">Radio 2</label>
+				</li>
+				<li class="item">
+					<input type="radio" id="radio3" name="" class="radio-input">
+					<label for="radio3" class="radio-label">Radio 3</label>
+				</li>
+			</ul>
+			
+		</div>	
+	</div>
+
+</body>
+</html>

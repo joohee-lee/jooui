@@ -9,6 +9,7 @@
 	<style>
 		body{
 			margin: 10px;
+			padding-bottom: 30px;
 		}
 		code{
 			display: block;
@@ -510,7 +511,172 @@
 
 		}
 	</script>
+	
+
+	<br>
+	<style>
+		select{
+			border: 0;
+		    border-radius: 0;
+		    background: 0 0;
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		    cursor: pointer;
+		}
+		.select-css{
+			font-size: 12px;
+		    font-weight: 400;
+		    min-width: 95px;
+		    height: 30px;
+		    padding: 5px 9px 5px 7px;
+		    padding: 7px 8px 6px 7px\9;
+		    cursor: pointer;
+		    color: #333;
+		    border: 1px solid #ccc;
+		    border-radius: 0;
+		}
+
+		:root .select-css {
+		    background: #fff url(sel_arr_2x.gif) 100% 50% no-repeat;
+		    -webkit-background-size: 20px 8px;
+		    background-size: 20px 8px;
+		}
+
+	</style>
+	<h2># native select  + css </h2>
+	<div class="native-select">
+		<select class="select-css"name="" id="">
+			<option value="한국어">한국어</option>
+			<option value="영어">영어</option>
+			<option value="일본어">일본어</option>
+		</select>
+	</div>
+
+	<br>
+
+	<h2># design select  + css + js </h2>
+	<style>
+		.select-list{ 
+			position: relative;
+			width: 200px; 
+			height: 30px;
+		}
+		.select-list:before{
+			position: absolute;
+		    top: 50%;
+		    right: 15px;
+		    content: "";
+		    display: inline-block;
+		    width: 6px;
+		    height: 6px;
+		    margin-top: -6px;
+		    border-right: 2px solid #a5a5a5;
+		    border-top: 2px solid #a5a5a5;
+		    transform: rotate(135deg);
+		}
+		.select-list .select-head{ 
+			border: 1px solid #ccc; 
+			padding: 5px; 
+			width: 100%;
+			box-sizing: border-box;
+			font-weight: bold;
+		}
+		
+		.select-body{
+			background-color: #fff;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+			border-top: 0;
+		}
+		.select-body .item{}
+		.select-body .item a{ 
+			display: inline-block; 
+			width: 100%; 
+			padding: 2px;
+			box-sizing: border-box;
+		}
+		.select-body .item[data-checked='true']{
+			background-color: #000;
+			color: #fff;
+		}
+	
+		.select-list[data-expanded='false'] .select-body{ display: none; }
+		.select-list[data-expanded='true'] .select-body{ display: block; }
+	</style>
+	<div id="comp-select--1" class="comp-select">
+		<div class="select-list" data-expanded="false">
+			<button type="button" name="" class="select-head" onclick="uiSelect.fnToggle();">선택</button>
+			<ul class="select-body">
+				<li class="item" data-checked="false" data-index="1"><a href="sort1" data-value="sort1" onclick="uiSelect.fnChange(this); return false;">select--1</a></li>
+				<li class="item" data-checked="false" data-index="2"><a href="sort2" data-value="sort2" onclick="uiSelect.fnChange(this); return false;">select--2</a></li>
+				<li class="item" data-checked="false" data-index="3"><a href="sort3" data-value="sort3" onclick="uiSelect.fnChange(this); return false;">select--3</a></li>
+			</ul>
+		</div>
+		<p id="demo">선택한 조건은 무엇인가요?</p>
+	</div>
 
 
+	<script>
+		var uiSelect = {
+
+			elSelect : '',
+			isExpanded: false,
+			elSelectHead: '',
+			elSelectItem:[],
+
+			init : function(){
+
+				this.elSelect = document.querySelector('.select-list');
+				this.elSelectHead = document.querySelector('.select-head');
+				this.isExpanded  = this.elSelect.getAttribute('data-expanded');
+				this.elDemo = document.getElementById('demo');
+
+			},
+
+			//method1
+			fnToggle : function(){
+
+				this.init();
+
+				if (this.isExpanded === 'false'){
+					this.elSelect.setAttribute('data-expanded', true);
+				}else{
+					this.elSelect.setAttribute('data-expanded', false);
+				}
+
+				return false;
+			},
+
+			//method2
+			fnChange : function(el){
+
+				var el = el;
+				var elItem =  document.querySelectorAll('.select-body .item');
+				var elItemLeng = elItem.length;
+				var elText = el.innerText;
+
+				for(i=0; i < elItemLeng; i++ ){
+					elItem[i].setAttribute('data-checked', false);
+				}
+
+				el.parentNode.setAttribute('data-checked',true);
+				this.elSelectHead.textContent = elText;
+				this.elDemo.innerHTML = elText;
+
+				//console.log(elText);
+				//console.log(elItemLeng);
+
+				//close	
+				this.fnToggle();
+
+			}
+
+		};
+
+	</script>
+
+	<h2># design select  + css + js (prototype) </h2>
+	
 </body>
 </html>

@@ -115,8 +115,6 @@
 			color: #fff;
 		}
 
-
-
 		.check-list,
 		.radio-list,
 		.button-list{ margin-bottom: 20px; }
@@ -153,6 +151,83 @@
 		</div>	
 	</div>
 
+	<style>
+		.term-allcheck label{ font-weight: bold; }
+		.term-allcheck label[data-checked='true']{ color: green; }
+	</style>
+
+	<h2> # checkbox only CSS + js( 전체동의 - toggle) </h2>
+	<div id="compCheckList" class="check-list">
+		<div class="check-inner">
+			<p class="term-allcheck">
+				<input type="checkbox" id="all" name="all" class="checkbox-input"> 
+				<label for="all" class="checkbox-label"  data-checked="false" onclick="checkToggle(this);">전체동의</label>
+			</p>
+			<ul class="term-checklist">
+				<li class="item">
+					<input type="checkbox" id="nck1" name="nck1" class="checkbox-input">
+					<label for="nck1" class="checkbox-label" onclick="uncheckAll();">check 1 / 필수</label>
+				</li>
+				<li class="item">
+					<input type="checkbox" id="nck2" name="nck2" class="checkbox-input">
+					<label for="nck2" class="checkbox-label" onclick="uncheckAll();">check 2</label>
+				</li>
+				<li class="item">
+					<input type="checkbox" id="nck3" name="nck3" class="checkbox-input">
+					<label for="nck3" class="checkbox-label" onclick="uncheckAll();">check 3</label>
+				</li>
+			</ul>
+			
+		</div>	
+	</div>
+
+	<script>
+		function checkToggle(el){
+			
+			var el = el;
+			var isAll = el.getAttribute('data-checked');
+			var elList = document.querySelector('.term-checklist');
+			var elItem = elList.querySelectorAll('.checkbox-input');
+			var elItemLeng = elItem.length;
+
+			console.log('checked');
+			if (isAll === 'false'){
+
+				for (var i = 0; i < elItemLeng ; i++) {
+					
+					el.setAttribute('data-checked', true);
+					elItem[i].checked = true;
+				}
+
+			} else{
+
+				for (var i = 0; i < elItemLeng ; i++) {
+					el.setAttribute('data-checked', false);
+					elItem[i].checked = false;
+				}
+
+			}
+		}
+		
+
+		function uncheckAll(){
+
+			//console.log('전체동의 해제');
+
+			var el = document.querySelector('.term-allcheck');
+			var elCheck = el.querySelector('.checkbox-input');
+			var elLabel = el.querySelector('.checkbox-label');
+
+			var isAll = elLabel.getAttribute('data-checked');
+
+			if ( isAll === 'true'){
+				elCheck.checked = false;
+				elLabel.setAttribute('data-checked', false);
+			} 
+
+			return false;
+		}
+	</script>
 
 	<h2> # radio only CSS </h2>
 	<code>
@@ -183,7 +258,8 @@
 			
 		</div>	
 	</div>
-	
+
+
 	<h2> # button toggle & javascript </h2>
 	<style>
 		

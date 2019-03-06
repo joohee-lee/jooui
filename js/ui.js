@@ -2,6 +2,15 @@
 "use strict";
 
 /*
+user agent check
+html  data-useragent && data-platform 명시 
+*/
+
+/*
+page uniqu classNaming add
+*/
+
+/*
 pc&mobile check 
 HTML과 script가 로드된 시점에 발생하는 이벤트
 */

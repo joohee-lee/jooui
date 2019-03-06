@@ -2,35 +2,223 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>login</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="stylesheet" href="../css/reset.css">
+	<title>login</title>
 	<style>
+		.comp-login{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			background: #fff;
+			border: 1px solid #ddd;
+			width: 400px;
+			max-width: 400px;
+			box-sizing: border-box;
+			transform: translateX(-50%) translateY(-50%);
+		}
+
+		.comp-login .comp-inner{
+			padding: 20px;
+		}
+
+		.comp-login h2 {
+			color: #000;
+			font-size: 20px;
+		}
+
+
+		.comp-login .label-row{
+			position: relative;
+			width: 100%;
+			margin-top: 10px;
+		}
+
+		.comp-login input[type="email"],
+		.comp-login input[type="password"]{
+			display: inline-block;
+    		box-sizing: border-box;
+		    width: 100%;
+		    height: 42px;
+		    padding: 0 13px;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		    font-size: 13px;
+		    font-weight: normal;
+		    line-height: 40px;
+		    color: #444;
+		}
 		
+		/* input placeholder */
+		::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		  color: #ddd;
+		}
+		::-moz-placeholder { /* Firefox 19+ */
+		  color: #ddd;
+		}
+		:-ms-input-placeholder { /* IE 10+ */
+		  color: #ddd;
+		}
+		:-moz-placeholder { /* Firefox 18- */
+		  color: #ddd;
+		}
+
+
+		.comp-login .erro-txt{
+			position: absolute;
+			right: 100%;
+			top: 50%;
+		 	margin-top: -19px;
+		}
+
+		.comp-login .erro-txt{ 
+			display: none;
+			margin-right: 10px;
+			padding: 12px 12px 9px 12px;
+			font-size: 11px;
+			line-height: 16px;
+			color: #fff;	
+			border-radius: 3px; 
+			background-color: red;
+			white-space: pre;
+		}
+		.comp-login .erro-txt:before{
+			position: absolute;
+		    left: 97%;
+		    top: 50%;
+		    margin-top: -5px;
+			content: '';
+		    display: block;
+		    height: 0px;
+		    width: 0px;
+		    border: 4px solid;
+		    border-color: red red transparent transparent;
+		    transform: rotate(45deg)
+		}
+
+		.comp-login .is-error .erro-txt{ display: block; }
+		.comp-login .is-error input[type="email"],
+		.comp-login .is-error input[type="password"]{
+			border-color: red;
+		}
+
+		.comp-login .btn-submit{
+			width: 100%;
+			height: 42px;
+			font-weight: bold;
+			border-radius: 4px;
+			background-color: #333;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.comp-login .login-keep{
+			font-size: 12px;
+			margin-top: 10px;
+		}
+		.comp-login .login-keep:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		.comp-login .label-check{ float: left; }
+		.comp-login .link-pw{ float: right; }
+
+		/*check*/
+		/* reset checkbox - radio */
+		input[type='checkbox'], input[type='radio']{
+			position: absolute;
+		    clip: rect(0 0 0 0);
+		    width: 1px;
+		    height: 1px;
+		    margin: -1px;
+		    overflow: hidden;
+		}
+
+		input[type='checkbox']+label, 
+		input[type='radio']+label{ cursor: pointer;}
+		
+		.checkbox-label{
+			position: relative;
+			width: 100%;
+			padding-left: 25px;
+		}
+
+		.checkbox-label::before{
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			width: 15px;
+			height: 15px;
+			margin-top: -7.5px;
+			border: 1px solid #ddd;
+			background-color: #fff;
+			color: #fff;
+			box-sizing: border-box;
+		}
+
+		.checkbox-input:checked+.checkbox-label::before {
+		    border: 1px solid rgba(0,0,0,0.1);
+		    background-color: #fff;
+		}
+
+		.checkbox-input:checked+.checkbox-label::after {
+		    content: '';
+		    display: block;
+		    background-image: url(./icons8-checkmark-filled-50.png);
+		    background-repeat: no-repeat;
+		    position: absolute;
+		    left: 0;
+		    top: 50%;
+		    margin-top: -7px;
+		    width: 14px;
+		    height: 14px;
+		    background-size: 100%;
+			color: #fff;
+		}
+
 	</style>
 </head>
 <body>
 	<div class="wrap">
 		<div class="wrap-inner">
-				
-				<!-- comp-login -->
-				<div class="comp-login">
-					<div class="comp-inner">
-						
-						<form action="">
-							
-							<p></p>
+				<form action="">
+					<!-- comp-login -->
+					<div class="comp-login">
+						<div class="comp-inner">
+							<h2>로그인</h2>
+							<section class="login">
+								<fieldset class="login-fildset">
+									<legend class="a11y">로그인 영역</legend>
+									<div class="label-row is-error">
+										<label class="label-emial"><input type="email" class="input-email" name="useremail" placeholder="이메일주소" /></label>
+										<span class='erro-txt'>잘못된 형식의 이메일 주소입니다.</span>
+									</div>
+									<div class="label-row">
+										<label class="label-pwd"><input type="password" class="input-password" name="userpw" placeholder="비밀번호 (8자리)" /></label>
+										<span class='erro-txt'>비밀번호는 8자리 이상 입력해주세요.</span>
+									</div>
+									<div class="label-row">
+										<button type="submit" class="btn-submit">로그인</button>
+									</div>
+								</fieldset>
 
-
-						</form>
-
+								<div class="login-keep">
+									<div class="label-check">
+										<input type="checkbox" name="ck" class="checkbox-input" id="ck1">
+										<label for="ck1" class="checkbox-label">로그인정보 유지</label>
+									</div>
+									<a href="#" class="link-pw">비밀번호 찾기</a>	
+								</div>	
+							</section>
+						</div>
 					</div>
-				</div>
-				
-
-				<!-- //comp-login -->
-				
+					<!-- //comp-login -->
+				</form>
 		</div>
 	</div>
 

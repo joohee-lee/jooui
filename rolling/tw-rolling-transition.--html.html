@@ -15,6 +15,7 @@
 		ul, li{
 			list-style: none;
 		}
+
 		.comp-rolling{
 		    position: relative;
 		    overflow: hidden;
@@ -33,6 +34,7 @@
 			height: 430px;
 			overflow: hidden;
 		}
+
 		.list ul{ 
 			/*width: 10000px;*/
 			transition-duration: 0.5s;
@@ -52,6 +54,7 @@
 		.img-wrap{
 			width: 100%;
 		}
+
 		.img-wrap .img-inner{
 		    position: relative;
 		    width: 1180px;
@@ -60,6 +63,7 @@
 		    margin: 0 auto;
 		    text-align: left;
 		}
+
 		.div-nav{
 		    position: absolute;
 		    bottom: 0;
@@ -70,6 +74,7 @@
 		    z-index: 10;
 		    overflow: hidden;
 		}
+
 		.div-nav .div-inner:after{
 			content: '';
 			clear: both;
@@ -86,10 +91,12 @@
 			text-align:center;
 			font-size:14px;line-height:18px;color:#333
 		}
+
 		.comp-rolling[data-type="col3"] .div-nav .nav-item{width: 33.33%;}
 		.comp-rolling[data-type="col4"] .div-nav .nav-item{width: 25%;}
 		.comp-rolling[data-type="col5"] .div-nav .nav-item{width: 20%;}
 		.comp-rolling[data-type="col6"] .div-nav .nav-item{width: 15.8%;}
+
 		.div-nav li button{ 
 			border: 0;
 			width: 100%; height: 100%;
@@ -97,7 +104,9 @@
 			box-sizing: border-box;
 			cursor: pointer;
 		}
+
 		.div-controls{}
+
 		.div-controls button{
 			border: 1px solid #ddd;
 			padding: 10px;
@@ -154,6 +163,8 @@
 			background-color: #000;
 			color: #fff;
 		}
+
+
 		.comp-rolling[data-state="true"] .btn-stop,
 		.comp-rolling[data-state="false"] .btn-play{display: block;}
 	</style>
@@ -163,6 +174,7 @@
 	// 이미지갯수 1~5개 최대 
 	// transition
 	// resize 되었을 경우 어떻게 처리 할 것인가?
+
 	// property 
 	// method 
 	--->
@@ -247,59 +259,87 @@
 
 	<script>
 		var elCompRolling = document.querySelector(".comp-rolling");
+
 		var elList = elCompRolling.querySelector(".list ul");
 		var elItem = elList.querySelectorAll(".item");
 		var elItemLeng = elItem.length;
+
 		var elnav = elCompRolling.querySelector(".div-nav");
+
 		//event target 
 		var elNext = elCompRolling.querySelector(".btn-next");
 		var elPrev = elCompRolling.querySelector(".btn-prev");
 		var elPlay = elCompRolling.querySelector(".btn-play");
 		var elStop = elCompRolling.querySelector(".btn-stop");
+
 		//transition(slide 적용을 위해 필요한 css)
 		elList.style.marginLeft = 0;
+
 		//계산이 필요한 부분 
 		var fullSize ; 
 		var size = window.innerWidth;
 		var current = Number(elCompRolling.getAttribute('data-current'));
+
 		//width 구하기
-		function setWidth(size){
-			console.log(size);
-			size = size;
+		function setWidth(){
+
+			//console.log(size);
+
+			size = window.innerWidth;
+
 			if ( size > 1280){
+
 				elList.style.width = Number(size*elItemLeng) + "px";
 				//elnav.style.width = size + "px";
 				for (var i = 0; i < elItemLeng; i++) {
 					elItem[i].style.width = size + "px";
 				}
+
+				var myTimer1 = setTimeout(function(){ setCurrent(current, size); }, 500);
+				clearTimeout(myTimer1);
+
 			}else{
 				elList.style.width = Number(1280*elItemLeng) + "px";
 				for (var i = 0; i < elItemLeng; i++) {
 					elItem[i].style.width = 1280 + "px";
 				}
+				
+				var myTimer2 =  setTimeout(function(){ setCurrent(current, 1280); }, 500);
+				clearTimeout(myTimer2);
 			}
+
 		}
+
 		//setting 
-		setWidth(size);
+		setWidth();
+
+		window.onresize = setWidth;
+
+
 		//onresize 
+		/*
 		window.onresize = function(event) {
     		console.log("resize");
     		var rsetWidth = window.innerWidth;
 			
 			setWidth(rsetWidth)
-			// clearInterval 
+
 			stop()
-			// next and prev click 다시 셋팅 
+			
 			if( rsetWidth > 1280 ) { 
-				setTimeout(setCurrent(current, rsetWidth), 100);
+				setCurrent(current, rsetWidth);
 			} else {
-				setTimeout(setCurrent(current, 1280), 100);
+				setCurrent(current, 1280);
 			}
 		};
+		*/
+
 		//next
 		function setNext(){
+
 			//clearInterval
 			stop();
+
 			//size check
 			if(size > 1280){
 				fullSize = window.innerWidth;
@@ -308,37 +348,55 @@
 			}
 		
 			current = current + 1;
+
 			if (current >= elItemLeng) {
 				current = 0;
 			} 
+
 			setCurrent(current, fullSize);
+
+			play();
 		}
 		//prev
 		function setPrev(){
+
 			//clearInterval
 			stop();
+
 			if(size > 1280){
 				fullSize = window.innerWidth;
 			}else{
 				fullSize = 1280;
 			}
+
 			current = current - 1;
+
 			if (current < 0) {
 				current = elItemLeng-1;
 			} 
+
 			setCurrent(current, fullSize);
 			//elCompRolling.setAttribute('data-current', current);
+			
+			play();
+
 		}
+
 		//setShow
 		function setShow(idx){
+
 			current = idx;
+
 			if(size > 1280){
 				fullSize = window.innerWidth;
 			}else{
 				fullSize = 1280;
 			}
+
 			setCurrent(current, fullSize);
+
 		}
+
 		//current
 		function setCurrent(idx, size){
 				var move;
@@ -346,9 +404,11 @@
 				console.log("move: " + move);
 				elCompRolling.setAttribute('data-current', idx);
 				elList.style.marginLeft = "-" + move + "px";
+
 				//autoplay
-				play();
+				//play();
 		}
+
 		/*
 		console.log(setWidth);
 		console.log(elList);
@@ -361,8 +421,9 @@
 		elPrev.onclick = setPrev;
 		elPlay.onclick = play;
 		elStop.onclick = stop;
+
 		//rolling
-		var autoPlay = setInterval( elNext.onclick, 2000);
+		var autoPlay = setInterval( elNext.onclick, 3000);
 		
 		//stop : clearInterval 
 		function stop(){
@@ -370,11 +431,14 @@
 			elCompRolling.setAttribute('data-state', false)
 			return false;
 		}
+
 		function play(){
 			autoPlay = setInterval( elNext.onclick, 2000);
 			elCompRolling.setAttribute('data-state', true)
+
 			return false ;
 		}
+
 	</script>
 </body>
 </html>

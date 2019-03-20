@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>resize</title>
+</head>
+<body>
+	const heightOutput = document.querySelector('#height');
+const widthOutput = document.querySelector('#width');
+
+function resize() {
+  heightOutput.textContent = window.innerHeight;
+  widthOutput.textContent = window.innerWidth;
+}
+
+window.onresize = resize;
+</body>
+</html>

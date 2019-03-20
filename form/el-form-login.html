@@ -224,6 +224,42 @@
 				</form>
 		</div>
 	</div>
-	
+
+	<script>
+		/* Validation */
+		var validation = {
+			isString : function( str ){
+				return (typeof str == 'string' && str.replace(/^\s*|\s*$/g, '') !== '' && isNaN(str));
+			},
+			isEmail : function( str ){
+				var pattern = /^[\w-\.\']{1,}\@([\da-zA-Z\-]{1,}\.){1,}[\da-zA-Z\-]{2,}$/;
+				return pattern.test( str );
+			},
+			isNumber : function( str ){
+				 return (!isNaN( str) &&  str.replace(/^\s*|\s*$/g, '') !== '');
+			},
+			passConfirm : function( pass1, pass2, viewEl ) {
+				viewEl = viewEl ? viewEl : pass2.nextElementSibling;
+				if( pass2.value && pass1.value != pass2.value){
+					dataset.set(viewEl, 'visible', 'true'); 
+					// viewEl.setAttribute('data-visible', 'true'); 
+					dataset.polyfill(viewEl);
+					viewEl.textContent = 'Password and confirm password must be equal.';
+				}
+			},
+			view : function( el, type, viewEl ){
+				viewEl = viewEl ? viewEl : el.nextElementSibling;
+				if( this[type]( el.value ) ){
+					dataset.set(viewEl, 'visible', 'false'); 
+					// viewEl.setAttribute('visible', 'false'); 
+				} else {
+					dataset.set(viewEl, 'visible', 'true'); 
+					// viewEl.setAttribute('visible', 'true'); 
+				}
+				dataset.polyfill(viewEl);
+			}
+		};
+	</script>
+
 </body>
 </html>

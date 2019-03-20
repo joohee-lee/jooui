@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Banner</title>
+	<style>
+		body{
+			min-width: 1180px;
+		}
+		*{ 
+			margin: 0;
+			padding: 0;
+		}
+		
+		ul, li{
+			list-style: none;
+		}
+		.comp-rolling{
+		    position: relative;
+		    overflow: hidden;
+		    margin: 0 auto;
+		    padding: 0;
+		    min-width:1180px
+
+		}
+		
+		.comp-inner{
+			height: 430px;
+		}
+		
+		.list{
+			position: relative;
+			width: 100%;
+			height: 430px;
+			overflow: hidden;
+		}
+
+		.list ul{ 
+			/*width: 10000px;*/
+			transition-duration: 0.5s;
+			transition-timing-function: ease;
+		}
+		.list ul:after{
+			content: '';
+			clear: both;
+			display: block;
+		}
+		.list ul li{ 
+			float: left;
+			display: inline;
+			background: #fff;
+    		text-align: center;
+		}
+		.img-wrap{
+			width: 100%;
+		}
+
+		.img-wrap .img-inner{
+		    position: relative;
+		    width: 1180px;
+		    height: 430px;
+		    padding: 0;
+		    margin: 0 auto;
+		    text-align: left;
+		}
+
+
+		.div-nav{
+		    position: absolute;
+		    bottom: 0;
+		    left: 50%;
+		    width: 1180px;
+		    height: 40px;
+		    margin-left: -590px;
+		    z-index: 10;
+		    overflow: hidden;
+		}
+
+		.div-nav .div-inner:after{
+			content: '';
+			clear: both;
+			display: block;
+		}
+		.div-nav li{
+			float: left;
+			height: 40px;
+			background-color: #fff;
+		    opacity: .5;
+			text-align: center;
+			display:block;
+			opacity:0.8;filter:alpha(opacity=80);
+			text-align:center;
+			font-size:14px;line-height:18px;color:#333
+		}
+
+		.comp-rolling[data-type="col3"] .div-nav .nav-item{width: 33.33%;}
+		.comp-rolling[data-type="col4"] .div-nav .nav-item{width: 25%;}
+		.comp-rolling[data-type="col5"] .div-nav .nav-item{width: 20%;}
+		.comp-rolling[data-type="col6"] .div-nav .nav-item{width: 15.8%;}
+
+		.div-nav li button{ 
+			border: 0;
+			width: 100%; height: 100%;
+			padding:10px 5px;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+
+		.div-controls{
+		}
+
+		.div-controls button{
+			border: 1px solid #ddd;
+			padding: 10px;
+			width: 90px;
+			height: 90px;
+		}
+		.div-controls .next{ 
+			position: absolute;
+			right: 50%;
+			top: 50%;
+			margin-right: -640px;
+			transform: translateY(-50%);
+		}
+		.div-controls .prev{ 
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -640px;
+			transform: translateY(-50%);
+		}
+		
+		/* js controller */
+		.comp-rolling .list .item{ display: none; }
+		.comp-rolling[data-current="0"] .item[data-index='0'],
+		.comp-rolling[data-current="1"] .item[data-index='1'],
+		.comp-rolling[data-current="2"] .item[data-index='2'],
+		.comp-rolling[data-current="3"] .item[data-index='3'],
+		.comp-rolling[data-current="4"] .item[data-index='4'],
+		.comp-rolling[data-current="5"] .item[data-index='5']{
+			display: block;
+		}
+		
+		.comp-rolling[data-current="0"] .nav-item button[data-index="0"],
+		.comp-rolling[data-current="1"] .nav-item button[data-index="1"],
+		.comp-rolling[data-current="2"] .nav-item button[data-index="2"],
+		.comp-rolling[data-current="3"] .nav-item button[data-index="3"],
+		.comp-rolling[data-current="4"] .nav-item button[data-index="4"],
+		.comp-rolling[data-current="5"] .nav-item button[data-index="5"]{
+			background-color: #000;
+			color: #fff;
+		}
+	</style>
+	<!--
+	// window 크기 값 구하기 ( min : 1280 ~ )
+	// ul / li width 셋팅 
+	// 	
+	// 이미지갯수 1~5개 최대 
+	
+	--->
+</head>
+<body>
+	<div class="comp-rolling"  data-current="0" data-size=""  data-type="col6" data-state="true">
+		<div class="comp-inner">
+			
+			<div class="list">
+				<ul>
+					<li class="item" data-index="0">
+						<div class="img-wrap" style="background-color:#bbe0e8;">
+							<div class="img-inner"><a href="#"><img src="https://www.tworld.co.kr/uploads/poc/16357/58828/7B9CA0B50F7A40299E8DC2722B2D7D5D.jpg" alt=""></a></div>
+						</div>
+					</li>
+					<li class="item" data-index="1">
+						<div class="img-wrap" style="background-color: #080b12">
+							<div class="img-inner"><a href="#"><img src="https://www.tworld.co.kr/uploads/poc/21233/71958/91A8FCA5C7E34400A9BB17E2A5B4098E.jpg" alt=""></a></div>
+						</div>
+					</li>
+					<li class="item" data-index="2">
+						<div class="img-wrap" style="background-color: #e8f1df">
+							<div class="img-inner"><a href="#"><img src="https://www.tworld.co.kr/uploads/poc/21233/71958/AC313C77A35F4160846021BB0315605F.jpg" alt=""></a></div>
+						</div>
+					</li>
+					<li class="item" data-index="3">
+						<div class="img-wrap" style="background-color: #112e73">
+							<div class="img-inner"><a href="#"><img src="https://www.tworld.co.kr/uploads/poc/21233/71958/78467C82580B4502A5B6700058CC545F.jpg" alt=""></a></div>
+						</div>
+					</li>
+					<li class="item" data-index="4" style="background-color:#ccecfe;">
+						<div class="img-wrap">
+							<div class="img-inner"><a href="#"><img src="https://www.tworld.co.kr/uploads/poc/21233/71958/BEA4F4F09A31478188B8B4917BF92496.jpg" alt=""></a></div>
+						</div>
+					</li>
+					<li class="item" data-index="5" style="background-color: #dafff1">
+						<div class="img-wrap">
+							<div class="img-inner"><a href="#"><img src="https://www.tworld.co.kr/uploads/poc/21233/71958/B5F1DB20503145B6AB02771C91D179C1.png" alt=""></a></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			
+			<div class="div-nav">
+				<div class="div-inner">
+					<ul>
+						<li class="nav-item">
+							<button type="button" data-index="0" onclick="setCurrent(0);"><span>0</span></button>
+						</li>
+						<li class="nav-item">
+							<button type="button" data-index="1" onclick="setCurrent(1);"><span>1</span></button>
+						</li>
+						<li class="nav-item">
+							<button type="button" data-index="2" onclick="setCurrent(2);"><span>2</span></button>
+						</li>
+						<li class="nav-item">
+							<button type="button" data-index="3" onclick="setCurrent(3);"><span>3</span></button>
+						</li>
+						<li class="nav-item">
+							<button type="button" data-index="4" onclick="setCurrent(4);"><span>4</span></button>
+						</li>
+						<li class="nav-item">
+							<button type="button" data-index="5" onclick="setCurrent(5);"><span>5</span></button>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="div-state">
+				<span><button type="button" name="" class="btn-stop"><span>stop</span></button></span>
+				<span><button type="button" name="" class="btn-play"><span>play</span></button></span>
+			</div>
+
+			<div class="div-controls">
+				<div class="prev"><button type="button" name="" class="btn-prev"><span>prev</span></button></div>
+				<div class="next"><button type="button" name="" class="btn-next"><span>next</span></button></div>
+			</div>
+
+
+		</div>
+	</div>
+	
+
+	<script>
+		
+		var size = window.innerWidth;
+		var elCompRolling = document.querySelector(".comp-rolling");
+		var elList = elCompRolling.querySelector(".list ul");
+		var elItem = elList.querySelectorAll(".item");
+		var elItemLeng = elItem.length;
+
+		var elnav = elCompRolling.querySelector(".div-nav");
+
+		//event target 
+		var elNext = elCompRolling.querySelector(".btn-next");
+		var elPrev = elCompRolling.querySelector(".btn-prev");
+		var elPlay = elCompRolling.querySelector(".btn-play");
+		var elStop = elCompRolling.querySelector(".btn-stop");
+		
+		var current = Number(elCompRolling.getAttribute('data-current'));
+
+		//width 구하기
+		function setWidth(size){
+
+			console.log(size);
+
+			if ( size > 1280){
+
+				elList.style.width = Number(size*elItemLeng) + "px";
+				//elnav.style.width = size + "px";
+				for (var i = 0; i < elItemLeng; i++) {
+					elItem[i].style.width = size + "px";
+				}
+			}else{
+				elList.style.width = Number(1280*elItemLeng) + "px";
+				for (var i = 0; i < elItemLeng; i++) {
+					elItem[i].style.width = 1280 + "px";
+				}
+			}
+
+		}
+
+		//setting 
+		setWidth(size);
+
+		//onresize 
+		window.onresize = function(event) {
+    		console.log("resize");
+    		var rsetWidth = window.innerWidth;
+			setWidth(rsetWidth);
+		};
+
+		//method 
+		//next
+		function setNext(){
+			current = current + 1;
+
+			if (current >= elItemLeng) {
+				current = 0;
+			} 
+
+			//elCompRolling.setAttribute('data-current', current);
+			setCurrent(current);
+		}
+		//prev
+		function setPrev(){
+			current = current - 1;
+
+			if (current <= 0) {
+				current = elItemLeng-1;
+			} 
+
+			setCurrent(current);
+			//elCompRolling.setAttribute('data-current', current);
+		}
+
+		//current
+		function setCurrent(idx){
+				elCompRolling.setAttribute('data-current', idx);
+		}
+
+
+
+		//play : setIntrval 
+		//stop : clearInterval 
+
+		console.log(setWidth);
+		console.log(elList);
+		console.log(elItem);
+		console.log(elItemLeng);
+
+		/*evnet biniding*/
+		elNext.onclick = setNext;
+		elPrev.onclick = setPrev;
+	</script>
+
+
+</body>
+</html>

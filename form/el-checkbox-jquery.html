@@ -12,11 +12,16 @@
 
 		// 체크 박스 모두 체크
 
+		/*
 		$("#checkAll").click(function() {
 			$("input[name=box]:checkbox").each(function() {
 				$(this).attr("checked", true);
 			});
+			
 		});
+		*/
+
+		$("#checkAll").on('click', allChekced );
 
 
 		// 체크 박스 모두 해제
@@ -44,7 +49,17 @@
 
 		// test case
 		test1();
+		allChecked();
 	});
+
+
+	var allChecked = function(){
+
+		$("input[name=box]:checkbox").each(function() {
+				$(this).attr("checked", true);
+		});
+
+	};
 
 
 

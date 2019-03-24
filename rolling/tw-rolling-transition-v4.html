@@ -186,7 +186,7 @@
 	--->
 </head>
 <body>
-	<div class="comp-rolling"  data-current="0" data-size=""  data-type="col6" data-state="true">
+	<div class="comp-rolling rollingBannerA"  data-current="0" data-size=""  data-type="col6" data-state="true">
 		<div class="comp-inner">
 			
 			<div class="list">
@@ -228,30 +228,30 @@
 				<div class="div-inner">
 					<ul>
 						<li class="nav-item">
-							<button type="button" data-index="0" onclick="setShow(0);"><span>0</span></button>
+							<button type="button" data-index="0"><span>0</span></button>
 						</li>
 						<li class="nav-item">
-							<button type="button" data-index="1" onclick="setShow(1);"><span>1</span></button>
+							<button type="button" data-index="1"><span>1</span></button>
 						</li>
 						<li class="nav-item">
-							<button type="button" data-index="2" onclick="setShow(2);"><span>2</span></button>
+							<button type="button" data-index="2"><span>2</span></button>
 						</li>
 						<li class="nav-item">
-							<button type="button" data-index="3" onclick="setShow(3);"><span>3</span></button>
+							<button type="button" data-index="3"><span>3</span></button>
 						</li>
 						<li class="nav-item">
-							<button type="button" data-index="4" onclick="setShow(4);"><span>4</span></button>
+							<button type="button" data-index="4"><span>4</span></button>
 						</li>
 						<li class="nav-item">
-							<button type="button" data-index="5" onclick="setShow(5);"><span>5</span></button>
+							<button type="button" data-index="5"><span>5</span></button>
 						</li>
 					</ul>
 				</div>
 			</div>
 
 			<div class="div-state">
-				<span><button type="button" class="btn-stop"><span>stop</span></button></span>
-				<span><button type="button" class="btn-play"><span>play</span></button></span>
+				<button type="button" class="btn-stop"><span>stop</span></button>
+				<button type="button" class="btn-play"><span>play</span></button>
 			</div>
 
 			<div class="div-controls">
@@ -264,186 +264,222 @@
 	
 
 	<script>
-		var elCompRolling = document.querySelector(".comp-rolling");
+		//prototype
+		// property 정의
+		function uiPromoBanner(){
 
-		var elList = elCompRolling.querySelector(".list ul");
-		var elItem = elList.querySelectorAll(".item");
-		var elItemLeng = elItem.length;
+			this.elComp = '';
+			this.elList = '';
+			this.elItem = [];
+			this.elItemLeng = '';
+			this.elnav = '';
+			this.elnavItem = '';
+			this.elNext = '';
+			this.elPrev = '';
+			this.elPlay = '';
+			this.elStop = '';
+			this.current = '';
+			this.state = '';
+			this.autoplay = '';
+			this.time = 3000; // 롤링 time
+			this.minSize = 1280; // minsize 1280
 
-		var elnav = elCompRolling.querySelector(".div-nav");
+		};
 
-		//event target 
-		var elNext = elCompRolling.querySelector(".btn-next");
-		var elPrev = elCompRolling.querySelector(".btn-prev");
-		var elPlay = elCompRolling.querySelector(".btn-play");
-		var elStop = elCompRolling.querySelector(".btn-stop");
+		//method 정의 
+		//init
+		//setWdith
+		// setNext
+		// setPrev
+		// setCurrent 
+		// setShow 
+	
+		//init
+		uiPromoBanner.prototype.init = function(cpnt){
 
-		//transition(slide 적용을 위해 필요한 css)
-		elList.style.marginLeft = 0;
+			console.log(cpnt);
 
-		//계산이 필요한 부분 
-		var fullSize ; 
-		var size ;
-		var current = Number(elCompRolling.getAttribute('data-current'));
+			//this.elCompRolling = document.querySelector(".comp-rolling");
+			this.elCompRolling = document.querySelector("." + cpnt);
+			this.elList = this.elCompRolling.querySelector(".list ul");
+			this.elItem = this.elList.querySelectorAll(".item");
+			this.elItemLeng = this.elItem.length;
 
-		//width 구하기
-		function setWidth(){
+			this.elnav = this.elCompRolling.querySelector(".div-nav");
+			
+			//event target 
+			this.elNext = this.elCompRolling.querySelector(".btn-next");
+			this.elPrev = this.elCompRolling.querySelector(".btn-prev");
+			this.elPlay = this.elCompRolling.querySelector(".btn-play");
+			this.elStop = this.elCompRolling.querySelector(".btn-stop");
+			this.elnavItem = this.elCompRolling.querySelectorAll(".nav-item > button");
+			console.log(this.elnavItem);
+			//transition(slide 적용을 위해 필요한 css)
+			this.elList.style.marginLeft = 0;
+
+			//계산이 필요한 부분 
+			this.fullSize ; 
+			this.size ;
+			this.current = Number( this.elCompRolling.getAttribute('data-current') );
+			this.state = this.elCompRolling.getAttribute('data-state');
+
+			//width setting
+			this.setWidth();
+
+			//this.elnavItem[0].onclick = function(){ alert('sssss');}
+		};
+
+		//setWidth
+		uiPromoBanner.prototype.setWidth = function(){
 
 			//console.log(size);
+			this.size = window.innerWidth;
 
-			size = window.innerWidth;
+			if ( this.size > this.minSize){
 
-			if ( size > 1280){
-
-				elList.style.width = Number(size*elItemLeng) + "px";
+				this.elList.style.width = Number(this.size*this.elItemLeng) + "px";
 				//elnav.style.width = size + "px";
-				for (var i = 0; i < elItemLeng; i++) {
-					elItem[i].style.width = size + "px";
+				for (var i = 0; i < this.elItemLeng; i++) {
+					this.elItem[i].style.width = this.size + "px";
 				}
 
-				var myTimer1 = setTimeout(function(){ setCurrent(current, size); }, 200);
-				clearTimeout(myTimer1);
+				//var myTimer1 = setTimeout(function(){ this.setCurrent(this.current, this.size); }, 500);
+				//clearTimeout(myTimer1);
+				this.setCurrent(this.current, this.size);
 
 			}else{
-				elList.style.width = Number(1280*elItemLeng) + "px";
-				for (var i = 0; i < elItemLeng; i++) {
-					elItem[i].style.width = 1280 + "px";
+
+				this.elList.style.width = Number(this.minSize * this.elItemLeng) + "px";
+				for (var i = 0; i < this.elItemLeng; i++) {
+					this.elItem[i].style.width = this.minSize + "px";
 				}
 				
-				var myTimer2 =  setTimeout(function(){ setCurrent(current, 1280); }, 200);
-				clearTimeout(myTimer2);
-			}
+				//var myTimer2 =  setTimeout(function(){ this.setCurrent(this.current, 1280); }, 500);
+				//clearTimeout(myTimer2);
+				this.setCurrent(this.current, this.minSize);
+			}	
 
-		}
-
-		//setting 
-		setWidth();
-
-		window.onresize = setWidth;
-
-
-		//onresize 
-		/*
-		window.onresize = function(event) {
-    		console.log("resize");
-    		var rsetWidth = window.innerWidth;
-			
-			setWidth(rsetWidth)
-
-			stop()
-			
-			if( rsetWidth > 1280 ) { 
-				setCurrent(current, rsetWidth);
-			} else {
-				setCurrent(current, 1280);
-			}
 		};
-		*/
 
+		//current 
+		uiPromoBanner.prototype.setCurrent = function(idx, fsize){
+			var move;
+			move = Number(idx * fsize);
+			//console.log("move: " + move);
+			this.elCompRolling.setAttribute('data-current', idx);
+			this.elList.style.marginLeft = "-" + move + "px";
+		};
+
+		//_ischeck
+		uiPromoBanner.prototype._isCheck = function(){
+			if(this.size > this.minSize){
+				this.fullSize = window.innerWidth;
+			}else{
+				this.fullSize = this.minSize;
+			}
+		}
+	
 		//next
-		function setNext(){
+		uiPromoBanner.prototype.setNext = function(){
 
 			//clearInterval
-			stop();
+			//stop();
 
 			//size check
-			if(size > 1280){
-				fullSize = window.innerWidth;
-			}else{
-				fullSize = 1280;
-			}
-		
-			current = current + 1;
+			this._isCheck();
 
-			if (current >= elItemLeng) {
-				current = 0;
+			this.current = this.current + 1;
+
+			if (this.current >= this.elItemLeng) {
+				this.current = 0;
 			} 
 
-			setCurrent(current, fullSize);
+			console.log("current: " + this.current);
+			console.log(this.fullSize);
+			
+			this.setCurrent(this.current, this.fullSize);
 
-			play();
-		}
+		};
+
 		//prev
-		function setPrev(){
+		uiPromoBanner.prototype.setPrev = function(){
 
 			//clearInterval
-			stop();
+			//stop();
+			
+			//size check
+			this._isCheck();
 
-			if(size > 1280){
-				fullSize = window.innerWidth;
-			}else{
-				fullSize = 1280;
-			}
+			this.current = this.current - 1;
 
-			current = current - 1;
-
-			if (current < 0) {
-				current = elItemLeng-1;
+			if ( this.current < 0) {
+				this.current = this.elItemLeng-1;
 			} 
 
-			setCurrent(current, fullSize);
-			//elCompRolling.setAttribute('data-current', current);
+			console.log(this.current);
+			console.log(this.fullSize);
 			
-			play();
-
-		}
-
-		//setShow
-		function setShow(idx){
-
-			current = idx;
-
-			if(size > 1280){
-				fullSize = window.innerWidth;
-			}else{
-				fullSize = 1280;
-			}
-
-			setCurrent(current, fullSize);
-
-		}
-
-		//current
-		function setCurrent(idx, size){
-			var move;
-			move = Number(idx * size);
-			console.log("move: " + move);
-			elCompRolling.setAttribute('data-current', idx);
-			elList.style.marginLeft = "-" + move + "px";
-
-			//autoplay
+			this.setCurrent(this.current, this.fullSize);
+			
 			//play();
-		}
+		};
 
-		/*
-		console.log(setWidth);
-		console.log(elList);
-		console.log(elItem);
-		console.log(elItemLeng);
-		*/
-	
-		/*evnet biniding*/
-		elNext.onclick = setNext;
-		elPrev.onclick = setPrev;
-		elPlay.onclick = play;
-		elStop.onclick = stop;
+		//show
+		uiPromoBanner.prototype.setShow = function(idx){
 
-		//rolling
-		var autoPlay = setInterval( elNext.onclick, 3000);
+			this.current = idx;
+			//size check
+			this._isCheck();
+			this.setCurrent(this.current, this.fullSize);
+		};
 		
-		//stop : clearInterval 
-		function stop(){
-			clearInterval(autoPlay);
-			elCompRolling.setAttribute('data-state', false)
+		//play
+		uiPromoBanner.prototype.play = function(){
+			var self = this;
+			this.autoPlay = setInterval( this.elNext.onclick, this.time);
+			this.elCompRolling.setAttribute('data-state', true)
+		}
+	
+		//stop
+		uiPromoBanner.prototype.stop = function(){
+			clearInterval(this.autoPlay);
+			this.elCompRolling.setAttribute('data-state', false)
 			return false;
-		}
+		};
 
-		function play(){
-			autoPlay = setInterval( elNext.onclick, 2000);
-			elCompRolling.setAttribute('data-state', true)
+		//인스턴스생성 
+		var rollingBanner1 = new uiPromoBanner();
+		rollingBanner1.init('rollingBannerA');
 
-			return false ;
+		//event 등록
+		rollingBanner1.elNext.onclick = function(){
+			var self = this; 
+			self.focus();
+			rollingBanner1.setNext(); 
+		};
+
+		rollingBanner1.elPrev.onclick = function(){
+			var self = this; 
+			self.focus();
+			rollingBanner1.setPrev(); 
+		};
+
+		rollingBanner1.elPlay.onclick = function(){ rollingBanner1.play(); };
+		rollingBanner1.elStop.onclick = function(){ rollingBanner1.stop(); };
+		rollingBanner1.elnavItem[0].onclick = function(){ rollingBanner1.setShow(0); }
+		rollingBanner1.elnavItem[1].onclick = function(){ rollingBanner1.setShow(1); }
+		rollingBanner1.elnavItem[2].onclick = function(){ rollingBanner1.setShow(2); }
+		rollingBanner1.elnavItem[3].onclick = function(){ rollingBanner1.setShow(3); }
+		rollingBanner1.elnavItem[4].onclick = function(){ rollingBanner1.setShow(4); }
+		rollingBanner1.elnavItem[5].onclick = function(){ rollingBanner1.setShow(5); }
+
+		//autoRolling
+		rollingBanner1.play();
+
+		window.onresize = function(){
+			rollingBanner1.setWidth();
 		}
+		
 
 	</script>
 </body>

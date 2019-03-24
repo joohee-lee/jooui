@@ -231,19 +231,19 @@
 							<button type="button" data-index="0" onclick="setShow(0);"><span>0</span></button>
 						</li>
 						<li class="nav-item">
-							<button type="button" data-index="1" onclick="setShow(1);"><span>1</span></button>
+							<button type="button" data-index="1" onclick="uiPromoBanner.setShow(1);"><span>1</span></button>
 						</li>
 						<li class="nav-item">
-							<button type="button" data-index="2" onclick="setShow(2);"><span>2</span></button>
+							<button type="button" data-index="2" onclick="uiPromoBanner.setShow(2);"><span>2</span></button>
 						</li>
 						<li class="nav-item">
-							<button type="button" data-index="3" onclick="setShow(3);"><span>3</span></button>
+							<button type="button" data-index="3" onclick="uiPromoBanner.setShow(3);"><span>3</span></button>
 						</li>
 						<li class="nav-item">
-							<button type="button" data-index="4" onclick="setShow(4);"><span>4</span></button>
+							<button type="button" data-index="4" onclick="uiPromoBanner.setShow(4);"><span>4</span></button>
 						</li>
 						<li class="nav-item">
-							<button type="button" data-index="5" onclick="setShow(5);"><span>5</span></button>
+							<button type="button" data-index="5" onclick="uiPromoBanner.setShow(5);"><span>5</span></button>
 						</li>
 					</ul>
 				</div>
@@ -264,187 +264,227 @@
 	
 
 	<script>
-		var elCompRolling = document.querySelector(".comp-rolling");
+		//object literral
 
-		var elList = elCompRolling.querySelector(".list ul");
-		var elItem = elList.querySelectorAll(".item");
-		var elItemLeng = elItem.length;
+		var uiPromoBanner = {
 
-		var elnav = elCompRolling.querySelector(".div-nav");
+				elCompRolling : '',
+				elList: '',
+				elItem: [],
+				elItemLeng: '',
+				elnav: '',
+				elNext: '',
+				elPrev: '',
+				elPlay: '',
+				elStop: '',
+				current: '',
+				autoplay: '',
 
-		//event target 
-		var elNext = elCompRolling.querySelector(".btn-next");
-		var elPrev = elCompRolling.querySelector(".btn-prev");
-		var elPlay = elCompRolling.querySelector(".btn-play");
-		var elStop = elCompRolling.querySelector(".btn-stop");
 
-		//transition(slide 적용을 위해 필요한 css)
-		elList.style.marginLeft = 0;
-
-		//계산이 필요한 부분 
-		var fullSize ; 
-		var size ;
-		var current = Number(elCompRolling.getAttribute('data-current'));
-
-		//width 구하기
-		function setWidth(){
-
-			//console.log(size);
-
-			size = window.innerWidth;
-
-			if ( size > 1280){
-
-				elList.style.width = Number(size*elItemLeng) + "px";
-				//elnav.style.width = size + "px";
-				for (var i = 0; i < elItemLeng; i++) {
-					elItem[i].style.width = size + "px";
-				}
-
-				var myTimer1 = setTimeout(function(){ setCurrent(current, size); }, 200);
-				clearTimeout(myTimer1);
-
-			}else{
-				elList.style.width = Number(1280*elItemLeng) + "px";
-				for (var i = 0; i < elItemLeng; i++) {
-					elItem[i].style.width = 1280 + "px";
-				}
+			init : function(){
 				
-				var myTimer2 =  setTimeout(function(){ setCurrent(current, 1280); }, 200);
-				clearTimeout(myTimer2);
-			}
+				this.elCompRolling = document.querySelector(".comp-rolling");
 
-		}
+				this.elList = this.elCompRolling.querySelector(".list ul");
+				this.elItem = this.elList.querySelectorAll(".item");
+				this.elItemLeng = this.elItem.length;
 
-		//setting 
-		setWidth();
+				this.elnav = this.elCompRolling.querySelector(".div-nav");
 
-		window.onresize = setWidth;
+				//event target 
+				this.elNext = this.elCompRolling.querySelector(".btn-next");
+				this.elPrev = this.elCompRolling.querySelector(".btn-prev");
+				this.elPlay = this.elCompRolling.querySelector(".btn-play");
+				this.elStop = this.elCompRolling.querySelector(".btn-stop");
 
+				//transition(slide 적용을 위해 필요한 css)
+				this.elList.style.marginLeft = 0;
 
-		//onresize 
-		/*
-		window.onresize = function(event) {
-    		console.log("resize");
-    		var rsetWidth = window.innerWidth;
+				//계산이 필요한 부분 
+				this.fullSize ; 
+				this.size ;
+				this.current = Number( this.elCompRolling.getAttribute('data-current') );
+
+				//set	
+				this.setWidth();
+
+				//이벤트 등록 
+				this.bindEvent();
+			},
+
+			setWidth : function(){
+
+				//console.log(size);
+				this.size = window.innerWidth;
+
+				if ( this.size > 1280){
+
+					console.log("this.elList:" + this.elList);
+
+					this.elList.style.width = Number(this.size*this.elItemLeng) + "px";
+					//elnav.style.width = size + "px";
+					for (var i = 0; i < this.elItemLeng; i++) {
+						this.elItem[i].style.width = this.size + "px";
+					}
+
+					var myTimer1 = setTimeout(function(){ this.setCurrent(this.current, this.size); }, 200);
+					clearTimeout(myTimer1);
+
+				}else{
+					this.elList.style.width = Number(1280*this.elItemLeng) + "px";
+					for (var i = 0; i < this.elItemLeng; i++) {
+						this.elItem[i].style.width = 1280 + "px";
+					}
+					
+					var myTimer2 =  setTimeout(function(){ this.setCurrent(this.current, 1280); }, 200);
+					clearTimeout(myTimer2);
+				}
+
+			},
+
+			//setCurrent
+			setCurrent : function(idx, fsize){
+				var move;
+				move = Number(idx * fsize);
+				console.log("move: " + move);
+				this.elCompRolling.setAttribute('data-current', idx);
+				this.elList.style.marginLeft = "-" + move + "px";
+
+			},
+
+			//setShow
+		 	setShow : function(idx){
+
+				this.current = idx;
+
+				if(this.size > 1280){
+					this.fullSize = window.innerWidth;
+				}else{
+					this.fullSize = 1280;
+				}
+
+				this.setCurrent(this.current, this.fullSize);
+
+			},
+
+			//next
+			setNext : function(){
+
+				
+				//clearInterval
+				//stop();
+
+				//size check
+				if(this.size > 1280){
+					this.fullSize = window.innerWidth;
+				}else{
+					this.fullSize = 1280;
+				}
 			
-			setWidth(rsetWidth)
+				this.current = this.current + 1;
 
-			stop()
-			
-			if( rsetWidth > 1280 ) { 
-				setCurrent(current, rsetWidth);
-			} else {
-				setCurrent(current, 1280);
+				if (this.current >= this.elItemLeng) {
+					this.current = 0;
+				} 
+
+				console.log("current: " + this.current);
+				console.log(this.fullSize);
+				
+
+				this.setCurrent(this.current, this.fullSize);
+
+				//play();
+			},
+
+			//prev
+			setPrev : function(){
+
+				//clearInterval
+				//stop();
+
+				if( this.size > 1280 ){
+					this.fullSize = window.innerWidth;
+				}else{
+					this.fullSize = 1280;
+				}
+
+				this.current = this.current - 1;
+
+				if ( this.current < 0) {
+					this.current = this.elItemLeng-1;
+				} 
+
+				console.log(this.current);
+				console.log(this.fullSize);
+				
+				this.setCurrent(this.current, this.fullSize);
+				//elCompRolling.setAttribute('data-current', current);
+				
+				//play();
+
+			},
+
+			//stop : clearInterval 
+			stop : function(){
+				clearInterval(this.autoPlay);
+				this.elCompRolling.setAttribute('data-state', false)
+				return false;
+			},
+
+			play : function(){
+
+				var objthis = this;
+				this.autoPlay = setInterval( objthis.elNext.onclick, 2000);
+				this.elCompRolling.setAttribute('data-state', true)
+
+				return false ;
+			},
+
+			//event binding
+			bindEvent : function(){
+				
+				//alert('이벤트 등록');
+				this.elNext.onclick = function(){
+					 var objthis = this; 
+					 objthis.focus();
+					 uiPromoBanner.setNext(); 
+
+				};
+				
+				this.elPrev.onclick = function(){
+					 var objthis = this; 
+					 objthis.focus();
+					 uiPromoBanner.setPrev(); 
+				};
+
+				this.elPlay.onclick = function(){
+
+					//console.log("play");
+					//var objthis = this; 
+					//objthis.focus();
+					uiPromoBanner.play();
+
+				};
+
+				this.elStop.onclick = function(){
+
+					uiPromoBanner.stop();
+
+				};
+
+				window.onresize = function(){
+					//alert('resize');
+					uiPromoBanner.setWidth();
+				}
+
 			}
-		};
-		*/
 
-		//next
-		function setNext(){
+	}
 
-			//clearInterval
-			stop();
-
-			//size check
-			if(size > 1280){
-				fullSize = window.innerWidth;
-			}else{
-				fullSize = 1280;
-			}
-		
-			current = current + 1;
-
-			if (current >= elItemLeng) {
-				current = 0;
-			} 
-
-			setCurrent(current, fullSize);
-
-			play();
-		}
-		//prev
-		function setPrev(){
-
-			//clearInterval
-			stop();
-
-			if(size > 1280){
-				fullSize = window.innerWidth;
-			}else{
-				fullSize = 1280;
-			}
-
-			current = current - 1;
-
-			if (current < 0) {
-				current = elItemLeng-1;
-			} 
-
-			setCurrent(current, fullSize);
-			//elCompRolling.setAttribute('data-current', current);
-			
-			play();
-
-		}
-
-		//setShow
-		function setShow(idx){
-
-			current = idx;
-
-			if(size > 1280){
-				fullSize = window.innerWidth;
-			}else{
-				fullSize = 1280;
-			}
-
-			setCurrent(current, fullSize);
-
-		}
-
-		//current
-		function setCurrent(idx, size){
-			var move;
-			move = Number(idx * size);
-			console.log("move: " + move);
-			elCompRolling.setAttribute('data-current', idx);
-			elList.style.marginLeft = "-" + move + "px";
-
-			//autoplay
-			//play();
-		}
-
-		/*
-		console.log(setWidth);
-		console.log(elList);
-		console.log(elItem);
-		console.log(elItemLeng);
-		*/
+	//
+	uiPromoBanner.init();
+	uiPromoBanner.play();
 	
-		/*evnet biniding*/
-		elNext.onclick = setNext;
-		elPrev.onclick = setPrev;
-		elPlay.onclick = play;
-		elStop.onclick = stop;
-
-		//rolling
-		var autoPlay = setInterval( elNext.onclick, 3000);
-		
-		//stop : clearInterval 
-		function stop(){
-			clearInterval(autoPlay);
-			elCompRolling.setAttribute('data-state', false)
-			return false;
-		}
-
-		function play(){
-			autoPlay = setInterval( elNext.onclick, 2000);
-			elCompRolling.setAttribute('data-state', true)
-
-			return false ;
-		}
-
 	</script>
 </body>
 </html>

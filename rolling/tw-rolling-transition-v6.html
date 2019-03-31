@@ -458,18 +458,21 @@
 		addEvent(rollingBanner1.elPlay, "click", function(e){ rollingBanner1.play(); }, false);
 		addEvent(rollingBanner1.elStop, "click", function(e){ rollingBanner1.stop(); }, false);
 		
-		var arr_ = Array.from(rollingBanner1.elnavItem);
-		arr_.forEach(function (item, index, array) {
-		    //console.log(item, index);
-		    //item.onclick = function(e){ rollingBanner1.setShow(index); };
-		    item.addEventListener("click", function(){ rollingBanner1.setShow(index); }, false);
-		});
+		var collection_ = rollingBanner1.elnavItem; 
 
+		for ( var i = 0; i < collection_.length; i++ ) {
+		    collection_[i].setAttribute('data-index', i);
+		    collection_[i].onclick = function(e) {
+		        rollingBanner1.setShow(this.getAttribute('data-index'));
+		    };
+		}
+	
 		rollingBanner1.play();
 
 		window.onresize = function(){
 			rollingBanner1.setWidth();
 		}
+
 
 	</script>
 </body>

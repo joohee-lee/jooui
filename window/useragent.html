@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>useragent check</title>
+	<style>
+		body{ 
+			font-size: 14px;
+			line-height: 1.2;
+			font-family: "맑은 고딕", sans-serif;
+		}
+
+		#js_user_agent, #js_user_agent2 { 
+			width: 100%;
+			height: 400px;
+			box-sizing: border-box;
+			border: 1px solid #ddd;
+		}
+
+		#js_user_agent p{
+			padding: 0 20px;
+		}
+	</style>
+</head>
+<body>
+	<p>navigator.userAgent 값은 다음과 같습니다.</p>
+	<div id="demo"></div>
+
+	<script>
+		var txt = "";
+		txt += "<p>Browser CodeName(navigator.appCodeName) : " + navigator.appCodeName + "</p>";
+		txt += "<p>Browser Name(navigator.appName) : " + navigator.appName + "</p>";
+		txt += "<p>Browser Version(navigator.appVersion) : " + navigator.appVersion + "</p>";
+		txt += "<p>Cookies Enabled(navigator.cookieEnabled) :  " + navigator.cookieEnabled + "</p>";
+		txt += "<p>Browser Language(navigator.language) : " + navigator.language + "</p>";
+		txt += "<p>Browser Online(navigator.onLine) : " + navigator.onLine + "</p>";
+		txt += "<p>Platform(navigator.platform) :  " + navigator.platform + "</p>";
+		txt += "<p>User-agent(navigator.userAgent) :  " + navigator.userAgent + "</p>";
+
+		document.getElementById("demo").innerHTML = txt;
+	</script>
+
+
+	<!--
+	<div id='js_user_agent'>
+		<p id="el1"></p>
+		<p id="el2"></p>
+	</div>
+	<textarea name="" id='js_user_agent2' cols="30" rows="10"></textarea>
+	<script>
+		
+		var el1 = document.getElementById('el1');
+		var el2 = document.getElementById('el2');
+		
+		//var el2 = document.getElementById('js_user_agent2');
+		//var useragent = navigator.userAgent;
+
+		console.log(el1);
+		
+		el1.textContent = navigator.userAgent;
+		el2.textContent = navigator.platform;
+		//el2.value = useragent;
+
+	</script>
+	-->
+</body>
+</html>

@@ -466,12 +466,25 @@
 
 		rollingBanner1.elPlay.onclick = function(){ rollingBanner1.play(); };
 		rollingBanner1.elStop.onclick = function(){ rollingBanner1.stop(); };
+
+		var collections_ = rollingBanner1.elnavItem;
+		for( i = 0; i < collections_.length; i++){
+
+			collections_[i].setAttribute('data-index', i);
+			collections_[i].onclick = function(e){
+				rollingBanner1.stop();
+				rollingBanner1.setShow(this.getAttribute('data-index'));
+			}
+
+		}
+		/*
 		rollingBanner1.elnavItem[0].onclick = function(){ rollingBanner1.setShow(0); }
 		rollingBanner1.elnavItem[1].onclick = function(){ rollingBanner1.setShow(1); }
 		rollingBanner1.elnavItem[2].onclick = function(){ rollingBanner1.setShow(2); }
 		rollingBanner1.elnavItem[3].onclick = function(){ rollingBanner1.setShow(3); }
 		rollingBanner1.elnavItem[4].onclick = function(){ rollingBanner1.setShow(4); }
 		rollingBanner1.elnavItem[5].onclick = function(){ rollingBanner1.setShow(5); }
+		*/
 
 		//autoRolling
 		rollingBanner1.play();
@@ -479,8 +492,6 @@
 		window.onresize = function(){
 			rollingBanner1.setWidth();
 		}
-		
-
 	</script>
 </body>
 </html>

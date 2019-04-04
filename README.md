@@ -559,7 +559,8 @@ el.addEventListener('click', next, false);
 * <http://jooe.kr/jooui/JSON/>
 
 ------------------------------------------------------------
-
+### plugin - slick (carousel 대응 / pc / mobile)
+* <http://jooe.kr/jooui/slick/>
 
 ### plugin - swipe (carousel 대응 / pc / mobile)
 

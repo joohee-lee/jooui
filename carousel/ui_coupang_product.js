@@ -1,8 +1,7 @@
 
 "use strict";
 
-var uiCtgBestPromo = function( cnpt ){
-
+var uiCtgBestPromo = function(cnpt){
 	this.elPromo = cnpt;
 	this.elIems = '';
 	this.current = 0;
@@ -10,7 +9,6 @@ var uiCtgBestPromo = function( cnpt ){
 	this.time =  2000;
 	this.state = '';
 };
-
 
 uiCtgBestPromo.prototype = {
 
@@ -26,7 +24,7 @@ uiCtgBestPromo.prototype = {
 			//console.log(this.elItems);
 		},
 
-		setCurrent : function( el, idx ){
+		setCurrent : function(el, idx){
 
 			el.setAttribute('data-current', idx);
 		},

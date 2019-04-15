@@ -55,13 +55,13 @@
                 <div class="container">
 
                     <!-- 텍스트 입력기 -->
-                    <textarea name="sss" style="width: 100%; height: 200px;">
+                    <textarea name="sss" class="frm-textarea" style="width: 100%; height: 200px;">
 dfsfsfdfsdfsfsdfsfsdf
                     </textarea>
                     <!-- //텍스트 입력기 -->
 
                     <!-- 바닥 버튼 -->
-                    <ul class="bt-slice full" style="position:static;">
+                    <ul class="bt-slice full">
                         <li class="bt-red1">
                             <button disabled>선택 회선 등록</button>
                         </li>
@@ -76,6 +76,17 @@ dfsfsfdfsdfsfsdfsfsdf
         </div>
         <!--// .popup hbs -->
     </div>
+    <script>
+        $(document).ready(function(){
+            $(".frm-textarea").on('focus', function(){
+
+                    //alert("ddddd");
+                    $(".bt-slice").css('position', 'absolute');
+
+            });
+
+        });
+    </script>
 </body>
 </html>
 

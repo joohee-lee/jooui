@@ -78,11 +78,22 @@ dfsfsfdfsdfsfsdfsfsdf
     </div>
     <script>
         $(document).ready(function(){
+           /*
             $(".frm-textarea").on('focus', function(){
 
                     //alert("ddddd");
                     $(".bt-slice").css('position', 'relative');
 
+            });
+            */
+
+            $(".frm-textarea").each(function(){
+                $(this).on('focus', function(){
+                    $(".bt-slice").css('position', 'relative');
+                });
+                $(this).on('blur', function(){
+                    $(".bt-slice").css('position', 'fixed');
+                });
             });
 
         });

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<title>css-background-size</title>
+	<style>
+		html{ font-size: 16px; }
+		*{margin: 0; padding: 0;}
+		ul li{ list-style: none; }
+		body{ padding-bottom: 10rem; }
+
+		.blind {
+		    display: inline-block;
+		    position: absolute!important;
+		    overflow: hidden;
+		    color: transparent;
+		}
+		.img-wrap-1 img{width:100%; vertical-align:top;}
+
+		.img-wrap-2 {border-radius: 0.625rem; background-color: #202a68; color: #fff;}
+		.img-wrap-2 .inner{
+			min-height: 14rem;
+			padding: 1rem;
+			background: url(i/bg_btm.png) no-repeat right bottom;
+			background-size: contain;
+		}
+
+		.img-wrap-2-1 {border-radius: 0.625rem; background-color: #ccc; color: #fff;}
+		.img-wrap-2-1 .inner{
+			min-height: 14rem;
+			padding: 1rem;
+			background: url(i/bg_btm.png) no-repeat right bottom;
+			background-size: cover;
+		}
+
+		.img-wrap-3 {border-radius: 0.625rem; background-color: green; color: #fff;}
+		.img-wrap-3 .inner{
+			min-height: 14rem;
+			padding: 1rem;
+			background:url(i/bg_btm.png) no-repeat right bottom;
+			background-size: auto 10rem; /* 160px */
+		}
+
+		.img-wrap-4 {border-radius: 0.625rem; background-color: black; color: #fff;}
+		.img-wrap-4 .inner{
+			min-height: 14rem;
+			padding: 1rem;
+			background:url(i/bg_btm.png) no-repeat right bottom;
+			background-size: 100% 100%; 
+		}
+
+		.img-wrap-5 {border-radius: 0.625rem; background-color: red; color: #fff;}
+		.img-wrap-5 .inner{
+			min-height: 14rem;
+			padding: 1rem;
+			background:url(i/bg_btm.png) no-repeat right bottom;
+			background-size: 50% 50%; 
+		}
+		
+		.img-wrap-6{
+			clear: both;
+	    	min-width: 8.56rem;
+	    	min-height: 8.56rem;
+	    	border-radius: 0.625rem;
+			background: #e6f2fb url(i/icon-01.png) no-repeat right bottom;
+		    background-size: 3.69rem 3.06rem;
+	    }
+		
+		.list:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+	    .list .item{float: left;}
+	    .txt-1{ display: block; }
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<p>.img-wrap-1 img{width:100%; vertical-align:top;}</p>
+		<div class="img-wrap-1">
+			<a href=""><img src="i/banner.jpg" alt=""></a>
+		</div>
+
+		<div class="img-wrap-2">
+			<div class="inner">
+				<span class="txt-1">
+					background: url(i/bg_btm.png) no-repeat right bottom; <br>
+					background-size: contain;
+				</span>
+				<span class="txt-1">텍스트 2</span>
+				<span class="txt-1">텍스트 3</span>
+			</div>
+		</div>
+
+		<div class="img-wrap-2-1">
+			<div class="inner">
+				<span class="txt-1">
+					background: url(i/bg_btm.png) no-repeat right bottom; <br>
+					background-size: cover;
+				</span>
+				<span class="txt-1">텍스트 2</span>
+				<span class="txt-1">텍스트 3</span>
+			</div>
+		</div>
+
+
+		<div class="img-wrap-3">
+			<div class="inner">
+				<span class="txt-1">
+					background:url(i/bg_btm.png) no-repeat right bottom; <br>
+					background-size: auto 10rem; /* 160px */
+				</span>
+				<span class="txt-1">텍스트 2</span>
+				<span class="txt-1">텍스트 3</span>
+			</div>
+		</div>
+
+		<div class="img-wrap-4">
+			<div class="inner">
+				<span class="txt-1">
+					background:url(i/bg_btm.png) no-repeat right bottom; <br>
+					background-size: 100% 100%; 
+				</span>
+				<span class="txt-1">텍스트 2</span>
+				<span class="txt-1">텍스트 3</span>
+			</div>
+		</div>
+		
+		<div class="img-wrap-5">
+			<div class="inner">
+				<span class="txt-1">
+					background:url(i/bg_btm.png) no-repeat right bottom;  <br>
+					background-size: 50% 50%; 
+				</span>
+				<span class="txt-1">텍스트 2</span>
+				<span class="txt-1">텍스트 3</span>
+			</div>
+		</div>
+
+
+		<div class="img-wrap-6">
+			<div class="inner">
+				<span class="txt-1">텍스트 2</span>
+			</div>
+		</div>
+
+		<ul class="list">
+			<li class="item">
+				<div class="img-wrap-6">
+					<div class="inner">
+						<span class="txt-1">텍스트 2</span>
+					</div>
+				</div>
+			</li>
+			<li class="item">
+				<div class="img-wrap-6">
+					<div class="inner">
+						<span class="txt-1">텍스트 2</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+
+		<style type="text/css">
+			.sp-img{
+				display: inline-block;    
+			    width: 1.5rem;
+			    height: 1.5rem;
+			    /*color: transparent;
+			    background-repeat: no-repeat;
+			    */
+			    background-size: 100%;
+			    z-index: 3;
+			}
+
+			.sp-img-2{
+				display: inline-block;    
+			    width: 3rem;
+			    height: 3rem;
+			    /*color: transparent;
+			    background-repeat: no-repeat;
+			    */
+			    background-size: 100%;
+			    z-index: 3;
+			}
+
+			.sp-img > img,
+			.sp-img-2 > img{ width: 100%; }
+		</style>
+
+    	<span class="sp-img">
+    		<img src="i/1554941872.png" alt="">
+    	</span>
+    	<span class="sp-img">
+    		<img src="i/ico-02.png" alt="">
+    	</span>
+
+    	<br> 
+
+    	<span class="sp-img-2">
+    		<img src="i/1554941872.png" alt="">
+    	</span>
+    	<span class="sp-img-2">
+    		<img src="i/ico-02.png" alt="">
+    	</span>
+
+    	<p>img + text + > </p>
+		<style>
+			.link-txt-1{
+				position: relative;
+			    display: block;
+			    background-color: #f6f7f9;
+			    -webkit-border-radius: 2px;
+			    border-radius: 2px;
+			    padding: 5px 12px 5px 8px;
+			    margin: 0 5px 5px 0;
+			}
+
+			.link-txt-1 .txt{
+				display: inline-block;
+			    vertical-align: top;
+			    margin: 1px 0 0 1px;
+			    font-size: 15px;
+			    line-height: 34px;
+			    font-weight: 300;
+			    letter-spacing: -1px;
+			    color: #666;
+			}
+
+			.link-txt-1 .img{
+				display:inline-block; width: 34px;height: 34px;}
+			
+			.link-txt-1 .img > img{ width: 100%; }
+
+			.link-txt-1:after{
+			    background-image: url(https://s.pstatic.net/static/www/m/2019/sp_search_v190418.png);
+			    -webkit-background-size: 308px 295px;
+			    background-size: 308px 295px;
+			    background-repeat: no-repeat
+			}
+
+			.link-txt-1:after{
+				content: "";
+			    display: block;
+			    position: absolute;
+			    top: 50%;
+			    right: 12px;
+			    width: 8px;
+			    height: 12px;
+			    background-position: -285px -186px;
+			    -webkit-transform: translateY(-50%);
+			    transform: translateY(-50%);
+			}
+
+			.list2 .item{ float: left; width: 50%; }
+		</style>
+    	<div class="link-txt-1">
+    		<span class="img"><img src="i/img-t.png" alt=""></span>
+    		<span class="txt">텍스트</span>
+    	</div>
+    	<br>
+    	<div class="link-txt-1">
+    		<span class="img"><img src="i/img-t.png" alt=""></span>
+    		<span class="txt">텍스트</span>
+    	</div>
+    	<br>
+	
+    	<ul class="list2">
+    		<li class="item">
+    			<div class="link-txt-1">
+		    		<span class="img"><img src="i/img-t.png" alt=""></span>
+		    		<span class="txt">텍스트</span>
+		    	</div>
+    		</li>
+    		<li class="item">
+    			<div class="link-txt-1">
+		    		<span class="img"><img src="i/img-t.png" alt=""></span>
+		    		<span class="txt">텍스트</span>
+		    	</div>
+    		</li>
+    	</ul>
+ 		<style>
+ 			img{
+ 				border: none;
+			    margin: 0;
+			    padding: 0;
+			    line-height: 0;
+			    font-size: 0;
+ 			}
+ 			.radius{
+ 				clear: both;
+			 	border-radius: .31rem;
+			    overflow: hidden;
+			    margin-top: 1rem;
+			}
+ 			
+ 			.radius > button{
+			 	display: block;
+			    width: 100%;
+			    overflow: hidden;
+			    margin: 0;
+			    padding: 0;
+			    border: 0;
+			    outline: 0;
+			    cursor: pointer;
+ 			}
+
+ 			.radius img{
+			 	width: 100%;
+			    vertical-align: top;
+ 			}
+
+ 			.radius .txt{
+ 				background: #ccc;
+			    overflow: hidden;
+			    padding: 1.13rem 1.25rem;
+ 			}
+ 		</style>
+		<div class="radius">
+			<button>teststse</button>
+		</div>
+
+		<div class="radius">
+			<button><img src="https://cdnm.tworld.co.kr/uploads/poc/13670/06203/2EC4AE13A29B4DCEA986692255A6FA88.jpg" alt=""></button>
+			<div class="txt">textest</div>
+		</div>
+
+		<p>img  + text (relative) </p>
+		<style>
+			.img-wrap-text{ 
+			    position: relative;
+			    width: 100%;
+			    height: 100%;
+			    color: #fff;
+			}
+
+			.img-wrap-text .div-img{
+				display: block;
+				border-radius: .31rem;
+				overflow: hidden;
+			}
+
+			.img-wrap-text .div-img img{
+				width: 100%;
+				height: auto;
+				vertical-align: top;
+			}
+
+			.img-wrap-text .sp-text-1{
+				position: absolute;
+			    top: 1.88rem;
+			    left: 1.25rem;
+			    text-align: left;
+			}
+
+			.img-wrap-text .sp-text-1 em{
+				color: #fff;
+			    font-size: 1.25rem;
+			    font-weight: 500;
+			    line-height: 1.56rem;
+			    padding-right: 7.5rem;
+			    display: -webkit-box;
+			    -webkit-line-clamp: 2;
+			    -webkit-box-orient: vertical;
+			    text-overflow: ellipsis;
+			    overflow: hidden;
+			    font-style: normal;
+			}
+
+			.img-wrap-text .sp-text-2{
+				margin-top: .5rem;
+    			padding-right: 7.5rem;
+			    color: #fff;
+			    font-size: .81rem;
+			    font-weight: 400;
+			    line-height: 1.13rem;
+			    display: -webkit-box;
+			    -webkit-line-clamp: 3;
+			    -webkit-box-orient: vertical;
+			    text-overflow: ellipsis;
+			    overflow: hidden;
+			}
+		
+
+			.img-wrap-text .sp-tag{
+				position: absolute;
+			    bottom: 1.94rem;
+			    left: 1.25rem;
+			    color: #fff;
+			    font-size: .75rem;
+			}
+		</style>
+		<div class='img-wrap-text'>
+			<span class="sp-text-1">
+				<em>TB끼리 TV플러스</em>
+				<span class="sp-text-2">결합시 휴대폰 월정액 & TV 기본료 추가할인</span>
+			</span>
+			<span class="sp-tag">#개인결합</span>
+			<span class="div-img"><img src="i/img-2.png" alt=""></span>
+		</div>
+		<br>
+		<div class='img-wrap-text'>
+			<span class="sp-text-1">
+				<em>TB끼리 TV플러스</em>
+				<span class="sp-text-2">결합시 휴대폰 월정액 & TV 기본료 추가할인</span>
+			</span>
+			<span class="sp-tag">#개인결합</span>
+			<span class="div-img"><img src="i/img.png" alt=""></span>
+		</div>
+	</div>
+</body>
+</html>

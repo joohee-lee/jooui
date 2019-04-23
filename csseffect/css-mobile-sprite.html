@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<title>css-background-size</title>
+	<style>
+		html{ font-size: 16px; }
+		*{margin: 0; padding: 0;}
+		body{ padding-bottom: 3.5rem; }
+		.img-wrap-1 img{width:100%; vertical-align:top;}
+
+		.img-wrap-2 {border-radius: 0.625rem; background-color: #202a68; color: #fff;}
+		.img-wrap-2 .inner{
+			min-height: 14rem;
+			padding: 1rem;
+			background: url(i/bg_btm.png) no-repeat right bottom;
+			background-size: contain;
+		}
+
+		.img-wrap-2-1 {border-radius: 0.625rem; background-color: #ccc; color: #fff;}
+		.img-wrap-2-1 .inner{
+			min-height: 14rem;
+			padding: 1rem;
+			background: url(i/bg_btm.png) no-repeat right bottom;
+			background-size: cover;
+		}
+
+		.img-wrap-3 {border-radius: 0.625rem; background-color: green; color: #fff;}
+		.img-wrap-3 .inner{
+			min-height: 14rem;
+			padding: 1rem;
+			background:url(i/bg_btm.png) no-repeat right bottom;
+			background-size: auto 10rem; /* 160px */
+		}
+
+		.img-wrap-4 {border-radius: 0.625rem; background-color: black; color: #fff;}
+		.img-wrap-4 .inner{
+			min-height: 14rem;
+			padding: 1rem;
+			background:url(i/bg_btm.png) no-repeat right bottom;
+			background-size: 100% 100%; 
+		}
+
+		.img-wrap-5 {border-radius: 0.625rem; background-color: red; color: #fff;}
+		.img-wrap-5 .inner{
+			min-height: 14rem;
+			padding: 1rem;
+			background:url(i/bg_btm.png) no-repeat right bottom;
+			background-size: 50% 50%; 
+		}
+
+	    .txt-1{ display: block; }
+
+	    .img-wrap-6{
+	    	border-radius: 0.625rem;
+	    	min-width: 8.56rem;
+	    }
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<p>.img-wrap-1 img{width:100%; vertical-align:top;}</p>
+		<div class="img-wrap-1">
+			<a href=""><img src="i/banner.jpg" alt=""></a>
+		</div>
+
+		<div class="img-wrap-2">
+			<div class="inner">
+				<span class="txt-1">
+					background: url(i/bg_btm.png) no-repeat right bottom; <br>
+					background-size: contain;
+				</span>
+				<span class="txt-1">텍스트 2</span>
+				<span class="txt-1">텍스트 3</span>
+			</div>
+		</div>
+
+		<div class="img-wrap-2-1">
+			<div class="inner">
+				<span class="txt-1">
+					background: url(i/bg_btm.png) no-repeat right bottom; <br>
+					background-size: cover;
+				</span>
+				<span class="txt-1">텍스트 2</span>
+				<span class="txt-1">텍스트 3</span>
+			</div>
+		</div>
+
+		<div class="img-wrap-3">
+			<div class="inner">
+				<span class="txt-1">
+					background:url(i/bg_btm.png) no-repeat right bottom; <br>
+					background-size: auto 10rem; /* 160px */
+				</span>
+				<span class="txt-1">텍스트 2</span>
+				<span class="txt-1">텍스트 3</span>
+			</div>
+		</div>
+
+		<div class="img-wrap-4">
+			<div class="inner">
+				<span class="txt-1">
+					background:url(i/bg_btm.png) no-repeat right bottom; <br>
+					background-size: 100% 100%; 
+				</span>
+				<span class="txt-1">텍스트 2</span>
+				<span class="txt-1">텍스트 3</span>
+			</div>
+		</div>
+		
+		<div class="img-wrap-5">
+			<div class="inner">
+				<span class="txt-1">
+					background:url(i/bg_btm.png) no-repeat right bottom;  <br>
+					background-size: 50% 50%; 
+				</span>
+				<span class="txt-1">텍스트 2</span>
+				<span class="txt-1">텍스트 3</span>
+			</div>
+		</div>
+ 
+		<div class="img-wrap-6">
+			<div class="inner">
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

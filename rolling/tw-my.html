@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+   
+	<title>Banner</title>
+	<style>
+		body{
+			min-width: 1180px;
+		}
+		*{ 
+			margin: 0;
+			padding: 0;
+		}
+		
+		ul, li{
+			list-style: none;
+		}
+
+		.comp-rolling{
+		    position: relative;
+		    overflow: hidden;
+		    margin: 0 auto;
+		    padding: 0;
+		    /*min-width:1180px*/
+		}
+		
+		.comp-inner{
+			height: 430px;
+		}
+		
+		.list{
+			position: relative;
+			width: 100%;
+			height: 430px;
+			overflow: hidden;
+		}
+
+		.list ul{ 
+			/*width: 10000px;*/
+			transition-duration: 0.5s;
+			transition-timing-function: ease;
+		}
+		.list ul:after{
+			content: '';
+			clear: both;
+			display: block;
+		}
+		.list ul li{ 
+			float: left;
+			display: inline;
+			background: #fff;
+    		text-align: center;
+		}
+		.img-wrap{
+			width: 100%;
+		}
+
+        .img-wrap img{ width: 100%;}
+
+		.img-wrap .img-inner{
+		    position: relative;
+		    width: 100%;
+		    height: 430px;
+		    padding: 0;
+		    margin: 0 auto;
+		    text-align: left;
+		}
+
+		.div-nav{
+		    position: absolute;
+		    bottom: 0;
+		    left: 50%;
+		    width: 100%;
+		    height: 40px;
+		    margin-left: -590px;
+		    z-index: 10;
+		    overflow: hidden;
+		}
+
+		.div-nav .div-inner:after{
+			content: '';
+			clear: both;
+			display: block;
+		}
+		.div-nav li{
+			float: left;
+			height: 40px;
+			background-color: #fff;
+		    opacity: .5;
+			text-align: center;
+			display:block;
+			opacity:0.8;filter:alpha(opacity=80);
+			text-align:center;
+			font-size:14px;line-height:18px;color:#333
+		}
+
+		.comp-rolling[data-type="col3"] .div-nav .nav-item{width: 33.33%;}
+		.comp-rolling[data-type="col4"] .div-nav .nav-item{width: 25%;}
+		.comp-rolling[data-type="col5"] .div-nav .nav-item{width: 20%;}
+		.comp-rolling[data-type="col6"] .div-nav .nav-item{width: 15.8%;}
+
+		.div-nav li button{ 
+			border: 0;
+			width: 100%; height: 100%;
+			padding:10px 5px;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+
+		.div-controls{}
+
+		.div-controls button{
+			border: 1px solid #ddd;
+			padding: 10px;
+			width: 90px;
+			height: 90px;
+		}
+		.div-controls .next{ 
+			position: absolute;
+			right: 50%;
+			top: 50%;
+			margin-right: -640px;
+			transform: translateY(-50%);
+		}
+		.div-controls .prev{ 
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -640px;
+			transform: translateY(-50%);
+		}
+		
+		.btn-stop,
+		.btn-play{
+			display: none;
+			z-index: 10;
+			position: absolute;
+			right: 50%;
+			margin-right: -570px;
+			bottom: 0;
+			width: 40px;
+			height: 40px;
+			cursor: pointer;
+		}
+		
+		/* js controller */
+		/*
+		.comp-rolling .list .item{ display: none; }
+		.comp-rolling[data-current="0"] .item[data-index='0'],
+		.comp-rolling[data-current="1"] .item[data-index='1'],
+		.comp-rolling[data-current="2"] .item[data-index='2'],
+		.comp-rolling[data-current="3"] .item[data-index='3'],
+		.comp-rolling[data-current="4"] .item[data-index='4'],
+		.comp-rolling[data-current="5"] .item[data-index='5']{
+			display: block;
+		}
+		*/
+		
+		.comp-rolling[data-current="0"] .nav-item button[data-index="0"],
+		.comp-rolling[data-current="1"] .nav-item button[data-index="1"],
+		.comp-rolling[data-current="2"] .nav-item button[data-index="2"],
+		.comp-rolling[data-current="3"] .nav-item button[data-index="3"],
+		.comp-rolling[data-current="4"] .nav-item button[data-index="4"],
+		.comp-rolling[data-current="5"] .nav-item button[data-index="5"]{
+			background-color: #000;
+			color: #fff;
+		}
+
+
+		.comp-rolling[data-state="true"] .btn-stop,
+		.comp-rolling[data-state="false"] .btn-play{display: block;}
+	</style>
+	<!--
+	// window 크기 값 구하기 ( min : 1280 ~ )
+	// ul / li width 셋팅 
+	// 이미지갯수 1~5개 최대 
+	// transition
+	// resize 되었을 경우 어떻게 처리 할 것인가? <--- 포인트 
+
+	// property 
+	
+
+	// method 
+	- setNext
+	- setPrev
+	- setCurrent
+	- setShow
+	--->
+</head>
+<body>
+	<div class="comp-rolling rollingBannerA"  data-current="0" data-size=""  data-type="col6" data-state="true">
+		<div class="comp-inner">
+			
+			<div class="list">
+				<ul>
+					<li class="item" data-index="0">
+						<div class="img-wrap" style="background-color:#bbe0e8;">
+							<div class="img-inner"><a href="#">1</a></div>
+						</div>
+					</li>
+					<li class="item" data-index="1">
+						<div class="img-wrap" style="background-color: #ccc">
+							<div class="img-inner"><a href="#">2</a></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+<!--
+			<div class="div-nav">
+				<div class="div-inner">
+					<ul>
+						<li class="nav-item">
+							<button type="button" data-index="0"><span>0</span></button>
+						</li>
+						<li class="nav-item">
+							<button type="button" data-index="1"><span>1</span></button>
+						</li>
+					</ul>
+				</div>
+            </div>
+-->            
+<!--
+			<div class="div-state">
+				<button type="button" class="btn-stop"><span>stop</span></button>
+				<button type="button" class="btn-play"><span>play</span></button>
+			</div>
+-->
+			<div class="div-controls">
+				<div class="prev"><button type="button" name="" class="btn-prev"><span>prev</span></button></div>
+				<div class="next"><button type="button" name="" class="btn-next"><span>next</span></button></div>
+			</div>
+
+		</div>
+	</div>
+	
+
+	<script>
+		//prototype
+		// property 정의
+		function uiPromoBanner(){
+
+			this.elComp = '';
+			this.elList = '';
+			this.elItem = [];
+			this.elItemLeng = '';
+			this.elnav = '';
+			this.elnavItem = '';
+			this.elNext = '';
+			this.elPrev = '';
+			this.elPlay = '';
+			this.elStop = '';
+			this.current = '';
+			this.state = '';
+			this.autoplay = '';
+			this.time = 3000; // 롤링 time
+			this.minSize = 320; // minsize 1280
+
+		};
+
+		//method 정의 
+		//init
+		//setWdith
+		// setNext
+		// setPrev
+		// setCurrent 
+		// setShow 
+	
+		//init
+		uiPromoBanner.prototype.init = function(cpnt){
+
+			console.log(cpnt);
+
+			//this.elCompRolling = document.querySelector(".comp-rolling");
+			this.elCompRolling = document.querySelector("." + cpnt);
+			this.elList = this.elCompRolling.querySelector(".list ul");
+			this.elItem = this.elList.querySelectorAll(".item");
+			this.elItemLeng = this.elItem.length;
+
+			this.elnav = this.elCompRolling.querySelector(".div-nav");
+			
+			//event target 
+			this.elNext = this.elCompRolling.querySelector(".btn-next");
+			this.elPrev = this.elCompRolling.querySelector(".btn-prev");
+			this.elPlay = this.elCompRolling.querySelector(".btn-play");
+			this.elStop = this.elCompRolling.querySelector(".btn-stop");
+			this.elnavItem = this.elCompRolling.querySelectorAll(".nav-item > button");
+			console.log(this.elnavItem);
+			//transition(slide 적용을 위해 필요한 css)
+			this.elList.style.marginLeft = 0;
+
+			//계산이 필요한 부분 
+			this.fullSize ; 
+			this.size ;
+			this.current = Number( this.elCompRolling.getAttribute('data-current') );
+			this.state = this.elCompRolling.getAttribute('data-state');
+
+			//width setting
+			this.setWidth();
+
+			//this.elnavItem[0].onclick = function(){ alert('sssss');}
+		};
+
+		//setWidth
+		uiPromoBanner.prototype.setWidth = function(){
+
+			//console.log(size);
+			this.size = window.innerWidth;
+
+			if ( this.size > this.minSize){
+
+				this.elList.style.width = Number(this.size*this.elItemLeng) + "px";
+				//elnav.style.width = size + "px";
+				for (var i = 0; i < this.elItemLeng; i++) {
+					this.elItem[i].style.width = this.size + "px";
+				}
+
+				//var myTimer1 = setTimeout(function(){ this.setCurrent(this.current, this.size); }, 500);
+				//clearTimeout(myTimer1);
+				this.setCurrent(this.current, this.size);
+
+			}else{
+
+				this.elList.style.width = Number(this.minSize * this.elItemLeng) + "px";
+				for (var i = 0; i < this.elItemLeng; i++) {
+					this.elItem[i].style.width = this.minSize + "px";
+				}
+				
+				//var myTimer2 =  setTimeout(function(){ this.setCurrent(this.current, 1280); }, 500);
+				//clearTimeout(myTimer2);
+				this.setCurrent(this.current, this.minSize);
+			}	
+
+		};
+
+		//current 
+		uiPromoBanner.prototype.setCurrent = function(idx, fsize){
+			var move;
+			move = Number(idx * fsize);
+			//console.log("move: " + move);
+			this.elCompRolling.setAttribute('data-current', idx);
+			this.elList.style.marginLeft = "-" + move + "px";
+		};
+
+		//_ischeck
+		uiPromoBanner.prototype._isCheck = function(){
+			if(this.size > this.minSize){
+				this.fullSize = window.innerWidth;
+			}else{
+				this.fullSize = this.minSize;
+			}
+		}
+	
+		//next
+		uiPromoBanner.prototype.setNext = function(){
+
+			//clearInterval
+			//stop();
+
+			//size check
+			this._isCheck();
+
+			this.current = this.current + 1;
+
+			if (this.current >= this.elItemLeng) {
+				this.current = 0;
+			} 
+
+			console.log("current: " + this.current);
+			console.log(this.fullSize);
+			
+			this.setCurrent(this.current, this.fullSize);
+
+		};
+
+		//prev
+		uiPromoBanner.prototype.setPrev = function(){
+
+			//clearInterval
+			//stop();
+			
+			//size check
+			this._isCheck();
+
+			this.current = this.current - 1;
+
+			if ( this.current < 0) {
+				this.current = this.elItemLeng-1;
+			} 
+
+			console.log(this.current);
+			console.log(this.fullSize);
+			
+			this.setCurrent(this.current, this.fullSize);
+			
+			//play();
+		};
+
+		//show
+		uiPromoBanner.prototype.setShow = function(idx){
+
+			this.current = idx;
+			//size check
+			this._isCheck();
+			this.setCurrent(this.current, this.fullSize);
+		};
+		
+		//play
+		uiPromoBanner.prototype.play = function(){
+			var self = this;
+			this.autoPlay = setInterval( this.elNext.onclick, this.time);
+			this.elCompRolling.setAttribute('data-state', true)
+		}
+	
+		//stop
+		uiPromoBanner.prototype.stop = function(){
+			clearInterval(this.autoPlay);
+			this.elCompRolling.setAttribute('data-state', false)
+			return false;
+		};
+
+		//인스턴스생성 
+		var rollingBanner1 = new uiPromoBanner();
+		rollingBanner1.init('rollingBannerA');
+
+		//event 등록
+		rollingBanner1.elNext.onclick = function(){
+			var self = this; 
+			self.focus();
+			rollingBanner1.setNext(); 
+		};
+
+		rollingBanner1.elPrev.onclick = function(){
+			var self = this; 
+			self.focus();
+			rollingBanner1.setPrev(); 
+		};
+
+		rollingBanner1.elPlay.onclick = function(){ rollingBanner1.play(); };
+		rollingBanner1.elStop.onclick = function(){ rollingBanner1.stop(); };
+
+		var collections_ = rollingBanner1.elnavItem;
+		for( i = 0; i < collections_.length; i++){
+
+			collections_[i].setAttribute('data-index', i);
+			collections_[i].onclick = function(e){
+				rollingBanner1.stop();
+				rollingBanner1.setShow(this.getAttribute('data-index'));
+			}
+
+		}
+		/*
+		rollingBanner1.elnavItem[0].onclick = function(){ rollingBanner1.setShow(0); }
+		rollingBanner1.elnavItem[1].onclick = function(){ rollingBanner1.setShow(1); }
+		rollingBanner1.elnavItem[2].onclick = function(){ rollingBanner1.setShow(2); }
+		rollingBanner1.elnavItem[3].onclick = function(){ rollingBanner1.setShow(3); }
+		rollingBanner1.elnavItem[4].onclick = function(){ rollingBanner1.setShow(4); }
+		rollingBanner1.elnavItem[5].onclick = function(){ rollingBanner1.setShow(5); }
+		*/
+
+		//autoRolling
+		//rollingBanner1.play();
+
+		window.onresize = function(){
+			rollingBanner1.setWidth();
+		}
+	</script>
+</body>
+</html>

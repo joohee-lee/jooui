@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>carusel</title>
+    <style>
+        body{
+            font-family: '맑은고딕', 'malgun gothic', sans-serif;
+            font-size: 14px;
+            line-height: 1.2;
+        }
+
+        .comp-carousel {
+            width: 100%;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .comp-carousel-inner{
+            width: 100%;
+        }
+
+        .carousel-item{
+            display: inline-block;
+            width: 100%;
+            background: #ccc;
+        }
+
+        .carousel-item a{
+            display: inline-block;
+            width: 100%;
+        }
+
+        .carousel-item img{
+            vertical-align: bottom;
+        }
+
+        .comp-carousel .btn{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: #fff;
+            background-color: transparent;
+            border-color: transparent;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .comp-carousel .btn.disabled{
+            opacity: 0.2;
+        }
+
+        .comp-carousel .btn-prev{ left: 0; }
+        .comp-carousel .btn-next{ right: 0; }
+    </style>
+</head>
+<body>
+<!--
+    * carousel 
+    * width / height
+    * HtmlElement.offsetWidth 와 HtmlElement.offsetHeight 
+-->
+    <div class="comp-carousel">
+        <div class="comp-carousel-inner">
+            
+            <div class="carousel-item">
+                <a href="#">1</a>
+            </div>
+            <div class="carousel-item">
+                <a href="#">2</a>
+            </div>
+            <div class="carousel-item">
+                <a href="#">3</a>
+            </div>
+            <div class="carousel-item">
+                <a href="#">4</a>
+            </div>
+
+        </div>
+
+        <div class="control">
+            <button type="button" class="btn btn-prev">prev</button>
+            <button type="button" class="btn btn-next">next</button>
+        </div>
+    </div>
+    <script>
+        class Carousel {
+
+            constructor(){
+
+                this.carousel = document.querySelector('.comp-carousel');
+                this.container = document.querySelector('.comp-carousel-inner');
+                this.item = document.querySelector('.carousel-item');
+
+                this.prevBtn = this.carousel.querySelector('.btn-prev');
+                this.nextBtn = this.carousel.querySelector('.btn-next');
+                
+                this.itemWidth = this.item.offsetWidth;
+                this.itemHeight = this.item.offsetHeight;
+                this.itemLength = this.carousel.querySelectorAll('.carousel-item').length;
+
+                
+                //carousle move width 
+                this.offset = 0;
+                this.current = 1;
+
+
+                //설정정보 
+                this.config = {
+                    duration: 200,
+                    easing: 'ease-out'
+                }
+
+                //초기화 
+                this.init();
+                //evnet bining 
+                this.attachEvent();
+
+            }
+
+            init() {
+
+                /*
+                    carousel-item 의 widht 와 height 는 가변 
+                    첫번째, carosel-item width/height 를 얻는다. 
+                */
+                this.carousel.style.width = this.itemWidth + 'px';
+                this.carousel.style.height = this.itemHeight + 'px';
+
+                this.carousel.style.opacity = 1;
+
+                this.checkButton();
+
+            }
+
+            //event binding 
+            attachEvent(){
+
+                this.prevBtn.addEventListener('click', this.prev.bind(this), false);
+
+                this.nextBtn.addEventListener('click', this.next.bind(this), false);
+
+            }
+
+            prev(){
+
+                this.offset += this.itemWidth;
+                this.animaition();
+                this.current--;
+                this.checkButton();
+            }
+
+
+            next(){
+
+                this.offset -= this.itemWidth;
+
+                console.log(this.offset);
+                this.animaition();
+                this.current++;
+                this.checkButton();
+
+                console.log(this.current);
+                console.log(this.itemLength);
+
+            }
+
+            animaition(){
+                this.container.style.transition = `transform ${this.config.duration}ms ${this.config.easing}`;
+                this.container.style.transform = `translate3D(${this.offset}px, 0, 0)`;
+            }
+
+
+
+            checkButton(){
+
+                if (this.current === 1) {
+                  this.prevBtn.disabled = true;
+                  this.prevBtn.classList.add('disabled');
+                } else {
+                  this.prevBtn.disabled = false;
+                  this.prevBtn.classList.remove('disabled');
+                }
+
+                if (this.current === this.itemLength) {
+                  this.nextBtn.disabled = true;
+                  this.nextBtn.classList.add('disabled');
+                } else {
+                  this.nextBtn.disabled = false;
+                  this.nextBtn.classList.remove('disabled');
+                }
+    
+            }
+
+        }
+
+        
+        window.onload = function(){
+
+            const carousel = new Carousel();
+    
+        };
+        
+        
+    </script>
+</body>
+</html>

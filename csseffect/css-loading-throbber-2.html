@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>loading</title>
+    <style>
+*{ margin: 0; padding: 0;}
+
+@-moz-keyframes throbber-loader {
+  0% {
+    background: #dde2e7;
+  }
+  10% {
+    background: #6b9dc8;
+  }
+  40% {
+    background: #dde2e7;
+  }
+}
+@-webkit-keyframes throbber-loader {
+  0% {
+    background: #dde2e7;
+  }
+  10% {
+    background: #6b9dc8;
+  }
+  40% {
+    background: #dde2e7;
+  }
+}
+@keyframes throbber-loader {
+  0% {
+    background: #dde2e7;
+  }
+  10% {
+    background: #6b9dc8;
+  }
+  40% {
+    background: #dde2e7;
+  }
+}
+/* :not(:required) hides these rules from IE9 and below */
+.throbber-loader {
+  -moz-animation: throbber-loader 2000ms 300ms infinite ease-out;
+  -webkit-animation: throbber-loader 2000ms 300ms infinite ease-out;
+  animation: throbber-loader 2000ms 300ms infinite ease-out;
+  background: #dde2e7;
+  display: inline-block;
+  position: relative;
+  text-indent: -9999px;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  margin: 0 1.6em;
+}
+.throbber-loader:before, 
+.throbber-loader:after {
+  background: #dde2e7;
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+}
+.throbber-loader:before {
+  -moz-animation: throbber-loader 2000ms 150ms infinite ease-out;
+  -webkit-animation: throbber-loader 2000ms 150ms infinite ease-out;
+  animation: throbber-loader 2000ms 150ms infinite ease-out;
+  left: -1.6em;
+}
+.throbber-loader:after {
+  -moz-animation: throbber-loader 2000ms 450ms infinite ease-out;
+  -webkit-animation: throbber-loader 2000ms 450ms infinite ease-out;
+  animation: throbber-loader 2000ms 450ms infinite ease-out;
+  right: -1.6em;
+}
+    </style>
+</head>
+<body>
+    <div class="throbber-loader"></div>
+</body>
+</html>

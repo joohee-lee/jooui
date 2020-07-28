@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text{
+            position: relative;
+        }
+        .text li{
+            position: absolute;
+            left: 0;
+            top: 0;
+            border: 1px solid #000;
+            width: 100px;
+            padding: 10px 0;
+            text-align: center;
+            display: none;
+            font-size: 1rem;
+            -webkit-font-smoothing: antialiased;
+            font-smoothing: auto;
+            font-weight: bold;
+
+        }
+
+        .text li:first-child{display: block;}
+    </style>
+</head>
+<body>
+    <div class="text">
+        <ul class="list">
+            <li class="item">1</li>
+            <li class="item">2</li>
+            <li class="item">3</li>
+            <li class="item">4</li>
+            <li class="item">5</li>
+            <li class="item">6</li>
+            <li class="item">7</li>
+            <li class="item">8</li>
+            <li class="item">9</li>
+        </ul>
+    </div>
+    <div>
+        <a href="javascript: next();" style="position: fixed; right: 0; top: 0;">다음</a>
+    </div>
+    <script>
+        var el = document.querySelectorAll(".list .item");
+        var ellength = el.length;
+        var current = 0;
+
+        function next(){
+            current++;
+            if (current >= ellength){
+                current = 0;
+            }
+            for (var i = 0; i < ellength; i++) {
+                el[i].style.display = "none";
+            }
+            el[current].style.display = "block";
+        }
+
+        setInterval( function(){ next(); },  1000 );
+    </script>
+</body>
+</html>

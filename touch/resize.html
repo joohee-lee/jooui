@@ -597,8 +597,10 @@
 
 						
 						var headerHeight = $(".header-wrap").height();
-						var tabHeight =  130.3;  //tab 높이
-						var filterHeight = 48; //필터옵션 높이
+						var tabHeight =  129.03;  //tab 높이
+						var filterHeight = $(".tod-filter-option").innerHeight(); //필터옵션 높이
+
+                        
 
                         var winHeight = window.innerHeight;
 						var contHeight = winHeight - Number(headerHeight +  tabHeight + filterHeight );

@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="kr" data-platform="" data-useragent="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow-x: hidden;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li{
+            list-style: none;
+        }
+       
+        .scroll-wrap{
+            position: relative;
+            height: 60px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .scroll{
+            position: relative;
+            height: 60px;
+            pointer-events: auto;
+            overflow: hidden;
+        }
+  
+        .nav-list{
+            display: -webkit-inline-flex;
+            display: inline-flex;
+            height: 60px;
+            line-height: 60px;
+            padding: 0 8px;
+            text-align: center;
+            -webkit-box-pack: justify;
+            
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+        .nav-list .item{
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .nav-list .item > span{
+            display: inline-block;
+            width: 100px;
+            height: 51px;
+            line-height: 51px;
+            margin: 0 4px 0 3px;
+            padding: 0 4px;
+            vertical-align: top;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-wrap">
+        <nav class="scroll">
+            <ul class="nav-list" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; ">
+                <li class="item"><span>메뉴1</span></li>
+                <li class="item"><span>메뉴2</span></li>
+                <li class="item"><span>메뉴3</span></li>
+                <li class="item"><span>메뉴4</span></li>
+                <li class="item"><span>메뉴5</span></li>
+                <li class="item"><span>메뉴6</span></li>
+                <li class="item"><span>메뉴7</span></li>
+                <li class="item"><span>메뉴8</span></li>
+                <li class="item"><span>메뉴9</span></li>
+                <li class="item"><span>메뉴10</span></li>
+                <li class="item"><span>메뉴11</span></li>
+                <li class="item"><span>메뉴12</span></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        //touch move 이동 
+        let el = document.querySelector(".nav-list");
+        let rect = el.getBoundingClientRect();
+        let  rectleft = el.getBoundingClientRect().left;
+        let elwidth = el.clientWidth;
+
+        console.log(el);
+        console.log(elwidth);
+        console.log(rectleft);
+
+        for( var key in rect){
+            if(typeof rect[key] !== 'function') {
+                let para = document.createElement('p');
+                para.textContent  = `${ key } : ${ rect[key] }`;
+                document.body.appendChild(para);
+            }
+        }
+
+        el.style.position = "absolute";
+        el.style.left = "0";
+        el.style.transform = "translate(0, 0) translateZ(0px)";
+        
+        //touch
+        var isStartLeft = 0, isClientX = 0, isLastX = 0;
+        el.addEventListener("touchstart", function(event){
+
+            //isStartLeft = rectleft;
+			isClientX = event.touches[0].clientX;
+
+        });
+
+        el.addEventListener("touchmove", function(event){
+
+           
+        });
+
+        el.addEventListener("touchend", function(event){
+
+            console.log("move")
+
+                let deltaX;
+                deltaX = ((event.changedTouches[0].clientX + isClientX));
+
+                console.log(deltaX);
+                el.style.transform = "translate(" +  deltaX  +"px, 0) translateZ(0px)";
+
+                if( deltaX > 0 ){
+                    el.style.transform = "translate(0, 0) translateZ(0px)";
+                }
+     
+        });
+    </script>
+</body>
+</html>

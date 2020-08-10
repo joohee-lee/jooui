@@ -19,9 +19,6 @@
 
 	</style>
 </head>
-<!--
-http://www.javascriptkit.com/javatutors/touchevents2.shtml
--->
 <body>
 	<div class="touchsurface" id="touchsurface">
 		<div class="inner">
@@ -52,19 +49,22 @@ http://www.javascriptkit.com/javatutors/touchevents2.shtml
 
 		//tourchstart
 
-		var startX = 0,  startY = 0,  startTime="";
+		
 		touchsurface.addEventListener('touchstart', function(e){
-			var touchobj = e.touches[0], 
-				dist = 0,
-				startX = touchobj.pageX,
-				startY = touchobj.pageY,
-				startTime = new Date().getTime(); //손가락이 표면에 처음 닿을 때 시간을 기록합니다.
-				e.preventDefault();
+			var touchobj = e.changedTouches[0]; 
+
+			dist = 0;
+			startX = touchobj.pageX;
+			startY = touchobj.pageY;
+			startTime = new Date().getTime(); //손가락이 표면에 처음 닿을 때 시간을 기록합니다.
+			e.preventDefault();
 
 				console.log("s1:" + startX);
 				console.log("s2:" + startY);
 
 		}, false);
+
+		console.log("xxxx:" +  startX );
 
 		//tourchmove
 		touchsurface.addEventListener('touchmove', function(e){
